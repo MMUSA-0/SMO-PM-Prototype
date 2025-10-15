@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="SharedResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SharedResources.en.resx">
+      <DependentUpon>SharedResources.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SharedResources.ar.resx">
+      <DependentUpon>SharedResources.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
