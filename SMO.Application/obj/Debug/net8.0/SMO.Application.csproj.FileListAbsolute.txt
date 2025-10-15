@@ -1,0 +1,15 @@
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/bin/Debug/net8.0/SMO.Application.deps.json
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/bin/Debug/net8.0/SMO.Application.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/bin/Debug/net8.0/SMO.Application.pdb
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/bin/Debug/net8.0/SMO.Domain.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/bin/Debug/net8.0/SMO.Domain.pdb
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.csproj.AssemblyReference.cache
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.AssemblyInfoInputs.cache
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.AssemblyInfo.cs
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.csproj.CoreCompileInputs.cache
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Appl.80E3CC90.Up2Date
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/refint/SMO.Application.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/SMO.Application.pdb
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Application/obj/Debug/net8.0/ref/SMO.Application.dll

@@ -1,0 +1,11 @@
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/bin/Debug/net8.0/Framework.Resources.deps.json
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/bin/Debug/net8.0/Framework.Resources.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/bin/Debug/net8.0/Framework.Resources.pdb
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.AssemblyInfoInputs.cache
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.AssemblyInfo.cs
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.csproj.CoreCompileInputs.cache
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/refint/Framework.Resources.dll
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/Framework.Resources.pdb
+/Users/alielrediny/Documents/Work/Projects/SMO/SMO/Framework.Resources/obj/Debug/net8.0/ref/Framework.Resources.dll
