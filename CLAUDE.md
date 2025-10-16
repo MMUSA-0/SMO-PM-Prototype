@@ -128,8 +128,10 @@ public class ObjectivesController : ControllerBase
 }
 ```
 
-#### ADR-003: Generic Repository Pattern
+#### ADR-003: Generic Repository Pattern with Direct Injection
 - Use `IRepository<TEntity>` for all data access
+- Inject repositories DIRECTLY into Application Services (not through UnitOfWork)
+- UnitOfWork is responsible ONLY for transaction management (SaveChanges)
 - No entity-specific repositories unless absolutely necessary
 - Repository provides: Table, TableNoTracking, CRUD, querying, pagination
 
@@ -171,13 +173,22 @@ public class AppDbContext : BaseDbContext<AppDbContext>, IAppDbContext
 }
 ```
 
-#### Repository Pattern
+#### Repository Pattern (Direct Injection)
 ```csharp
-// Get repository from UnitOfWork
-var repo = _unitOfWork.Repository<StrategicObjective>();
+// Inject repository directly into service constructor
+private readonly IRepository<StrategicObjective> _repository;
+private readonly IUnitOfWork _unitOfWork;
+
+public StrategicObjectiveAppService(
+    IRepository<StrategicObjective> repository,
+    IUnitOfWork unitOfWork)
+{
+    _repository = repository;
+    _unitOfWork = unitOfWork;
+}
 
 // Read-only queries (no tracking for better performance)
-var objectives = await repo.GetAsync(
+var objectives = await _repository.GetAsync(
     predicate: x => x.IsActive && x.PillarId == pillarId,
     orderBy: q => q.OrderBy(x => x.Order),
     includes: new List<Expression<Func<StrategicObjective, object>>>
@@ -189,13 +200,12 @@ var objectives = await repo.GetAsync(
 );
 
 // Queries for updates (with tracking)
-var objectiveToUpdate = await repo.GetByIdAsync(id);
+var objectiveToUpdate = await _repository.GetByIdAsync(id);
 objectiveToUpdate.NameEn = "Updated Name";
-repo.Update(objectiveToUpdate);
-await _unitOfWork.SaveChangesAsync();
+await _unitOfWork.SaveChangesAsync();  // UnitOfWork handles transaction only
 
 // Deep relationship loading
-var initiative = await repo.GetSingleWithDeepRelationsAsync(
+var initiative = await _repository.GetSingleWithDeepRelationsAsync(
     predicate: x => x.Id == id,
     include: source => source
         .Include(x => x.Program)
@@ -205,41 +215,66 @@ var initiative = await repo.GetSingleWithDeepRelationsAsync(
 );
 
 // Direct queryable access
-var query = repo.TableNoTracking  // For reads
+var query = _repository.TableNoTracking  // For reads
     .Where(x => x.IsActive)
     .OrderBy(x => x.Order);
 
-var tracked = repo.Table  // For updates
+var tracked = _repository.Table  // For updates
     .Where(x => x.Id == id)
     .Include(x => x.Related);
 ```
 
-#### Unit of Work Pattern
+#### Unit of Work Pattern (Transaction Only)
 ```csharp
-// Application service example
+// Application service example with direct repository injection
 public class StrategicObjectiveAppService
 {
+    private readonly IRepository<StrategicObjective> _objectiveRepository;
+    private readonly IRepository<KPI> _kpiRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+
+    public StrategicObjectiveAppService(
+        IRepository<StrategicObjective> objectiveRepository,
+        IRepository<KPI> kpiRepository,
+        IUnitOfWork unitOfWork,
+        IMapper mapper)
+    {
+        _objectiveRepository = objectiveRepository;
+        _kpiRepository = kpiRepository;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
     public async Task<int> CreateObjectiveWithKPIsAsync(ObjectiveDto dto)
     {
-        // Get repositories
-        var objectiveRepo = _unitOfWork.Repository<StrategicObjective>();
-        var kpiRepo = _unitOfWork.Repository<KPI>();
-
         // Perform operations (tracked but not saved)
         var objective = _mapper.Map<StrategicObjective>(dto);
-        await objectiveRepo.InsertAsync(objective, autoSave: false);
+        await _objectiveRepository.InsertAsync(objective, autoSave: false);
 
         foreach (var kpiDto in dto.KPIs)
         {
             var kpi = _mapper.Map<KPI>(kpiDto);
             kpi.ObjectiveId = objective.Id;
-            await kpiRepo.InsertAsync(kpi, autoSave: false);
+            await _kpiRepository.InsertAsync(kpi, autoSave: false);
         }
 
-        // Commit all changes in single transaction
+        // UnitOfWork commits all changes in single transaction
         return await _unitOfWork.SaveChangesAsync();
+    }
+
+    public async Task<bool> UpdateObjectiveAsync(int id, string newName)
+    {
+        // Get entity with tracking
+        var entity = await _objectiveRepository.GetByIdAsync(id);
+        if (entity == null) return false;
+
+        // Modify entity
+        entity.NameEn = newName;
+
+        // UnitOfWork saves changes (automatic update tracking)
+        await _unitOfWork.SaveChangesAsync();
+        return true;
     }
 }
 ```
@@ -337,24 +372,52 @@ dotnet ef database update
 ```csharp
 public class MyEntityAppService
 {
+    private readonly IRepository<MyEntity> _repository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
-    public MyEntityAppService(IUnitOfWork unitOfWork, IMapper mapper)
+    // Inject repository directly, not through UnitOfWork
+    public MyEntityAppService(
+        IRepository<MyEntity> repository,
+        IUnitOfWork unitOfWork,
+        IMapper mapper)
     {
+        _repository = repository;
         _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
 
     public async Task<List<MyEntityDto>> GetAllAsync()
     {
-        var repo = _unitOfWork.Repository<MyEntity>();
-        var entities = await repo.GetAsync(
+        var entities = await _repository.GetAsync(
             predicate: x => x.IsActive,
             orderBy: q => q.OrderBy(x => x.Order),
             disableTracking: true
         );
         return _mapper.Map<List<MyEntityDto>>(entities);
+    }
+
+    public async Task<MyEntityDto> CreateAsync(MyEntityDto dto)
+    {
+        var entity = _mapper.Map<MyEntity>(dto);
+        await _repository.InsertAsync(entity, autoSave: false);
+
+        // UnitOfWork handles transaction
+        await _unitOfWork.SaveChangesAsync();
+
+        return _mapper.Map<MyEntityDto>(entity);
+    }
+
+    public async Task<bool> UpdateAsync(int id, MyEntityDto dto)
+    {
+        var entity = await _repository.GetByIdAsync(id);
+        if (entity == null) return false;
+
+        _mapper.Map(dto, entity);
+
+        // UnitOfWork saves changes
+        await _unitOfWork.SaveChangesAsync();
+        return true;
     }
 }
 ```
@@ -637,12 +700,14 @@ npm install
 
 1. **No CQRS:** Use single repositories for both reads and writes
 2. **Controllers → Services Only:** Never inject repositories in controllers
-3. **Commit After Each Task:** Git commit after completing any task
-4. **Use TableNoTracking:** For all read-only queries (better performance)
-5. **Explicit Includes:** Always specify navigation properties to avoid N+1
-6. **Three Databases:** Main (AppDbContext), Commons, Identity (AppIdentityDbContext)
-7. **Automatic Auditing:** CreatedBy/UpdatedBy set automatically by BaseDbContext
-8. **Framework.Core:** Foundation for all data access patterns
+3. **Direct Repository Injection:** Inject `IRepository<T>` directly into AppServices, NOT through UnitOfWork
+4. **UnitOfWork for Transactions Only:** UnitOfWork is responsible ONLY for SaveChanges (transaction management)
+5. **Commit After Each Task:** Git commit after completing any task
+6. **Use TableNoTracking:** For all read-only queries (better performance)
+7. **Explicit Includes:** Always specify navigation properties to avoid N+1
+8. **Three Databases:** Main (AppDbContext), Commons, Identity (AppIdentityDbContext)
+9. **Automatic Auditing:** CreatedBy/UpdatedBy set automatically by BaseDbContext
+10. **Framework.Core:** Foundation for all data access patterns
 
 ## Additional Resources
 
