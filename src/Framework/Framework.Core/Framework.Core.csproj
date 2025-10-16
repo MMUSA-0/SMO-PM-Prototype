@@ -1,33 +1,52 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\Framework.Resources\Framework.Resources.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="EPPlus" Version="7.2.2" />
-    <PackageReference Include="ExcelDataReader" Version="3.7.0" />
-    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.14" />
-    <PackageReference Include="Hangfire.Core" Version="1.8.14" />
-    <PackageReference Include="Hangfire.SqlServer" Version="1.8.14" />
-    <PackageReference Include="itext" Version="8.0.5" />
-    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
-    <PackageReference Include="libphonenumber-csharp" Version="8.13.42" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
-    <PackageReference Include="NLog" Version="5.3.2" />
-    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.11" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.11" />
-    <PackageReference Include="PagedList.Core" Version="1.17.4" />
-    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="24.1.0" />
-    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.4" />
-    <PackageReference Include="ZXing.Net" Version="0.16.9" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\AttachmentTypeConfiguration.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="EPPlus" Version="7.2.2" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+    <PackageReference Include="Hangfire" Version="1.8.14" />
+    <PackageReference Include="itext" Version="8.0.5" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
+    <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.42" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NLog" Version="5.3.2" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.11" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.11" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    <PackageReference Include="PagedList.Core" Version="1.17.4" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="24.1.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.7" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.4" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+    <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
+    <PackageReference Include="ZXing.Net" Version="0.16.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Resources\Framework.Resources.csproj" />
+  </ItemGroup>
+  
 </Project>

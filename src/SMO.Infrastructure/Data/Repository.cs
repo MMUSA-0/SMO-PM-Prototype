@@ -1,5 +1,8 @@
-using Framework.Core.Data;
+using Framework.Core.Data.Repositories;
+using PagedList.Core;
 using SMO.Domain.Interfaces;
+using System.Linq.Expressions;
+
 
 namespace SMO.Infrastructure.Data;
 
@@ -77,8 +80,7 @@ namespace SMO.Infrastructure.Data;
 /// services.AddScoped(typeof(IRepository&lt;&gt;), typeof(Repository&lt;&gt;));
 /// </code>
 /// </remarks>
-public class Repository<TEntity> : RepositoryBase<IAppDbContext, TEntity>, IRepository<TEntity>
-    where TEntity : class
+public class Repository<TEntity> : RepositoryBase<IAppDbContext, TEntity>, IRepository<TEntity> where TEntity : class
 {
     /// <summary>
     /// Initializes a new instance of Repository with the specified context.
@@ -91,6 +93,8 @@ public class Repository<TEntity> : RepositoryBase<IAppDbContext, TEntity>, IRepo
         // No additional implementation needed for generic repository
         // Specialized logic can be added here if needed in the future
     }
+
+   
 
     // All CRUD and querying methods are inherited from RepositoryBase<IAppDbContext, TEntity>
     // and satisfy the IRepository<TEntity> contract:

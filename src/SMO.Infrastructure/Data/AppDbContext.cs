@@ -1,5 +1,6 @@
 using System.Reflection;
 using Framework.Core.Data;
+using Framework.Core.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 using SMO.Domain.Interfaces;
 
@@ -120,7 +121,7 @@ public class AppDbContext : BaseDbContext<AppDbContext>, IAppDbContext
         // Find all EnumMapping<TEnum> derived classes in this assembly
         var enumConfigurations = Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => (type.BaseType?.IsGenericType ?? false) &&
-                          type.BaseType.GetGenericTypeDefinition() == typeof(EnumMapping<>))
+                          type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>))
             .Where(type => !type.IsAbstract && !type.IsGenericTypeDefinition);
 
         // Instantiate and apply each enum mapping

@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountCreateHeader" xml:space="preserve">
+    <value>تسجيل مستخدم</value>
+  </data>
+  <data name="AccountDashboard" xml:space="preserve">
+    <value>إدارة المستخدمين</value>
+  </data>
+  <data name="AccountLogin" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="AccountSuspended" xml:space="preserve">
+    <value>حساب موقوف</value>
+  </data>
+  <data name="AccountSuspendedDetails" xml:space="preserve">
+    <value>تم إيقاف حسابك من قبل مدير النظام</value>
+  </data>
+  <data name="ActivateUser" xml:space="preserve">
+    <value>تفعيل مستخدم</value>
+  </data>
+  <data name="ActivateUserConfirm" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد تفعيل المستخدم؟</value>
+  </data>
+  <data name="ActivateUserError" xml:space="preserve">
+    <value>لقد حدث خطأ أثناء محاولة تفعيل المستخدم</value>
+  </data>
+  <data name="ActivateUserSuccess" xml:space="preserve">
+    <value>تم تفعيل المستخدم بنجاح</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="ActiveDirectoryError" xml:space="preserve">
+    <value>لقد حدث خطأ بالمجلد النشط</value>
+  </data>
+  <data name="ActiveDirectoryUserInvalidCredintials" xml:space="preserve">
+    <value>اسم المستخدم او كلمة المرور غير صحيحة في المجلد النشط</value>
+  </data>
+  <data name="ActiveDirectoryUserNotRegistered" xml:space="preserve">
+    <value>المستخدم لم يتم تسجيله بواسطة مدير النظام</value>
+  </data>
+  <data name="ActiveStatus" xml:space="preserve">
+    <value>حالة التفعيل</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>رمز التحقق</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="ChangePasswordConfirmMessage" xml:space="preserve">
+    <value>هل أنت متأكد من تغيير كلمة المرور ؟</value>
+  </data>
+  <data name="ChangePasswordSuccessfully" xml:space="preserve">
+    <value>تم تغيير كلمة المرور بنجاح</value>
+  </data>
+  <data name="CodeExpiredDate" xml:space="preserve">
+    <value>رابط التفعيل انتهت صلاحيته</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني</value>
+  </data>
+  <data name="ConfirmEmailCodeExpired" xml:space="preserve">
+    <value>انتهت صلاحية رابط تفعيل حساب. يجب إرسال رابط جديد لاستكمال عميلة تفعيل حسابك</value>
+  </data>
+  <data name="ConfirmEmailInvalidCode" xml:space="preserve">
+    <value>رابط تفعيل الحساب غير صحيح. تأكد من البريد المرسل إليكم. يمكنك إعادة إرسال رابط جديد لتفعيل حسابك حال لم يعمل الرابط المرسل</value>
+  </data>
+  <data name="ConfirmEmailMsg" xml:space="preserve">
+    <value>تم تأكيد بريدكم الإلكتروني و تفعيل الحساب</value>
+  </data>
+  <data name="ConfirmEmailNotMatchValidator" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني لايطابق البريد الإلكتروني</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور الجديدة</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="ConfirmPasswordNotMatchValidator" xml:space="preserve">
+    <value>تأكيد كلمة المرور لا يطابق كلمة المرور</value>
+  </data>
+  <data name="Contry" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="CreateRole" xml:space="preserve">
+    <value>إضافة صلاحية</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+  </data>
+  <data name="CurrentPasswordNotValid" xml:space="preserve">
+    <value>كلمة المرور الحالية غير صحيحة</value>
+  </data>
+  <data name="DeactivateUser" xml:space="preserve">
+    <value>إيقاف مستخدم</value>
+  </data>
+  <data name="DeactivateUserConfirm" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد إيقاف المستخدم؟</value>
+  </data>
+  <data name="DeactivateUserError" xml:space="preserve">
+    <value>لقد حدث خطأ أثناء محاولة إيقاف المستخدم</value>
+  </data>
+  <data name="DeactivateUserReason" xml:space="preserve">
+    <value>سبب إيقاف المستخدم</value>
+  </data>
+  <data name="DeactivateUserSuccess" xml:space="preserve">
+    <value>تم إإيقاف المستخدم بنجاح</value>
+  </data>
+  <data name="DefaultLanguage" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>حذف مستخدم</value>
+  </data>
+  <data name="DeleteUserConfirm" xml:space="preserve">
+    <value>هل أنت متأكد من حذف المستخدم؟</value>
+  </data>
+  <data name="DeleteUserError" xml:space="preserve">
+    <value>لقد حذث خطأ أثناء محاولة حذف المستخدم</value>
+  </data>
+  <data name="DeleteUserSuccess" xml:space="preserve">
+    <value>لقد تم حذف المستخدم بنجاح.</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>بيانات المستخدم</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="EditMyEmail" xml:space="preserve">
+    <value>تعديل البريد الإلكتروني</value>
+  </data>
+  <data name="EditMyProfile" xml:space="preserve">
+    <value>تعديل بياناتي</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>تعديل الصلاحية</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>تعديل بيانات المستخدم</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="EmailAlreadyRegistered" xml:space="preserve">
+    <value>المستخدم موجود بالفعل</value>
+  </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني</value>
+  </data>
+  <data name="EmailConfirmNotMatchValidator" xml:space="preserve">
+    <value>تأكيد البريد الإلكتروني لا يطابق البريد الإلكتروني</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>لم يتم تأكيد الحساب بواسطة البريد الإلكتروني</value>
+  </data>
+  <data name="EmailPasswordLink" xml:space="preserve">
+    <value>إرسال رابط كلمة المرور</value>
+  </data>
+  <data name="EmailValidator" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح</value>
+  </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>تسجيل الدخول&lt;br /&gt;بحساب فيسبوك</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>هل نسيت كلمة المرور ؟</value>
+  </data>
+  <data name="ForgetPasswordConfirmMsg" xml:space="preserve">
+    <value>فضلا تحقق من الرابط المرسل الى بريدكم الإلكتروني لإعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم كاملا</value>
+  </data>
+  <data name="HospitalIsRequired" xml:space="preserve">
+    <value>حقل المستشفى مطلوب </value>
+  </data>
+  <data name="InvalidCaptcha" xml:space="preserve">
+    <value>قيمة الرمز المدخل غير صحيحة</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>عملية دخول غير صحيحة ، فضلا أعد المحاولة</value>
+  </data>
+  <data name="InvalidMobileNumber" xml:space="preserve">
+    <value>رقم الجوال غير صحيح</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>حالة التفعيل </value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>الاسم الأخير</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل دخول</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="ManageUserRoles" xml:space="preserve">
+    <value>إدارة صلاحيات المستخدم</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>الاسم الوسط</value>
+  </data>
+  <data name="MobileAlreadyRegistered" xml:space="preserve">
+    <value>رقم الجوال مسجل في النظام بالفعل. للتسجيل اختر رقم آخر</value>
+  </data>
+  <data name="MustAcceptAgreement" xml:space="preserve">
+    <value>يجب الموافقة على الشروط والأحكـام</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>الملف الشخصي</value>
+  </data>
+  <data name="NationalIdAlreadyRegistered" xml:space="preserve">
+    <value>رقم الهوية او الإقامة مسجل في النظام بالفعل. للتسجبل تأكد من الرقم</value>
+  </data>
+  <data name="NewEmail" xml:space="preserve">
+    <value>البريد الإلكتروني الجديد</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>كلمة المرور الجديدة</value>
+  </data>
+  <data name="NewUserJoinUs" xml:space="preserve">
+    <value>مستخدم جديد&lt;br /&gt;انضم إلينا</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="PasswordValidator" xml:space="preserve">
+    <value>كلمة المرور غير صالحة</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="PhoneNumberAlreadyExist" xml:space="preserve">
+    <value>رقم الجوال المدخل مسجل لمستخدم آخر. أدخل رقم جوال مختلف </value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>بيانات المستخدم</value>
+  </data>
+  <data name="ProfileHeader" xml:space="preserve">
+    <value>بياناتي</value>
+  </data>
+  <data name="RegisterationSuccess" xml:space="preserve">
+    <value>تم التسجيل بنجاح , كما تم إرسال بريد الكتروني للمستخدم لتفعيل حسابه ضمن النظام</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>إنشاء حساب</value>
+  </data>
+  <data name="RegistrationSuccess" xml:space="preserve">
+    <value>تم تسجيل الحساب بنجاح, الرجاء مراجعة البريد الإلكتروني لتفعيل الحساب 
+وستصلك رسالة برمز للتحقق من رقم الجوال المسجل كذلك يمكنك تعديل رقم الجوال لاحقاً من صفحة الملف الشخصي</value>
+  </data>
+  <data name="RequiredCaptchaMessage" xml:space="preserve">
+    <value>يجب إدخال رمز التحقق</value>
+  </data>
+  <data name="ResendConfirmEmailLink" xml:space="preserve">
+    <value>إعادة إرسال رابط التفعيل</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>إعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="ResetPasswordConfirm" xml:space="preserve">
+    <value>تأكيد إعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="ResetPasswordConfirmMessage" xml:space="preserve">
+    <value>هل أنت متأكد من إعادة تعيين كلمة المرور ؟</value>
+  </data>
+  <data name="ResetPasswordConfirmMsg" xml:space="preserve">
+    <value>تم إعادة تعيين كلمة المرور بنجاح فضلا اضغط على الرابط لإعادة الدخول</value>
+  </data>
+  <data name="ResetPasswordInvalidCode" xml:space="preserve">
+    <value>رابط إعادة كلمة مرور غير صحيح. تأكد من البريد المرسل إليكم. يمكنك إعادة إرسال رابط جديد لإعادة تعيين كلمة المرور حال لم يعمل الرابط المرسل</value>
+  </data>
+  <data name="ResetPasswordNotValid" xml:space="preserve">
+    <value>كلمة المرور غير صحيحة</value>
+  </data>
+  <data name="ResetPasswordSuccessfully" xml:space="preserve">
+    <value>تم إعادة تعيين كلمة المرور بنجاح</value>
+  </data>
+  <data name="RoleCode" xml:space="preserve">
+    <value>رمز الصلاحية</value>
+  </data>
+  <data name="RoleCreatedSuccessfully" xml:space="preserve">
+    <value>تم اضافة الصلاحية الجديدة بنجاح</value>
+  </data>
+  <data name="RoleDescription" xml:space="preserve">
+    <value>وصف الصلاحية</value>
+  </data>
+  <data name="RoleDescriptionArabic" xml:space="preserve">
+    <value>وصف الصلاحية بالعربي</value>
+  </data>
+  <data name="RoleDescriptionEnglish" xml:space="preserve">
+    <value>وصف الصلاحية بالانجليزي</value>
+  </data>
+  <data name="RoleDetails" xml:space="preserve">
+    <value>تفاصيل الصلاحية</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>اسم الصلاحية</value>
+  </data>
+  <data name="RoleNameArabic" xml:space="preserve">
+    <value>اسم الصلاحية بالعربي</value>
+  </data>
+  <data name="RoleNameEnglish" xml:space="preserve">
+    <value>اسم الصلاحية بالانجليزي</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>دور العمل</value>
+  </data>
+  <data name="SamAccountName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="SaveChangesConfirm" xml:space="preserve">
+    <value>هل أنت متأكد من حفظ التغيرات؟</value>
+  </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>تم الحفظ بنجاح</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="SendConfirmUserEmail" xml:space="preserve">
+    <value>إعادة إرسال بريد التفعيل </value>
+  </data>
+  <data name="SendConfirmUserEmailConfirm" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد إعادة إرسال بريد التفعيل للمستخدم؟</value>
+  </data>
+  <data name="SendConfirmUserEmailError" xml:space="preserve">
+    <value>لقد حدث خطأ أثناء محاولة إرسال بريد التفعيل للمستخدم</value>
+  </data>
+  <data name="SendConfirmUserEmailSuccess" xml:space="preserve">
+    <value>لقد تم إرسال بريد التفعيل للمستخدم بنجاح</value>
+  </data>
+  <data name="SendedActivationLink" xml:space="preserve">
+    <value>تم إرسال رابط التفعيل</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>إرسال بريد إلكتروني</value>
+  </data>
+  <data name="SystemManagement" xml:space="preserve">
+    <value>إدارة النظام</value>
+  </data>
+  <data name="TermsAgreement" xml:space="preserve">
+    <value>الموافقة على الشروط والأحكـام</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>الشروط والأحكـام</value>
+  </data>
+  <data name="TwitterLogin" xml:space="preserve">
+    <value>تسجيل الدخول&lt;br /&gt;بحساب تويتر</value>
+  </data>
+  <data name="UpdateRoleSuccessfully" xml:space="preserve">
+    <value>تم تعديل بيانات الصلاحية بنجاح</value>
+  </data>
+  <data name="UpdateUserSuccessfully" xml:space="preserve">
+    <value>تم تعديل بيانات المستخدم بنجاح</value>
+  </data>
+  <data name="UrlActivationTitle" xml:space="preserve">
+    <value>لإعادة إرسال رابط التفعيل لبريدك الإلكتروني اضغط هنا</value>
+  </data>
+  <data name="UserAlreadyActivated" xml:space="preserve">
+    <value>تم تفعيل حساب المستخدم من قبل</value>
+  </data>
+  <data name="UserCanNotBeDeleted" xml:space="preserve">
+    <value>لا يمكن حذف المستخدم. السبب:</value>
+  </data>
+  <data name="UserCreatedSuccessfully" xml:space="preserve">
+    <value>تم إضافة المستخدم بنجاح</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>تفاصيل المستخدم</value>
+  </data>
+  <data name="UserIsLocked" xml:space="preserve">
+    <value>تم إيقاف المستخدم ، الرجاء التواصل مع مدير النظام</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="UserNameAlreadyRegistered" xml:space="preserve">
+    <value>اسم المستخدم مسجل في النظام بالفعل. للتسجيل اختر اسم مستخدم مختلف</value>
+  </data>
+  <data name="UserNameOrEmail" xml:space="preserve">
+    <value>اسم المستخدم أو البريد الإلكتروني</value>
+  </data>
+  <data name="UserNameValidator" xml:space="preserve">
+    <value>اسم المستخدم غير صحيح</value>
+  </data>
+  <data name="UserNotActivated" xml:space="preserve">
+    <value>تم إيقاف المستخدم من قبل مدير النظام</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>لا يوجد حساب مسجل الرجاء تسجيل حساب جديد</value>
+  </data>
+  <data name="UserNumberAlreadyRegistered" xml:space="preserve">
+    <value>رقم المستخدم مسجل في النظام بالفعل. للتسجيل اختر رقم مستخدم مختلف</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>المستخدمين</value>
+  </data>
+  <data name="UsersCount" xml:space="preserve">
+    <value>عدد المستخدمين</value>
+  </data>
+  <data name="UsersInRole" xml:space="preserve">
+    <value>المستخدمين في الصلاحية</value>
+  </data>
+  <data name="UsersManagement" xml:space="preserve">
+    <value>إدارة المستخدمين</value>
+  </data>
+  <data name="TranslatorMustSelectEntryLangauge" xml:space="preserve">
+    <value>الرجاء اختيار لغة الإدخال</value>
+  </data>
+  <data name="EntryLanguage" xml:space="preserve">
+    <value>  لغة الإدخال</value>
+  </data>
+  <data name="TermsAgreementMustBeTrue" xml:space="preserve">
+    <value>يجب الموافقة على الشروط والأحكام</value>
+  </data>
+  <data name="LogoutSuccessfully" xml:space="preserve">
+    <value>تم تسجيل خروجك بنجاح</value>
+  </data>
+  <data name="RegisterNewUserTitle" xml:space="preserve">
+    <value>إنشاء مستخدم جديد</value>
+  </data>
+  <data name="LoginUserTitle" xml:space="preserve">
+    <value>قم بالدخول بصلاحيات مستخدم</value>
+  </data>
+  <data name="UserIsNotAuthourized" xml:space="preserve">
+    <value>المستخدم ليس لديه صلاحية لهذا المحتوى</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>مستخدم جديد</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>إغلاق مؤقت</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>مدير النظام</value>
+  </data>
+  <data name="ContactOfficer" xml:space="preserve">
+    <value>ضابط اتصال</value>
+  </data>
+  <data name="EventSpeaker" xml:space="preserve">
+    <value>محاضر فعاليات</value>
+  </data>
+  <data name="OrganizationCoordinator" xml:space="preserve">
+    <value>منسق جهة</value>
+  </data>
+  <data name="Expert" xml:space="preserve">
+    <value>خبير</value>
+  </data>
+  <data name="Trainer" xml:space="preserve">
+    <value>مدرب</value>
+  </data>
+  <data name="RegisteredUser" xml:space="preserve">
+    <value>مستخدم فرد</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="FirstNameEn" xml:space="preserve">
+    <value>الاسم الأول بالإنجليزية</value>
+  </data>
+  <data name="FirstNameAr" xml:space="preserve">
+    <value>الاسم الأول بالعربية</value>
+  </data>
+  <data name="FullNameAr" xml:space="preserve">
+    <value>الاسم بالكامل بالعربية</value>
+  </data>
+  <data name="FullNameEn" xml:space="preserve">
+    <value>الاسم بالكامل بالإنجليزية</value>
+  </data>
+  <data name="LastNameAr" xml:space="preserve">
+    <value>الاسم الاخير بالعربية</value>
+  </data>
+  <data name="LastNameEn" xml:space="preserve">
+    <value>الاسم الأخير بالإنجليزية</value>
+  </data>
+  <data name="MiddleNameAr" xml:space="preserve">
+    <value>الاسم الثانى بالعربية</value>
+  </data>
+  <data name="MiddleNameEn" xml:space="preserve">
+    <value>الاسم الثانى بالإنجليزية</value>
+  </data>
+  <data name="PreferredUiLanguage" xml:space="preserve">
+    <value>اللغة المفضلة للعرض</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>التسجيل</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>البيانات الشخصية</value>
+  </data>
+  <data name="CommunicationData" xml:space="preserve">
+    <value>بيانات التواصل</value>
+  </data>
+  <data name="WaitingConfirmation" xml:space="preserve">
+    <value>في انتظار تأكيد البريد</value>
+  </data>
+  <data name="WaitingConfirmationMessage" xml:space="preserve">
+    <value>لقد تم إرسال رسالة على بريدك الإلكترونى لتأكيد تفعيل حسابك على النظام  برجاء الضغط على الرابط المرفق لديكم فى الرسالة لتأكيد الحساب</value>
+  </data>
+  <data name="CompleteProfile" xml:space="preserve">
+    <value>انقر هنا لإستكمال الملف الشخصى</value>
+  </data>
+  <data name="UserType" xml:space="preserve">
+    <value>نوع المستخدم</value>
+  </data>
+  <data name="Unemployed" xml:space="preserve">
+    <value>غير موظف</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>موظف</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>الجهة</value>
+  </data>
+  <data name="SaudiCitizen" xml:space="preserve">
+    <value>مواطن سعودى</value>
+  </data>
+  <data name="NonSaudiCitizen" xml:space="preserve">
+    <value>مواطن غير سعودى</value>
+  </data>
+  <data name="GCC_Citizens" xml:space="preserve">
+    <value>مواطنى مجلس التعاون الخليجى</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>المسمى الوظيفى</value>
+  </data>
+  <data name="ThirdNameAr" xml:space="preserve">
+    <value>اسم الجد بالعربية</value>
+  </data>
+  <data name="ThirdNameEn" xml:space="preserve">
+    <value>اسم الجد بالإنجليزية</value>
+  </data>
+  <data name="TelephoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="PreferredUiAndConnectionLanguage" xml:space="preserve">
+    <value>اللغة المفضلة للعرض و التواصل</value>
+  </data>
+  <data name="IdentityNumber" xml:space="preserve">
+    <value>رقم الهوية / الإقامة</value>
+  </data>
+  <data name="RoleGroup" xml:space="preserve">
+    <value>مجموعة الصلاحيات</value>
+  </data>
+  <data name="PasswordHint" xml:space="preserve">
+    <value>&lt;ul class="password-hint"&gt;
+    &lt;li&gt;يجب أن تتراوح كلمة المرور بين 8 إلى 20 حرفًا&lt;/li&gt;
+    &lt;li&gt;يجب أن تحتوي كلمة المرور على رقم واحد على الأقل ('0' - '9')&lt;/li&gt;
+    &lt;li&gt;يجب أن تحتوي كلمة المرور على أحرف صغيرة واحدة على الأقل ('a' - 'z')&lt;/li&gt;
+    &lt;li&gt;يجب أن تحتوي كلمة المرور على أحرف كبيرة واحدة على الأقل ('A' - 'Z')&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="AddUserToRole" xml:space="preserve">
+    <value>اضافة صلاحية للمستخدم</value>
+  </data>
+  <data name="AssignedRoles" xml:space="preserve">
+    <value>الصلاحيات المعينة</value>
+  </data>
+  <data name="NoRolesAssigned" xml:space="preserve">
+    <value>لم يتم تعيين صلاحيات بعد</value>
+  </data>
+  <data name="UserCanNotChangeHisStatus" xml:space="preserve">
+    <value>لايمكن للمستخدم تعديل حالة التفعيل الخاصة به</value>
+  </data>
+  <data name="UserDetailsUpdatedSuccessfully" xml:space="preserve">
+    <value>تم تعديل بيانات المستخدم بنجاح</value>
+  </data>
+  <data name="InvalidInputData" xml:space="preserve">
+    <value>البيانات المدخلة غير صحيحة </value>
+  </data>
+  <data name="InvalidParametersError" xml:space="preserve">
+    <value>متغيرات غير صالحة </value>
+  </data>
+  <data name="RemoveUserRole" xml:space="preserve">
+    <value>ازالة صلاحية المستخدم</value>
+  </data>
+  <data name="InvalidReCaptcha" xml:space="preserve">
+    <value>InvalidReCaptcha</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>InvalidToken</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>المستخدم</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>غير مفعل</value>
+  </data>
+  <data name="ConfirmEmailSuccess" xml:space="preserve">
+    <value>تم تأكيد بريدك الإلكتروني بنجاح</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>كلمة مرور غير صحيحة</value>
+  </data>
+  <data name="IdentityType" xml:space="preserve">
+    <value>نوع المستخدم</value>
+  </data>
+  <data name="PleaseEnterFullName" xml:space="preserve">
+    <value>من فضلك أدخل الاسم كاملاً</value>
+  </data>
+  <data name="Passwordchanged" xml:space="preserve">
+    <value>تم تغيير كلمة المرور بنجاح</value>
+  </data>
+  <data name="PleaseEnterNationalId" xml:space="preserve">
+    <value>من فضلك ادخل رقم الهوية</value>
+  </data>
+  <data name="NewPhoneNumber" xml:space="preserve">
+    <value>رقم الجوال الجديد</value>
+  </data>
+  <data name="ProfileUpdated" xml:space="preserve">
+    <value>تم تحديث بيانات الملف الشخصى</value>
+  </data>
+  <data name="NewEmailSameAsCurrentEmail" xml:space="preserve">
+    <value>لقد أدخلت بريد إلكتروني مطابق لبريدك الحالي</value>
+  </data>
+  <data name="WaitingEmailConfirmationMessage" xml:space="preserve">
+    <value>لقد تم إرسال رسالة على بريدك الإلكترونى الجديد لتأكيد صحة البيانات برجاء الضغط على الرابط المرفق لديكم فى الرسالة لتأكيد البريد الإلكتروني الجديد</value>
+  </data>
+  <data name="CRNumberAlreadyExist" xml:space="preserve">
+    <value>رقم السجل التجاري المدخل مسجل لمستخدم آخر. أدخل رقم السجل التجاري مختلف</value>
+  </data>
+  <data name="PasswordMustHaveLowerCase" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوى على أحرف صغيرة  'a-z'</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>تم</value>
+  </data>
+  <data name="EnterActivationCode" xml:space="preserve">
+    <value>يرجى إدخال رمز التحقق</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>كود التحقق غير صحيح</value>
+  </data>
+  <data name="PhoneNumberChangedSuccessfully" xml:space="preserve">
+    <value>تم تغيير الرقم بنجاح</value>
+  </data>
+  <data name="PasswordMustHaveUpperCase" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوى على أحرف كبيرة 'A-Z'</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>كلمة المرور يجب أن تكون ما بين 8 إلى 20 حرف</value>
+  </data>
+  <data name="HasNoAccount" xml:space="preserve">
+    <value>بيانات الحساب غير موجودة بالمجلد النشط</value>
+  </data>
+  <data name="RegisterHere" xml:space="preserve">
+    <value>يرجى التسجيل من هنا بالضغط على الرابط أدناه</value>
+  </data>
+  <data name="RemoveUserRoleConfirmMessage" xml:space="preserve">
+    <value>هل أنت متأكد من إزالة هذه الصلاحية عن المستخدم؟</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>العضوية</value>
+  </data>
+  <data name="AdminAlreadyAssignedToThisPort" xml:space="preserve">
+    <value>تم تعين مشرف للجمرك مسبقا</value>
+  </data>
+  <data name="UserAlreadyAssignedToRole" xml:space="preserve">
+    <value>تم تعين المستخدم لدور مسبقا</value>
+  </data>
+  <data name="UserIsNotActive" xml:space="preserve">
+    <value>نعتذر، الحساب غير فعال، تم ارسال رابط للتفعيل يرجى التحقق من البريد الإلكتروني الخاص بك</value>
+  </data>
+  <data name="IdentityNumberAlreadyExist" xml:space="preserve">
+    <value>رقم الهوية مسجل في النظام. الرجاء إدخال رقم هوية مختلف</value>
+  </data>
+  <data name="fieldIsRequired" xml:space="preserve">
+    <value> هذا الحقل مطلوب </value>
+  </data>
+  <data name="NameArExcel" xml:space="preserve">
+    <value>الاسم (بالعربي)</value>
+  </data>
+  <data name="NameEnExcel" xml:space="preserve">
+    <value>الأسم (بالانجليزي)</value>
+  </data>
+  <data name="OtpIsInvalid" xml:space="preserve">
+    <value>رمز التفعيل غير صحيح الرجاء ادخال رمز التفعيل الصحيح</value>
+  </data>
+  <data name="row" xml:space="preserve">
+    <value> فى الصف</value>
+  </data>
+  <data name="ADUserIsNotActiveOrNotExist" xml:space="preserve">
+    <value>هذا المستخدم غير موجود/ غير مفعل في المجلد النشط</value>
+  </data>
+  <data name="YouAreNotAuthorized" xml:space="preserve">
+    <value>غير مصرح لك بالدخول إلى المنصة</value>
+  </data>
+  <data name="AccountNotExist" xml:space="preserve">
+    <value>الحساب غير مسجل الرجاء تسجيل حساب جديد</value>
+  </data>
+  <data name="EmailTemporaryBlocked" xml:space="preserve">
+    <value>تم حظر الحساب مؤقتاً. رجاءً المحاولة لاحقاً</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني ...</value>
+    <comment>Enter Email Address...</comment>
+  </data>
+  <data name="AccountNotFoundINActiveDirectory" xml:space="preserve">
+    <value>بيانات الحساب غير موجودة بالمجلد النشط</value>
+  </data>
+</root>

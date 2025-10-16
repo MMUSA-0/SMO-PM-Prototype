@@ -1,3 +1,4 @@
+using Framework.Core.Data.Repositories;
 using Microsoft.EntityFrameworkCore.Query;
 using PagedList.Core;
 using System.Linq.Expressions;
@@ -40,7 +41,7 @@ namespace SMO.Domain.Interfaces;
 /// }
 /// </code>
 /// </remarks>
-public interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity> : IRepositoryBase<IAppDbContext, TEntity>  where TEntity : class
 {
     /// <summary>
     /// Gets a queryable collection of entities with change tracking enabled.
@@ -205,12 +206,12 @@ public interface IRepository<TEntity> where TEntity : class
     /// );
     /// </code>
     /// </remarks>
-    PagedList<TEntity> SearchWithFilters(
-        int pageNumber,
-        int pageSize,
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-        IEnumerable<Expression<Func<TEntity, bool>>>? filters = null,
-        params Expression<Func<TEntity, object>>[] includes);
+    //PagedList<TEntity> SearchWithFilters(
+    //    int pageNumber,
+    //    int pageSize,
+    //    Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
+    //    IEnumerable<Expression<Func<TEntity, bool>>>? filters = null,
+    //    params Expression<Func<TEntity, object>>[] includes);
 
     #endregion
 }

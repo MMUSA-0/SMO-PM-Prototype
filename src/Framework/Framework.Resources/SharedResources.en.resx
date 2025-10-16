@@ -1,5 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -58,14 +117,2163 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <!-- English (en) resource strings -->
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome to SMO Vision Center</value>
+  <data name="Absent" xml:space="preserve">
+    <value>Absent</value>
+  </data>
+  <data name="Academy" xml:space="preserve">
+    <value>Academy</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access Denied</value>
+  </data>
+  <data name="ActionConstraint" xml:space="preserve">
+    <value>You can not {0} this item</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="ActivateConfirm" xml:space="preserve">
+    <value>Are you Sure you want to Activate This Item?</value>
+  </data>
+  <data name="ActivateConfirmFormat" xml:space="preserve">
+    <value>Are you Sure you want to Activate {0}?</value>
+  </data>
+  <data name="ActivateError" xml:space="preserve">
+    <value>An Error Occured While Trying to Activate This Item</value>
+  </data>
+  <data name="ActivateFormat" xml:space="preserve">
+    <value>Acativate {0}</value>
+  </data>
+  <data name="ActivateOrPublish" xml:space="preserve">
+    <value>Activate or Publish</value>
+  </data>
+  <data name="ActivateSuccess" xml:space="preserve">
+    <value>Item Successfully Activated</value>
+  </data>
+  <data name="ActivateSuccessFormat" xml:space="preserve">
+    <value>{0} Activated Successfully</value>
+  </data>
+  <data name="ActivationStatus" xml:space="preserve">
+    <value>Activation Status</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ActiveStatus" xml:space="preserve">
+    <value>Activation Status</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddAtleastOne" xml:space="preserve">
+    <value>You should add at least one {0}</value>
+  </data>
+  <data name="AddedFormat" xml:space="preserve">
+    <value>{0} Added</value>
+  </data>
+  <data name="AddFormat" xml:space="preserve">
+    <value>Add {0}</value>
+  </data>
+  <data name="AddSuccess" xml:space="preserve">
+    <value>Added Successfully</value>
+  </data>
+  <data name="AddSuccessFormat" xml:space="preserve">
+    <value>{0} Added Successfully</value>
+  </data>
+  <data name="AddToBlacklistConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to add {0} to the blacklist?</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Add to shopping cart</value>
+  </data>
+  <data name="AddToFavourites" xml:space="preserve">
+    <value>Add to favourites</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllMonths" xml:space="preserve">
+    <value>All Months</value>
+  </data>
+  <data name="AllNotifications" xml:space="preserve">
+    <value>All Notifications</value>
+  </data>
+  <data name="AllResults" xml:space="preserve">
+    <value>All Results</value>
+  </data>
+  <data name="AllYears" xml:space="preserve">
+    <value>All Years</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="ApproveFormat" xml:space="preserve">
+    <value>Approve {0}</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="ArabicLettersOnlyErrorMessage" xml:space="preserve">
+    <value>Arabic Letters only Are allowed for {0}</value>
+    <comment>الحقل {0} لا يقبل سوى أحرف عربية</comment>
+  </data>
+  <data name="AssignTask" xml:space="preserve">
+    <value>Assign Task to Employee</value>
+  </data>
+  <data name="At" xml:space="preserve">
+    <value>at</value>
+  </data>
+  <data name="AttachmentFile" xml:space="preserve">
+    <value>Attachment File</value>
+  </data>
+  <data name="AttachmentId" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="AttachmentName" xml:space="preserve">
+    <value>Attachment Name</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="Attendant" xml:space="preserve">
+    <value>Attendant</value>
+  </data>
+  <data name="Audit" xml:space="preserve">
+    <value>Log Records</value>
+  </data>
+  <data name="AuditCompare" xml:space="preserve">
+    <value>Audit Compare</value>
+  </data>
+  <data name="AuditDetails" xml:space="preserve">
+    <value>Audit Details</value>
+  </data>
+  <data name="AuditingCoordinator" xml:space="preserve">
+    <value>Auditing Coordinator</value>
+  </data>
+  <data name="AuditType" xml:space="preserve">
+    <value>Audit Type</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="Bachelor" xml:space="preserve">
+    <value>Bachelor</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackToHomePage" xml:space="preserve">
+    <value>Back To Home Page</value>
+  </data>
+  <data name="BackToMain" xml:space="preserve">
+    <value>Back To Main</value>
+  </data>
+  <data name="BankingPrograms" xml:space="preserve">
+    <value>Banking Programs</value>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>Basic Data</value>
+  </data>
+  <data name="Beginner" xml:space="preserve">
+    <value>Beginner</value>
+  </data>
+  <data name="BestRegards" xml:space="preserve">
+    <value>Best Regards.</value>
+  </data>
+  <data name="Between" xml:space="preserve">
+    <value>Between</value>
+  </data>
+  <data name="BillStatusOpNotAllowed" xml:space="preserve">
+    <value>Bill Status Does Not Allow This Process</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="ByFormat" xml:space="preserve">
+    <value>by {0}</value>
+  </data>
+  <data name="CallUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CancelConfirm" xml:space="preserve">
+    <value>Are you sure you want to cancel this item?</value>
+  </data>
+  <data name="CancelConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to cancel this {0}?</value>
+  </data>
+  <data name="CancelFail" xml:space="preserve">
+    <value>Error occurred while trying to cancel</value>
+  </data>
+  <data name="CancelFormat" xml:space="preserve">
+    <value>Cancel {0}</value>
+  </data>
+  <data name="CancellationConfirmationMsg" xml:space="preserve">
+    <value>Do you want to cancel reservation ?</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="CancelledStatus" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="CancelRegistration" xml:space="preserve">
+    <value>Cancel Registration</value>
+  </data>
+  <data name="CancelSuccess" xml:space="preserve">
+    <value>Cancelled Successfully</value>
+  </data>
+  <data name="CancelSuccessFormat" xml:space="preserve">
+    <value>{0} Cancelled Successfully</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>Captcha</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="ChooseSearchType" xml:space="preserve">
+    <value>Kindy select search type</value>
+  </data>
+  <data name="Citizen" xml:space="preserve">
+    <value>Saudi</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ClearAll" xml:space="preserve">
+    <value>Clear all data</value>
+  </data>
+  <data name="ClearResult" xml:space="preserve">
+    <value>Clear Result</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>Click Here</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="CloseEvent" xml:space="preserve">
+    <value>Close Event</value>
+  </data>
+  <data name="CloseFormat" xml:space="preserve">
+    <value>Are you sure you want to close this {0}?</value>
+  </data>
+  <data name="CollapseNodes" xml:space="preserve">
+    <value>Collapse nodes</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="CompareData" xml:space="preserve">
+    <value>Compare Data</value>
+  </data>
+  <data name="CompareDatesErrorMessage" xml:space="preserve">
+    <value>{0} Cannot be less than {1}</value>
+    <comment>لا يمكن ل {0} أن يكون أقل من {1}</comment>
+  </data>
+  <data name="CompareResult" xml:space="preserve">
+    <value>Compare Result</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmEditFormat" xml:space="preserve">
+    <value>Are you sure want to edit {0}?</value>
+  </data>
+  <data name="ConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to {0} ?</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="ConnectionStatus" xml:space="preserve">
+    <value>Connection Status</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="CopyRightStatement" xml:space="preserve">
+    <value>All rights reserved © to the Financial Academy 2019</value>
+  </data>
+  <data name="CorporateResourcesDirector" xml:space="preserve">
+    <value>Director of Corporate Resources</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreateSuccess" xml:space="preserve">
+    <value>Created Successfully</value>
+  </data>
+  <data name="CreateSuccessFormat" xml:space="preserve">
+    <value>{0} Created Successfully</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="DataOfFormat" xml:space="preserve">
+    <value>{0} Data</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DateOutRange" xml:space="preserve">
+    <value>It is not permitted to leave outside the original scope</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="DeactivateConfirm" xml:space="preserve">
+    <value>Are you Sure you want to Deactivate This Item?</value>
+  </data>
+  <data name="DeactivateConfirmFormat" xml:space="preserve">
+    <value>Are you Sure you want to Deactivate {0}?</value>
+  </data>
+  <data name="DeactivateError" xml:space="preserve">
+    <value>An Error Occured While Trying To Activate this Item.</value>
+  </data>
+  <data name="DeactivateFormat" xml:space="preserve">
+    <value>Deactivate {0}</value>
+  </data>
+  <data name="DeactivateReasonFormat" xml:space="preserve">
+    <value>{0} Deactivate Reason</value>
+  </data>
+  <data name="DeactivateSuccess" xml:space="preserve">
+    <value>Deactivation Done Successfully.</value>
+  </data>
+  <data name="DeactivateSuccessFormat" xml:space="preserve">
+    <value>{0} Dectivated Successfully</value>
+  </data>
+  <data name="DeactivationConstraint" xml:space="preserve">
+    <value>Cannot deactivate room as it still have running reservations</value>
+  </data>
+  <data name="DeactivationConstraintFormat" xml:space="preserve">
+    <value>{0} cannot be deactivated at this time because it is associated with {1}</value>
+  </data>
+  <data name="DeactivationReason" xml:space="preserve">
+    <value>Deactivation Reasons</value>
+  </data>
+  <data name="Dear" xml:space="preserve">
+    <value>Dear</value>
+  </data>
+  <data name="DecreaseFont" xml:space="preserve">
+    <value>Decrease Font</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteConfirm" xml:space="preserve">
+    <value>Are You Sure You Want To Delete This Item?</value>
+  </data>
+  <data name="DeleteConfirmFormat" xml:space="preserve">
+    <value>Are You Sure You Want To Delete This {0}?</value>
+  </data>
+  <data name="DeleteConstraint" xml:space="preserve">
+    <value>Item Can Not Be Deleted Because It Is References Other Items In The System.</value>
+  </data>
+  <data name="DeleteConstraintFemaleItemFormat" xml:space="preserve">
+    <value>The {0} can not be deleted because it references {1} in the system.</value>
+  </data>
+  <data name="DeleteConstraintFormat" xml:space="preserve">
+    <value>The {0} can not be deleted because it references {1} in the system.</value>
+  </data>
+  <data name="DeleteFail" xml:space="preserve">
+    <value>Error Occured While Trying To Delete This Item.</value>
+  </data>
+  <data name="DeleteFormat" xml:space="preserve">
+    <value>Delete {0}</value>
+  </data>
+  <data name="DeleteReservationConstraintFormat" xml:space="preserve">
+    <value>You can not delete. There are reservations for {0}</value>
+  </data>
+  <data name="DeleteSucceed" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="DeleteSuccess" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="DeleteSuccessFormat" xml:space="preserve">
+    <value>{0} Deleted Successfully</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DetailsFormat" xml:space="preserve">
+    <value>{0} Details</value>
+  </data>
+  <data name="Diploma" xml:space="preserve">
+    <value>Diploma</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable </value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>Disconnected</value>
+  </data>
+  <data name="Divorcee" xml:space="preserve">
+    <value>divorcee</value>
+  </data>
+  <data name="Doctorate" xml:space="preserve">
+    <value>Doctorate</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>Download File</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="DuplicateRow" xml:space="preserve">
+    <value>This row is duplicate</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="DuringThePeriod" xml:space="preserve">
+    <value>During The Period</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditConstraint" xml:space="preserve">
+    <value>You can not edit this item</value>
+  </data>
+  <data name="EditConstraintFormat" xml:space="preserve">
+    <value>{0} cannot be modified because it is associated with {1}</value>
+  </data>
+  <data name="EditFail" xml:space="preserve">
+    <value>Edit Fail</value>
+  </data>
+  <data name="EditFormat" xml:space="preserve">
+    <value>Edit {0}</value>
+  </data>
+  <data name="EditNameArDuplicateNotAllowedFormat" xml:space="preserve">
+    <value>{0} can not be edited with a matching name in Arabic for another {0} added in the system.</value>
+  </data>
+  <data name="EditNameEnDuplicateNotAllowedFormat" xml:space="preserve">
+    <value>{0} can not be edited with a matching name in English for another {0} added in the system.</value>
+  </data>
+  <data name="EditSuccess" xml:space="preserve">
+    <value>Edited Successfully</value>
+  </data>
+  <data name="EditSuccessFormat" xml:space="preserve">
+    <value>{0} Edited Successfully</value>
+  </data>
+  <data name="EditTimeOnly" xml:space="preserve">
+    <value>Only Edit Time</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnglishLettersOnlyErrorMessage" xml:space="preserve">
+    <value>English Letters only Are allowed for {0}</value>
+  </data>
+  <data name="EnglishOnly" xml:space="preserve">
+    <value>Arabic characters are not allowed.</value>
+  </data>
+  <data name="EnlargeFont" xml:space="preserve">
+    <value>Enlarge Font</value>
+  </data>
+  <data name="EOF" xml:space="preserve">
+    <value>End of day</value>
+  </data>
+  <data name="Error401" xml:space="preserve">
+    <value>You Don't Have The Proper Credentials To Access This page</value>
+  </data>
+  <data name="Error403" xml:space="preserve">
+    <value>You Are Not Authorized to Access This Page</value>
+  </data>
+  <data name="Error404" xml:space="preserve">
+    <value>Page Not Found</value>
+  </data>
+  <data name="Error500" xml:space="preserve">
+    <value>Server Error</value>
+  </data>
+  <data name="ErrorOccured" xml:space="preserve">
+    <value>Sorry, Error Occured.</value>
+  </data>
+  <data name="EServices" xml:space="preserve">
+    <value>E-Services</value>
+  </data>
+  <data name="Evaluation" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="Every" xml:space="preserve">
+    <value>Every</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export To Excel</value>
+  </data>
+  <data name="ExportToPdf" xml:space="preserve">
+    <value>Export To PDF</value>
+  </data>
+  <data name="External" xml:space="preserve">
+    <value>External</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="FieldAllowOnlyValueLargerThanZero" xml:space="preserve">
+    <value>Field Allow Only Value Larger Than Zero</value>
+  </data>
+  <data name="FieldIsAlphanumeric" xml:space="preserve">
+    <value>This field must contain letters and numbers only.</value>
+  </data>
+  <data name="FieldRepeatNotAllowed" xml:space="preserve">
+    <value>{0} can not be added with the same {1} for another one added in the system</value>
+  </data>
+  <data name="FieldRepeatOnOperationNotAllowed" xml:space="preserve">
+    <value>{1} can not be {0}ed with the same {2} for another one added in the system</value>
+  </data>
+  <data name="Field_HistoryLog_ActionTypeId" xml:space="preserve">
+    <value>Action Type</value>
+  </data>
+  <data name="Field_HistoryLog_ItemId" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Field_Refund_BankBranchName" xml:space="preserve">
+    <value>Bank Branch</value>
+  </data>
+  <data name="Final" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="FinalClosed" xml:space="preserve">
+    <value>Final closing</value>
+  </data>
+  <data name="FinalClosedFormat" xml:space="preserve">
+    <value>Are you sure you want to final close this {0}?</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finance</value>
+  </data>
+  <data name="FinanceModule" xml:space="preserve">
+    <value>Finance System</value>
+  </data>
+  <data name="FinancialSettings" xml:space="preserve">
+    <value>Financial Settings</value>
+  </data>
+  <data name="FinancialTransactions" xml:space="preserve">
+    <value>Financial Transactions</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="FirstCharMustBeCharacterErrorMessage" xml:space="preserve">
+    <value>Must begin with a letter</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="ForPeriod" xml:space="preserve">
+    <value>For Period</value>
+  </data>
+  <data name="free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="FreeCancellation" xml:space="preserve">
+    <value>Free cancellation</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="From1To1000000000" xml:space="preserve">
+    <value>limited From 1 to 1000000</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>From Time</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="FutureOnlyErrorMessage" xml:space="preserve">
+    <value>Value of {0} must be greater than today date.</value>
+    <comment>يجب أن تكون قيمة {0} أكبر من تاريخ اليوم</comment>
+  </data>
+  <data name="FutureOnlyIncludingTodayErrorMessage" xml:space="preserve">
+    <value>Value of {0} must be greater than or equal to today date.</value>
+    <comment>يجب أن تكون قيمة {0} أكبر من أو تساوي تاريخ اليوم</comment>
+  </data>
+  <data name="GenerateLink" xml:space="preserve">
+    <value>Generate Link</value>
+  </data>
+  <data name="GenerateNodeAsCollapsed" xml:space="preserve">
+    <value>Generate node as collapsed</value>
+  </data>
+  <data name="GreaterThanFormat" xml:space="preserve">
+    <value>{0} must be greater than {1}</value>
+  </data>
+  <data name="Gregorian" xml:space="preserve">
+    <value>Gregorian</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Here</value>
+  </data>
+  <data name="HistoryLog" xml:space="preserve">
+    <value>History Log</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="IAgreeTerms" xml:space="preserve">
+    <value>I agree to the terms and conditions</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="IncreaseFont" xml:space="preserve">
+    <value>Increase Font</value>
+  </data>
+  <data name="Individual" xml:space="preserve">
+    <value>Individual User</value>
+  </data>
+  <data name="IndividualUser" xml:space="preserve">
+    <value>Individual</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="InsideKSA" xml:space="preserve">
+    <value>Inside KSA</value>
+  </data>
+  <data name="Intermediate" xml:space="preserve">
+    <value>Intermediate</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Internal</value>
+  </data>
+  <data name="InvalidCaptcha" xml:space="preserve">
+    <value>Invalid Captcha Code</value>
+  </data>
+  <data name="InvalidEmailAddressMessage" xml:space="preserve">
+    <value>Invalid Email Address</value>
+  </data>
+  <data name="InvalidFaxNumberMessage" xml:space="preserve">
+    <value>Invalid Fax Number</value>
+  </data>
+  <data name="InvalidMobileNumberMessage" xml:space="preserve">
+    <value>Invalid Mobile Number</value>
+  </data>
+  <data name="InvalidParametersError" xml:space="preserve">
+    <value>Sorry, There is an Error in This Page Paramaters, Please Make Sure You Access this Page Properly</value>
+    <comment>Invalid Page Parameters. عذراً، يوجد خطأ في بيانات الصفحة الرجاء التأكد من صحة البيانات</comment>
+  </data>
+  <data name="InvalidPhoneNumberMessage" xml:space="preserve">
+    <value>Invalid Phone Number</value>
+  </data>
+  <data name="InvalidRequestParametersError" xml:space="preserve">
+    <value>Sorry, There is an Error in This Request Paramaters, Please Make Sure You Sent Parameters Correctly</value>
+  </data>
+  <data name="InvalidTelephoneNumberMessage" xml:space="preserve">
+    <value>Invalid Telephone Number</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>The link used has Invalid Token</value>
+  </data>
+  <data name="InvalidUrl" xml:space="preserve">
+    <value>The link format is incorrect</value>
+  </data>
+  <data name="InvalidURLFormat" xml:space="preserve">
+    <value>{0} is invalid link format (ex: http://www.google.com)</value>
+  </data>
+  <data name="InvoiceDetails" xml:space="preserve">
+    <value>Invoice Details</value>
+  </data>
+  <data name="InvoiceNo" xml:space="preserve">
+    <value>Invoice No</value>
+  </data>
+  <data name="InvoiceType" xml:space="preserve">
+    <value>Invoice Type</value>
+  </data>
+  <data name="IOFSystem" xml:space="preserve">
+    <value>Financial Academy</value>
+  </data>
+  <data name="IqamaError" xml:space="preserve">
+    <value>{0} must start with 1 or 2 and not contain special characters</value>
+  </data>
+  <data name="IsSeen" xml:space="preserve">
+    <value>Seen</value>
+  </data>
+  <data name="IsUnSeen" xml:space="preserve">
+    <value>Unseen</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="ItemAlreadyExist" xml:space="preserve">
+    <value>This Item Already Exist.</value>
+  </data>
+  <data name="ItemAlreadyExistFormat" xml:space="preserve">
+    <value>{0} already exist in the system. You can not add {0} again.</value>
+  </data>
+  <data name="ItemAlreadyExistInSystemFormat" xml:space="preserve">
+    <value>{0} was already added to the system</value>
+  </data>
+  <data name="ItemDoesNotExistInSystemFormat" xml:space="preserve">
+    <value>{0} does not exist in the system.</value>
+  </data>
+  <data name="ItemDuplicateErrorFormat" xml:space="preserve">
+    <value>{0} already exists in the system. you can not add a duplicate of {1}.</value>
+    <comment>لا يمكن إضافة {0}. يوجد عنصر مضاف بنفس {1}</comment>
+  </data>
+  <data name="ItemInListDuplicateErrorFormat" xml:space="preserve">
+    <value>{0} can not be added. an item with the same {1} is already adeed.</value>
+  </data>
+  <data name="ItemNotFoundError" xml:space="preserve">
+    <value>Item Does Not Exist In The System</value>
+  </data>
+  <data name="ItemNotFoundErrorFormat" xml:space="preserve">
+    <value>{0} Not Found in the System</value>
+  </data>
+  <data name="ItemRelationsStopsDeletion" xml:space="preserve">
+    <value>{0} can not be deleted</value>
+  </data>
+  <data name="ItemsCount" xml:space="preserve">
+    <value>Items Count</value>
+  </data>
+  <data name="ItemsCountFormat" xml:space="preserve">
+    <value>Total {0}</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="KeysWithQuotes" xml:space="preserve">
+    <value>Keys With Quotes</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageSwitcher" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="Language_Duplicate[1]" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LastVersion" xml:space="preserve">
+    <value>Latest version</value>
+  </data>
+  <data name="LatestUpdates" xml:space="preserve">
+    <value>Latest Updates</value>
+  </data>
+  <data name="Less" xml:space="preserve">
+    <value>Less</value>
+  </data>
+  <data name="LinkCopied" xml:space="preserve">
+    <value>Link Copied</value>
+  </data>
+  <data name="LinkedIn" xml:space="preserve">
+    <value>Linkedin</value>
+  </data>
+  <data name="LoadMore" xml:space="preserve">
+    <value>Load More</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="LocationLatLonErrorMessage" xml:space="preserve">
+    <value>Provided Location Coordinates Latitude,Longitude is Invalid</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="MainMenu" xml:space="preserve">
+    <value>Main Menu</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Married" xml:space="preserve">
+    <value>Married</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Master</value>
+  </data>
+  <data name="MaxNumber" xml:space="preserve">
+    <value>The maximum allowed is {0}</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Men</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="MessagesSubscribers" xml:space="preserve">
+    <value>Messages Subscribers</value>
+  </data>
+  <data name="MessagesSubscribersConfirm" xml:space="preserve">
+    <value>Do you want to send messages to subscribers?</value>
+  </data>
+  <data name="MinimizeTheFont" xml:space="preserve">
+    <value>Minimize The Font</value>
+  </data>
+  <data name="MinNumber" xml:space="preserve">
+    <value>The minimum allowed For Purchase {0}, Please Buy other Products To Reach The minimum Limit of Payment</value>
+  </data>
+  <data name="MinValueValidation" xml:space="preserve">
+    <value>Min Value Should Be Greater Than {1}</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>Name In Arabic</value>
+  </data>
+  <data name="NameArDuplicateNotAllowedFormat" xml:space="preserve">
+    <value>{0} can not be added with a matching name in Arabic for another {0} added in the system.</value>
+  </data>
+  <data name="NameArDuplicateNotAllowedNewFormat" xml:space="preserve">
+    <value>{0} in Arabic is already added in the system</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>Name In English</value>
+  </data>
+  <data name="NameEnDuplicateNotAllowedFormat" xml:space="preserve">
+    <value>{0} can not be added with a matching name in English for another {0} added in the system.</value>
+  </data>
+  <data name="NameEnDuplicateNotAllowedNewFormat" xml:space="preserve">
+    <value>{0} in English is already added in the system</value>
+  </data>
+  <data name="NameFormat" xml:space="preserve">
+    <value>{0} Name</value>
+  </data>
+  <data name="NationalID" xml:space="preserve">
+    <value>National ID</value>
+  </data>
+  <data name="NationalIdentityLengthError" xml:space="preserve">
+    <value>{0} Length should not be less than 10 digits.</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NewAudit" xml:space="preserve">
+    <value>New Audit</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Newest</value>
+  </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="No1" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoAttachmentsFound" xml:space="preserve">
+    <value>No Attachments Found</value>
+  </data>
+  <data name="NoDataToDisplay" xml:space="preserve">
+    <value>No Data To Display</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="NonSaudi" xml:space="preserve">
+    <value>Not Saudi</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>No Results Found</value>
+  </data>
+  <data name="NoResultsFoundFormat" xml:space="preserve">
+    <value>No {0} Found.</value>
+  </data>
+  <data name="NoRoles" xml:space="preserve">
+    <value>No Roles</value>
+  </data>
+  <data name="NotAddedFormat" xml:space="preserve">
+    <value>{0} Not Added</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>NotAvailable</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotExist" xml:space="preserve">
+    <value>Not Exist</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="NotIncludedVat" xml:space="preserve">
+    <value>Tax is not included</value>
+  </data>
+  <data name="NotStarted" xml:space="preserve">
+    <value>Not Started</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="NumberOnlyErrorMessage" xml:space="preserve">
+    <value>This Field Allow Numbers Only</value>
+  </data>
+  <data name="NumbersAndLettersOnly" xml:space="preserve">
+    <value>This field only allows correct numbers and letters</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>Of</value>
+  </data>
+  <data name="OfficialStandardsEmployee" xml:space="preserve">
+    <value>Official standards and professional qualifications Employee</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OldAudit" xml:space="preserve">
+    <value>Old Audit</value>
+  </data>
+  <data name="Oldest" xml:space="preserve">
+    <value>Oldest</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="OnThe" xml:space="preserve">
+    <value>on the</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Opened" xml:space="preserve">
+    <value>Opened</value>
+  </data>
+  <data name="OperationSuccess" xml:space="preserve">
+    <value>Operation done successfully</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="OrganizationAdmin" xml:space="preserve">
+    <value>Organization Admin</value>
+  </data>
+  <data name="OrganizationCoordinator" xml:space="preserve">
+    <value>Organization Coordinator</value>
+  </data>
+  <data name="OrganizationManagement" xml:space="preserve">
+    <value>Organization Management</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="OutsideKSA" xml:space="preserve">
+    <value>Outside KSA</value>
+  </data>
+  <data name="OverlappingExist" xml:space="preserve">
+    <value>There is {0} Overlapping on this reservation</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PagerFirstPage" xml:space="preserve">
+    <value>First Page</value>
+  </data>
+  <data name="PagerLastPage" xml:space="preserve">
+    <value>Last Page</value>
+  </data>
+  <data name="PagerNextPage" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="PagerPageCount" xml:space="preserve">
+    <value>Page {0} of {1}</value>
+  </data>
+  <data name="PagerPreviousPage" xml:space="preserve">
+    <value>Previous Page</value>
+  </data>
+  <data name="Passport" xml:space="preserve">
+    <value>Passport</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordHint" xml:space="preserve">
+    <value>&lt;ul class="password-hint"&gt;
+    &lt;li&gt;Password must be between 8 - 20 characters&lt;/li&gt;
+    &lt;li&gt;Password must have at least one special character i.e ('$')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one digit ('0'-'9')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one lowercase ('a'-'z')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one uppercase ('A'-'Z')&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="PastOnlyErrorMessage" xml:space="preserve">
+    <value>Value of {0} must be less than today date.</value>
+    <comment>يجب أن تكون قيمة {0} أقل من تاريخ اليوم</comment>
+  </data>
+  <data name="PastOnlyIncludingTodayErrorMessage" xml:space="preserve">
+    <value>Value of {0} must be less than or equal to today date.</value>
+    <comment>يجب أن تكون قيمة {0} أقل من أو تساوي تاريخ اليوم</comment>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="PaymentAdmin" xml:space="preserve">
+    <value>Payment Admin</value>
+  </data>
+  <data name="PaymentSuccessfullEmailSubject" xml:space="preserve">
+    <value>Payment Details</value>
+  </data>
+  <data name="PdfExportErrorTryPrint" xml:space="preserve">
+    <value>Sorry, we couldn't export right now, you can try printing to PDF</value>
+  </data>
+  <data name="PercentValidation" xml:space="preserve">
+    <value>Percent Should Be Between 0 And 100</value>
+  </data>
+  <data name="PeriodDuplicateNotAllowedFormat" xml:space="preserve">
+    <value>{0} can not be added with a matching Period added in the system.</value>
+  </data>
+  <data name="PeriodTypes" xml:space="preserve">
+    <value>Period Types</value>
+  </data>
+  <data name="PermitsEmployee" xml:space="preserve">
+    <value>Permits Employee</value>
+  </data>
+  <data name="PhD" xml:space="preserve">
+    <value>PhD</value>
+  </data>
+  <data name="PinQuestions" xml:space="preserve">
+    <value>Pin Questions</value>
+  </data>
+  <data name="PleaseEnterValidNumber" xml:space="preserve">
+    <value>Please enter a valid number</value>
+  </data>
+  <data name="PleaseSelectCorrectRange" xml:space="preserve">
+    <value>Please Select Correct Range</value>
+  </data>
+  <data name="PositiveIntegerNumberOnlyErrorMessage" xml:space="preserve">
+    <value>This Field Allow Positive Integer Numbers Only</value>
+  </data>
+  <data name="Postpaid" xml:space="preserve">
+    <value>Postpaid</value>
+  </data>
+  <data name="Prepaid" xml:space="preserve">
+    <value>Prepaid</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="PrevioussVersionsFormat" xml:space="preserve">
+    <value>Previouss {0} Versions</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Printing" xml:space="preserve">
+    <value>Printing</value>
+  </data>
+  <data name="PrintingAdmin" xml:space="preserve">
+    <value>Printing Admin</value>
+  </data>
+  <data name="PrintingEmployee" xml:space="preserve">
+    <value>Printing Employee</value>
+  </data>
+  <data name="PrintPageContent" xml:space="preserve">
+    <value>Print Page Content</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="PublishConfirm" xml:space="preserve">
+    <value>Are you sure you want to publish this item?</value>
+  </data>
+  <data name="PublishConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to publish this {0}?</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="PublishEvent" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="PublishFail" xml:space="preserve">
+    <value>Error occurred while trying to publish</value>
+  </data>
+  <data name="PublishFormat" xml:space="preserve">
+    <value>Publish {0}</value>
+  </data>
+  <data name="PublishStatus" xml:space="preserve">
+    <value>Publish Status</value>
+  </data>
+  <data name="PublishSuccess" xml:space="preserve">
+    <value>Published Successfully</value>
+  </data>
+  <data name="PublishSuccessFormat" xml:space="preserve">
+    <value>{0} Published Successfully</value>
+  </data>
+  <data name="RangeMinMaxErrorMessage" xml:space="preserve">
+    <value>Field {0} only allows values between {1} and {2}.</value>
+    <comment>يجب أن تكون قيمة {0} أكبر من أو يساوي {1} وأفل من {2}</comment>
+  </data>
+  <data name="RangeNotLargerThanErrorMessage" xml:space="preserve">
+    <value>Value of {0} can not be larger than {1}.</value>
+    <comment>لا يمكن لقيمة {0} أن تكون أكبر من {2}</comment>
+  </data>
+  <data name="RangeNotLessThanErrorMessage" xml:space="preserve">
+    <value>Value of {0} can not be less than {1}.</value>
+    <comment>لا يمكن لقيمة {0} أن تكون أقل من {1}</comment>
+  </data>
+  <data name="Ranges" xml:space="preserve">
+    <value>Ranges</value>
+  </data>
+  <data name="RangeValidation" xml:space="preserve">
+    <value>The Value Should Be Between {1} And {2}</value>
+  </data>
+  <data name="Reasons" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="Recheck" xml:space="preserve">
+    <value>Recheck</value>
+  </data>
+  <data name="RecieveConfirm" xml:space="preserve">
+    <value>Are you sure for receieve the request ?</value>
+  </data>
+  <data name="RecieveConfirmFormat" xml:space="preserve">
+    <value>Are you sure for receieve the {0} ?</value>
+  </data>
+  <data name="Recieved" xml:space="preserve">
+    <value>Recieved</value>
+  </data>
+  <data name="Records" xml:space="preserve">
+    <value>Records</value>
+  </data>
+  <data name="RefreshData" xml:space="preserve">
+    <value>Refresh Data</value>
+  </data>
+  <data name="Registeration" xml:space="preserve">
+    <value>Registeration</value>
+  </data>
+  <data name="RegisteredSuccessfully" xml:space="preserve">
+    <value>You've registered successfully.</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Register Now</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RegistrationAdmin" xml:space="preserve">
+    <value>Registration Admin</value>
+  </data>
+  <data name="RegistrationEmployee" xml:space="preserve">
+    <value>Registration Employee</value>
+  </data>
+  <data name="RegistrationSuccess" xml:space="preserve">
+    <value>Successfully registered</value>
+  </data>
+  <data name="RegistrationSystem" xml:space="preserve">
+    <value>Users Management</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="ReloadPage" xml:space="preserve">
+    <value>Reload Page</value>
+  </data>
+  <data name="RemoveFromBlacklistConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to remove {0} from the blacklist?</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="RequestSentSuceesfully" xml:space="preserve">
+    <value>Your request is sent successfully, request number {0}</value>
+  </data>
+  <data name="RequestStatusDoesNotAllowDecision" xml:space="preserve">
+    <value>No action can be taken on this request. Current request status does not allow taking decision on it.</value>
+  </data>
+  <data name="RequestStatusNotAllow" xml:space="preserve">
+    <value>No action can be taken on this request</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>The Field Is Required</value>
+  </data>
+  <data name="RequiredFieldMessage" xml:space="preserve">
+    <value>The Field {0} Is Required</value>
+  </data>
+  <data name="Reservations" xml:space="preserve">
+    <value>Reservations of</value>
+  </data>
+  <data name="ReservationType" xml:space="preserve">
+    <value>Reservation Type</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Resident" xml:space="preserve">
+    <value>Resident</value>
+  </data>
+  <data name="RetrieveFeesConfirm" xml:space="preserve">
+    <value>Are you sure you want retrieve event fees request ?</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="RootCollapsable" xml:space="preserve">
+    <value>Root Collapsable</value>
+  </data>
+  <data name="RSS" xml:space="preserve">
+    <value>RSS</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Saudi" xml:space="preserve">
+    <value>Saudi</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="SaveAndAdd" xml:space="preserve">
+    <value>Save And Add</value>
+  </data>
+  <data name="SaveAndAdd1" xml:space="preserve">
+    <value>Save And Add</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>Save &amp; Close</value>
+  </data>
+  <data name="SaveAndNext" xml:space="preserve">
+    <value>Save and next</value>
+  </data>
+  <data name="SaveAndSend" xml:space="preserve">
+    <value>Save &amp; Send</value>
+  </data>
+  <data name="SaveConfirm" xml:space="preserve">
+    <value>Are you sure you want to save?</value>
+  </data>
+  <data name="SaveFail" xml:space="preserve">
+    <value>Save Failed</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="SaveSuccessFormat" xml:space="preserve">
+    <value>{0} Saved Successfully</value>
+  </data>
+  <data name="ScriptsNotAllowedErrorMessage" xml:space="preserve">
+    <value>Scripts Are Not Allowed In This Field</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchIn" xml:space="preserve">
+    <value>Search In</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="SearchResultsWithDragDrop" xml:space="preserve">
+    <value>Search Results (Please drag and drop to reorder the list)</value>
+  </data>
+  <data name="SearchType" xml:space="preserve">
+    <value>Search Type</value>
+  </data>
+  <data name="Secondary" xml:space="preserve">
+    <value>Secondary</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>- Select -</value>
+  </data>
+  <data name="Select2ErrorLoading" xml:space="preserve">
+    <value>Error loading results</value>
+  </data>
+  <data name="Select2InputTooShort" xml:space="preserve">
+    <value>Please enter {0} or more characters</value>
+  </data>
+  <data name="Select2LoadMore" xml:space="preserve">
+    <value>Load more</value>
+  </data>
+  <data name="Select2NoResults" xml:space="preserve">
+    <value>No results</value>
+  </data>
+  <data name="Select2Searching" xml:space="preserve">
+    <value>Searching ...</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendConfirm" xml:space="preserve">
+    <value>Are you sure you want to send this registration request? </value>
+  </data>
+  <data name="SendConfirmFormat" xml:space="preserve">
+    <value>Are you sure for send the {0} to the Academy manager?</value>
+  </data>
+  <data name="SendForWorkflowConfirmFormat" xml:space="preserve">
+    <value>Are you sure to send {0} for approval?</value>
+  </data>
+  <data name="SendingRequest" xml:space="preserve">
+    <value>Sending request</value>
+  </data>
+  <data name="SendInvitation" xml:space="preserve">
+    <value>Send Invitation</value>
+  </data>
+  <data name="SendInvitationConfirm" xml:space="preserve">
+    <value>Are you sure you want to send this invitation?</value>
+  </data>
+  <data name="SendPageLink" xml:space="preserve">
+    <value> Send page link</value>
+  </data>
+  <data name="SendSuccess" xml:space="preserve">
+    <value>Sent Succesfully</value>
+  </data>
+  <data name="SendSuccessFormat" xml:space="preserve">
+    <value>{0} Successfully sent</value>
+  </data>
+  <data name="SendToEmail" xml:space="preserve">
+    <value>Send To Email</value>
+  </data>
+  <data name="SendToFriend" xml:space="preserve">
+    <value>Send to friend</value>
+  </data>
+  <data name="SenfForWorkflowConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to send {0} for approval?</value>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="SetCulture" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="ShareOnFacebook" xml:space="preserve">
+    <value>Share on Facebook</value>
+  </data>
+  <data name="ShareOnTwitter" xml:space="preserve">
+    <value>Share on Twitter</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ShowAll" xml:space="preserve">
+    <value>Show All</value>
+  </data>
+  <data name="ShowHideMenu" xml:space="preserve">
+    <value>Show/Hide Menu</value>
+  </data>
+  <data name="ShowOverlapping" xml:space="preserve">
+    <value>Show overlapping period</value>
+  </data>
+  <data name="Single" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="SocialMedia" xml:space="preserve">
+    <value>Social Media</value>
+  </data>
+  <data name="Sorry" xml:space="preserve">
+    <value>Sorry</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="StartDateGreaterThanEnd" xml:space="preserve">
+    <value>Registeration start date must be greater than registeration end date</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StatusFormat" xml:space="preserve">
+    <value>{0} Status</value>
+  </data>
+  <data name="StrategicAdmin" xml:space="preserve">
+    <value>Strategic Admin</value>
+  </data>
+  <data name="StringLengthErrorMessage" xml:space="preserve">
+    <value>Srting Length For Field {0} Exceeded Maximum Limit: {1} Characters</value>
+  </data>
+  <data name="StringLengthFixedErrorMessage" xml:space="preserve">
+    <value>{0} must be {1} characters</value>
+  </data>
+  <data name="StringLengthMaxMinErrorMessage" xml:space="preserve">
+    <value>Text size for {0} field must not exceed {1} and not less than {2}</value>
+  </data>
+  <data name="StringLengthMinError" xml:space="preserve">
+    <value>Srting Length For Field {0} Violated Minimum Limit: {1} Characters</value>
+  </data>
+  <data name="StringMustLengthErrorMessage" xml:space="preserve">
+    <value>String length for field {0} must be {1}</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SubSectors" xml:space="preserve">
+    <value>Sections[Sub Sectors]</value>
+  </data>
+  <data name="Succeeded" xml:space="preserve">
+    <value>Operation is successfully performed.</value>
+  </data>
+  <data name="SuccessFormat" xml:space="preserve">
+    <value>{0} successfully</value>
+  </data>
+  <data name="SuccessPayment" xml:space="preserve">
+    <value>We would like to inform you that your purchase is successful.</value>
+  </data>
+  <data name="SuccessRegistration" xml:space="preserve">
+    <value>We would like to inform you that the reservation has been performed successfully, for more details regarding reservations kindly click</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="SystemRoles" xml:space="preserve">
+    <value>System Roles</value>
+  </data>
+  <data name="SystemSettings" xml:space="preserve">
+    <value>System Settings</value>
+  </data>
+  <data name="SystemVersionNumber" xml:space="preserve">
+    <value>Version number {0}</value>
+  </data>
+  <data name="TableEmptyForFormat" xml:space="preserve">
+    <value>No {0} Found.</value>
+  </data>
+  <data name="TestingCenterEmployee" xml:space="preserve">
+    <value>Testing Center Employee</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Thank you.</value>
+  </data>
+  <data name="TheBackEnd" xml:space="preserve">
+    <value>The Backend</value>
+  </data>
+  <data name="TheNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="TheOld" xml:space="preserve">
+    <value>Old</value>
+  </data>
+  <data name="ThePortal" xml:space="preserve">
+    <value>The Portal</value>
+  </data>
+  <data name="TheRole" xml:space="preserve">
+    <value>The Role</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="TimeFrom" xml:space="preserve">
+    <value>Time From</value>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>Times</value>
+  </data>
+  <data name="TimeTo" xml:space="preserve">
+    <value>Time To</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="TransformToHTML" xml:space="preserve">
+    <value>Transform to HTML</value>
+  </data>
+  <data name="TranslationOptions" xml:space="preserve">
+    <value>Translation Options</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Sorry, try again</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Twitter</value>
+  </data>
+  <data name="UmmAlqura" xml:space="preserve">
+    <value>Hijri</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>You Are Not Authorized To Access This Page.</value>
+  </data>
+  <data name="UnauthorizedFormat" xml:space="preserve">
+    <value>You are not authorized to {0}</value>
+  </data>
+  <data name="UnauthorizedOperation" xml:space="preserve">
+    <value>You do not have permission to perform any process on this content</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>Unexpected Error Occured.</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Unpublish</value>
+  </data>
+  <data name="UnpublishConfirm" xml:space="preserve">
+    <value>Are you sure you want to unpublish this item?</value>
+  </data>
+  <data name="UnPublishConfirmFormat" xml:space="preserve">
+    <value>Are you sure you want to unpublish this {0}?</value>
+  </data>
+  <data name="UnPublished" xml:space="preserve">
+    <value>Unpublished</value>
+  </data>
+  <data name="UnpublishFail" xml:space="preserve">
+    <value>Error occurred while trying to unpublish</value>
+  </data>
+  <data name="UnPublishFormat" xml:space="preserve">
+    <value>Unpublish {0}</value>
+  </data>
+  <data name="UnpublishSuccess" xml:space="preserve">
+    <value>Unpublished Successfully</value>
+  </data>
+  <data name="UnpublishSuccessFormat" xml:space="preserve">
+    <value>{0} Unpublished Successfully</value>
+  </data>
+  <data name="UpdateMyProfile" xml:space="preserve">
+    <value>Update My Profile</value>
+  </data>
+  <data name="UploadAttachmentError" xml:space="preserve">
+    <value>Sorry there was an error attaching the previous file. Please try again.</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserType" xml:space="preserve">
+    <value>User Type</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Caution</value>
+  </data>
+  <data name="WeekDays_Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="WeekDays_Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="WeekDays_Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="WeekDays_Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="WeekDays_Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="WeekDays_Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="WeekDays_Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Widowed" xml:space="preserve">
+    <value>Widowed</value>
+  </data>
+  <data name="WithLinks" xml:space="preserve">
+    <value>With Links</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>Women</value>
+  </data>
+  <data name="YearOnlyErrorMessage" xml:space="preserve">
+    <value>{0} Only a valid year number is allowed</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YouCanUseYourPersonalEmailOrWorkEmail" xml:space="preserve">
+    <value>You can use your personal or business email</value>
+  </data>
+  <data name="YouTube" xml:space="preserve">
+    <value>YouTube</value>
+  </data>
+  <data name="WebSiteFormatError" xml:space="preserve">
+    <value>Not valid format for URL</value>
+  </data>
+  <data name="InvalidDateTime" xml:space="preserve">
+    <value>Date format is invalid</value>
+  </data>
+  <data name="SaveConfirmation" xml:space="preserve">
+    <value>Are you sure you want to save?</value>
+  </data>
+  <data name="SaveAndSendSuccess" xml:space="preserve">
+    <value>Saved and confirmed successfully</value>
+  </data>
+  <data name="AllowedExtensions" xml:space="preserve">
+    <value>Allowed file types: </value>
+    <comment>الملفات المسموحة هي:</comment>
+  </data>
+  <data name="AllowedNoOfFiles" xml:space="preserve">
+    <value>No of files allowed: </value>
+  </data>
+  <data name="AllowedNoOfFilesShort" xml:space="preserve">
+    <value>With maximum </value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FileImageDimensionsErrorMessage" xml:space="preserve">
+    <value>Invalid Image file Dimensions provided. Allowed Maximum Image file dimentions are {0}X{1}</value>
+  </data>
+  <data name="FileInValidErrorMessage" xml:space="preserve">
+    <value>The field {0} is invalid</value>
+  </data>
+  <data name="FileNotValidImageErrorMessage" xml:space="preserve">
+    <value>File provided is not a valid Image file, Only image files allowed</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="FileSizeErrorMessage" xml:space="preserve">
+    <value>Invalid file size. Maximum allowed file size is {0} MB</value>
+  </data>
+  <data name="FileTypeErrorMessage" xml:space="preserve">
+    <value>Invalid file type provided. Allowed file extensions are {0}</value>
+  </data>
+  <data name="FileZeroLengthErrorMessage" xml:space="preserve">
+    <value>The file is empty</value>
+  </data>
+  <data name="MaxFileSize" xml:space="preserve">
+    <value>Maximum file size</value>
+    <comment>الحد الأقصى لحجم الملف هو</comment>
+  </data>
+  <data name="MaxFileSizeShort" xml:space="preserve">
+    <value>With size </value>
+  </data>
+  <data name="MaxImageHeight" xml:space="preserve">
+    <value>Maximum allowed image height is</value>
+    <comment>الحد الأقصى لإرتفاع الصورة هو</comment>
+  </data>
+  <data name="MaxImageWidth" xml:space="preserve">
+    <value>Maximum allowed image width is</value>
+    <comment>الحد الأقصى لعرض الصورة هو</comment>
+  </data>
+  <data name="MB" xml:space="preserve">
+    <value>MB</value>
+    <comment>ميجا بايت</comment>
+  </data>
+  <data name="MustAcceptAgreement" xml:space="preserve">
+    <value>You must agree on terms and conditions</value>
+  </data>
+  <data name="MustBeTrueError" xml:space="preserve">
+    <value>The field must be checked in order to continue.</value>
+    <comment>The {name} field must be checked in order to continue.</comment>
+  </data>
+  <data name="NoDublicateDate" xml:space="preserve">
+    <value>No Dublicate Date</value>
+  </data>
+  <data name="NoOfFilesErrorMessage" xml:space="preserve">
+    <value>Maximum number of allowed files {0}</value>
+  </data>
+  <data name="ProcessingDroppedFiles" xml:space="preserve">
+    <value>Processing dropped files...</value>
+  </data>
+  <data name="SelectFiles" xml:space="preserve">
+    <value>Select Files</value>
+  </data>
+  <data name="UploaderOptionalInEditMode" xml:space="preserve">
+    <value>In case you did not upload new file. The old file will be kept unchanged</value>
+    <comment>في حال لم تقم بإرفاق ملف سيتم المحافظة على الملف القديم</comment>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="ReturnToModify" xml:space="preserve">
+    <value>Return to modify</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizations</value>
+  </data>
+  <data name="Attachments_AddTitlePlacholder" xml:space="preserve">
+    <value>Attachment Title</value>
+  </data>
+  <data name="Registered" xml:space="preserve">
+    <value>Registered</value>
+  </data>
+  <data name="NotRegistered" xml:space="preserve">
+    <value>Not Registered</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>Rooms</value>
+  </data>
+  <data name="Exams" xml:space="preserve">
+    <value>Exams</value>
+  </data>
+  <data name="Competencies" xml:space="preserve">
+    <value>Competencies</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Training</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="EditSettingValue" xml:space="preserve">
+    <value>Edit Setting Value</value>
+  </data>
+  <data name="SettingName" xml:space="preserve">
+    <value>Setting Key</value>
+  </data>
+  <data name="SettingValue" xml:space="preserve">
+    <value>Setting Value</value>
+  </data>
+  <data name="SettingValueType" xml:space="preserve">
+    <value>Value Type</value>
+  </data>
+  <data name="PleaseEnterEmail" xml:space="preserve">
+    <value>Please enter your email</value>
+  </data>
+  <data name="PleaseEnterPhoneNumber" xml:space="preserve">
+    <value>Please enter your phone number</value>
+  </data>
+  <data name="PleaseEnterPassword" xml:space="preserve">
+    <value>Please enter password</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SaveDraft" xml:space="preserve">
+    <value>Save Draft</value>
+  </data>
+  <data name="ResendRequest" xml:space="preserve">
+    <value>Resend Request</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="UserNameOrCommercialNumber" xml:space="preserve">
+    <value>Username Or Commercial Number</value>
+  </data>
+  <data name="NumberDuplicated" xml:space="preserve">
+    <value>{0} already added in the system.</value>
+  </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>To confirm your new email</value>
+  </data>
+  <data name="NameAlreadySaved" xml:space="preserve">
+    <value>This name is already registered in the system</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="PhoneNumberChangedSuccessfully" xml:space="preserve">
+    <value>Phone number is changed successfully</value>
+  </data>
+  <data name="ErrorActivationCode" xml:space="preserve">
+    <value>The activation code entered is incorrect. Please re-enter the code</value>
+  </data>
+  <data name="CheckAttachments" xml:space="preserve">
+    <value>Check Attachments</value>
+  </data>
+  <data name="Exist" xml:space="preserve">
+    <value>Exist</value>
+  </data>
+  <data name="PhoneNumberLimitation" xml:space="preserve">
+    <value>Phone Number must be between 7 to 10 digits</value>
+  </data>
+  <data name="PhoneNumberConfirmation" xml:space="preserve">
+    <value>Phone Number Confirmation</value>
+  </data>
+  <data name="PhoneNumberConfirmationSubTitle" xml:space="preserve">
+    <value>Please Enter the code sent to your mobile number</value>
+  </data>
+  <data name="NameDuplicated" xml:space="preserve">
+    <value>This name is exist. </value>
+  </data>
+  <data name="UsernameOrEmail" xml:space="preserve">
+    <value>User Name or Email</value>
+  </data>
+  <data name="InvalidUser" xml:space="preserve">
+    <value>Invalid User</value>
+  </data>
+  <data name="UserExistedBefore" xml:space="preserve">
+    <value>User Existed Before</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Create User</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="CanNotBeDeletedThatHasRelatedData" xml:space="preserve">
+    <value>Can't Be Deleted That Has Related Data</value>
+  </data>
+  <data name="VehicleExistBefore" xml:space="preserve">
+    <value>This Vehicle is exist before</value>
+  </data>
+  <data name="VehicleExistBeforeAlert" xml:space="preserve">
+    <value>Note: This Vehicle is exist before</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>Error while sending the request</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PenaltyWithMaxLevelError" xml:space="preserve">
+    <value>You can't save more than three penalties</value>
+  </data>
+  <data name="PenaltyWithSameLevelError" xml:space="preserve">
+    <value>You saved the same penalty before</value>
+  </data>
+  <data name="PenaltyWithNoType" xml:space="preserve">
+    <value>Please select penalty type</value>
+  </data>
+  <data name="WrongEmailFormat" xml:space="preserve">
+    <value>Wrong Email Format</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="WrongPeriodData" xml:space="preserve">
+    <value>Please enter valid period</value>
+  </data>
+  <data name="StartAndEndDate" xml:space="preserve">
+    <value>Start And End Date</value>
+  </data>
+  <data name="TimePeriod" xml:space="preserve">
+    <value>Time Period</value>
+  </data>
+  <data name="GuardOfficer" xml:space="preserve">
+    <value>Guard Officer</value>
+  </data>
+  <data name="PrisonSecurityManager" xml:space="preserve">
+    <value>Prison Security Manager</value>
+  </data>
+  <data name="InsidePrison" xml:space="preserve">
+    <value>Inside Prison</value>
+  </data>
+  <data name="OutsidePrison" xml:space="preserve">
+    <value>Outside Prison</value>
+  </data>
+  <data name="ThreeAttachmentsRequired" xml:space="preserve">
+    <value>You must add three attachments </value>
+  </data>
+  <data name="MoreDetails" xml:space="preserve">
+    <value>More Details</value>
+  </data>
+  <data name="AnotherUncompletedViolation" xml:space="preserve">
+    <value>You have another uncopleted violation on this user</value>
+  </data>
+  <data name="SearchByFingerPrint" xml:space="preserve">
+    <value>Search By Fingerprint</value>
+  </data>
+  <data name="MaxAttachments10" xml:space="preserve">
+    <value>Maximum number of attachments is 10</value>
+  </data>
+  <data name="CashDeposits" xml:space="preserve">
+    <value>Cash Deposits</value>
+  </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="Individuals" xml:space="preserve">
+    <value>Individuals</value>
+  </data>
+  <data name="InkindDeposits" xml:space="preserve">
+    <value>In kind Deposits</value>
+  </data>
+  <data name="Institutions" xml:space="preserve">
+    <value>Institutions</value>
+  </data>
+  <data name="Withdrawal" xml:space="preserve">
+    <value>Withdrawal</value>
+  </data>
+  <data name="Delegators" xml:space="preserve">
+    <value>Delegators</value>
+  </data>
+  <data name="ViolationAlreadySubmitted" xml:space="preserve">
+    <value>Violation already submitted</value>
+  </data>
+  <data name="NoFoundNationalId" xml:space="preserve">
+    <value>No Found National Id </value>
+  </data>
+  <data name="FoundNationalIdAndPrisonerId" xml:space="preserve">
+    <value>The delegate's data is already recorded on prisoner</value>
+  </data>
+  <data name="NoDelegationForThatNationalIdForThisPrisoner" xml:space="preserve">
+    <value>Withdrawal process cannot be completed because there is no delegation for that National Id for this prisoner</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Not Found</value>
+  </data>
+  <data name="DoesPrisonerNeedToAddDeposits" xml:space="preserve">
+    <value>Does prisoner need to add deposits?</value>
+  </data>
+  <data name="VerificationCodeError" xml:space="preserve">
+    <value>Verification code should be 4 digits</value>
+  </data>
+  <data name="ThereIsNotEnoughBalanceToWithdraw" xml:space="preserve">
+    <value>There Is Not Enough Balance To Withdraw</value>
+  </data>
+  <data name="PenaltyLeveMustBeAdded" xml:space="preserve">
+    <value>A penalty level must be added in a sequence compatible with the penalties already entered</value>
+  </data>
+  <data name="ViolationSubmittionSuccessAsDraft" xml:space="preserve">
+    <value>Violation Submittion Success As Draft</value>
+  </data>
+  <data name="MinimumAttachment1" xml:space="preserve">
+    <value> Minimum number of attachments is 1</value>
+  </data>
+  <data name="ReviewRequest" xml:space="preserve">
+    <value>Review Request</value>
+  </data>
+  <data name="DepName" xml:space="preserve">
+    <value>Dep Name</value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>Employee Name</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>Job Title</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>Add File</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select File</value>
+  </data>
+  <data name="NonRequiredFile" xml:space="preserve">
+    <value>Non Required File</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="SubmitConfirm" xml:space="preserve">
+    <value>Submit Confirm</value>
+  </data>
+  <data name="SubmitTaskDecision" xml:space="preserve">
+    <value>Are You Sure You Want to Submit The Request?</value>
+  </data>
+  <data name="Country Code Not Founded" xml:space="preserve">
+    <value>Country Code Not Founded</value>
+  </data>
+  <data name="DataChanged" xml:space="preserve">
+    <value>Data Changed Before</value>
+  </data>
+  <data name="DataDuplicated" xml:space="preserve">
+    <value>The data entered is repeated</value>
+  </data>
+  <data name="OneAttachmentRequired" xml:space="preserve">
+    <value>Required one attachment at least</value>
+  </data>
+  <data name="InvalidDisplayType" xml:space="preserve">
+    <value>Invalid display type</value>
+  </data>
+  <data name="LinkRequired" xml:space="preserve">
+    <value>Please enter valid link</value>
+  </data>
+  <data name="RepeatedSessionNumberForCouncil" xml:space="preserve">
+    <value>Repeated Session Number For Council / Joint Committee</value>
+  </data>
+  <data name="FileSizeErrorMessageMinMaxKB" xml:space="preserve">
+    <value>Invalid file size. Minimum allowed file size is {0} and Maximum allowed file size is {1} KB</value>
+    <comment>Invalid file size. Maximum allowed file size is {0} MB</comment>
+  </data>
+  <data name="FileSizeNotAllowed" xml:space="preserve">
+    <value>Invalid file size.</value>
+    <comment>Invalid file size. Maximum allowed file size is {0} MB</comment>
+  </data>
+  <data name="InvalidEmailOrPassword" xml:space="preserve">
+    <value>The username or password is incorrect</value>
+  </data>
+  <data name="LoginNotAllowed" xml:space="preserve">
+    <value>You are not allowed to access the platform</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Classification" xml:space="preserve">
+    <value>Classification</value>
+  </data>
+  <data name="CounterpartCode" xml:space="preserve">
+    <value>Country Part Code</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryPartCode" xml:space="preserve">
+    <value>Country Part Code</value>
+  </data>
+  <data name="CreatedOn" xml:space="preserve">
+    <value>Created On</value>
+  </data>
+  <data name="EstablishDate" xml:space="preserve">
+    <value>Establish Date</value>
+  </data>
+  <data name="IsOnTimeline" xml:space="preserve">
+    <value>Is On Time line</value>
+  </data>
+  <data name="LastSessionDate" xml:space="preserve">
+    <value>Last Session Date</value>
+  </data>
+  <data name="SessionNumber" xml:space="preserve">
+    <value>Session Number</value>
+  </data>
+  <data name="CounterpartName" xml:space="preserve">
+    <value>Counterpart Name</value>
+  </data>
+  <data name="EmailUsedBefore" xml:space="preserve">
+    <value>Email Is Used Before</value>
+  </data>
+  <data name="FileContentErrorMessage" xml:space="preserve">
+    <value>Invalid file content</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="NationalIdStart" xml:space="preserve">
+    <value>should be Identity Number Start 1 or 2</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Exceeds2000" xml:space="preserve">
+    <value>Not all data will be extracted if it exceeds 2000 rows of data</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>My Requests</value>
+  </data>
+  <data name="RoomNotAvailableContent" xml:space="preserve">
+    <value>Room not availble in this days please choose day and room :</value>
+  </data>
+  <data name="YearsOnlyErrorMessage" xml:space="preserve">
+    <value>Field {0} Allows Only Valid Year Value</value>
+  </data>
+  <data name="FingerPrintType" xml:space="preserve">
+    <value>FingerPrint Type</value>
+  </data>
+  <data name="GenerateOTPLimitationOrDurationNotValid" xml:space="preserve">
+    <value>Cannot Generate New OTP Because of Duration Or Limit Exceeded.</value>
   </data>
 </root>

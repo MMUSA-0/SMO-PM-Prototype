@@ -1,214 +1,192 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Framework.Core.Data;
-
-/// <summary>
-/// Abstract base class for all database contexts in the application.
-/// Provides automatic audit tracking and common database operations.
-/// </summary>
-/// <typeparam name="TContext">The derived DbContext type (for proper type resolution).</typeparam>
-/// <remarks>
-/// Design Purpose:
-/// - Centralized audit field management (CreatedBy, UpdatedBy, etc.)
-/// - Automatic timestamp tracking
-/// - Current user tracking via HttpContext
-/// - Base implementation of IBaseDbContext
-/// - Consistent behavior across all database contexts
-///
-/// Key Features:
-/// - Automatic audit field population on SaveChanges
-/// - Support for FullAuditedEntityBase entities
-/// - Configurable current user provider
-/// - Inherits from EF Core DbContext
-///
-/// Usage Example:
-/// <code>
-/// // In Infrastructure layer
-/// public class AppDbContext : BaseDbContext&lt;AppDbContext&gt;, IAppDbContext
-/// {
-///     public AppDbContext(DbContextOptions&lt;AppDbContext&gt; options) : base(options)
-///     {
-///     }
-///
-///     public DbSet&lt;StrategicObjective&gt; StrategicObjectives { get; set; }
-///     public DbSet&lt;Initiative&gt; Initiatives { get; set; }
-///
-///     protected override void OnModelCreating(ModelBuilder modelBuilder)
-///     {
-///         // Auto-discovery logic here
-///         base.OnModelCreating(modelBuilder);
-///     }
-/// }
-/// </code>
-///
-/// Audit Tracking:
-/// - CreatedBy/CreatedOn: Set when entity state is Added
-/// - UpdatedBy/UpdatedOn: Set when entity state is Modified
-/// - Timestamps use UTC to avoid timezone issues
-/// - Current user obtained from HttpContext (or "System" if not available)
-///
-/// Current User Resolution:
-/// - In API context: Uses HttpContext.User.Identity.Name
-/// - In background jobs: Uses "System" or configured service account
-/// - Can be overridden by setting CurrentUserName property
-/// </remarks>
-public abstract class BaseDbContext<TContext> : DbContext, IBaseDbContext
-    where TContext : DbContext
+namespace Framework.Core.Data
 {
-    /// <summary>
-    /// Gets or sets the current user's username for audit tracking.
-    /// If null, attempts to resolve from HttpContext or uses "System" as fallback.
-    /// </summary>
-    /// <remarks>
-    /// Set this property manually for:
-    /// - Background jobs running outside HTTP context
-    /// - Console applications or utilities
-    /// - Testing scenarios requiring specific user names
-    ///
-    /// Example:
-    /// <code>
-    /// // In Hangfire job
-    /// _dbContext.CurrentUserName = "BackgroundJob:KPICalculation";
-    /// await _dbContext.SaveChangesAsync();
-    /// </code>
-    /// </remarks>
-    public string? CurrentUserName { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the BaseDbContext with the specified options.
-    /// </summary>
-    /// <param name="options">The options for this context.</param>
-    protected BaseDbContext(DbContextOptions<TContext> options) : base(options)
+    public abstract class BaseDbContext<TContext> : DbContext, IBaseDbContext
+        where TContext : DbContext
     {
-    }
 
-    /// <summary>
-    /// Saves all changes made in this context to the database.
-    /// Automatically updates audit fields (CreatedBy, UpdatedBy, etc.) before saving.
-    /// </summary>
-    /// <returns>The number of state entries written to the database.</returns>
-    /// <remarks>
-    /// Audit Field Updates:
-    /// - Added entities: Sets CreatedBy and CreatedOn
-    /// - Modified entities: Sets UpdatedBy and UpdatedOn
-    /// - Deleted entities: No audit updates (hard delete)
-    ///
-    /// All timestamps use DateTime.UtcNow for consistency across timezones.
-    /// </remarks>
-    public override int SaveChanges()
-    {
-        UpdateAuditFields();
-        return base.SaveChanges();
-    }
-
-    /// <summary>
-    /// Asynchronously saves all changes made in this context to the database.
-    /// Automatically updates audit fields (CreatedBy, UpdatedBy, etc.) before saving.
-    /// </summary>
-    /// <param name="cancellationToken">A token to observe while waiting for the task to complete.</param>
-    /// <returns>A task representing the asynchronous save operation. The task result contains the number of state entries written to the database.</returns>
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        UpdateAuditFields();
-        return base.SaveChangesAsync(cancellationToken);
-    }
-
-    /// <summary>
-    /// Updates audit fields for all tracked entities that inherit from FullAuditedEntityBase.
-    /// Called automatically by SaveChanges and SaveChangesAsync.
-    /// </summary>
-    /// <remarks>
-    /// Process:
-    /// 1. Get all tracked entities from ChangeTracker
-    /// 2. Filter entities inheriting from FullAuditedEntityBase
-    /// 3. For Added entities: Set CreatedBy and CreatedOn
-    /// 4. For Modified entities: Set UpdatedBy and UpdatedOn
-    ///
-    /// Current User Resolution Order:
-    /// 1. CurrentUserName property (if set manually)
-    /// 2. HttpContext.User.Identity.Name (if available via dependency injection)
-    /// 3. "System" (fallback for background jobs, console apps, etc.)
-    /// </remarks>
-    private void UpdateAuditFields()
-    {
-        var entries = ChangeTracker.Entries()
-            .Where(e => e.Entity is FullAuditedEntityBase<int> || e.Entity is FullAuditedEntityBase<Guid> || e.Entity is FullAuditedEntityBase<long>)
-            .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
-
-        var currentUser = GetCurrentUserName();
-        var now = DateTime.UtcNow;
-
-        foreach (var entry in entries)
+        protected BaseDbContext(DbContextOptions<TContext> options) : base(options)
         {
-            if (entry.State == EntityState.Added)
-            {
-                // Set creation audit fields
-                if (entry.Entity is FullAuditedEntityBase<int> entity1)
-                {
-                    entity1.CreatedBy = currentUser;
-                    entity1.CreatedOn = now;
-                }
-                else if (entry.Entity is FullAuditedEntityBase<Guid> entity2)
-                {
-                    entity2.CreatedBy = currentUser;
-                    entity2.CreatedOn = now;
-                }
-                else if (entry.Entity is FullAuditedEntityBase<long> entity3)
-                {
-                    entity3.CreatedBy = currentUser;
-                    entity3.CreatedOn = now;
-                }
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                // Set modification audit fields
-                if (entry.Entity is FullAuditedEntityBase<int> entity1)
-                {
-                    entity1.UpdatedBy = currentUser;
-                    entity1.UpdatedOn = now;
-                }
-                else if (entry.Entity is FullAuditedEntityBase<Guid> entity2)
-                {
-                    entity2.UpdatedBy = currentUser;
-                    entity2.UpdatedOn = now;
-                }
-                else if (entry.Entity is FullAuditedEntityBase<long> entity3)
-                {
-                    entity3.UpdatedBy = currentUser;
-                    entity3.UpdatedOn = now;
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// Gets the current user's username for audit tracking.
-    /// </summary>
-    /// <returns>The current username or "System" if unavailable.</returns>
-    /// <remarks>
-    /// Resolution Order:
-    /// 1. CurrentUserName property (if set)
-    /// 2. "System" (fallback)
-    ///
-    /// NOTE: HttpContext resolution will be added when HttpContextAccessor is configured in Program.cs
-    /// For now, using "System" as default until dependency injection is fully configured in future stories.
-    /// </remarks>
-    protected virtual string GetCurrentUserName()
-    {
-        // Return manually set username if available
-        if (!string.IsNullOrEmpty(CurrentUserName))
-        {
-            return CurrentUserName;
         }
 
-        // TODO: In future stories, inject IHttpContextAccessor and resolve from HttpContext
-        // Example:
-        // if (_httpContextAccessor?.HttpContext?.User?.Identity?.Name != null)
-        // {
-        //     return _httpContextAccessor.HttpContext.User.Identity.Name;
-        // }
+        public string CurrentUserName { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //TODO: Upgrade the code to EF Core 3.1
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.ClrType == typeof(decimal)))
+            //{
+            //    property.Relational().ColumnType = "decimal(18, 6)";
+            //}
 
-        // Default fallback for background jobs, console apps, or before DI is configured
-        return "System";
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.ClrType == typeof(DateTime)))
+            //{
+            //    property.Relational().ColumnType = "datetime2";
+            //}
+
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.ClrType == typeof(string)))
+            //{
+            //    if (property.GetMaxLength() == null)
+            //        property.SetMaxLength(100);
+            //}
+
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.ClrType == typeof(Guid) && p.Name == "Id"))
+            //{
+            //    property.SqlServer().DefaultValueSql = "newsequentialid()";
+            //}
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //    .Where(e => e.ClrType.BaseType == typeof(LookupEntityBase<>))
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.ClrType == typeof(int) && p.Name == "Id"))
+            //{
+            //    property.SqlServer().ValueGenerationStrategy =
+            //       SqlServerValueGenerationStrategy.SequenceHiLo;
+            //}
+
+
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.Name == "CreatedOn"))
+            //{
+            //    property.SqlServer().DefaultValueSql = "getDate()";
+            //}
+
+            //foreach (var property in modelBuilder.Model.GetEntityTypes()
+            //.SelectMany(t => t.GetProperties())
+            //.Where(p => p.Name == "IsActive"))
+            //{
+            //    property.SqlServer().DefaultValueSql = "1";
+            //}
+
+            //foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            //{
+            //    entityType.Relational().TableName = entityType.DisplayName();
+            //    entityType.GetForeignKeys()
+            //        .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade)
+            //        .ToList()
+            //        .ForEach(fk => fk.DeleteBehavior = DeleteBehavior.Restrict);
+            //}
+
+
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+        public new int SaveChanges()
+        {
+            try
+            {
+                ChangeTracker.SetShadowProperties(CurrentUserName);
+                ChangeTracker.Validate();
+
+                return base.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                ChangeTracker.AutoDetectChangesEnabled = true;
+            }
+
+        }
+
+
+        public new async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                ChangeTracker.SetShadowProperties(CurrentUserName);
+                ChangeTracker.Validate();
+
+                return await base.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                ChangeTracker.AutoDetectChangesEnabled = true;
+            }
+        }
+
+
+
+        public async Task<int> SaveChangesWithAuditAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await base.SaveChangesAsync(cancellationToken);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                ChangeTracker.AutoDetectChangesEnabled = true;
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// Modify the input SQL query by adding passed parameters
+        /// </summary>
+        /// <param name="sql">The raw SQL query</param>
+        /// <param name="parameters">The values to be assigned to parameters</param>
+        /// <returns>Modified raw SQL query</returns>
+        protected virtual string CreateSqlWithParameters(string sql, params object[] parameters)
+        {
+            //add parameters to sql
+            for (var i = 0; i <= (parameters?.Length ?? 0) - 1; i++)
+            {
+                if (!(parameters[i] is DbParameter parameter))
+                    continue;
+
+                sql = $"{sql}{(i > 0 ? "," : string.Empty)} @{parameter.ParameterName}";
+
+                //whether parameter is output
+                if (parameter.Direction == ParameterDirection.InputOutput || parameter.Direction == ParameterDirection.Output)
+                    sql = $"{sql} output";
+            }
+
+            return sql;
+        }
+
+        /// <summary>
+        /// Creates a LINQ query for the entity based on a raw SQL query
+        /// </summary>
+        /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <param name="sql">The raw SQL query</param>
+        /// <param name="parameters">The values to be assigned to parameters</param>
+        /// <returns>An IQueryable representing the raw SQL query</returns>
+        public virtual IQueryable<TEntity> EntityFromSql<TEntity>(string sql, params object[] parameters) where TEntity : class
+        {
+            return Set<TEntity>().FromSqlRaw(CreateSqlWithParameters(sql, parameters), parameters);
+        }
+
+
     }
+
 }

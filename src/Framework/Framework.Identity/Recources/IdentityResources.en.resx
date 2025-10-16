@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountCreateHeader" xml:space="preserve">
+    <value>User Registeration</value>
+  </data>
+  <data name="AccountDashboard" xml:space="preserve">
+    <value>User Management DashBoard</value>
+  </data>
+  <data name="AccountLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="AccountSuspended" xml:space="preserve">
+    <value>Account Suspended</value>
+  </data>
+  <data name="AccountSuspendedDetails" xml:space="preserve">
+    <value>Your Account has been suspended by the System Administrator</value>
+  </data>
+  <data name="ActivateUser" xml:space="preserve">
+    <value>Activate User</value>
+  </data>
+  <data name="ActivateUserConfirm" xml:space="preserve">
+    <value>Are you sure you want to Activate User?</value>
+  </data>
+  <data name="ActivateUserError" xml:space="preserve">
+    <value>An Error Occured while trying to Activate User.</value>
+  </data>
+  <data name="ActivateUserSuccess" xml:space="preserve">
+    <value>Activate User Done Successfully.</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ActiveDirectoryUserInvalidCredintials" xml:space="preserve">
+    <value>Provided Active Directory Credintials Are Invalid.</value>
+  </data>
+  <data name="ActiveDirectoryUserNotRegistered" xml:space="preserve">
+    <value>User Account Is Not Added To The System by The System Admin.</value>
+  </data>
+  <data name="ActiveStatus" xml:space="preserve">
+    <value>Activation status</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>Verification Code</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ChangePasswordConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to change your password?</value>
+  </data>
+  <data name="ChangePasswordSuccessfully" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
+  <data name="CodeExpiredDate" xml:space="preserve">
+    <value>The activation link has expired</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
+  <data name="ConfirmEmailCodeExpired" xml:space="preserve">
+    <value>Account activation link expired. You must send a new link to complete the activation of your account</value>
+  </data>
+  <data name="ConfirmEmailInvalidCode" xml:space="preserve">
+    <value>Account activation link is incorrect. Make sure the mail is sent to you. You can resend a new link to activate your account if the sender does not work</value>
+  </data>
+  <data name="ConfirmEmailMsg" xml:space="preserve">
+    <value>Your email has been confirmed and your account has been activated</value>
+  </data>
+  <data name="ConfirmEmailNotMatchValidator" xml:space="preserve">
+    <value>Email does not match the confirm email</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm New Password</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="ConfirmPasswordNotMatchValidator" xml:space="preserve">
+    <value>Password does not match the confirm password</value>
+  </data>
+  <data name="Contry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CreateRole" xml:space="preserve">
+    <value>Create Role</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current Password</value>
+  </data>
+  <data name="CurrentPasswordNotValid" xml:space="preserve">
+    <value>Invalid Password</value>
+  </data>
+  <data name="DeactivateUser" xml:space="preserve">
+    <value>Deactivate User</value>
+  </data>
+  <data name="DeactivateUserConfirm" xml:space="preserve">
+    <value>Are you sure you want to Deactivate User?</value>
+  </data>
+  <data name="DeactivateUserError" xml:space="preserve">
+    <value>An Error Occured while trying to Deactivate User.</value>
+  </data>
+  <data name="DeactivateUserReason" xml:space="preserve">
+    <value>Deactivate User Reason</value>
+  </data>
+  <data name="DeactivateUserSuccess" xml:space="preserve">
+    <value>User Account Deactivated Successfully.</value>
+  </data>
+  <data name="DefaultLanguage" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="DeleteUserConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete user?</value>
+  </data>
+  <data name="DeleteUserError" xml:space="preserve">
+    <value>An Error Occured while trying to Delete User.</value>
+  </data>
+  <data name="DeleteUserSuccess" xml:space="preserve">
+    <value>User Deleted Successfully</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditMyEmail" xml:space="preserve">
+    <value>Edit Email</value>
+  </data>
+  <data name="EditMyProfile" xml:space="preserve">
+    <value>Update My Profile</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>Edit Role</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailAlreadyRegistered" xml:space="preserve">
+    <value>User already exists</value>
+  </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
+  <data name="EmailConfirmNotMatchValidator" xml:space="preserve">
+    <value>Email does not match the confirm email</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>The email account not confirmed</value>
+  </data>
+  <data name="EmailPasswordLink" xml:space="preserve">
+    <value>Send password link to my email</value>
+  </data>
+  <data name="EmailValidator" xml:space="preserve">
+    <value>Invalid email</value>
+  </data>
+  <data name="FacebookLogin" xml:space="preserve">
+    <value>تسجيل الدخول&lt;br /&gt;بحساب فيسبوك</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>Forget password</value>
+  </data>
+  <data name="ForgetPasswordConfirmMsg" xml:space="preserve">
+    <value>Please check the link sent to your email to reset your password</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HospitalIsRequired" xml:space="preserve">
+    <value>Hospital Is Required</value>
+  </data>
+  <data name="InvalidCaptcha" xml:space="preserve">
+    <value>Invalid Captcha Code</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Provided Email Is Invalid</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Invalid login, please try again</value>
+  </data>
+  <data name="InvalidMobileNumber" xml:space="preserve">
+    <value>Invalid mobile number</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>User Activation Status</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ManageUserRoles" xml:space="preserve">
+    <value>Manage User Roles</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="MobileAlreadyRegistered" xml:space="preserve">
+    <value>Phone Number Already Registered for another user. please enter different phone number</value>
+  </data>
+  <data name="MustAcceptAgreement" xml:space="preserve">
+    <value>Terms and conditions must be approved</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
+  <data name="NationalIdAlreadyRegistered" xml:space="preserve">
+    <value>National Id Already Registered for another user. please enter different National Id</value>
+  </data>
+  <data name="NewEmail" xml:space="preserve">
+    <value>New Email</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="NewUserJoinUs" xml:space="preserve">
+    <value>New user &lt;br /&gt; Join us</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordValidator" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="PhoneNumberAlreadyExist" xml:space="preserve">
+    <value>Phone number already registered for another user. please enter different phone number</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ProfileHeader" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="RegisterationSuccess" xml:space="preserve">
+    <value>Registration successful, System sent email to the user to activate his account</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Register new user</value>
+  </data>
+  <data name="RegistrationSuccess" xml:space="preserve">
+    <value>You should recieve an email with confirmation link to verify your email address provided, click the link in that email to activate account. 
+You will receive a message with a code to verify your mobile number. Also you can change the mobile number later from your profile.</value>
+  </data>
+  <data name="RequiredCaptchaMessage" xml:space="preserve">
+    <value>Captcha Code Is Required</value>
+  </data>
+  <data name="ResendConfirmEmailLink" xml:space="preserve">
+    <value>Resend confirmation email link</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ResetPasswordConfirm" xml:space="preserve">
+    <value>Confirm Reset Password</value>
+  </data>
+  <data name="ResetPasswordConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to reset password?</value>
+  </data>
+  <data name="ResetPasswordConfirmMsg" xml:space="preserve">
+    <value>Successfully reset password. please click login link</value>
+  </data>
+  <data name="ResetPasswordInvalidCode" xml:space="preserve">
+    <value>Invalid password reset link. Make sure the email is sent to you. You can resend a new link to reset your password if the sender link does not work</value>
+  </data>
+  <data name="ResetPasswordNotValid" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="ResetPasswordSuccessfully" xml:space="preserve">
+    <value>Password reset successfully</value>
+  </data>
+  <data name="RoleCode" xml:space="preserve">
+    <value>Role Code</value>
+  </data>
+  <data name="RoleCreatedSuccessfully" xml:space="preserve">
+    <value>Successfully added new role</value>
+  </data>
+  <data name="RoleDescription" xml:space="preserve">
+    <value>Role Description</value>
+  </data>
+  <data name="RoleDescriptionArabic" xml:space="preserve">
+    <value>Arabic Role Discription</value>
+  </data>
+  <data name="RoleDescriptionEnglish" xml:space="preserve">
+    <value>English Role Discription</value>
+  </data>
+  <data name="RoleDetails" xml:space="preserve">
+    <value>Rple Details</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="RoleNameArabic" xml:space="preserve">
+    <value>Arabic Role Name</value>
+  </data>
+  <data name="RoleNameEnglish" xml:space="preserve">
+    <value>English Role Name</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="SamAccountName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="SaveChangesConfirm" xml:space="preserve">
+    <value>Are you sure you want to save changes?</value>
+  </data>
+  <data name="SavedSuccessfully" xml:space="preserve">
+    <value>Successfully saved</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SendConfirmUserEmail" xml:space="preserve">
+    <value>Re-send Confirm user email</value>
+  </data>
+  <data name="SendConfirmUserEmailConfirm" xml:space="preserve">
+    <value>Are you sure you want to resend Confirm User Email?</value>
+  </data>
+  <data name="SendConfirmUserEmailError" xml:space="preserve">
+    <value>An Error Occured while trying to send Confirm User Email</value>
+  </data>
+  <data name="SendConfirmUserEmailSuccess" xml:space="preserve">
+    <value>Confirm user Email is sent successfully</value>
+  </data>
+  <data name="SendedActivationLink" xml:space="preserve">
+    <value>Activation link sent</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
+  <data name="SystemManagement" xml:space="preserve">
+    <value>System Management</value>
+  </data>
+  <data name="TermsAgreement" xml:space="preserve">
+    <value>Approve the terms and conditions</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Terms and Conditions</value>
+  </data>
+  <data name="TwitterLogin" xml:space="preserve">
+    <value>Twitter Login</value>
+  </data>
+  <data name="UpdateRoleSuccessfully" xml:space="preserve">
+    <value>Role information updated successfully</value>
+  </data>
+  <data name="UpdateUserSuccessfully" xml:space="preserve">
+    <value>User information updated successfully</value>
+  </data>
+  <data name="UrlActivationTitle" xml:space="preserve">
+    <value>To resend the activation link to your e-mail, click here</value>
+  </data>
+  <data name="UserAlreadyActivated" xml:space="preserve">
+    <value>User account already activated</value>
+  </data>
+  <data name="UserCanNotBeDeleted" xml:space="preserve">
+    <value>User Can Not Be Deleted. Reason:</value>
+  </data>
+  <data name="UserCreatedSuccessfully" xml:space="preserve">
+    <value>User Created Successfully</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="UserIsLocked" xml:space="preserve">
+    <value>The user has been locked, please contact the system administrator</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="UserNameAlreadyRegistered" xml:space="preserve">
+    <value>User Name is already registred, please select another user name</value>
+  </data>
+  <data name="UserNameOrEmail" xml:space="preserve">
+    <value>Email / Username</value>
+  </data>
+  <data name="UserNameValidator" xml:space="preserve">
+    <value>Invalid username</value>
+  </data>
+  <data name="UserNotActivated" xml:space="preserve">
+    <value>The user was deactivated by the system administrator</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>There is no registered account. Please register a new account</value>
+  </data>
+  <data name="UserNumberAlreadyRegistered" xml:space="preserve">
+    <value>User Number is already registred, please enter another user Number</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="UsersCount" xml:space="preserve">
+    <value>Users Count</value>
+  </data>
+  <data name="UsersInRole" xml:space="preserve">
+    <value>Users In Role</value>
+  </data>
+  <data name="UsersManagement" xml:space="preserve">
+    <value>Users Management</value>
+  </data>
+  <data name="TranslatorMustSelectEntryLangauge" xml:space="preserve">
+    <value>Please Select Langauge Entry</value>
+  </data>
+  <data name="EntryLanguage" xml:space="preserve">
+    <value>Entry Language</value>
+  </data>
+  <data name="TermsAgreementMustBeTrue" xml:space="preserve">
+    <value>You Have to Approve Terms and Conditions</value>
+  </data>
+  <data name="LogoutSuccessfully" xml:space="preserve">
+    <value>You have successfully signed out.</value>
+  </data>
+  <data name="RegisterNewUserTitle" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="LoginUserTitle" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="UserIsNotAuthourized" xml:space="preserve">
+    <value>You do not have access to this resource</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>New User</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Lockout</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="ContactOfficer" xml:space="preserve">
+    <value>Contact Officer</value>
+  </data>
+  <data name="EventSpeaker" xml:space="preserve">
+    <value>Event Speaker</value>
+  </data>
+  <data name="OrganizationCoordinator" xml:space="preserve">
+    <value>Organization Coordinator</value>
+  </data>
+  <data name="Expert" xml:space="preserve">
+    <value>Expert</value>
+  </data>
+  <data name="Trainer" xml:space="preserve">
+    <value>Trainer</value>
+  </data>
+  <data name="RegisteredUser" xml:space="preserve">
+    <value>Registered User</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="FirstNameEn" xml:space="preserve">
+    <value>First Name in English</value>
+  </data>
+  <data name="FirstNameAr" xml:space="preserve">
+    <value>First Name in Arabic</value>
+  </data>
+  <data name="FullNameAr" xml:space="preserve">
+    <value>Full Name in Arabic</value>
+  </data>
+  <data name="FullNameEn" xml:space="preserve">
+    <value>Full Name in English</value>
+  </data>
+  <data name="LastNameAr" xml:space="preserve">
+    <value>Last Name in Arabic</value>
+  </data>
+  <data name="LastNameEn" xml:space="preserve">
+    <value>Last Name in English</value>
+  </data>
+  <data name="MiddleNameAr" xml:space="preserve">
+    <value>Middle Name in Arabic</value>
+  </data>
+  <data name="MiddleNameEn" xml:space="preserve">
+    <value>Middle Name in English</value>
+  </data>
+  <data name="PreferredUiLanguage" xml:space="preserve">
+    <value>Preferred Display Language</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="PersonalData" xml:space="preserve">
+    <value>Personal Data</value>
+  </data>
+  <data name="CommunicationData" xml:space="preserve">
+    <value>Communication Data</value>
+  </data>
+  <data name="WaitingConfirmation" xml:space="preserve">
+    <value>Waiting Email Confirmation</value>
+  </data>
+  <data name="WaitingConfirmationMessage" xml:space="preserve">
+    <value>Message has been sent to your email to confirm your account activation on the system please click on the link in the message to confirm your utility account</value>
+  </data>
+  <data name="CompleteProfile" xml:space="preserve">
+    <value>Click here to complete the profile</value>
+  </data>
+  <data name="UserType" xml:space="preserve">
+    <value>User Type</value>
+  </data>
+  <data name="Unemployed" xml:space="preserve">
+    <value>Unemployed</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="SaudiCitizen" xml:space="preserve">
+    <value>Saudi Citizen</value>
+  </data>
+  <data name="NonSaudiCitizen" xml:space="preserve">
+    <value>Non Saudi Citizen</value>
+  </data>
+  <data name="GCC_Citizens" xml:space="preserve">
+    <value>GCC Citizens</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>Job Title</value>
+  </data>
+  <data name="ThirdNameAr" xml:space="preserve">
+    <value>Third Name in Arabic</value>
+  </data>
+  <data name="ThirdNameEn" xml:space="preserve">
+    <value>Third Name in English</value>
+  </data>
+  <data name="TelephoneNumber" xml:space="preserve">
+    <value>Telephone Number</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="PreferredUiAndConnectionLanguage" xml:space="preserve">
+    <value>Preferred language for presentation and communication</value>
+  </data>
+  <data name="IdentityNumber" xml:space="preserve">
+    <value>Identity Number</value>
+  </data>
+  <data name="RoleGroup" xml:space="preserve">
+    <value>Role Group</value>
+  </data>
+  <data name="PasswordHint" xml:space="preserve">
+    <value>&lt;ul class="password-hint"&gt;
+    &lt;li&gt;Password must be between 8 - 20 characters&lt;/li&gt;
+    &lt;li&gt;Password must have at least one special character i.e ('$')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one digit ('0'-'9')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one lowercase ('a'-'z')&lt;/li&gt;
+    &lt;li&gt;Password must have at least one uppercase ('A'-'Z')&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="AddUserToRole" xml:space="preserve">
+    <value>Add User To Role</value>
+  </data>
+  <data name="AssignedRoles" xml:space="preserve">
+    <value>Assigned Roles</value>
+  </data>
+  <data name="NoRolesAssigned" xml:space="preserve">
+    <value>No roles assigned yet</value>
+  </data>
+  <data name="UserCanNotChangeHisStatus" xml:space="preserve">
+    <value>User can't change his own status</value>
+  </data>
+  <data name="UserDetailsUpdatedSuccessfully" xml:space="preserve">
+    <value>User details updated successfully</value>
+  </data>
+  <data name="InvalidInputData" xml:space="preserve">
+    <value>Provided data is invalid</value>
+  </data>
+  <data name="InvalidParametersError" xml:space="preserve">
+    <value>Invalid Parameters </value>
+  </data>
+  <data name="RemoveUserRole" xml:space="preserve">
+    <value>Remove User Role</value>
+  </data>
+  <data name="InvalidReCaptcha" xml:space="preserve">
+    <value>InvalidReCaptcha</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>InvalidToken</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="InActive" xml:space="preserve">
+    <value>InActive</value>
+  </data>
+  <data name="ConfirmEmailSuccess" xml:space="preserve">
+    <value>Your email confirmed successfully</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Invalid Password</value>
+  </data>
+  <data name="IdentityType" xml:space="preserve">
+    <value>Identity Type</value>
+  </data>
+  <data name="PleaseEnterFullName" xml:space="preserve">
+    <value>Please Enter Full Name</value>
+  </data>
+  <data name="Passwordchanged" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="PleaseEnterNationalId" xml:space="preserve">
+    <value>Please Enter National ID</value>
+  </data>
+  <data name="NewPhoneNumber" xml:space="preserve">
+    <value>New Phone Number</value>
+  </data>
+  <data name="ProfileUpdated" xml:space="preserve">
+    <value>Your profile has been updated</value>
+  </data>
+  <data name="NewEmailSameAsCurrentEmail" xml:space="preserve">
+    <value>You entered an email same as current email</value>
+  </data>
+  <data name="WaitingEmailConfirmationMessage" xml:space="preserve">
+    <value>Message has been sent to your new email to confirm your account, Please click on the link in the message to confirm your new email.</value>
+  </data>
+  <data name="CRNumberAlreadyExist" xml:space="preserve">
+    <value>Commercial number already registered for another user. please enter different commercial number</value>
+  </data>
+  <data name="PasswordMustHaveLowerCase" xml:space="preserve">
+    <value>Password must have lower case</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="EnterActivationCode" xml:space="preserve">
+    <value>Please enter activation code</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Invalid Activation Code</value>
+  </data>
+  <data name="PhoneNumberChangedSuccessfully" xml:space="preserve">
+    <value>Phone number is changed successfully</value>
+  </data>
+  <data name="PasswordMustHaveUpperCase" xml:space="preserve">
+    <value>Password must have upper case</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Password is too short</value>
+  </data>
+  <data name="HasNoAccount" xml:space="preserve">
+    <value>Account information not found in active directory</value>
+  </data>
+  <data name="RegisterHere" xml:space="preserve">
+    <value>Click here to regsiter</value>
+  </data>
+  <data name="RemoveUserRoleConfirmMessage" xml:space="preserve">
+    <value>Are you sure to remove this role from User?</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>Membership</value>
+  </data>
+  <data name="AdminAlreadyAssignedToThisPort" xml:space="preserve">
+    <value>Admin Already Assigned To This Port</value>
+  </data>
+  <data name="UserAlreadyAssignedToRole" xml:space="preserve">
+    <value>User Already Assigned To Role</value>
+  </data>
+  <data name="UserIsNotActive" xml:space="preserve">
+    <value>sorry, the account is not active, we send an activation link please check your email</value>
+  </data>
+  <data name="IdentityNumberAlreadyExist" xml:space="preserve">
+    <value>Identity Number is already registered, please enter another Identity Number</value>
+  </data>
+  <data name="fieldIsRequired" xml:space="preserve">
+    <value>Field Is Required</value>
+  </data>
+  <data name="NameArExcel" xml:space="preserve">
+    <value>Name Ar</value>
+  </data>
+  <data name="NameEnExcel" xml:space="preserve">
+    <value>Name En</value>
+  </data>
+  <data name="OtpIsInvalid" xml:space="preserve">
+    <value>OTP is invalid. Please enter correct OTP</value>
+  </data>
+  <data name="row" xml:space="preserve">
+    <value> in row</value>
+  </data>
+  <data name="ADUserIsNotActiveOrNotExist" xml:space="preserve">
+    <value>This user does not exist/ is not activated in the active directory</value>
+  </data>
+  <data name="YouAreNotAuthorized" xml:space="preserve">
+    <value>You are not authorized to access the platform</value>
+  </data>
+  <data name="AccountNotExist" xml:space="preserve">
+    <value>The account is not registered. Please register a new account</value>
+  </data>
+  <data name="EmailTemporaryBlocked" xml:space="preserve">
+    <value>Account has temporary blocked. Please try again later.</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Enter Email Address...</value>
+    <comment>Enter Email Address...</comment>
+  </data>
+  <data name="ChangePasswordSuccessfully1" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
+  <data name="AccountNotFoundINActiveDirectory" xml:space="preserve">
+    <value>Account information not found in active directory</value>
+  </data>
+</root>

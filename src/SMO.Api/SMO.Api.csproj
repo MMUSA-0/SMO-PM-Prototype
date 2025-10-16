@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.Core\Framework.Core.csproj" />
     <ProjectReference Include="..\SMO.Application\SMO.Application.csproj" />
     <ProjectReference Include="..\SMO.Infrastructure\SMO.Infrastructure.csproj" />
-    <ProjectReference Include="..\Framework\Framework.Core\Framework.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

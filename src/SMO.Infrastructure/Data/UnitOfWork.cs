@@ -1,4 +1,5 @@
 using Framework.Core.Data;
+using Framework.Core.Data.Uow;
 using SMO.Domain.Interfaces;
 
 namespace SMO.Infrastructure.Data;
