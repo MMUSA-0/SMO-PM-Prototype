@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YaU/EsaYgfo=",
+  "dgSpecHash": "ew54k7Ejup0=",
   "success": true,
   "projectFilePath": "/Users/alielrediny/Documents/Work/Projects/SMO/SMO/SMO.Api/SMO.Api.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,8 @@
     "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.dataprotection.abstractions/8.0.7/microsoft.aspnetcore.dataprotection.abstractions.8.0.7.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.dataprotection.entityframeworkcore/8.0.7/microsoft.aspnetcore.dataprotection.entityframeworkcore.8.0.7.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/8.0.7/microsoft.aspnetcore.identity.entityframeworkcore.8.0.7.nupkg.sha512",
+    "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.jsonpatch/8.0.7/microsoft.aspnetcore.jsonpatch.8.0.7.nupkg.sha512",
+    "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/8.0.7/microsoft.aspnetcore.mvc.newtonsoftjson.8.0.7.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.aspnetcore.openapi/8.0.17/microsoft.aspnetcore.openapi.8.0.17.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -80,6 +82,7 @@
     "/Users/alielrediny/.nuget/packages/microsoft.win32.registry/4.3.0/microsoft.win32.registry.4.3.0.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/alielrediny/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/nlog/5.3.2/nlog.5.3.2.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/nlog.extensions.logging/5.3.11/nlog.extensions.logging.5.3.11.nupkg.sha512",
     "/Users/alielrediny/.nuget/packages/nlog.web.aspnetcore/5.3.11/nlog.web.aspnetcore.5.3.11.nupkg.sha512",

@@ -1,0 +1,28 @@
+markdownExploder: true
+qa:
+  qaLocation: docs/qa
+prd:
+  prdFile: docs/prd.md
+  prdVersion: v4
+  prdSharded: false
+  prdShardedLocation: docs/prd
+  epicFilePattern: epic-{n}*.md
+architecture:
+  architectureFile: docs/architecture.md
+  architectureVersion: v4
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+customTechnicalDocuments: null
+devLoadAlwaysFiles:
+  - docs/architecture/2-solution-structure.md
+  - docs/architecture/3-technology-stack.md
+  - docs/architecture/4-backend-architecture.md
+  - docs/architecture/5-frontend-architecture.md
+  - docs/architecture/6-framework-layer.md  
+  - docs/architecture/7-data-architecture.md
+  - docs/architecture/8-cross-cutting-concerns.md
+  - docs/architecture/9-coding-standards-patterns.md
+  - docs/architecture/10-deployment-architecture.md
+devDebugLog: .ai/debug-log.md
+devStoryLocation: docs/stories
+slashPrefix: BMad

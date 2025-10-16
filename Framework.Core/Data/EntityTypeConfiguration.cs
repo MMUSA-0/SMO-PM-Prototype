@@ -73,7 +73,7 @@ namespace Framework.Core.Data;
 /// - Centralized configuration per entity
 /// - Better support for advanced EF Core features
 /// </remarks>
-public abstract class EntityTypeConfiguration<TEntity> : IMappingConfiguration where TEntity : class
+public abstract class EntityTypeConfiguration<TEntity> : IMappingConfiguration, IEntityTypeConfiguration<TEntity> where TEntity : class
 {
     /// <summary>
     /// Configures the entity type using Fluent API.
