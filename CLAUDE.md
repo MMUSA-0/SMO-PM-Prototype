@@ -152,12 +152,24 @@ public class ObjectivesController : ControllerBase
 **Key Classes:**
 
 #### Entity Base Classes
+
+**STANDARD ENTITY BASE CLASS:**
 ```csharp
-// All entities should inherit from one of these:
-EntityBase<TKey>              // Simple entity with Id
-FullAuditedEntityBase<TKey>   // Auto auditing (CreatedBy, UpdatedBy, etc.)
-LookupEntityBase<TKey>        // Lookup tables (NameAr, NameEn, IsActive)
+// ✅ PRIMARY CHOICE - Use for ALL regular entities
+FullAuditedEntityBase<TKey>   // Id + Auto auditing (CreatedBy, CreatedOn, UpdatedBy, UpdatedOn)
+
+// ✅ USE FOR LOOKUP/MASTER DATA - Adds bilingual naming and IsActive flag
+LookupEntityBase<TKey>        // Inherits from FullAuditedEntityBase + NameAr, NameEn, IsActive, Order
+
+// ❌ RARELY USED - Only for special cases (no auditing needed)
+EntityBase<TKey>              // Only Id property (minimal entity, rarely used)
 ```
+
+**Entity Design Guidelines:**
+- **Default Choice:** Use `FullAuditedEntityBase<TKey>` for ALL regular entities (transactions, business data, etc.)
+- **Lookup Tables:** Use `LookupEntityBase<TKey>` for master data (statuses, categories, types, etc.) that need bilingual names
+- **Auto Auditing:** `FullAuditedEntityBase` automatically populates CreatedBy, CreatedOn, UpdatedBy, UpdatedOn via BaseDbContext
+- **Never Skip Auditing:** Unless you have a specific technical reason, always use entities with audit fields
 
 #### BaseDbContext - Automatic Auditing
 - Automatically sets `CreatedBy`, `CreatedOn`, `UpdatedBy`, `UpdatedOn`
@@ -428,43 +440,115 @@ public string Name => CultureHelper.IsArabic ? NameAr : NameEn;
 ### Adding a New Entity
 
 1. **Define in Domain Layer** (`src/SMO.Domain/Entities/`)
+
+**For Regular Entities (Transactions, Business Data):**
 ```csharp
-public class MyEntity : LookupEntityBase<int>
+// ✅ Use FullAuditedEntityBase<TKey> for regular entities
+public class Initiative : FullAuditedEntityBase<int>
 {
-    // Additional properties
+    // Business properties
+    public string NameAr { get; set; }
+    public string NameEn { get; set; }
     public string Description { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime? EndDate { get; set; }
+    public decimal Budget { get; set; }
+
+    // Foreign keys
+    public int ProgramId { get; set; }
+    public int StatusId { get; set; }
 
     // Navigation properties
-    public virtual ICollection<RelatedEntity> RelatedEntities { get; set; }
+    public virtual Program Program { get; set; }
+    public virtual InitiativeStatus Status { get; set; }
+    public virtual ICollection<KPI> KPIs { get; set; }
+}
+```
+
+**For Lookup/Master Data Tables:**
+```csharp
+// ✅ Use LookupEntityBase<TKey> for master data with bilingual names
+public class InitiativeStatus : LookupEntityBase<int>
+{
+    // LookupEntityBase already provides:
+    // - Id, NameAr, NameEn, Name (culture-based)
+    // - IsActive, Order
+    // - CreatedBy, CreatedOn, UpdatedBy, UpdatedOn
+
+    // Add entity-specific properties (if needed)
+    public string ColorCode { get; set; }  // e.g., #FF5733 for UI
+    public string IconClass { get; set; }  // e.g., "fa-check-circle"
+
+    // Navigation properties
+    public virtual ICollection<Initiative> Initiatives { get; set; }
 }
 ```
 
 2. **Register in AppDbContext** (`src/SMO.Infrastructure/Data/AppDbContext.cs`)
 ```csharp
-public DbSet<MyEntity> MyEntities { get; set; }
+public DbSet<Initiative> Initiatives { get; set; }
+public DbSet<InitiativeStatus> InitiativeStatuses { get; set; }
 ```
 
 3. **Create Entity Configuration** (`src/SMO.Infrastructure/Mapping/`)
 ```csharp
-public class MyEntityConfiguration : IEntityTypeConfiguration<MyEntity>
+public class InitiativeConfiguration : IEntityTypeConfiguration<Initiative>
 {
-    public void Configure(EntityTypeBuilder<MyEntity> builder)
+    public void Configure(EntityTypeBuilder<Initiative> builder)
     {
-        builder.ToTable("MyEntities");
-        // Configure relationships, indexes, etc.
+        builder.ToTable("Initiatives");
+
+        // Primary key (already defined in FullAuditedEntityBase<int>)
+        builder.HasKey(x => x.Id);
+
+        // Properties
+        builder.Property(x => x.NameAr).IsRequired().HasMaxLength(250);
+        builder.Property(x => x.NameEn).IsRequired().HasMaxLength(250);
+        builder.Property(x => x.Description).HasMaxLength(2000);
+        builder.Property(x => x.Budget).HasPrecision(18, 2);
+
+        // Relationships
+        builder.HasOne(x => x.Program)
+            .WithMany(p => p.Initiatives)
+            .HasForeignKey(x => x.ProgramId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(x => x.Status)
+            .WithMany(s => s.Initiatives)
+            .HasForeignKey(x => x.StatusId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Indexes
+        builder.HasIndex(x => x.ProgramId);
+        builder.HasIndex(x => x.StatusId);
+        builder.HasIndex(x => x.StartDate);
+    }
+}
+
+public class InitiativeStatusConfiguration : IEntityTypeConfiguration<InitiativeStatus>
+{
+    public void Configure(EntityTypeBuilder<InitiativeStatus> builder)
+    {
+        builder.ToTable("InitiativeStatuses");
+
+        // LookupEntityBase already configures NameAr, NameEn, IsActive, Order
+        // Configure additional properties only
+        builder.Property(x => x.ColorCode).HasMaxLength(7);
+        builder.Property(x => x.IconClass).HasMaxLength(50);
     }
 }
 ```
 
 4. **Apply Configuration** (in `AppDbContext.OnModelCreating`)
 ```csharp
-modelBuilder.ApplyConfiguration(new MyEntityConfiguration());
+modelBuilder.ApplyConfiguration(new InitiativeConfiguration());
+modelBuilder.ApplyConfiguration(new InitiativeStatusConfiguration());
 ```
 
 5. **Create Migration**
 ```bash
 cd src/SMO.Api
-dotnet ef migrations add Add_MyEntity --context AppDbContext
+dotnet ef migrations add Add_InitiativesAndStatuses --context AppDbContext
 dotnet ef database update
 ```
 
@@ -981,20 +1065,35 @@ npm install
 
 ## Important Notes
 
-1. **No CQRS:** Use single repositories for both reads and writes
-2. **Controllers → Services Only:** Never inject repositories in controllers
-3. **Default: Use IRepository&lt;T&gt;:** ALWAYS inject `IRepository<TEntity>` by default (95% of cases)
-4. **Custom Repositories (Rare):** Create custom repository inheriting from `IRepository<T>` ONLY when:
+1. **Entity Inheritance - CRITICAL:** ALL entities MUST inherit from `FullAuditedEntityBase<TKey>` or `LookupEntityBase<TKey>`
+   - Regular entities (transactions, business data): Use `FullAuditedEntityBase<TKey>`
+   - Lookup/master data (statuses, categories, types): Use `LookupEntityBase<TKey>`
+   - NEVER create entities without audit fields unless absolutely necessary
+   - Automatic auditing (CreatedBy, CreatedOn, UpdatedBy, UpdatedOn) is handled by BaseDbContext
+
+2. **No CQRS:** Use single repositories for both reads and writes
+
+3. **Controllers → Services Only:** Never inject repositories in controllers
+
+4. **Default: Use IRepository&lt;T&gt;:** ALWAYS inject `IRepository<TEntity>` by default (95% of cases)
+
+5. **Custom Repositories (Rare):** Create custom repository inheriting from `IRepository<T>` ONLY when:
    - Stored procedures needed
    - Complex aggregations not available in IRepository&lt;T&gt;
    - Entity-specific data access logic required
-5. **Direct Repository Injection:** Inject repositories directly into AppServices, NOT through UnitOfWork
-6. **UnitOfWork for Transactions Only:** UnitOfWork is responsible ONLY for SaveChanges (transaction management)
-7. **Commit After Each Task:** Git commit after completing any task
-8. **Use TableNoTracking:** For all read-only queries (better performance)
-9. **Explicit Includes:** Always specify navigation properties to avoid N+1
-10. **Three Databases:** Main (AppDbContext), Commons, Identity (AppIdentityDbContext)
-11. **Automatic Auditing:** CreatedBy/UpdatedBy set automatically by BaseDbContext
+
+6. **Direct Repository Injection:** Inject repositories directly into AppServices, NOT through UnitOfWork
+
+7. **UnitOfWork for Transactions Only:** UnitOfWork is responsible ONLY for SaveChanges (transaction management)
+
+8. **Commit After Each Task:** Git commit after completing any task
+
+9. **Use TableNoTracking:** For all read-only queries (better performance)
+
+10. **Explicit Includes:** Always specify navigation properties to avoid N+1
+
+11. **Three Databases:** Main (AppDbContext), Commons, Identity (AppIdentityDbContext)
+
 12. **Framework.Core:** Foundation for all data access patterns
 
 ## Additional Resources
