@@ -158,7 +158,7 @@ dotnet restore
 
 #### Configure Database Connection
 
-Edit `SMO.Api/appsettings.Development.json`:
+Edit `src/SMO.Api/appsettings.Development.json`:
 
 ```json
 {
@@ -174,7 +174,7 @@ Edit `SMO.Api/appsettings.Development.json`:
 
 ```bash
 # From solution root
-cd SMO.Api
+cd src/SMO.Api
 dotnet ef database update
 ```
 
@@ -200,7 +200,7 @@ Update JWT secret in `appsettings.Development.json`:
 #### Install npm Dependencies
 
 ```bash
-cd SMO.Frontend/SMO-Portal
+cd src/SMO.Frontend/SMO-Portal
 npm install
 ```
 
@@ -223,94 +223,96 @@ export const environment = {
 
 ```
 SMO/
-├── SMO.Api/                          # Web API Project (ASP.NET Core)
-│   ├── Controllers/                  # API Controllers
-│   ├── appsettings.json              # Configuration
-│   ├── nlog.config                   # Logging configuration
-│   └── Program.cs                    # Application entry point
-│
-├── SMO.Application/                  # Application Layer
-│   ├── Features/                     # Feature-based organization
-│   ├── Services/                     # Application services
-│   ├── MappingProfiles/              # AutoMapper profiles
-│   └── ServiceCollectionExtensions.cs
-│
-├── SMO.Domain/                       # Domain Layer (Core Business Logic)
-│   ├── Entities/                     # Domain entities
-│   ├── Enums/                        # Enumerations
-│   └── Interfaces/                   # Repository interfaces
-│       ├── IAppDbContext.cs
-│       ├── IRepository.cs
-│       └── IUnitOfWork.cs
-│
-├── SMO.Infrastructure/               # Infrastructure Layer
-│   ├── Data/                         # EF Core DbContext
-│   │   ├── AppDbContext.cs
-│   │   ├── Repository.cs
-│   │   └── UnitOfWork.cs
-│   ├── Repositories/                 # Concrete repositories
-│   ├── Mapping/                      # Entity type configurations
-│   ├── ApiClients/                   # External API integrations
-│   └── ServiceCollectionExtensions.cs
-│
-├── Framework.Core/                   # Shared Core Framework
-│   ├── Data/                         # Base entities, DbContext
-│   │   ├── EntityBase.cs
-│   │   ├── AuditableEntity.cs
-│   │   ├── BaseDbContext.cs
-│   │   ├── IBaseDbContext.cs
-│   │   ├── IMappingConfiguration.cs
-│   │   └── EntityTypeConfiguration.cs
-│   ├── AutoMapper/                   # AutoMapper utilities
-│   ├── Validators/                   # FluentValidation base
-│   ├── Helpers/                      # Utility classes
-│   ├── BackgroundJobs/               # Hangfire jobs
-│   ├── Notifications/                # Email/SMS/Push services
-│   ├── Caching/                      # Caching services
-│   ├── Extensions/                   # Extension methods
-│   ├── Middlewares/                  # Custom middleware
-│   └── SharedServices/               # Shared services
-│
-├── Framework.Identity/               # Identity & Security Framework
-│   ├── Repositories/                 # User/Role repositories
-│   ├── DTOs/                         # Auth DTOs
-│   └── Seed/                         # Initial user seeding
-│
-├── Framework.Resources/              # Localization Resources
-│   ├── SharedResources.resx          # Default (fallback)
-│   ├── SharedResources.ar.resx       # Arabic resources
-│   └── SharedResources.en.resx       # English resources
-│
-└── SMO.Frontend/                     # Angular 18 Frontend
-    └── SMO-Portal/
-        ├── src/
-        │   ├── app/
-        │   │   ├── features/         # Feature modules
-        │   │   │   ├── pillars/
-        │   │   │   ├── objectives/
-        │   │   │   ├── programs/
-        │   │   │   ├── initiatives/
-        │   │   │   ├── kpis/
-        │   │   │   └── dashboards/
-        │   │   ├── core/             # Core services
-        │   │   │   ├── services/     # HTTP, Auth services
-        │   │   │   ├── guards/       # Route guards
-        │   │   │   └── interceptors/ # HTTP interceptors
-        │   │   ├── shared/           # Shared components
-        │   │   │   ├── components/
-        │   │   │   ├── services/
-        │   │   │   ├── models/
-        │   │   │   ├── directives/
-        │   │   │   └── pipes/
-        │   │   └── layout/           # App layout
-        │   ├── environments/         # Environment configs
-        │   │   ├── environment.ts                  # Development
-        │   │   ├── environment.production.ts       # Production
-        │   │   ├── environment.staging.ts          # Staging
-        │   │   └── environment.testing.ts          # Testing
-        │   └── web.config            # IIS deployment config
-        ├── angular.json              # Angular configuration
-        └── package.json              # npm dependencies
+└── src/                              # Source code root
+    ├── Framework/                    # Framework Projects (Shared)
+    │   ├── Framework.Core/           # Shared Core Framework
+    │   │   ├── Data/                 # Base entities, DbContext
+    │   │   │   ├── EntityBase.cs
+    │   │   │   ├── AuditableEntity.cs
+    │   │   │   ├── BaseDbContext.cs
+    │   │   │   ├── IBaseDbContext.cs
+    │   │   │   ├── IMappingConfiguration.cs
+    │   │   │   └── EntityTypeConfiguration.cs
+    │   │   ├── AutoMapper/           # AutoMapper utilities
+    │   │   ├── Validators/           # FluentValidation base
+    │   │   ├── Helpers/              # Utility classes
+    │   │   ├── BackgroundJobs/       # Hangfire jobs
+    │   │   ├── Notifications/        # Email/SMS/Push services
+    │   │   ├── Caching/              # Caching services
+    │   │   ├── Extensions/           # Extension methods
+    │   │   ├── Middlewares/          # Custom middleware
+    │   │   └── SharedServices/       # Shared services
+    │   │
+    │   ├── Framework.Identity/       # Identity & Security Framework
+    │   │   ├── Repositories/         # User/Role repositories
+    │   │   ├── DTOs/                 # Auth DTOs
+    │   │   └── Seed/                 # Initial user seeding
+    │   │
+    │   └── Framework.Resources/      # Localization Resources
+    │       ├── SharedResources.resx          # Default (fallback)
+    │       ├── SharedResources.ar.resx       # Arabic resources
+    │       └── SharedResources.en.resx       # English resources
+    │
+    ├── SMO.Api/                      # Web API Project (ASP.NET Core)
+    │   ├── Controllers/              # API Controllers
+    │   ├── appsettings.json          # Configuration
+    │   ├── nlog.config               # Logging configuration
+    │   └── Program.cs                # Application entry point
+    │
+    ├── SMO.Application/              # Application Layer
+    │   ├── Features/                 # Feature-based organization
+    │   ├── Services/                 # Application services
+    │   ├── MappingProfiles/          # AutoMapper profiles
+    │   └── ServiceCollectionExtensions.cs
+    │
+    ├── SMO.Domain/                   # Domain Layer (Core Business Logic)
+    │   ├── Entities/                 # Domain entities
+    │   ├── Enums/                    # Enumerations
+    │   └── Interfaces/               # Repository interfaces
+    │       ├── IAppDbContext.cs
+    │       ├── IRepository.cs
+    │       └── IUnitOfWork.cs
+    │
+    ├── SMO.Infrastructure/           # Infrastructure Layer
+    │   ├── Data/                     # EF Core DbContext
+    │   │   ├── AppDbContext.cs
+    │   │   ├── Repository.cs
+    │   │   └── UnitOfWork.cs
+    │   ├── Repositories/             # Concrete repositories
+    │   ├── Mapping/                  # Entity type configurations
+    │   ├── ApiClients/               # External API integrations
+    │   └── ServiceCollectionExtensions.cs
+    │
+    └── SMO.Frontend/                 # Angular 18 Frontend
+        └── SMO-Portal/
+            ├── src/
+            │   ├── app/
+            │   │   ├── features/     # Feature modules
+            │   │   │   ├── pillars/
+            │   │   │   ├── objectives/
+            │   │   │   ├── programs/
+            │   │   │   ├── initiatives/
+            │   │   │   ├── kpis/
+            │   │   │   └── dashboards/
+            │   │   ├── core/         # Core services
+            │   │   │   ├── services/     # HTTP, Auth services
+            │   │   │   ├── guards/       # Route guards
+            │   │   │   └── interceptors/ # HTTP interceptors
+            │   │   ├── shared/       # Shared components
+            │   │   │   ├── components/
+            │   │   │   ├── services/
+            │   │   │   ├── models/
+            │   │   │   ├── directives/
+            │   │   │   └── pipes/
+            │   │   └── layout/       # App layout
+            │   ├── environments/     # Environment configs
+            │   │   ├── environment.ts                  # Development
+            │   │   ├── environment.production.ts       # Production
+            │   │   ├── environment.staging.ts          # Staging
+            │   │   └── environment.testing.ts          # Testing
+            │   └── web.config        # IIS deployment config
+            ├── angular.json          # Angular configuration
+            └── package.json          # npm dependencies
 ```
 
 ---
@@ -393,7 +395,7 @@ CREATE DATABASE SMO_Identity_Dev;
 ### Apply Migrations
 
 ```bash
-# From SMO.Api directory
+# From src/SMO.Api directory
 dotnet ef migrations add InitialCreate --context AppDbContext
 dotnet ef database update --context AppDbContext
 ```
@@ -413,7 +415,7 @@ dotnet ef database update --context AppDbContext
 
 ```bash
 # From solution root
-cd SMO.Api
+cd src/SMO.Api
 dotnet run
 
 # Or with hot reload
@@ -428,7 +430,7 @@ The API will start at:
 ### Frontend (Angular)
 
 ```bash
-cd SMO.Frontend/SMO-Portal
+cd src/SMO.Frontend/SMO-Portal
 
 # Development server (http://localhost:4200)
 ng serve
@@ -461,14 +463,14 @@ dotnet clean --configuration Release
 dotnet build --configuration Release
 
 # Publish API
-cd SMO.Api
+cd src/SMO.Api
 dotnet publish --configuration Release --output ./publish
 ```
 
 ### Frontend Build
 
 ```bash
-cd SMO.Frontend/SMO-Portal
+cd src/SMO.Frontend/SMO-Portal
 
 # Build for production
 ng build --configuration production
@@ -557,7 +559,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 dotnet test
 
 # Frontend unit tests
-cd SMO.Frontend/SMO-Portal
+cd src/SMO.Frontend/SMO-Portal
 ng test
 
 # E2E tests

@@ -48,16 +48,17 @@ This solution implements a **Clean Architecture** pattern with comprehensive fra
 
 ```
 SMO/
-├── Framework/
-│   ├── Framework.Core/              # Core framework & cross-cutting concerns
-│   ├── Framework.Identity/          # Authentication & authorization
-│   └── Framework.Resources/         # Localization resources
-├── SMO.Domain/                      # Domain entities & interfaces
-├── SMO.Application/                 # Business logic & services
-├── SMO.Infrastructure/              # Data access & external services
-├── SMO.Api/                         # Web API entry point
-└── SMO.Frontend/
-    └── SMO-Portal/                  # Angular application
+└── src/                              # Source code root
+    ├── Framework/                    # Framework Projects (Shared)
+    │   ├── Framework.Core/           # Core framework & cross-cutting concerns
+    │   ├── Framework.Identity/       # Authentication & authorization
+    │   └── Framework.Resources/      # Localization resources
+    ├── SMO.Domain/                   # Domain entities & interfaces
+    ├── SMO.Application/              # Business logic & services
+    ├── SMO.Infrastructure/           # Data access & external services
+    ├── SMO.Api/                      # Web API entry point
+    └── SMO.Frontend/
+        └── SMO-Portal/               # Angular application
 ```
 
 ### 2.2 Project Dependencies
@@ -222,7 +223,7 @@ The innermost layer containing business entities and interfaces.
 
 **Structure:**
 ```
-SMO.Domain/
+src/SMO.Domain/
 ├── Entities/          # Vision 2030 domain entities
 │   ├── Pillar.cs              # Strategic Pillars (3 pillars)
 │   ├── Theme.cs               # Detailed Themes (Mahawer)
@@ -256,7 +257,7 @@ Contains business logic and orchestrates domain operations for Vision 2030 strat
 
 **Actual Structure:**
 ```
-SMO.Application/
+src/SMO.Application/
 ├── Features/                  # Feature-based interfaces
 │   ├── Attachment/           # IAttachmentAppService
 │   ├── Pillar/               # IPillarAppService
@@ -380,7 +381,7 @@ public static void ConfigureInfrastructureServices(this IServiceCollection servi
 
 **Structure:**
 ```
-SMO.Infrastructure/
+src/SMO.Infrastructure/
 ├── Data/
 │   ├── AppDbContext.cs        # Enhanced with global filters
 │   ├── Repository.cs
@@ -527,7 +528,7 @@ app.Run();
 
 **Structure:**
 ```
-SMO.Api/
+src/SMO.Api/
 ├── Controllers/       # 17+ API controllers (3,652+ lines)
 ├── Program.cs        # Comprehensive startup configuration
 └── appsettings.json  # Multi-environment configuration
@@ -616,7 +617,7 @@ public interface IUnitOfWorkBase<TContext> where TContext : IBaseDbContext
 
 **Structure:**
 ```
-SMO.Frontend/SMO-Portal/
+src/SMO.Frontend/SMO-Portal/
 ├── src/
 │   ├── app/
 │   │   ├── app-routing.module.ts
@@ -992,7 +993,7 @@ public static class JWTTokensConstants
 
 **Structure:**
 ```
-Framework.Resources/
+src/Framework/Framework.Resources/
 ├── SharedResources.resx       # Default resources
 ├── SharedResources.en.resx    # English resources
 └── SharedResources.ar.resx    # Arabic resources
@@ -1024,19 +1025,19 @@ string message = SharedResources.ResourceManager.GetString("KeyName", culture);
 
 **Database Contexts:**
 
-1. **AppDbContext** (`LMS.Infrastructure`)
+1. **AppDbContext** (`src/SMO.Infrastructure`)
    - Application-specific entities
    - Business domain data
    - Inherits from `BaseDbContext<AppDbContext>`
 
-2. **CommonsDbContext** (`Framework.Core`)
+2. **CommonsDbContext** (`src/Framework/Framework.Core`)
    - Framework shared entities
    - Audit logs
    - System settings
    - Attachments
    - Notifications
 
-3. **IdentityDbContext** (`Framework.Identity`)
+3. **IdentityDbContext** (`src/Framework/Framework.Identity`)
    - User management
    - Roles and claims
    - Authentication data
@@ -1126,9 +1127,9 @@ private static void SetActiveFilter<TEntity>(ModelBuilder builder) where TEntity
 **Approach:** Code-First Migrations
 
 **Migration Locations:**
-- `Framework.Core/Migrations/` - Commons schema
-- `Framework.Identity/Migrations/` - Identity schema
-- `LMS.Infrastructure/Migrations/` (future) - Application schema
+- `src/Framework/Framework.Core/Migrations/` - Commons schema
+- `src/Framework/Framework.Identity/Migrations/` - Identity schema
+- `src/SMO.Infrastructure/Migrations/` (future) - Application schema
 
 **Automatic Migration on Startup:**
 ```csharp
@@ -1832,7 +1833,7 @@ services.AddHttpClient<IGaStatServiceProxy, GaStatServiceProxy>();
 
 **Backend Structure Pattern:**
 ```
-{ProjectName}.{Layer}/
+src/{ProjectName}.{Layer}/
 ├── Features/          # Feature folders (vertical slices)
 │   ├── StrategicObjective/
 │   │   ├── Commands/  # Write operations (CQRS-style organization)
@@ -1854,7 +1855,7 @@ services.AddHttpClient<IGaStatServiceProxy, GaStatServiceProxy>();
 
 **Frontend Structure Pattern:**
 ```
-src/app/
+src/SMO.Frontend/SMO-Portal/src/app/
 ├── core/              # Singleton services, guards, interceptors
 ├── shared/            # Shared components, directives, pipes
 ├── features/          # Feature modules

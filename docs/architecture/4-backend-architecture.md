@@ -23,7 +23,7 @@ The innermost layer containing business entities and interfaces.
 
 **Structure:**
 ```
-SMO.Domain/
+src/SMO.Domain/
 ├── Entities/          # Vision 2030 domain entities
 │   ├── Pillar.cs              # Strategic Pillars (3 pillars)
 │   ├── Theme.cs               # Detailed Themes (Mahawer)
@@ -57,7 +57,7 @@ Contains business logic and orchestrates domain operations for Vision 2030 strat
 
 **Actual Structure:**
 ```
-SMO.Application/
+src/SMO.Application/
 ├── Features/                  # Feature-based interfaces
 │   ├── Attachment/           # IAttachmentAppService
 │   ├── Pillar/               # IPillarAppService
@@ -181,7 +181,7 @@ public static void ConfigureInfrastructureServices(this IServiceCollection servi
 
 **Structure:**
 ```
-SMO.Infrastructure/
+src/SMO.Infrastructure/
 ├── Data/
 │   ├── AppDbContext.cs        # Enhanced with global filters
 │   ├── Repository.cs
@@ -328,7 +328,7 @@ app.Run();
 
 **Structure:**
 ```
-SMO.Api/
+src/SMO.Api/
 ├── Controllers/       # 17+ API controllers (3,652+ lines)
 ├── Program.cs        # Comprehensive startup configuration
 └── appsettings.json  # Multi-environment configuration

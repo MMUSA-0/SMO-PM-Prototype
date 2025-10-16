@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Domain", "SMO.Domain\SMO.Domain.csproj", "{399270B9-A6AB-4555-9426-29B7F5346AC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Domain", "src\SMO.Domain\SMO.Domain.csproj", "{399270B9-A6AB-4555-9426-29B7F5346AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Application", "SMO.Application\SMO.Application.csproj", "{754B434B-87D7-4E4A-A870-2DFBD5E25724}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Application", "src\SMO.Application\SMO.Application.csproj", "{754B434B-87D7-4E4A-A870-2DFBD5E25724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Infrastructure", "SMO.Infrastructure\SMO.Infrastructure.csproj", "{56991133-DC53-4BB3-B431-DBC450AF4033}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Infrastructure", "src\SMO.Infrastructure\SMO.Infrastructure.csproj", "{56991133-DC53-4BB3-B431-DBC450AF4033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Api", "SMO.Api\SMO.Api.csproj", "{A13B6A8F-F825-412D-BEBD-72C43455535A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMO.Api", "src\SMO.Api\SMO.Api.csproj", "{A13B6A8F-F825-412D-BEBD-72C43455535A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Core", "Framework.Core\Framework.Core.csproj", "{182D55DA-A403-4EB0-94D4-606ECAEAF5C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Core", "src\Framework\Framework.Core\Framework.Core.csproj", "{182D55DA-A403-4EB0-94D4-606ECAEAF5C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Identity", "Framework.Identity\Framework.Identity.csproj", "{DD3A9919-4B3D-4328-BD66-0F176C2B5E2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Identity", "src\Framework\Framework.Identity\Framework.Identity.csproj", "{DD3A9919-4B3D-4328-BD66-0F176C2B5E2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Resources", "Framework.Resources\Framework.Resources.csproj", "{B7AB5A77-1DEC-4025-8677-5BE43A82EE8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Resources", "src\Framework\Framework.Resources\Framework.Resources.csproj", "{B7AB5A77-1DEC-4025-8677-5BE43A82EE8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
