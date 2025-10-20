@@ -1,0 +1,131 @@
+@use "sass:math"
+
+@mixin mq($breakpoint)
+    @media (min-width: $breakpoint)
+        @content
+
+@mixin hover
+    @media (hover: hover)
+        &:hover
+            @content
+
+@mixin flex-column
+    display: flex
+    flex-direction: column
+
+@mixin flex-row
+    display: flex
+    flex-direction: row
+
+@mixin flex-column-center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin inline-flex-center
+    display: inline-flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-center-y
+    display: flex
+    align-items: center
+
+@mixin flex-center-x
+    display: flex
+    justify-content: center
+
+@mixin scrollbar
+    // scrollbar-color: var(--clr-yellow) rgba(42, 32, 106, 0.13)
+    // scrollbar-width: thin
+
+    &::-webkit-scrollbar
+        width: var(--scrollbar-width)
+        height: var(--scrollbar-width)
+
+        &-thumb
+            background-color: var(--clr-green)
+            border-radius: toRem(4px)
+            transition: background-color 0.3s ease-in-out
+
+        &-track
+            background-color: var(--clr-gray)
+            border-radius: toRem(4px)
+
+        &-corner
+            background-color: transparent
+
+@mixin scrollbar-hidden
+    // scrollbar-color: var(--clr-yellow) rgba(42, 32, 106, 0.13)
+    // scrollbar-width: thin
+
+    &::-webkit-scrollbar
+        width: 0
+        height: 0
+
+        &-thumb
+            background-color: transparent
+
+        &-track
+            background-color: transparent
+
+        &-corner
+            background-color: transparent
+
+@mixin scrollbar-thin
+    // scrollbar-color: var(--clr-yellow) rgba(42, 32, 106, 0.13)
+    // scrollbar-width: thin
+
+    &::-webkit-scrollbar
+        width: toRem(5px)
+        height: toRem(5px)
+
+        &-thumb
+            background-color: var(--clr-green)
+            border-radius: toRem(2.5px)
+
+        &-track
+            background-color: var(--clr-gray)
+            border-radius: toRem(2.5px)
+
+        &-corner
+            background-color: transparent
+
+@mixin scrollbar-grayscale
+    // scrollbar-color: #1D1F22 rgba(29, 31, 34, 0.85)
+    // scrollbar-width: thin
+
+    &::-webkit-scrollbar
+        width: var(--scrollbar-width)
+        height: var(--scrollbar-width)
+
+        &-thumb
+            background-color: #1D1F22
+
+        &-track
+            background-color: rgba(29, 31, 34, 0.85)
+
+        &-corner
+            background-color: transparent
+
+@mixin line-clamp($line-height, $lines-count)
+    display: block
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    position: relative
+    line-height: $line-height
+    overflow: hidden
+    text-overflow: ellipsis
+    -webkit-line-clamp: $lines-count
+    height: calc(1em * #{$line-height} * #{$lines-count})
+    padding: 0 !important
+
+@mixin var($property, $varName)
+    #{$property}: map-get($variables, $varName)
+    #{$property}: var(--#{$varName})

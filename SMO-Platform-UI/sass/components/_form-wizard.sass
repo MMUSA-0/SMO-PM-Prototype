@@ -1,0 +1,168 @@
+.form-wizard
+    +flex-center
+    width: 100%
+    max-width: toRem(1094px)
+    background-color: #fff
+    border-radius: toRem(8px)
+    box-shadow: inset 0 0 0 toRem(1px) #D2D6DB
+    padding: toRem(24px) toRem(16px)
+    margin-top: toRem(-75px)
+    margin-bottom: toRem(54px)
+
+    &__list
+        display: flex
+        counter-reset: wizard
+
+        &__item
+            display: flex
+            flex-direction: column
+            width: toRem(163px)
+            counter-increment: wizard
+            padding-inline-end: toRem(16px)
+
+            &__step-number
+                position: relative
+                +flex-center
+                height: toRem(32px)
+                margin-bottom: toRem(8px)
+
+                &::before
+                    content: counter(wizard)
+                    position: absolute
+                    inset: 0
+                    width: toRem(32px)
+                    height: 100%
+                    +flex-center
+                    font-family: 'SSTArabic-Medium'
+                    color: #D2D6DB
+                    background-color: #fff
+                    border: toRem(2px) solid #D2D6DB
+                    border-radius: 50%
+                    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out
+
+                .is-active &
+                    &::before
+                        color: var(--clr-green)
+                        border-color: var(--clr-green)
+
+                .is-done &
+                    &::before
+                        content: ""
+                        background-color: var(--clr-green)
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.83 9.83'%3E%3Cpath d='M11.45.35a1.24,1.24,0,0,0-1.77,0L3.56,6.79,2.13,5.37A1.24,1.24,0,0,0,.37,7.13L2.7,9.47a1.25,1.25,0,0,0,.88.36h0a1.26,1.26,0,0,0,.9-.38l7-7.34A1.26,1.26,0,0,0,11.45.35Z' fill='%23fff'/%3E%3C/svg%3E")
+                        background-repeat: no-repeat
+                        background-size: toRem(11.83px) toRem(9.83px)
+                        background-position: center
+                        border-color: var(--clr-green)
+
+                    &::after
+                        background-color: var(--clr-green)
+
+            &:not(:last-child)
+                .form-wizard__list__item__step-number
+                    &::after
+                        content: ""
+                        position: absolute
+                        top: toRem(15px)
+                        inset-inline-start: toRem(32px)
+                        // width: calc(100% - toRem(32px))
+                        width: calc(100% - toRem(16px))
+                        height: toRem(2px)
+                        background-color: #D2D6DB
+
+            &__step-name
+                font-family: 'SSTArabic-Medium'
+                font-size: toRem(16px)
+                color: #6C737F
+                margin-bottom: toRem(4px)
+
+                .is-active &,
+                .is-done &
+                    color: #1F2A37
+
+            &__step-description
+                line-height: 1.429
+                font-size: toRem(14px)
+                color: #6C737F
+
+                .is-active &,
+                .is-done &
+                    color: #384250
+
+.mobile-form-wizard
+    display: flex
+    align-items: center
+    gap: toRem(10px)
+    max-width: toRem(1094px)
+    background-color: #fff
+    box-shadow: 0 0 toRem(89px) 0 rgba(0, 0, 0, 0.1)
+    padding: toRem(24px) toRem(16px)
+    margin-inline: calc(calc(-0.5 * var(--bs-gutter-x)) - 12px)
+    margin-bottom: toRem(40px)
+
+    &__steps
+        position: relative
+
+        &__circular-progress
+            svg
+                position: relative
+                width: 70px
+                height: 70px
+                transform: rotate(-90deg)
+
+                circle
+                    width: 100%
+                    height: 100%
+                    fill: none
+                    stroke-width: toRem(4px)
+                    stroke-linecap: square
+
+                    &:first-of-type
+                        stroke: #DFDFDF
+
+                    &:last-of-type
+                        --stroke-dasharray: #{toRem(203px)}
+                        stroke-dasharray: var(--stroke-dasharray)
+                        stroke-dashoffset: calc(var(--stroke-dasharray) - (var(--stroke-dasharray) * var(--percent)) / 100)
+                        stroke: var(--clr-green)
+
+        &__current
+            position: absolute
+            inset: 0
+            +flex-center
+            flex-direction: column
+            width: 100%
+            height: 100%
+
+            &__label
+                font-family: 'SSTArabic-Medium'
+                font-size: toRem(12px)
+                color: #6C737F
+
+            &__number
+                font-family: 'SSTArabic-Bold'
+                font-size: toRem(14px)
+                color: #1a1a1a
+
+                [dir="ltr"] &
+                    font-size: toRem(12px)
+
+    // &__details
+
+    &__current-step-name
+        font-family: 'SSTArabic-Bold'
+        font-size: toRem(16px)
+        color: #1a1a1a
+
+    &__next-step
+        display: flex
+        flex-direction: column
+
+        &__label
+            font-size: toRem(14px)
+            color: #6C737F
+
+        &__name
+            font-family: 'SSTArabic-Bold'
+            font-size: toRem(14px)
+            color: #384250

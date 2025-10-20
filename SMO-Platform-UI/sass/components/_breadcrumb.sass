@@ -1,0 +1,51 @@
+.breadcrumb
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: toRem(10px)
+    margin-bottom: 0
+
+.breadcrumb-item
+    display: flex
+    align-items: center
+    gap: toRem(10px)
+    font-size: toRem(14px)
+
+    img
+        width: toRem(19.71px)
+        height: toRem(17.92px)
+        object-fit: contain
+
+    a
+        position: relative
+        line-height: 1.572
+        color: #5D5D5D
+        text-decoration: none
+        transition: color 0.3s ease-in-out
+
+        &:visited
+            color: #5D5D5D
+
+        +hover
+            color: #000
+
+    & + &
+        padding: 0
+
+        &::before
+            content: ""
+            flex-shrink: 0
+            width: toRem(5px)
+            height: toRem(9px)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 9'%3E%3Cpath d='M4.8.9l-.62.47c-.37.29-.86.69-1.35,1.11A13.76,13.76,0,0,0,1.5,3.76a4.08,4.08,0,0,0-.4.52A1,1,0,0,0,1,4.5a1,1,0,0,0,.1.22,4.08,4.08,0,0,0,.4.52A13.76,13.76,0,0,0,2.83,6.52c.49.42,1,.82,1.35,1.11l.62.47a.5.5,0,0,1-.6.8h0l-.63-.48c-.38-.3-.89-.71-1.4-1.15A16.94,16.94,0,0,1,.75,5.9a4.25,4.25,0,0,1-.51-.67A1.47,1.47,0,0,1,0,4.5a1.47,1.47,0,0,1,.24-.73A4.25,4.25,0,0,1,.75,3.1,16.94,16.94,0,0,1,2.17,1.73c.51-.44,1-.85,1.4-1.15L4.2.1h0a.5.5,0,0,1,.7.1A.5.5,0,0,1,4.8.9Z' fill='%235d5d5d'/%3E%3C/svg%3E")
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            float: none
+            padding: 0
+
+            [dir="ltr"] &
+                transform: scaleX(-1)
+
+    &.active
+        color: #5D5D5D

@@ -1,0 +1,77 @@
+.pagination-nav
+    display: flex
+    flex-direction: column
+    margin-top: toRem(60px)
+
+.pagination
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    gap: toRem(8px)
+    margin: 0
+
+.page-link
+    +flex-center
+    gap: toRem(14px)
+    min-width: toRem(28px)
+    line-height: 1
+    font-size: toRem(14px)
+    text-align: center
+    color: #232528
+    background-color: transparent
+    border: none
+    border-radius: 10em
+    padding: toRem(7px)
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out
+
+    & > svg
+        width: toRem(7.5px)
+        height: toRem(13.75px)
+        object-fit: contain
+        fill: #160202
+
+    +hover
+        color: var(--clr-green)
+        background-color: transparent
+
+    &:focus
+        color: var(--clr-green)
+        background-color: transparent
+        box-shadow: none
+
+    .active > &,
+    &.active
+        color: #fff
+        background-color: var(--clr-green)
+        box-shadow: none
+
+    .disabled > &,
+    &.disabled
+        color: #a1a1a1
+        background-color: transparent
+        opacity: 0.5
+
+        & > svg
+            fill: #a1a1a1
+
+.page-item
+    &:first-child
+        .page-link
+            border-radius: toRem(4px)
+
+    &:last-child
+        .page-link
+            border-radius: toRem(4px)
+
+    &:not(:first-child)
+        .page-link
+            margin: 0
+
+    & > span
+        +flex-center
+        width: toRem(24px)
+        height: toRem(24px)
+        line-height: 1
+        font-size: toRem(15px)
+        border-radius: toRem(4px)

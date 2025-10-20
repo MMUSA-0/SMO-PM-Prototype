@@ -1,0 +1,94 @@
+.form-input-container
+    &:has(.custom-select + .nice-select)
+        .custom-select
+            &:not(.nice-select)
+                border: none
+                padding: 0
+
+
+.nice-select
+    width: 100%
+    height: unset
+    line-height: 1.5
+    text-align: start !important
+    background-image: none
+    border-color: #9DA4AE
+    border-radius: toRem(4px)
+    float: none
+
+    &::after
+        top: 50%
+        right: unset
+        inset-inline-end: toRem(16px)
+        width: toRem(11px)
+        height: toRem(11px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.25 6.25'%3E%3Cpath d='M1.13.25,1.71,1c.37.47.86,1.08,1.39,1.7A21.51,21.51,0,0,0,4.7,4.38a4.07,4.07,0,0,0,.65.49A1,1,0,0,0,5.63,5a1,1,0,0,0,.27-.13,4.07,4.07,0,0,0,.65-.49,21.51,21.51,0,0,0,1.6-1.66c.53-.62,1-1.23,1.39-1.7l.58-.77A.64.64,0,0,1,11,.12a.64.64,0,0,1,.13.88h0l-.61.79c-.37.47-.88,1.11-1.43,1.74A18.28,18.28,0,0,1,7.38,5.31,6.46,6.46,0,0,1,6.54,6a1.86,1.86,0,0,1-.92.3A1.86,1.86,0,0,1,4.71,6a6.46,6.46,0,0,1-.84-.64A18.28,18.28,0,0,1,2.16,3.53C1.61,2.9,1.1,2.26.73,1.79L.12,1h0A.64.64,0,0,1,.25.12.64.64,0,0,1,1.13.25Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+        border: none
+        margin-top: 0
+        transform-origin: top
+        transform: rotate(0deg) translateY(-50%)
+        transition: all 0.3s ease-in-out
+
+    +hover
+        border-color: #384250
+
+    &:focus
+        background-image: none
+        border-color: #9da4ae
+
+    .nice-select-dropdown
+        top: calc(100% + #{toRem(10px)})
+        width: 100%
+        background-color: #fff
+        border: toRem(1px) solid #D2D6DB
+        border-radius: toRem(4px)
+        box-shadow: 0 toRem(20px) toRem(24px) toRem(-4px) rgba(16, 24, 40, 0.08), 0 toRem(8px) toRem(8px) toRem(-4px) rgba(16, 24, 40, 0.03)
+        padding: toRem(8px)
+        margin-top: 0
+
+    .list
+        border-radius: toRem(4px)
+        +scrollbar
+
+        &:last-child
+            margin-bottom: 0
+
+    .option
+        line-height: 1.5
+        font-size: toRem(14px)
+        text-align: start
+        border-radius: toRem(4px)
+        padding: toRem(8px)
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, background-image 0.3s ease-in-out
+
+        &:not(.disabled)
+            +hover
+                background-color: #F3F4F6
+
+        &.selected
+            font-weight: normal
+            color: #6c737f
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.83 10.67'%3E%3Cpath d='M4.92,10.67a.77.77,0,0,1-.53-.22L.22,6.28A.75.75,0,0,1,1.28,5.22L4.92,8.86,13.55.22a.75.75,0,0,1,1.06,0,.74.74,0,0,1,0,1.06L5.45,10.45A.79.79,0,0,1,4.92,10.67Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+            background-repeat: no-repeat
+            background-size: toRem(14.83px) toRem(10.67px)
+
+            [dir="rtl"] &
+                background-position: left toRem(7.5px) center
+
+            [dir="ltr"] &
+                background-position: right toRem(7.5px) center
+
+            &.focus
+                background-color: transparent
+
+    &:active,
+    &.open,
+    &:focus
+        border-color: #9DA4AE
+
+    &.open
+        &::after
+            transform: rotateX(180deg) rotateY(180deg) translateY(-50%)

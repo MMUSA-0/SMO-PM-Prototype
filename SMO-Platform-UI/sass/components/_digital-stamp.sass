@@ -1,0 +1,150 @@
+.digital-stamp-note
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: toRem(5px)
+
+    @media (min-width: 576px)
+        gap: toRem(10px)
+
+    &__flag
+        width: toRem(17px)
+        height: toRem(11px)
+        object-fit: contain
+
+        @media (min-width: 576px)
+            width: toRem(20px)
+            height: toRem(14px)
+
+    &__title
+        line-height: 1.5
+        font-family: 'SSTArabic-Medium'
+        font-size: toRem(12px)
+        color: #1a1a1a
+        margin: 0
+
+        @media (min-width: 576px)
+            font-size: toRem(14px)
+
+    &__btn
+        display: flex
+        align-items: center
+        gap: toRem(2px)
+        font-family: 'SSTArabic-Bold'
+        font-size: toRem(12px)
+        color: var(--clr-green)
+        text-decoration: none
+        background-color: transparent
+        border: none
+        padding: 0
+        transition: all 0.3s ease-in-out
+
+        @media (min-width: 576px)
+            gap: toRem(6px)
+            font-size: toRem(14px)
+
+        &::after
+            content: ""
+            width: toRem(8px)
+            height: toRem(4px)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 5'%3E%3Cpath d='M.9.2l.47.62c.29.37.69.86,1.11,1.35A13.76,13.76,0,0,0,3.76,3.5a4.08,4.08,0,0,0,.52.4A1,1,0,0,0,4.5,4a1,1,0,0,0,.22-.1,4.08,4.08,0,0,0,.52-.4A13.76,13.76,0,0,0,6.52,2.17c.42-.49.82-1,1.11-1.35L8.1.2A.5.5,0,0,1,8.8.1a.5.5,0,0,1,.1.7h0l-.48.63c-.3.38-.71.89-1.15,1.4A16.94,16.94,0,0,1,5.9,4.25a4.25,4.25,0,0,1-.67.51A1.47,1.47,0,0,1,4.5,5a1.47,1.47,0,0,1-.73-.24,4.25,4.25,0,0,1-.67-.51A16.94,16.94,0,0,1,1.73,2.83c-.44-.51-.85-1-1.15-1.4L.1.8h0A.5.5,0,0,1,.2.1.5.5,0,0,1,.9.2Z' fill='%231b8354'/%3E%3C/svg%3E")
+            background-size: contain
+            background-repeat: no-repeat
+            background-position: center
+            transition: all 0.3s ease-in-out
+
+            @media (min-width: 576px)
+                width: toRem(10px)
+                height: toRem(6px)
+
+            .digital-stamp-shown &
+                transform: rotateX(180deg) rotateY(180deg)
+
+        +hover
+            color: #1a1a1a
+
+            &::after
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 5'%3E%3Cpath d='M.9.2l.47.62c.29.37.69.86,1.11,1.35A13.76,13.76,0,0,0,3.76,3.5a4.08,4.08,0,0,0,.52.4A1,1,0,0,0,4.5,4a1,1,0,0,0,.22-.1,4.08,4.08,0,0,0,.52-.4A13.76,13.76,0,0,0,6.52,2.17c.42-.49.82-1,1.11-1.35L8.1.2A.5.5,0,0,1,8.8.1a.5.5,0,0,1,.1.7h0l-.48.63c-.3.38-.71.89-1.15,1.4A16.94,16.94,0,0,1,5.9,4.25a4.25,4.25,0,0,1-.67.51A1.47,1.47,0,0,1,4.5,5a1.47,1.47,0,0,1-.73-.24,4.25,4.25,0,0,1-.67-.51A16.94,16.94,0,0,1,1.73,2.83c-.44-.51-.85-1-1.15-1.4L.1.8h0A.5.5,0,0,1,.2.1.5.5,0,0,1,.9.2Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+
+        &:focus-visible
+            box-shadow: inset 0 0 0 toRem(2px) #1a1a1a
+
+.digital-stamp-collapsible
+    display: grid
+    grid-template-rows: 0fr
+    pointer-events: none
+    opacity: 0
+    transition: grid-template-rows 0.2s ease-in-out, opacity 0.2s ease-in-out
+
+    .digital-stamp-shown &
+        grid-template-rows: 1fr
+        pointer-events: auto
+        opacity: 1
+
+    &__inner
+        display: flex
+        flex-direction: column
+        width: 100%
+        overflow: hidden
+        transition: padding 0.3s ease-in-out
+
+        .digital-stamp-shown &
+            padding-block: toRem(40px) toRem(32px)
+
+.digital-stamp-details
+    display: flex
+    align-items: flex-start
+    gap: toRem(16px)
+
+    &__icon
+        flex-shrink: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        width: toRem(40px)
+        height: toRem(40px)
+        border: toRem(1px) solid #067647
+        border-radius: 50%
+
+        & > img
+            width: toRem(16px)
+            height: toRem(16px)
+            object-fit: contain
+
+    &__title
+        line-height: 1.5
+        font-family: 'SSTArabic-Bold'
+        font-size: toRem(17px)
+        color: #1a1a1a
+        margin-bottom: toRem(12px)
+
+    &__description
+        font-family: 'SSTArabic-Bold'
+        font-size: toRem(15px)
+        color: #384250
+        margin-bottom: 0
+
+.digital-stamp-number
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: toRem(12px)
+    font-size: toRem(15px)
+    background-color: #fff
+    border-radius: toRem(8px)
+    padding: toRem(8px) toRem(28px)
+
+    &__logo
+        width: toRem(20px)
+        height: toRem(30px)
+        object-fit: contain
+
+    &__description
+        font-family: 'SSTArabic-Bold'
+        color: #1a1a1a
+
+    &__url
+        color: var(--clr-green)
+
+        +hover
+            color: #1a1a1a

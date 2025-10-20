@@ -1,0 +1,49 @@
+.modal
+    --bs-border-radius-lg: 1rem
+
+.modal-backdrop
+    --bs-backdrop-opacity: 1
+    background-color: rgba(26, 26, 26, 0.5)
+
+.modal-content
+    border: none
+
+.modal-header
+    border-block: none
+    padding: toRem(30px) toRem(30px) toRem(15px)
+
+    .btn-close
+        width: toRem(20px)
+        height: toRem(20px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23.4205 23.423'%3E%3Cpath d='M23.0855,23.0854a1.1425,1.1425,0,0,1-.8075.3346l-.001.003a1.1393,1.1393,0,0,1-.808-.335l-9.75-9.7509L1.971,23.086A1.142,1.142,0,1,1,.355,21.472l9.7491-9.75L.354,1.97A1.143,1.143,0,0,1,1.932.316c.013.0124.0256.025.038.038l9.7509,9.7505L21.47.354A1.143,1.143,0,0,1,23.086,1.97l-9.7495,9.75,9.75,9.749A1.1429,1.1429,0,0,1,23.0855,23.0854Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+        background-size: contain
+        opacity: 1
+        padding: 0
+        margin: 0
+        margin-inline-start: auto
+        transition: background-image 0.3s ease-in-out
+
+        +hover
+            background-color: transparent
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23.4205 23.423'%3E%3Cpath d='M23.0855,23.0854a1.1425,1.1425,0,0,1-.8075.3346l-.001.003a1.1393,1.1393,0,0,1-.808-.335l-9.75-9.7509L1.971,23.086A1.142,1.142,0,1,1,.355,21.472l9.7491-9.75L.354,1.97A1.143,1.143,0,0,1,1.932.316c.013.0124.0256.025.038.038l9.7509,9.7505L21.47.354A1.143,1.143,0,0,1,23.086,1.97l-9.7495,9.75,9.75,9.749A1.1429,1.1429,0,0,1,23.0855,23.0854Z' fill='%231b8354'/%3E%3C/svg%3E")
+
+        &:focus
+            box-shadow: none
+
+.modal-title
+    line-height: 1.5
+
+.modal-body
+    padding: toRem(15px) toRem(30px)
+
+    &:last-child
+        padding: toRem(15px) toRem(30px) toRem(30px)
+
+.modal-footer
+    border-top: none
+    padding: toRem(20px) toRem(30px) toRem(30px)
+
+.success-icon
+    width: toRem(80px)
+    height: toRem(80px)
+    object-fit: contain

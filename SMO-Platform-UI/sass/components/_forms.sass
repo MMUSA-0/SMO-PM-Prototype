@@ -1,0 +1,169 @@
+.form-label
+    display: flex
+    align-items: center
+    gap: toRem(4px)
+    font-size: toRem(15px)
+    font-weight: normal
+    color: var(--clr-text)
+
+    &--required
+        &::after
+            content: "*"
+            font-family: 'SSTArabic-Bold'
+            color: #d92d20
+
+.form-control
+    &.is-invalid,
+    .was-validated &:invalid
+        background-image: unset
+
+        &:focus
+            box-shadow: none
+
+.form-select,
+.form-control
+    --bs-border-color: #D8D8D8
+    --bs-border-radius: 10em
+    font-size: toRem(14px)
+    color: #000
+    background-color: rgba(255, 255, 255, 0.50)
+    padding: 0.544rem 1.25rem
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, background-image 0.3s ease-in-out, border-color 0.3s ease-in-out
+
+    &:focus
+        border-color: var(--clr-green)
+        box-shadow: none
+
+.form-select
+    color: #888
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='%231f6046'/%3E%3C/svg%3E")
+    background-size: toRem(13.5px) toRem(7.5px)
+    padding-inline-end: toRem(45px)
+
+    [dir="rtl"] &
+        background-position: left 1.25rem center
+
+    [dir="ltr"] &
+        background-position: right 1.25rem center
+
+    &-lg
+        min-height: unset
+        font-size: toRem(16px)
+        border-radius: toRem(4px)
+        padding: 0.594rem 1rem
+        padding-inline-end: toRem(30px)
+
+.form-control
+    &::placeholder
+        color: #888
+
+    &-lg
+        min-height: unset
+        font-size: toRem(16px)
+        border-radius: toRem(4px)
+        padding: 0.594rem 1rem
+
+    &[disabled]
+        background-color: #f5f5f5 !important
+
+.search-control
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.5 21.5'%3E%3Cpath d='M9.75,0a9.75,9.75,0,1,0,6.34,17.15l4.13,4.13a.75.75,0,0,0,1.06-1.06l-4.13-4.13A9.74,9.74,0,0,0,9.75,0ZM1.5,9.75A8.25,8.25,0,1,1,9.75,18,8.25,8.25,0,0,1,1.5,9.75Z' fill='%23A8A8A8' fill-rule='evenodd'/%3E%3C/svg%3E")
+    background-repeat: no-repeat
+    background-size: toRem(17px)
+    padding-inline-start: toRem(44px)
+    
+    [dir="rtl"] &
+        background-position: right 1rem center
+
+    [dir="ltr"] &
+        background-position: left 1rem center
+
+.form-check
+    display: flex
+    align-items: center
+    gap: toRem(15px)
+    padding: 0
+    margin: 0
+
+    .form-check-input
+        margin: 0
+
+.form-check-inline
+    display: inline-flex
+
+.form-check-label
+    font-family: 'SSTArabic-Medium'
+    font-size: toRem(16px)
+    color: var(--clr-text)
+
+.form-check-input
+    --bs-form-check-bg: #fff
+    --bs-border-color: #6C737F
+    width: toRem(24px)
+    height: toRem(24px)
+    transition: all 0.3s ease-in-out
+
+    &[type="radio"]
+        background-size: toRem(30px)
+
+    &[type="checkbox"]
+        background-size: toRem(12px) toRem(9.12px)
+        border-radius: toRem(4px)
+
+    &:focus
+        box-shadow: 0 0 0 toRem(2px) var(--clr-text)
+        border-color: var(--clr-green)
+
+    &:active
+        filter: none
+
+    &:checked
+        border-color: var(--clr-green)
+
+        &[type="radio"]
+            --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%231B8354'/%3e%3c/svg%3e")
+            background-color: #fff
+
+        &[type="checkbox"]
+            --bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9.12'%3E%3Cpath d='M11.59.41a1.36,1.36,0,0,1,0,2L5.25,8.71a1.38,1.38,0,0,1-2,0L.41,5.83a1.37,1.37,0,0,1,0-2,1.38,1.38,0,0,1,2,0l1.91,1.9L9.64.41A1.36,1.36,0,0,1,11.59.41Z' fill='%23fff' fill-rule='evenodd'/%3E%3C/svg%3E")
+            background-color: var(--clr-green)
+
+.invalid-feedback
+    font-size: toRem(14px)
+    color: var(--clr-red)
+
+.form-text
+    display: flex
+    align-items: center
+    gap: toRem(12px)
+    font-size: toRem(16px)
+    color: #384250
+    margin-top: toRem(20px)
+
+    &::before
+        content: ""
+        flex-shrink: 0
+        width: toRem(14.83px)
+        height: toRem(14.83px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.83 14.83'%3E%3Cpath d='M7.42,14.83a7.42,7.42,0,1,1,7.41-7.41A7.42,7.42,0,0,1,7.42,14.83Zm0-13.33a5.92,5.92,0,1,0,5.91,5.92A5.92,5.92,0,0,0,7.42,1.5Zm0,9.33a.74.74,0,0,1-.75-.75V7.42a.75.75,0,0,1,1.5,0v2.66A.75.75,0,0,1,7.42,10.83Zm0-5.33a.75.75,0,0,1,0-1.5h0a.75.75,0,0,1,0,1.5Z' fill='%23384250'/%3E%3C/svg%3E")
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+    &--sm
+        gap: toRem(8px)
+        font-size: toRem(14px)
+
+        &::before
+            width: toRem(13px)
+            height: toRem(13px)
+
+.time-control-container
+    position: relative
+
+.time-control
+    direction: ltr
+
+.required-message
+    font-size: toRem(14px)
+    color: #d92d20

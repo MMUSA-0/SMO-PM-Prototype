@@ -1,0 +1,168 @@
+.page__nav
+    display: flex
+    flex-direction: column
+
+    &__list
+        display: flex
+        flex-direction: column
+        gap: toRem(5px)
+        list-style: none
+        padding: 0
+        margin: 0
+
+        // &__item
+
+    &__submenu-container
+        display: grid
+        grid-template-rows: 0fr
+        transition: grid-template-rows 0.3s ease-in-out
+
+        .submenu-shown &
+            grid-template-rows: 1fr
+
+    &__submenu
+        display: flex
+        flex-direction: column
+        gap: toRem(1px)
+        overflow: hidden
+        pointer-events: none
+        opacity: 0
+        padding-inline-start: toRem(20px)
+        transition: opacity 0.3s ease-in-out, padding 0.3s ease-in-out
+
+        .submenu-shown &
+            pointer-events: auto
+            opacity: 1
+            padding-block: toRem(24px)
+
+        &__item
+            position: relative
+            display: flex
+            align-items: center
+            gap: toRem(8px)
+            line-height: 1.693
+            font-size: toRem(13px)
+            color: var(--clr-text)
+            text-decoration: none
+            border-radius: toRem(8px)
+            isolation: isolate
+            padding: toRem(11px) toRem(10px)
+            transition: color 0.3s ease-in-out
+
+            &::before
+                content: ""
+                position: absolute
+                inset: 0
+                background-image: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)
+                border-radius: inherit
+                pointer-events: none
+                opacity: 0
+                z-index: -1
+                transition: opacity 0.3s ease-in-out
+
+            &::after
+                content: ""
+                position: absolute
+                bottom: 0
+                inset-inline-start: 0
+                width: calc(100% - 6px)
+                height: toRem(0.5px)
+                background-color: #9BC7C1
+
+            &:visited
+                color: var(--clr-text)
+
+            +hover
+                color: var(--clr-green)
+
+                &::before
+                    opacity: 1
+
+            &.active
+                color: var(--clr-green)
+                &::before
+                    opacity: 1
+
+    &__link
+        position: relative
+        display: flex
+        align-items: center
+        gap: toRem(10px)
+        line-height: 1.693
+        font-size: toRem(13px)
+        text-decoration: none
+        color: var(--clr-text)
+        background-color: transparent
+        border-radius: toRem(8px)
+        cursor: pointer
+        isolation: isolate
+        padding: toRem(11px) toRem(20px)
+        transition: color 0.3s ease-in-out
+
+        &::before
+            content: ""
+            position: absolute
+            inset: 0
+            background-color: var(--clr-green)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='211' height='44' viewBox='0 0 211 44' fill='none'%3E%3Cg filter='url(%23filter0_f_2034_7417)'%3E%3Ccircle cx='78.5' cy='42.5' r='52.5' fill='%233E9E7B'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2034_7417' x='-54' y='-90' width='265' height='265' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='40' result='effect1_foregroundBlur_2034_7417'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E")
+            background-repeat: no-repeat
+            background-size: contain
+            border-radius: inherit
+            pointer-events: none
+            opacity: 0
+            z-index: -1
+            transition: opacity 0.3s ease-in-out
+
+        &__icon
+            width: toRem(22px)
+            height: toRem(22px)
+            object-fit: contain
+            transition: filter 0.3s ease-in-out
+
+        &:visited
+            color: var(--clr-text)
+
+        +hover
+            color: #fff
+
+            &::before
+                opacity: 1
+
+            .page__nav__link__icon
+                filter: brightness(0) invert(1)
+
+        &.active
+            color: #fff
+
+            &::before
+                opacity: 1
+
+            .page__nav__link__icon
+                filter: brightness(0) invert(1)
+
+.page__nav__list__item
+    &:has(.page__nav__submenu)
+        .page__nav__link
+            &::after
+                content: ""
+                width: toRem(13.5px)
+                height: toRem(7.5px)
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='%23000'/%3E%3C/svg%3E")
+                background-repeat: no-repeat
+                background-size: contain
+                background-position: center
+                margin-inline-start: auto
+                transition: all 0.3s ease-in-out
+
+            +hover
+                &::after
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='%23fff'/%3E%3C/svg%3E")
+
+            &.active
+                &::after
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='%23fff'/%3E%3C/svg%3E")
+
+        &.submenu-shown
+            .page__nav__link
+                &::after
+                    transform: rotateX(180deg) rotateY(180deg)

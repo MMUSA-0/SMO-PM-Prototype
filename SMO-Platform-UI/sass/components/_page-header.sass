@@ -1,0 +1,392 @@
+.page-header
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 9
+    padding-block: toRem(20px)
+    transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out
+
+    &--sticky
+        background-color: rgba(255, 255, 255, 0.7)
+        backdrop-filter: blur(10px)
+
+    &::after
+        content: ""
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: toRem(1.5px)
+
+        [dir="rtl"] &
+            background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5), transparent)
+
+        [dir="ltr"] &
+            background-image: linear-gradient(to left, #fff, rgba(255, 255, 255, 0.5), transparent)
+
+    &__logo
+        display: flex
+        width: toRem(200px)
+        height: toRem(48px)
+
+        +mq($lg)
+            width: toRem(290px)
+            height: toRem(48px)
+
+        & > img
+            width: 100%
+            height: 100%
+            object-fit: contain
+
+    &__actions
+        display: flex
+        align-items: center
+        gap: toRem(16px)
+
+        +mq($lg)
+            gap: toRem(28px)
+
+        &__item
+            position: relative
+            display: flex
+            align-items: center
+
+            &::after
+                content: ""
+                position: absolute
+                inset-inline-end: toRem(-8px)
+                width: toRem(1px)
+                height: toRem(17px)
+                background-color: #C7C7C7
+
+                +mq($lg)
+                    inset-inline-end: toRem(-14px)
+
+        &__btn
+            width: toRem(24px)
+            height: toRem(24px)
+            background-size: toRem(20.5px)
+            background-repeat: no-repeat
+            background-position: center
+            background-color: transparent
+            border: none
+            padding: 0
+            transition: background-image 0.3s ease-in-out, filter 0.3s ease-in-out
+
+.search-toggle-btn
+    z-index: 1
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.5 21.5'%3E%3Cpath d='M9.75,0a9.75,9.75,0,1,0,6.34,17.15l4.13,4.13a.75.75,0,0,0,1.06-1.06l-4.13-4.13A9.74,9.74,0,0,0,9.75,0ZM1.5,9.75A8.25,8.25,0,1,1,9.75,18,8.25,8.25,0,0,1,1.5,9.75Z' fill='%231f6046' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    +hover
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.5 21.5'%3E%3Cpath d='M9.75,0a9.75,9.75,0,1,0,6.34,17.15l4.13,4.13a.75.75,0,0,0,1.06-1.06l-4.13-4.13A9.74,9.74,0,0,0,9.75,0ZM1.5,9.75A8.25,8.25,0,1,1,9.75,18,8.25,8.25,0,0,1,1.5,9.75Z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+.grayscale-toggle-btn
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.5 20.5'%3E%3Cpath d='M8.77.29a.75.75,0,0,1,.06.81A7.82,7.82,0,0,0,19.4,11.67a.75.75,0,0,1,.81.06.75.75,0,0,1,.27.77A10.38,10.38,0,1,1,8,0,.75.75,0,0,1,8.77.29ZM6.85,2A8.88,8.88,0,1,0,18.52,13.65a9.2,9.2,0,0,1-2.79.43A9.3,9.3,0,0,1,6.42,4.77,9.2,9.2,0,0,1,6.85,2Z' fill='%231f6046' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    +hover
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.5 20.5'%3E%3Cpath d='M8.77.29a.75.75,0,0,1,.06.81A7.82,7.82,0,0,0,19.4,11.67a.75.75,0,0,1,.81.06.75.75,0,0,1,.27.77A10.38,10.38,0,1,1,8,0,.75.75,0,0,1,8.77.29ZM6.85,2A8.88,8.88,0,1,0,18.52,13.65a9.2,9.2,0,0,1-2.79.43A9.3,9.3,0,0,1,6.42,4.77,9.2,9.2,0,0,1,6.85,2Z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    .grayscale-active &
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.5 20.5'%3E%3Cpath d='M8.77.29a.75.75,0,0,1,.06.81A7.82,7.82,0,0,0,19.4,11.67a.75.75,0,0,1,.81.06.75.75,0,0,1,.27.77A10.38,10.38,0,1,1,8,0,.75.75,0,0,1,8.77.29ZM6.85,2A8.88,8.88,0,1,0,18.52,13.65a9.2,9.2,0,0,1-2.79.43A9.3,9.3,0,0,1,6.42,4.77,9.2,9.2,0,0,1,6.85,2Z' fill='%23fff' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+.notifications-toggle-btn
+    position: relative
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.5 21.5'%3E%3Cpath d='M10.25,0a8.26,8.26,0,0,1,8.28,8.25,4.38,4.38,0,0,0,.55,2.58l.26.36c.17.23.37.5.52.73a3.92,3.92,0,0,1,.6,1.49,3.41,3.41,0,0,1-2.35,3.65A19.37,19.37,0,0,1,15,18a4.91,4.91,0,0,1-9.4,0,19,19,0,0,1-3.15-1A3.42,3.42,0,0,1,0,13.41a3.78,3.78,0,0,1,.61-1.49c.14-.23.34-.5.51-.73l.26-.36A4.3,4.3,0,0,0,2,8.25,8.26,8.26,0,0,1,10.25,0Zm3,18.31a23.46,23.46,0,0,1-5.92,0,3.44,3.44,0,0,0,5.92,0Zm-3-16.81A6.76,6.76,0,0,0,3.48,8.25a5.78,5.78,0,0,1-.82,3.42c-.13.19-.24.34-.35.48s-.26.36-.4.58a2.53,2.53,0,0,0-.39.9c-.14.91.44,1.62,1.45,2a20.63,20.63,0,0,0,14.56,0c1-.42,1.59-1.13,1.45-2a2.36,2.36,0,0,0-.39-.9c-.14-.22-.26-.39-.4-.58s-.22-.29-.34-.47A5.75,5.75,0,0,1,17,8.25,6.76,6.76,0,0,0,10.25,1.5Z' fill='%231f6046' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    &::after
+        display: none
+
+    +hover
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20.5 21.5'%3E%3Cpath d='M10.25,0a8.26,8.26,0,0,1,8.28,8.25,4.38,4.38,0,0,0,.55,2.58l.26.36c.17.23.37.5.52.73a3.92,3.92,0,0,1,.6,1.49,3.41,3.41,0,0,1-2.35,3.65A19.37,19.37,0,0,1,15,18a4.91,4.91,0,0,1-9.4,0,19,19,0,0,1-3.15-1A3.42,3.42,0,0,1,0,13.41a3.78,3.78,0,0,1,.61-1.49c.14-.23.34-.5.51-.73l.26-.36A4.3,4.3,0,0,0,2,8.25,8.26,8.26,0,0,1,10.25,0Zm3,18.31a23.46,23.46,0,0,1-5.92,0,3.44,3.44,0,0,0,5.92,0Zm-3-16.81A6.76,6.76,0,0,0,3.48,8.25a5.78,5.78,0,0,1-.82,3.42c-.13.19-.24.34-.35.48s-.26.36-.4.58a2.53,2.53,0,0,0-.39.9c-.14.91.44,1.62,1.45,2a20.63,20.63,0,0,0,14.56,0c1-.42,1.59-1.13,1.45-2a2.36,2.36,0,0,0-.39-.9c-.14-.22-.26-.39-.4-.58s-.22-.29-.34-.47A5.75,5.75,0,0,1,17,8.25,6.76,6.76,0,0,0,10.25,1.5Z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    &.has-new
+        &::before
+            content: ""
+            position: absolute
+            top: 0
+            inset-inline-start: toRem(3px)
+            width: toRem(7px)
+            height: toRem(7px)
+            background-color: var(--clr-red)
+            border-radius: 50%
+
+.search-menu
+    position: relative
+    display: flex
+
+    &__input
+        position: absolute
+        top: 50%
+        inset-inline-end: toRem(-8px)
+        width: 0
+        background-color: #f8f8f8
+        border-radius: 10em
+        isolation: isolate
+        overflow: hidden
+        pointer-events: none
+        opacity: 0
+        transform: translateY(-50%)
+        transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out
+
+        .active &
+            width: toRem(250px)
+            pointer-events: auto
+            opacity: 1
+
+        &::before
+            content: ""
+            position: absolute
+            inset: 0
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+            -webkit-mask-composite: xor
+            mask-composite: exclude
+            border-radius: inherit
+            z-index: -1
+            pointer-events: none
+            padding: toRem(2px)
+
+            [dir="rtl"] &
+                background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5), transparent)
+
+            [dir="ltr"] &
+                background-image: linear-gradient(to left, #fff, rgba(255, 255, 255, 0.5), transparent)
+
+        .form-control
+            background-color: transparent
+            border: none
+            border-radius: inherit
+            padding: toRem(8px) toRem(20px)
+            padding-inline-end: toRem(40px)
+
+.grayscale-active
+    &::after
+        content: ""
+        position: absolute
+        inset: 0
+        background-image: inherit
+        background-size: inherit
+        background-position: inherit
+        background-repeat: inherit
+        pointer-events: none
+        filter: grayscale(100%)
+        z-index: -1
+
+    & > *
+        filter: grayscale(100%)
+        +scrollbar-grayscale
+
+.notifications-dropdown
+    display: flex
+
+    &__menu
+        --bs-dropdown-min-width: #{toRem(390px)}
+        inset: unset !important
+        top: 100% !important
+        display: flex !important
+        flex-direction: column
+        gap: toRem(20px)
+        background-color: #fff
+        border-radius: toRem(24px)
+        pointer-events: none
+        opacity: 0
+        padding: toRem(30px)
+        transform: translateY(10px) !important
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
+
+        &.dropdown-menu-end
+            inset-inline-end: 0 !important
+
+        &.show
+            pointer-events: auto
+            opacity: 1
+            transform: translateY(0) !important
+
+        &__header
+            display: flex
+            align-items: center
+            gap: toRem(16px)
+
+        &__icon
+            flex-shrink: 0
+            +flex-center
+            width: toRem(40px)
+            height: toRem(40px)
+            background-color: #F2F2F2
+            border-radius: 50%
+
+            & > img
+                width: toRem(21.5px)
+                height: toRem(21.5px)
+                object-fit: contain
+
+        &__title
+            font-family: '29LTBukra-Medium'
+            font-size: toRem(20px)
+            margin-bottom: 0
+
+        // &__body
+
+        &__footer
+            display: flex
+
+            .btn
+                --bs-btn-padding-y: 1.125rem
+                width: 100%
+                background-image: url(../images/btn-circle.svg)
+                background-repeat: no-repeat
+                background-size: contain
+                background-position: 20% center
+                border: none
+
+.notifications-list
+    display: flex
+    flex-direction: column
+    gap: toRem(10px)
+    max-height: toRem(390px)
+    overflow-x: clip
+    overflow-y: auto
+    +scrollbar-thin
+    padding-inline-end: toRem(10px)
+
+    &__item
+        display: flex
+        gap: toRem(10px)
+        border: toRem(1px) solid #ACECD7
+        border-radius: toRem(16px)
+        cursor: pointer
+        padding: toRem(10px)
+        padding-inline-end: toRem(20px)
+        transition: border-color 0.3s ease-in-out
+
+        +hover
+            border-color: var(--clr-green)
+
+        &--unread
+            position: relative
+            background-color: #F5FFFC
+
+            &::after
+                content: ""
+                position: absolute
+                top: toRem(20px)
+                inset-inline-end: toRem(20px)
+                width: toRem(9px)
+                height: toRem(9px)
+                background-color: #1085FA
+                border-radius: 50%
+
+        &__user-photo
+            flex-shrink: 0
+            width: toRem(32px)
+            height: toRem(32px)
+            object-fit: contain
+            border-radius: 50%
+
+        &__details
+            flex-grow: 1
+            display: flex
+            flex-direction: column
+            gap: toRem(10px)
+            padding-top: toRem(6px)
+
+        &__title
+            line-height: 1.715
+            font-size: toRem(14px)
+            margin-bottom: 0
+
+        &__description
+            line-height: 1.667
+            font-size: toRem(12px)
+            color: #666
+            margin-bottom: toRem(6px)
+
+        &__date
+            font-size: toRem(12px)
+            color: #B3B3B3
+            margin-inline-start: auto
+
+.user-dropdown
+    &__btn
+        display: flex
+        align-items: center
+        gap: toRem(10px)
+        background-color: transparent
+        border: none
+        padding: 0
+
+        & > span
+            display: none
+            font-size: toRem(14px)
+            -webkit-text-stroke-width: 0.3px
+            -webkit-text-stroke-color: #000
+
+            +mq($lg)
+                display: block
+
+        & > img
+            width: toRem(32px)
+            height: toRem(32px)
+
+    &__menu
+        --bs-dropdown-min-width: #{toRem(224px)}
+        inset: unset !important
+        top: 100% !important
+        display: flex !important
+        flex-direction: column
+        pointer-events: none
+        opacity: 0
+        transform: translateY(10px) !important
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
+
+        &.dropdown-menu-end
+            inset-inline-end: 0 !important
+
+        &.show
+            pointer-events: auto
+            opacity: 1
+            transform: translateY(0) !important
+
+    &__info
+        display: flex
+        flex-direction: column
+        padding-inline: toRem(10px)
+        margin-bottom: toRem(26px)
+
+        &__name
+            font-size: toRem(13px)
+            color: var(--clr-green)
+
+        &__job-title
+            font-size: toRem(12px)
+
+    &__actions
+        display: flex
+        flex-direction: column
+        gap: toRem(20px)
+
+        &__item
+            display: flex
+            align-items: center
+            gap: toRem(15px)
+            text-decoration: none
+            transition: padding-inline-start 0.3s ease-in-out
+
+            +hover
+                padding-inline-start: toRem(10px)
+
+            &__icon
+                flex-shrink: 0
+                +flex-center
+                width: toRem(36px)
+                height: toRem(36px)
+                background-color: #F3F3F3
+                border-radius: 50%
+
+                & > img
+                    width: toRem(18px)
+                    height: toRem(18px)
+                    object-fit: contain
+
+            &__title
+                font-size: toRem(13px)
+                color: var(--clr-green)

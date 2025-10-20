@@ -1,0 +1,109 @@
+.ui-widget
+    &.ui-widget-content
+        border: none
+
+.ui-datepicker
+    display: flex
+    flex-direction: column
+    gap: toRem(8px)
+    width: unset
+    background-color: #fff
+    box-shadow: 0 toRem(5px) toRem(14px) rgba(0, 0, 0, 0.15)
+    border-radius: toRem(4px)
+    padding: toRem(12px)
+
+    .ui-datepicker-header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        background-color: transparent
+        border: none
+        border-radius: 0
+        padding: 0
+
+        &::before,
+        &::after
+            display: none
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next
+        position: static
+        width: toRem(32px)
+        height: toRem(32px)
+        background-color: #fafafb
+        background-repeat: no-repeat
+        background-size: toRem(7px)
+        border: none
+        border-radius: toRem(6px)
+        cursor: pointer
+        transition: all 0.3s ease-in-out
+
+        &.ui-state-hover
+            border: none
+            background-color: var(--clr-green)
+
+        span
+            display: none
+
+    .ui-datepicker-prev
+        inset: unset
+
+    .ui-datepicker-next
+        inset: unset
+        order: 1
+    
+    .ui-datepicker-next
+        background-position: 45% 50%
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 27.47'%3E%3Cpath d='M13.71.05a.16.16,0,0,1,.24,0l1,1a.17.17,0,0,1,0,.23L2.49,13.74,14.93,26.18a.16.16,0,0,1,0,.24l-.79.79-.2.2a.2.2,0,0,1-.26,0L.06,13.83s-.06-.08-.06,0a.24.24,0,0,1,.09-.17Z' transform='translate(0 0)' fill='%231a1a1a'/%3E%3C/svg%3E")
+
+        &:hover
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 27.47'%3E%3Cpath d='M13.71.05a.16.16,0,0,1,.24,0l1,1a.17.17,0,0,1,0,.23L2.49,13.74,14.93,26.18a.16.16,0,0,1,0,.24l-.79.79-.2.2a.2.2,0,0,1-.26,0L.06,13.83s-.06-.08-.06,0a.24.24,0,0,1,.09-.17Z' transform='translate(0 0)' fill='%23fff'/%3E%3C/svg%3E")
+
+    .ui-datepicker-prev
+        background-position: 55% 50%
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 27.47'%3E%3Cpath d='M1.28,27.42a.17.17,0,0,1-.23,0l-1-1a.16.16,0,0,1,0-.24L12.5,13.73.06,1.29a.18.18,0,0,1,0-.24L.85.26l.21-.2a.18.18,0,0,1,.26,0L14.93,13.63s.06.09.07,0a.31.31,0,0,1-.1.17Z' transform='translate(0)' fill='%231a1a1a'/%3E%3C/svg%3E")
+
+        &:hover
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 27.47'%3E%3Cpath d='M1.28,27.42a.17.17,0,0,1-.23,0l-1-1a.16.16,0,0,1,0-.24L12.5,13.73.06,1.29a.18.18,0,0,1,0-.24L.85.26l.21-.2a.18.18,0,0,1,.26,0L14.93,13.63s.06.09.07,0a.31.31,0,0,1-.1.17Z' transform='translate(0)' fill='%23fff'/%3E%3C/svg%3E")
+
+
+    .ui-datepicker-calendar
+        margin-bottom: 0
+
+    th
+        max-width: toRem(33px)
+        font-size: toRem(12px)
+        font-weight: normal
+        text-align: center
+        text-overflow: ellipsis
+        overflow: hidden
+        padding: toRem(2px)
+
+    td
+        padding: toRem(2px)
+
+        span,
+        a
+            display: flex
+            flex-direction: column
+            justify-content: center
+            text-align: center
+            min-width: toRem(33px)
+            font-size: toRem(14px)
+            color: var(--clr-text)
+            background-color: #fafafb !important
+            border: none !important
+            border-radius: toRem(4px)
+            padding: toRem(6px)
+
+        a
+            text-decoration: none
+            transition: all 0.3s ease-in-out
+
+            &.ui-state-highlight
+                color: #fff
+                background-color: var(--clr-blue) !important
+
+            &.ui-state-hover
+                color: #fff
+                background-color: var(--clr-green) !important

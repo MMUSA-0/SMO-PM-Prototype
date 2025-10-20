@@ -1,0 +1,260 @@
+*
+    accent-color: var(--clr-green)
+
+html
+    scroll-behavior: smooth
+    +scrollbar
+
+body
+    position: relative
+    min-width: toRem(380px)
+    min-height: 100vh
+    min-height: 100dvh
+    font-family: "29LTBukra-Regular"
+    font-size: 1rem
+    font-weight: normal
+    font-style: normal
+    color: #000
+    background-image: url(../images/background.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center top
+    overflow-x: clip
+    overflow-y: auto
+    padding: 0 !important
+
+    @media (max-width: 380px)
+        overflow-x: auto
+
+    &:has(.page-header)
+        padding-top: toRem(88px) !important
+
+    &::before
+        content: ""
+        position: fixed
+        inset: 0
+        background-color: rgba(27, 131, 84, 0.95)
+        pointer-events: none
+        opacity: 0
+        transition: opacity 0.3s ease-in-out
+        z-index: 1000
+
+\::selection
+    color: #fff
+    background-color: var(--clr-green)
+
+*:focus-visible
+    outline: none
+
+[type="email"],
+[type="number"],
+[type="tel"],
+[type="url"]
+    [dir="rtl"] &
+        direction: ltr
+
+input[type="search"]
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration
+        -webkit-appearance: none
+
+h1, h2, h3, h4, h5
+    font-family: '29LTBukra-Regular'
+
+h6
+    font-family: '29LTBukra-Regular'
+
+strong
+    font-family: '29LTBukra-Bold'
+    font-weight: normal
+
+a, .link
+    color: var(--clr-green)
+    transition: color 0.3s ease-in-out
+    cursor: pointer
+
+    +hover
+        color: var(--clr-green)
+
+    &:visited
+        color: var(--clr-green)
+
+ul,
+ol
+    li
+        &::marker
+            color: currentColor
+
+.text-default
+    color: var(--clr-text)
+
+.text-danger
+    color: var(--clr-red)
+
+main
+    overflow: hidden
+    padding-block: toRem(20px) 0
+
+    @media (min-width: 768px)
+        min-height: 100vh
+        min-height: 100dvh
+
+section
+    overflow-x: clip
+
+.collapse
+    transition: all 0.3s ease-in-out
+
+.dropdown-toggle
+    &::after
+        width: toRem(13.5px)
+        height: toRem(7.5px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='%231f6046'/%3E%3C/svg%3E")
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+        border: none
+        margin: 0
+        transition: transform 0.3s ease-in-out
+
+    &.show
+        &::after
+            transform: rotateX(180deg) rotateY(180deg)
+
+.dropdown-menu
+    --bs-dropdown-min-width: 12rem
+    --bs-dropdown-padding-y: #{toRem(20px)}
+    --bs-dropdown-padding-x: #{toRem(24px)}
+    --bs-dropdown-font-size: #{toRem(15px)}
+    background-color: rgba(255, 255, 255, 0.90)
+    border: none
+    border-radius: toRem(16px)
+    box-shadow: none
+
+.dropdown-item
+    display: flex
+    align-items: center
+    gap: toRem(10px)
+    line-height: 1.429
+    font-size: toRem(14px)
+    color: var(--clr-text)
+    border-radius: toRem(6px)
+    padding: toRem(8px)
+    transition: background-color 0.3s ease-in-out
+
+    & > img
+        width: toRem(21.5px)
+        height: toRem(21.5px)
+
+    &:visited
+        color: var(--clr-text)
+
+    +hover
+        background-color: #e3ece6
+
+    &:active
+        color: var(--clr-text)
+        background-color: #E5E7EB
+
+.btn-close
+    width: toRem(32px)
+    height: toRem(32px)
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15.5 15.5'%3E%3Cpath d='M.22.22a.75.75,0,0,1,1.06,0L7.75,6.69,14.22.22a.75.75,0,0,1,1.06,1.06L8.81,7.75l6.47,6.47a.75.75,0,0,1-1.06,1.06L7.75,8.81,1.28,15.28A.75.75,0,0,1,.22,14.22L6.69,7.75.22,1.28A.75.75,0,0,1,.22.22Z' fill='%231a1a1a' fill-rule='evenodd'/%3E%3C/svg%3E")
+    background-size: toRem(11.25px)
+    border-radius: toRem(4px)
+    opacity: 1
+    padding: 0
+    margin: 0
+    margin-inline-start: auto
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out
+
+    +hover
+        opacity: 1
+        background-color: #F3F4F6
+
+    &:active
+        background-color: #E5E7EB
+
+    &:focus
+        box-shadow: inset 0 0 0 toRem(2px) #fff
+
+.swiper-slide
+    height: unset
+
+.swiper-pagination
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: toRem(10px)
+    margin-top: toRem(40px)
+
+.swiper-pagination-lock
+    display: none
+
+.swiper-pagination-bullet
+    flex-shrink: 0
+    width: toRem(12px)
+    height: toRem(12px)
+    background-color: rgba(255, 255, 255, 0.4)
+    border-radius: 50%
+    opacity: 1
+    transition: all 0.3s ease-in-out
+
+    .swiper-horizontal > .swiper-pagination-bullets &,
+    .swiper-pagination-horizontal.swiper-pagination-bullets &
+        margin: 0
+
+    &.swiper-pagination-bullet-active
+        width: toRem(14px)
+        height: toRem(14px)
+        background-color: rgba(255, 255, 255, 0.95)
+
+.slider-controls
+    display: flex
+    align-items: center
+    gap: toRem(10px)
+
+    .swiper-button-prev,
+    .swiper-button-next
+        position: static
+        width: toRem(44px)
+        height: toRem(44px)
+        background-color: var(--clr-blue)
+        border-radius: 50%
+        margin: 0
+        transition: background-color 0.3s ease-in-out
+
+        [dir="ltr"] &
+            transform: scaleX(-1)
+
+        &::before
+            font-family: "bootstrap-icons" !important
+            color: #fff
+
+        &::after
+            display: none
+
+        +hover
+            background-color: var(--clr-light-blue)
+
+    .swiper-button-prev
+        &::before
+            content: "\f285"
+
+    .swiper-button-next
+        &::before
+            content: "\f284"
+
+.pill
+    display: inline-flex
+    border-radius: 10em
+    padding: 0.469rem 1rem
+
+    &--success
+        background-color: rgba(39, 165, 123, 0.10)
+
+    &--danger
+        background-color: rgba(255, 0, 0, 0.10)
+

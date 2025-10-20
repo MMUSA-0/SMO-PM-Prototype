@@ -1,0 +1,83 @@
+@font-face {
+    font-family: '29LTBukra-Thin';
+    src: url('../fonts/29LTBukra-Thin.eot');
+    src: url('../fonts/29LTBukra-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-Thin.woff2') format('woff2'),
+        url('../fonts/29LTBukra-Thin.woff') format('woff'),
+        url('../fonts/29LTBukra-Thin.ttf') format('truetype'),
+        url('../fonts/29LTBukra-Thin.svg#29LTBukra-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}
+
+@font-face {
+    font-family: '29LTBukra-Light';
+    src: url('../fonts/29LTBukra-Light.eot');
+    src: url('../fonts/29LTBukra-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-Light.woff2') format('woff2'),
+        url('../fonts/29LTBukra-Light.woff') format('woff'),
+        url('../fonts/29LTBukra-Light.ttf') format('truetype'),
+        url('../fonts/29LTBukra-Light.svg#29LTBukra-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}
+
+@font-face {
+    font-family: '29LTBukra-Regular';
+    src: url('../fonts/29LTBukra-Regular.eot');
+    src: url('../fonts/29LTBukra-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-Regular.woff2') format('woff2'),
+        url('../fonts/29LTBukra-Regular.woff') format('woff'),
+        url('../fonts/29LTBukra-Regular.ttf') format('truetype'),
+        url('../fonts/29LTBukra-Regular.svg#29LTBukra-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}
+
+@font-face {
+    font-family: '29LTBukra-Medium';
+    src: url('../fonts/29LTBukra-Medium.eot');
+    src: url('../fonts/29LTBukra-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-Medium.woff2') format('woff2'),
+        url('../fonts/29LTBukra-Medium.woff') format('woff'),
+        url('../fonts/29LTBukra-Medium.ttf') format('truetype'),
+        url('../fonts/29LTBukra-Medium.svg#29LTBukra-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}
+
+@font-face {
+    font-family: '29LTBukra-SemiBold';
+    src: url('../fonts/29LTBukra-SemiBold.eot');
+    src: url('../fonts/29LTBukra-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-SemiBold.woff2') format('woff2'),
+        url('../fonts/29LTBukra-SemiBold.woff') format('woff'),
+        url('../fonts/29LTBukra-SemiBold.ttf') format('truetype'),
+        url('../fonts/29LTBukra-SemiBold.svg#29LTBukra-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}
+
+@font-face {
+    font-family: '29LTBukra-Bold';
+    src: url('../fonts/29LTBukra-Bold.eot');
+    src: url('../fonts/29LTBukra-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/29LTBukra-Bold.woff2') format('woff2'),
+        url('../fonts/29LTBukra-Bold.woff') format('woff'),
+        url('../fonts/29LTBukra-Bold.ttf') format('truetype'),
+        url('../fonts/29LTBukra-Bold.svg#29LTBukra-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 130%;
+}

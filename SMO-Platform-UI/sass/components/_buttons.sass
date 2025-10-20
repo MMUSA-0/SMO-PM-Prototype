@@ -1,0 +1,147 @@
+.btn
+    --bs-btn-padding-y: 0.544rem
+    --bs-btn-padding-x: 1.5rem
+    --bs-btn-focus-box-shadow: 0 0 0 #{toRem(3px)} #000
+    font-size: toRem(14px)
+    border-radius: 10em
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out
+
+    &:has(.btn-icon)
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        gap: toRem(12px)
+
+    .input-group > &:last-child
+        border-radius: 0
+        border-start-end-radius: toRem(3px)
+        border-end-end-radius: toRem(3px)
+
+    &.ico-btn
+        --bs-btn-padding-x: 0.95rem
+        --bs-btn-padding-y: 0.591rem
+        min-width: unset
+
+.btn-lg
+    --bs-btn-padding-y: 1rem
+    --bs-btn-padding-x: 2.5rem
+    border-width: toRem(2px)
+
+.btn-primary
+    --bs-btn-color: #fff
+    --bs-btn-bg: var(--clr-green)
+    --bs-btn-border-color: var(--clr-green)
+    --bs-btn-hover-color: #fff
+    --bs-btn-hover-bg: var(--clr-dark-green)
+    --bs-btn-hover-border-color: var(--clr-dark-green)
+    --bs-btn-active-color: #fff
+    --bs-btn-active-bg: #104631
+    --bs-btn-active-border-color: #104631
+    --bs-btn-disabled-color: #9DA4AE
+    --bs-btn-disabled-bg: #E5E7EB
+    --bs-btn-disabled-border-color: #E5E7EB
+    --bs-btn-disabled-opacity: 1
+
+    &:visited
+        color: #fff
+    
+    +hover
+        color: var(--bs-btn-hover-color)
+
+.btn-outline-primary
+    --bs-btn-color: var(--clr-green)
+    --bs-btn-bg: transparent
+    --bs-btn-border-color: var(--clr-green)
+    --bs-btn-hover-color: #fff
+    --bs-btn-hover-bg: var(--clr-green)
+    --bs-btn-hover-border-color: var(--clr-green)
+    --bs-btn-active-color: #fff
+    --bs-btn-active-bg: #14573A
+    --bs-btn-active-border-color: #14573A
+    --bs-btn-disabled-color: #9DA4AE
+    --bs-btn-disabled-bg: #E5E7EB
+    --bs-btn-disabled-border-color: #E5E7EB
+    --bs-btn-disabled-opacity: 1
+
+    &:visited
+        color: var(--clr-green)
+    
+    +hover
+        color: var(--bs-btn-hover-color)
+
+        .btn-icon
+            filter: brightness(0) invert(1)
+
+.btn-secondary
+    --bs-btn-color: #fff
+    --bs-btn-bg: var(--clr-blue)
+    --bs-btn-border-color: var(--clr-blue)
+    --bs-btn-hover-color: #fff
+    --bs-btn-hover-bg: #004573
+    --bs-btn-hover-border-color: #004573
+    --bs-btn-active-color: #fff
+    --bs-btn-active-bg: #{darken(#005187, 10%)}
+    --bs-btn-active-border-color: #{darken(#005187, 10%)}
+    --bs-btn-disabled-color: #9DA4AE
+    --bs-btn-disabled-bg: #E5E7EB
+    --bs-btn-disabled-border-color: #E5E7EB
+    --bs-btn-disabled-opacity: 1
+
+    &:visited
+        color: #fff
+    
+    +hover
+        color: var(--bs-btn-hover-color)
+
+.btn-outline-secondary
+    --bs-btn-color: var(--clr-gray)
+    --bs-btn-bg: transparent
+    --bs-btn-border-color: rgba(128, 130, 133, 0.329)
+    --bs-btn-hover-color: var(--clr-text)
+    --bs-btn-hover-bg: rgba(128, 130, 133, 0.329)
+    --bs-btn-hover-border-color: transparent
+    --bs-btn-active-color: var(--clr-text)
+    --bs-btn-active-bg: #E5E7EB
+    --bs-btn-active-border-color: rgba(128, 130, 133, 0.329)
+    --bs-btn-disabled-color: #9DA4AE
+    --bs-btn-disabled-bg: transparent
+    --bs-btn-disabled-border-color: #E5E7EB
+    --bs-btn-disabled-opacity: 1
+
+    &:visited
+        color: var(--clr-gray)
+    
+    +hover
+        color: var(--bs-btn-hover-color)
+
+.btn-outline-danger
+    --bs-btn-color: #B42318
+    --bs-btn-bg: transparent
+    --bs-btn-border-color: #F97066
+    --bs-btn-hover-color: #B42318
+    --bs-btn-hover-bg: transparent
+    --bs-btn-hover-border-color: #F97066
+    --bs-btn-active-color: #fff
+    --bs-btn-active-bg: #D92D20
+    --bs-btn-active-border-color: #D92D20
+    --bs-btn-disabled-color: #9DA4AE
+    --bs-btn-disabled-bg: #E5E7EB
+    --bs-btn-disabled-border-color: #E5E7EB
+    --bs-btn-disabled-opacity: 1
+
+.btn-light
+    --bs-btn-hover-bg: rgba(255, 255, 255, 0.8)
+
+.btn-icon
+    width: toRem(15px)
+    height: toRem(15px)
+    fill: currentColor
+    transition: fill 0.3s ease-in-out, filter 0.3s ease-in-out
+
+    .btn-sm &
+        width: toRem(15px)
+        height: toRem(15px)
+
+.arrow-icon
+    [dir="ltr"] &
+        transform: scaleX(-1)

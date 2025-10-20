@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="/images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <title>المؤشرات - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="overflow-hidden">
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="" title="الرئيسية">
+                        <img src="images/logo.svg" alt="">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title=""></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">2</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="notifications-list">
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">إشعار طلب تغيير</h4>
+                                                        <p class="notifications-list__item__description">تم استلام طلب تغييرك وجارٍ مراجعته من الفريق المختص</p>
+                                                        <span class="notifications-list__item__date">قبل 10 دقائق</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
+                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
+                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
+                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
+                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
+                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
+                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__footer">
+                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-dropdown">
+                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
+                                <span>فهد محمد القحطاني</span>
+                                <img src="images/avatar.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                <div class="user-dropdown__info">
+                                    <span class="user-dropdown__info__name">فهد محمد القحطاني</span>
+                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
+                                </div>
+                                <div class="user-dropdown__actions">
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/user-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/settings-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/logout-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="page-container">
+            <aside class="page-sidebar">
+                <nav class="page__nav">
+                    <ul class="page__nav__list">
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                                <span>لوحة القيادة المتقدمة</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link active" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                                <span>مركز معلومات رؤية 2030</span>
+                            </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="">الأهداف الإستراتيجية</a>
+                                    <a class="page__nav__submenu__item" href="">برامج الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="">المبادرات</a>
+                                    <a class="page__nav__submenu__item active" href="">المؤشرات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                                <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                                <span>إدارة الأداء</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                                <span>إدارة المهام</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                                <span>طلبات التغيير</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                                <span>إدارة المخاطر</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                                <span>إدارة محتوى الوثائق</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                                <span>إدارة التحديات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                                <span>التصويت والاستطلاعات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                                <span>المستندات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                                <span>الإدارة</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="page-content">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1 class="page-title">المؤشرات</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">
+                                        <img src="images/home-icon.svg" alt="">
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">مركز معلومات رؤية 2030</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="accordion" id="accordionStatistics">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStatistics" aria-expanded="true" aria-controls="collapseStatistics">إحصائيات المؤشرات</button>
+                                </h2>
+                                <div id="collapseStatistics" class="accordion-collapse collapse show" data-bs-parent="#accordionStatistics">
+                                    <div class="accordion-body">
+                                        <div class="row g-4">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
+                                                <div class="statistic-card">
+                                                    <div class="statistic-card__header">
+                                                        <span class="statistic-card__count">95</span>
+                                                        <span class="statistic-card__label">مؤشرات الاقتصاد الكلي</span>
+                                                    </div>
+                                                    <div class="statistic-card__body">
+                                                        <span class="statistic-card__brief">معدل التفعيل: 95%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
+                                                <div class="statistic-card">
+                                                    <div class="statistic-card__header">
+                                                        <span class="statistic-card__count">15</span>
+                                                        <span class="statistic-card__label">مؤشرات المستوى الأول</span>
+                                                    </div>
+                                                    <div class="statistic-card__body">
+                                                        <span class="statistic-card__brief">محقق: 8 من 15</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
+                                                <div class="statistic-card">
+                                                    <div class="statistic-card__header">
+                                                        <span class="statistic-card__count">20</span>
+                                                        <span class="statistic-card__label">مؤشرات المستوى الثاني</span>
+                                                    </div>
+                                                    <div class="statistic-card__body">
+                                                        <span class="statistic-card__brief">متوسط الأداء: 82%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
+                                                <div class="statistic-card">
+                                                    <div class="statistic-card__header">
+                                                        <span class="statistic-card__count">89<span class="statistic-card__count__percent">%</span></span>
+                                                        <span class="statistic-card__label">نسبة تحقيق برامج الرؤية</span>
+                                                    </div>
+                                                    <div class="statistic-card__body">
+                                                        <span class="statistic-card__brief">على المسار الصحيح</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">مؤشرات الاقتصاد الكلي</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">مؤشرات المستوى الأول</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">مؤشرات المستوى الثاني</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">مؤشرات البرامج الرئيسية</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-container">
+                            <div class="row">
+                                <div class="col-12 d-flex flex-wrap gap-3 py-3 mb-3">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <h3 class="page-subtitle">مؤشرات الاقتصاد الكلي</h3>
+                                        <span class="items-count">16</span>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-primary ms-auto">
+                                        <img class="btn-icon" src="images/add-circle-icon.svg" alt="">
+                                        <span>إضافة مؤشر اقتصاد</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-4 col-lg-5">
+                                    <input class="form-control search-control" type="search" name="" id="" placeholder="ادخل اسم المؤشر">
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-2">
+                                    <select name="" id="" class="form-select">
+                                        <option value="">نوع الوحدة</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-3 col-lg-2">
+                                    <select name="" id="" class="form-select">
+                                        <option value="">القطبية</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto ms-auto">
+                                    <div class="view-btns">
+                                        <button type="button" class="view-btns__item active">
+                                            <img src="images/list-view-icon.svg" alt="">
+                                        </button>
+                                        <button type="button" class="view-btns__item">
+                                            <img src="images/grid-view-icon.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">الرمز</th>
+                                                    <th scope="col">اسم المؤشر</th>
+                                                    <th scope="col">تواتر القياس</th>
+                                                    <th scope="col">نوع الوحدة</th>
+                                                    <th scope="col">الوحدة</th>
+                                                    <th scope="col">تاريخ خط الأساس</th>
+                                                    <th scope="col">القطبية</th>
+                                                    <th scope="col">الإجراء</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">20%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="decreasing-value">متناقص</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">60%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="increasing-value">متزايد</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">20%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="decreasing-value">متناقص</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">60%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="increasing-value">متزايد</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">20%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="decreasing-value">متناقص</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">60%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="increasing-value">متزايد</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">20%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="decreasing-value">متناقص</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-default">MEI.001</span>
+                                                    </td>
+                                                    <td>الناتج المحلي الإجمالي الحقيقي</td>
+                                                    <td>سنوي</td>
+                                                    <td>
+                                                        <div class="progress-container">
+                                                            <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                            </div>
+                                                            <span class="progress-percent">60%</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="currency-sar">1,000,000</span>
+                                                    </td>
+                                                    <td>2025</td>
+                                                    <td>
+                                                        <span class="increasing-value">متزايد</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown actions-dropdown">
+                                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/view-icon-green.svg" alt="">
+                                                                        <span>عرض</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/edit-icon-green.svg" alt="">
+                                                                        <span>تعديل</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <img src="images/delete-icon-green.svg" alt="">
+                                                                        <span>حذف</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--success">
+                                                <span class="increasing-value">متزايد</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">60%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--danger">
+                                                <span class="decreasing-value">متناقص</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">20%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--success">
+                                                <span class="increasing-value">متزايد</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">60%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--danger">
+                                                <span class="decreasing-value">متناقص</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">20%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--success">
+                                                <span class="increasing-value">متزايد</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--success" style="width: 60%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">60%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 col-xxl-4">
+                                    <div class="indicator-card">
+                                        <div class="indicator-card__header">
+                                            <div class="pill pill--danger">
+                                                <span class="decreasing-value">متناقص</span>
+                                            </div>
+                                            <div class="dropdown actions-dropdown">
+                                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/view-icon-green.svg" alt="">
+                                                            <span>عرض</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/edit-icon-green.svg" alt="">
+                                                            <span>تعديل</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <img src="images/delete-icon-green.svg" alt="">
+                                                            <span>حذف</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="indicator-card__body">
+                                            <h3 class="indicator-card__title">الناتج المحلي الإجمالي الحقيقي</h3>
+                                            <div class="indicator-card__details">
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تواتر القياس</span>
+                                                    <span class="indicator-card__details__item__data">سنوي</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">نوع الوحدة</span>
+                                                    <div class="progress-container">
+                                                        <div class="progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress-bar progress-bar--danger" style="width: 20%"></div>
+                                                        </div>
+                                                        <span class="progress-percent">20%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">الوحدة</span>
+                                                    <span class="currency-sar">1,000,000</span>
+                                                </div>
+                                                <div class="indicator-card__details__item">
+                                                    <span class="indicator-card__details__item__label">تاريخ خط الأساس</span>
+                                                    <span class="indicator-card__details__item__data">2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center mt-5">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">
+                                                    <svg viewBox="0 0 7.5 13.75">
+                                                        <path d="M7.32,7.32,1.07,13.57a.57.57,0,0,1-.21.13.59.59,0,0,1-.23.05.6.6,0,0,1-.24-.05.57.57,0,0,1-.21-.13.74.74,0,0,1-.13-.21.59.59,0,0,1,0-.23.6.6,0,0,1,.05-.24.74.74,0,0,1,.13-.21L6,6.88.18,1.07A.67.67,0,0,1,0,.63.67.67,0,0,1,.18.18.67.67,0,0,1,.63,0a.67.67,0,0,1,.44.18L7.32,6.43a.57.57,0,0,1,.13.21.6.6,0,0,1,0,.24.59.59,0,0,1,0,.23A.57.57,0,0,1,7.32,7.32Z"></path>
+                                                    </svg>
+                                                    <span>السابق</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#" aria-current="page">1</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">4</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">5</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">
+                                                    <span>التالي</span>
+                                                    <svg viewBox="0 0 7.5 13.75">
+                                                        <path d="M.18,6.43,6.43.18A.74.74,0,0,1,6.64.05a.6.6,0,0,1,.24,0,.59.59,0,0,1,.23.05.74.74,0,0,1,.21.13.57.57,0,0,1,.13.21.6.6,0,0,1,0,.24.59.59,0,0,1,0,.23.57.57,0,0,1-.13.21L1.51,6.88l5.81,5.8a.63.63,0,0,1-.89.89L.18,7.32a.74.74,0,0,1-.13-.21.59.59,0,0,1,0-.23.6.6,0,0,1,.05-.24A.74.74,0,0,1,.18,6.43Z"></path>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

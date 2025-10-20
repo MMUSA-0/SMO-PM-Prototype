@@ -1,0 +1,99 @@
+@keyframes increase
+    0%
+        inset-inline-start: -5%
+        width: 5%
+
+    100%
+        inset-inline-start: 130%
+        width: 100%
+
+@keyframes decrease
+    0%
+        inset-inline-start: -80%
+        width: 80%
+
+    100%
+        inset-inline-start: 110%
+        width: 10%
+
+@keyframes breathing
+    0%, 100%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.2)
+
+@keyframes spinning
+    from
+        transform: rotate(0deg)
+
+    to
+        transform: rotate(360deg)
+
+.page-preloader
+    position: fixed
+    inset: 0
+    +flex-center
+    width: 100%
+    height: 100%
+    z-index: 99999
+    transition: opacity 0.2s ease-in-out
+
+    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))
+        background-color: rgba(255, 255, 255, 0.75)
+        backdrop-filter: blur(20px)
+
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none))
+        background-color: #fff
+
+    .loading-bar
+        position: absolute
+        top: 0
+        width: 100%
+        height: toRem(5px)
+        background-color: rgba(#1F6046, 25%)
+        overflow: hidden
+
+        .loading-line
+            position: absolute
+            height: inherit
+            background-color: var(--clr-green)
+
+            &:first-child
+                animation: increase 2s infinite
+
+            &:last-child
+                animation: decrease 2s .5s infinite
+
+    .loading-message
+        position: relative
+        +flex-center
+        width: toRem(180px)
+        height: toRem(180px)
+
+    .loading-spinner
+        position: absolute
+        inset: 0
+        width: 100%
+        height: 100%
+        background-image: url(../images/loading-spinner.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center bottom
+        animation-name: spinning
+        animation-duration: 1000ms
+        animation-iteration-count: infinite
+        animation-timing-function: linear
+
+    .loading-logo
+        width: toRem(70px)
+        height: toRem(70px)
+        animation: breathing 2.2s infinite
+
+        img
+            width: inherit
+            height: inherit
+
+    &.page-loaded
+        opacity: 0
+        pointer-events: none

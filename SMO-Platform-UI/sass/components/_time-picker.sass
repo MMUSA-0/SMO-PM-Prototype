@@ -1,0 +1,61 @@
+.timepicker__wrapper
+	position: absolute
+	top: 100%
+	inset-inline-start: 0
+	direction: ltr
+	display: flex
+	min-width: toRem(200px)
+	text-align: center
+	background-color: #fff
+	border-radius: toRem(4px)
+	pointer-events: none
+	opacity: 0
+	overflow: hidden
+	box-shadow: 0 toRem(8px) toRem(25px) rgba(0, 0, 0, .15);
+	padding: toRem(15px)
+	transform: translateY(-10px)
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
+
+	&-active
+		pointer-events: auto
+		opacity: 1
+		transform: translateY(0)
+
+.timepicker__display
+	+flex-center
+	width: 100%
+	line-height: 1
+	font-family: 'SSTArabic-Medium'
+	font-size: toRem(22px)
+	text-transform: uppercase
+	user-select: none
+
+.timepicker__hour,
+.timepicker__minute,
+.timepicker__meridiem
+	display: flex
+	flex-direction: column
+	align-items: center
+	gap: toRem(10px)
+	flex-basis: 33.3333%
+
+.timepicker__button
+	width: toRem(40px)
+	height: toRem(40px)
+	background-color: #fff
+	background-repeat: no-repeat
+	background-size: toRem(14px)
+	background-position: center
+	border-radius: toRem(4px)
+	cursor: pointer
+	transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out
+
+	&--up
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 7'%3E%3Cpath d='M6.15.15a.48.48,0,0,1,.7,0h0l6,6a.49.49,0,0,1-.7.7L6.5,1.21.85,6.85a.48.48,0,0,1-.7,0,.48.48,0,0,1,0-.7Z' fill='%231a1a1a' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+	&--down
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 7'%3E%3Cpath d='M6.85,6.85a.49.49,0,0,1-.7,0h0l-6-6a.48.48,0,0,1,0-.7.48.48,0,0,1,.7,0L6.5,5.79,12.15.15a.48.48,0,0,1,.7,0,.48.48,0,0,1,0,.7Z' fill='%231a1a1a' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+	+hover
+		background-color: #eee
+		box-shadow: 0 0.25rem 0.75rem rgba(108, 117, 125, .15)

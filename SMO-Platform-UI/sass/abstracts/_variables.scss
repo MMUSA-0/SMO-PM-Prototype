@@ -1,0 +1,29 @@
+@use 'sass:map';
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$default-font-size: 16px;
+$scrollbar-width: 8px;
+
+$variables: (
+    default-font-size: $default-font-size,
+    scrollbar-width: $scrollbar-width
+);
+
+:root {
+    --default-font-size: #{map-get($variables, default-font-size)};
+    --scrollbar-width: #{map-get($variables, scrollbar-width)};
+    --sidebar-width: toRem(262px);
+    --clr-text: #000;
+    --clr-green: #1F6046;
+    --clr-dark-green: #114B33;
+    --clr-red: #f00;
+    --clr-gray: #D3D3D3;
+    --clr-dark-gray: #5D5D5D;
+
+    font-size: var(--default-font-size);
+}

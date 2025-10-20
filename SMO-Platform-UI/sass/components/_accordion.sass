@@ -1,0 +1,75 @@
+.accordion
+    --bs-accordion-btn-icon-transform: rotateX(180deg) rotateY(180deg)
+
+.accordion-item
+    position: relative
+    color: var(--clr-text)
+    background-color: rgba(255, 255, 255, 0.40)
+    border: none
+    border-radius: toRem(24px)
+    isolation: isolate
+
+    &::before
+        content: ""
+        position: absolute
+        inset: 0
+        background-image: linear-gradient(170deg, #fff, transparent, transparent)
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+        -webkit-mask-composite: xor
+        mask-composite: exclude
+        border-radius: inherit
+        z-index: -1
+        pointer-events: none
+        padding: toRem(2px)
+        padding-bottom: 0
+
+    &:last-of-type 
+        border-radius: toRem(24px)
+
+    &:first-of-type
+        border-radius: toRem(24px)
+
+    &:first-of-type
+        & > .accordion-header
+            .accordion-button
+                border-radius: toRem(24px)
+
+    &:last-of-type
+        & > .accordion-header
+            .accordion-button
+                &.collapsed
+                    border-radius: toRem(24px)
+
+.accordion-button
+    font-size: toRem(21px)
+    text-align: start
+    background-color: transparent
+    padding: toRem(24px)
+
+    &::after
+        width: toRem(13.5px)
+        height: toRem(13.5px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='rgba(71, 71, 71, 0.80)'/%3E%3C/svg%3E")
+        background-size: contain
+        background-position: center
+
+    &:focus
+        box-shadow: none
+
+    .accordion-item
+        &:last-of-type
+            & > .accordion-header
+                &.collapsed
+                    border-radius: toRem(24px)
+
+    &:not(.collapsed)
+        color: var(--clr-text)
+        background-color: transparent
+        box-shadow: none
+
+        &::after
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13.5 7.5'%3E%3Cpath d='M1.35.31l.71.92c.43.55,1,1.29,1.66,2a23.17,23.17,0,0,0,1.92,2,5.15,5.15,0,0,0,.79.6A1.33,1.33,0,0,0,6.75,6a1.33,1.33,0,0,0,.32-.15,5.15,5.15,0,0,0,.79-.6,23.17,23.17,0,0,0,1.92-2c.64-.74,1.23-1.48,1.66-2l.71-.92a.73.73,0,0,1,1-.16.73.73,0,0,1,.16,1h0c-.13.17-.5.67-.72,1-.45.57-1.06,1.33-1.72,2.09A23.35,23.35,0,0,1,8.85,6.37a6.45,6.45,0,0,1-1,.76,2.16,2.16,0,0,1-1.1.37,2.16,2.16,0,0,1-1.1-.37,6,6,0,0,1-1-.76A23.35,23.35,0,0,1,2.59,4.24C1.93,3.48,1.32,2.72.87,2.15.65,1.87.28,1.37.15,1.2h0a.74.74,0,0,1,.16-1A.73.73,0,0,1,1.35.31Z' fill='rgba(71, 71, 71, 0.80)'/%3E%3C/svg%3E")
+
+.accordion-body
+    padding: toRem(24px)
+    padding-top: 0

@@ -1,0 +1,601 @@
+.page-container
+    width: 100%
+    max-width: 1680px
+    padding-right: toRem(12px)
+    padding-left: toRem(12px)
+    margin-right: auto
+    margin-left: auto
+
+    main &
+        display: flex
+        gap: toRem(40px)
+
+.page-sidebar-toggle-btn
+    flex-shrink: 0
+    display: flex
+    width: toRem(16px)
+    height: toRem(14px)
+    background-image: url(../images/menu-icon.svg)
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center
+
+    +mq($xl)
+        display: none
+
+    .page-sidebar-shown &
+        background-image: url(../images/close-icon.svg)
+
+.page-sidebar
+    --sidebar-width: #{toRem(330px)}
+    flex-shrink: 0
+    position: fixed
+    top: toRem(88px)
+    inset-inline-start: 0
+    width: var(--sidebar-width)
+    height: calc(100% - toRem(88px))
+    background-color: rgba(209, 230, 224, 0.8)
+    backdrop-filter: blur(10px)
+    z-index: 1
+    overflow-y: auto
+    padding-block: toRem(30px)
+    padding-inline: toRem(22px)
+    margin-inline-start: calc(-1 * var(--sidebar-width))
+    transition: transform 0.3s ease-in-out
+    scrollbar-gutter: stable
+    +scrollbar-thin
+    
+
+    +mq($xl)
+        --sidebar-width: #{toRem(285px)}
+        position: static
+        height: unset
+        background-color: transparent
+        backdrop-filter: unset
+        z-index: unset
+        overflow-y: unset
+        padding-block: toRem(30px) toRem(10px)
+        padding-inline: 0
+        margin-inline-start: unset
+
+    .page-sidebar-shown &
+        [dir="rtl"] &
+            transform: translateX(-100%)
+
+            +mq($xl)
+                transform: translateX(0)
+
+        [dir="ltr"] &
+            transform: translateX(100%)
+
+            +mq($xl)
+                transform: translateX(0)
+
+.page-content
+    width: 100%
+    overflow: hidden
+    // padding: toRem(10px) toRem(20px)
+    padding-block: toRem(10px)
+
+    +mq($xl)
+        width: calc(100% - var(--sidebar-width))
+        // padding: toRem(20px) toRem(40px)
+        padding-block: toRem(20px)
+
+.page-title
+    line-height: 1.5
+    font-size: toRem(14px)
+    margin-bottom: 0
+
+.page-subtitle
+    font-size: toRem(21px)
+    margin-bottom: 0
+
+.content-container
+    position: relative
+    display: flex
+    flex-direction: column
+    background-color: rgba(255, 255, 255, 0.40)
+    border-radius: toRem(24px)
+    border-start-start-radius: 0
+    isolation: isolate
+    padding: toRem(18px) toRem(24px)
+
+    +mq($xl)
+        padding: toRem(24px) toRem(44px)
+
+    &::before
+        content: ""
+        position: absolute
+        inset: 0
+        background-image: linear-gradient(135deg, #fff, transparent, transparent)
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+        -webkit-mask-composite: xor
+        mask-composite: exclude
+        border-radius: inherit
+        z-index: -1
+        pointer-events: none
+        padding: toRem(1.5px)
+        padding-bottom: 0
+
+.page-article
+    p
+        line-height: 2.308
+        font-size: toRem(13px)
+        text-align: justify
+        margin-bottom: toRem(22px)
+
+.vision-images
+    display: grid
+    grid-template-columns: 1fr 1fr
+    align-items: center
+    gap: toRem(30px)
+    // float: none
+    margin-top: toRem(50px)
+    margin-inline-start: auto
+
+    +mq($lg)
+        grid-template-columns: toRem(215px) toRem(215px)
+        // float: inline-end
+        order: 1
+        // margin-inline-start: unset
+
+    &__item
+        width: 100%
+        max-width: toRem(215px)
+        aspect-ratio: 1 / 1.3628
+
+        &:nth-child(1)
+            grid-column: 1
+            transform: translateY(190px)
+
+        &:nth-child(2)
+            grid-column: 2
+
+        &:nth-child(3)
+            grid-column: 2
+
+        & > img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            border-radius: toRem(16px)
+
+.vision-logo
+    padding: toRem(14px)
+    margin-bottom: toRem(20px)
+
+    & > img
+        width: toRem(137.59px)
+        height: toRem(92.64px)
+        object-fit: contain
+
+.vision-title
+    line-height: 1.8
+    font-size: toRem(28px)
+    color: var(--clr-green)
+    margin-bottom: toRem(40px)
+
+    +mq($md)
+        font-size: toRem(32px)
+
+    +mq($lg)
+        font-size: toRem(40px)
+
+.vision-points
+    display: flex
+    flex-direction: column
+    gap: toRem(50px)
+    list-style: none
+    padding: 0
+    margin: 0
+
+    & > li
+        display: flex
+        align-items: center
+        gap: toRem(24px)
+        font-size: toRem(18px)
+
+        +mq($md)
+            font-size: toRem(24px)
+
+        +mq($lg)
+            font-size: toRem(32px)
+
+        &::before
+            content: ""
+            flex-shrink: 0
+            width: toRem(16px)
+            aspect-ratio: 1 / 1
+            transform: rotate(-45deg) translate(-6px, -6px)
+
+            +mq($md)
+                width: toRem(18px)
+
+            +mq($lg)
+                width: toRem(22px)
+
+        &:nth-child(1)
+            &::before
+                background-color: #56B42E
+
+        &:nth-child(2)
+            &::before
+                background-color: #0082C6
+
+        &:nth-child(3)
+            &::before
+                background-color: #544BA2
+
+.items-count
+    +flex-center
+    min-width: toRem(32px)
+    line-height: 1.8
+    font-size: toRem(13px)
+    color: var(--clr-green)
+    border: toRem(1px) solid var(--clr-green)
+    border-radius: 50%
+    padding: toRem(3.5px)
+
+.view-btns
+    display: flex
+    align-items: center
+    border-radius: 10em
+    box-shadow: inset 0 0 0 toRem(1px) var(--clr-green)
+
+    &__item
+        +flex-center
+        width: toRem(48px)
+        height: toRem(40px)
+        background-color: transparent
+        border: none
+        padding: 0
+        transition: all 0.3s ease-in-out
+
+        &:first-child
+            border-start-start-radius: 10em
+            border-end-start-radius: 10em
+            padding-inline-start: toRem(6px)
+
+            &.active
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='49' height='41' viewBox='0 0 49 41' fill='none'%3E%3Cmask id='mask0_2034_5999' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='49' height='41'%3E%3Cpath d='M0.5 0H28C39.3218 0 48.5 9.17816 48.5 20.5C48.5 31.8218 39.3218 41 28 41H0.5V0Z' fill='%231F6046'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_2034_5999)'%3E%3Cg filter='url(%23filter0_f_2034_5999)'%3E%3Ccircle cx='6' cy='7.5' r='12.5' fill='%2303B585'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2034_5999' x='-26.5' y='-25' width='65' height='65' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='10' result='effect1_foregroundBlur_2034_5999'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E")
+
+        &:last-child
+            border-start-end-radius: 10em
+            border-end-end-radius: 10em
+            padding-inline-end: toRem(6px)
+
+            &.active
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='41' viewBox='0 0 48 41' fill='none'%3E%3Cmask id='mask0_188_3886' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='48' height='41'%3E%3Cpath d='M48 0H20.5C9.17816 0 0 9.17816 0 20.5C0 31.8218 9.17816 41 20.5 41H48V0Z' fill='%231F6046'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_188_3886)'%3E%3Cg filter='url(%23filter0_f_188_3886)'%3E%3Ccircle cx='12.5' cy='12.5' r='12.5' transform='matrix(-1 0 0 1 55 -5)' fill='%2303B585'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_188_3886' x='10' y='-25' width='65' height='65' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='10' result='effect1_foregroundBlur_188_3886'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E")
+
+        & > img
+            width: toRem(16px)
+            height: toRem(16px)
+            object-fit: contain
+
+        +hover
+            background-color: var(--clr-green)
+
+            & > img
+                filter: brightness(0) invert(1)
+
+        &.active
+            background-color: var(--clr-green)
+
+            & > img
+                filter: brightness(0) invert(1)
+
+.progress-container
+    display: flex
+    align-items: center
+    gap: toRem(4px)
+
+    .progress
+        width: toRem(70px)
+        height: toRem(8px)
+        background-color: #fff
+        border-radius: 10em
+
+        .indicator-card__details__item &
+            height: toRem(6px)
+            background-color: #C1CCE5
+
+        .progress-bar
+            border-radius: inherit
+
+            &--danger
+                background-color: #F00
+
+            &--success
+                background-color: #27A57B
+
+.progress-percent
+    font-family: '29LTBukra-Medium'
+    font-size: toRem(8px)
+    color: var(--clr-text)
+
+    .indicator-card__details__item &
+        order: -1
+        font-size: toRem(10px)
+
+.currency-sar
+    display: flex
+    align-items: center
+    gap: toRem(6px)
+    font-size: toRem(12px)
+    color: var(--clr-green)
+
+    &::after
+        content: ""
+        width: toRem(16px)
+        height: toRem(18px)
+        background-image: url(../images/sar-icon.svg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+.increasing-value,
+.decreasing-value
+    display: flex
+    align-items: center
+    gap: toRem(6px)
+
+    .pill &
+        font-size: toRem(10px)
+
+    &::before
+        content: ""
+        width: toRem(7px)
+        height: toRem(10.5px)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center
+
+        .pill &
+            order: 1
+
+.increasing-value
+    color: var(--clr-green)
+
+    .pill &
+        color: #27A57B
+
+    &::before
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7.36 10.5'%3E%3Cpath d='M7.22,4a.51.51,0,0,1-.71,0L4.18,1.71V10.5h-1V1.71L.85,4a.5.5,0,0,1-.7,0,.5.5,0,0,1,0-.71L3.33.15A.5.5,0,0,1,4,.15L7.22,3.33A.51.51,0,0,1,7.22,4Z' fill='%231f6046'/%3E%3C/svg%3E")
+
+        .pill &
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7.36 10.5'%3E%3Cpath d='M7.22,4a.51.51,0,0,1-.71,0L4.18,1.71V10.5h-1V1.71L.85,4a.5.5,0,0,1-.7,0,.5.5,0,0,1,0-.71L3.33.15A.5.5,0,0,1,4,.15L7.22,3.33A.51.51,0,0,1,7.22,4Z' fill='%2327A57B'/%3E%3C/svg%3E")
+
+.decreasing-value
+    color: var(--clr-red)
+
+    &::before
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7.36 10.5'%3E%3Cpath d='M7.22,7.17,4,10.35a.5.5,0,0,1-.71,0L.15,7.17a.5.5,0,0,1,0-.71.5.5,0,0,1,.7,0L3.18,8.79V0h1V8.79L6.51,6.46a.5.5,0,1,1,.71.71Z' fill='%23f00'/%3E%3C/svg%3E")
+
+.actions-dropdown
+    display: inline-flex
+
+    .dropdown-menu
+        --bs-dropdown-padding-y: #{toRem(16px)}
+        --bs-dropdown-padding-x: #{toRem(16px)}
+
+    .dropdown-toggle
+        +flex-center
+        width: toRem(30px)
+        height: toRem(30px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2.67 12'%3E%3Cpath d='M0,10.67A1.34,1.34,0,1,1,1.33,12,1.34,1.34,0,0,1,0,10.67ZM0,6A1.34,1.34,0,1,1,1.33,7.33,1.33,1.33,0,0,1,0,6ZM0,1.33A1.34,1.34,0,1,1,1.33,2.67,1.34,1.34,0,0,1,0,1.33Z' fill='%23606378'/%3E%3C/svg%3E")
+        background-repeat: no-repeat
+        background-size: toRem(2.67px) toRem(12px)
+        background-position: center
+        background-color: transparent
+        border: none
+        border-radius: toRem(4px)
+        padding: 0
+        transition: background-color 0.3s ease-in-out, background-image 0.3s ease-in-out
+
+        &::after
+            display: none
+
+        +hover
+            background-color: rgba(255, 255, 255, 0.5)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2.67 12'%3E%3Cpath d='M0,10.67A1.34,1.34,0,1,1,1.33,12,1.34,1.34,0,0,1,0,10.67ZM0,6A1.34,1.34,0,1,1,1.33,7.33,1.33,1.33,0,0,1,0,6ZM0,1.33A1.34,1.34,0,1,1,1.33,2.67,1.34,1.34,0,0,1,0,1.33Z' fill='%23000'/%3E%3C/svg%3E")
+
+        &.show
+            background-color: rgba(255, 255, 255, 0.5)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2.67 12'%3E%3Cpath d='M0,10.67A1.34,1.34,0,1,1,1.33,12,1.34,1.34,0,0,1,0,10.67ZM0,6A1.34,1.34,0,1,1,1.33,7.33,1.33,1.33,0,0,1,0,6ZM0,1.33A1.34,1.34,0,1,1,1.33,2.67,1.34,1.34,0,0,1,0,1.33Z' fill='%23000'/%3E%3C/svg%3E")
+
+    .dropdown-menu
+        li
+            padding-block: toRem(6px)
+
+            &:not(:last-child)
+                border-bottom: toRem(1px) solid #EAEAEA
+
+            &:first-child
+                padding-top: 0
+
+            &:last-child
+                padding-bottom: 0
+
+    .dropdown-item
+        padding: toRem(10px) toRem(10px)
+
+.indicator-card
+    position: relative
+    display: flex
+    flex-direction: column
+    gap: toRem(10px)
+    background-color: rgba(255, 255, 255, 0.40)
+    border-radius: toRem(16px)
+    isolation: isolate
+    padding: toRem(24px) toRem(10px) toRem(40px)
+
+    &::before
+        content: ""
+        position: absolute
+        inset: 0
+        background-image: linear-gradient(125deg, #fff, #fff, transparent)
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+        -webkit-mask-composite: xor
+        mask-composite: exclude
+        border-radius: inherit
+        z-index: -1
+        pointer-events: none
+        padding: toRem(1px)
+        padding-bottom: 0
+
+    &__header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: toRem(10px)
+        padding: toRem(10px)
+
+    &__body
+
+    &__title
+        line-height: 1.625
+        font-size: toRem(16px)
+        color: var(--clr-green)
+        padding: toRem(10px)
+        margin-bottom: 0
+
+    &__details
+        display: flex
+        flex-direction: column
+
+        &__item
+            display: flex
+            align-items: center
+            justify-content: space-between
+            gap: toRem(10px)
+            padding: toRem(10px)
+
+            &:not(:last-child)
+                border-bottom: toRem(1px) solid rgba(156, 174, 211, 0.30)
+
+            &__label
+                line-height: 2
+                font-size: toRem(12px)
+
+            &__data
+                font-size: toRem(12px)
+                color: var(--clr-green)
+
+.statistic-card
+    display: flex
+    flex-direction: column
+    height: 100%
+    color: #fff
+    background-color: #227758
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='109' height='99' viewBox='0 0 109 99' fill='none'%3E%3Cg filter='url(%23filter0_f_2103_6336)'%3E%3Cellipse cx='29' cy='19.5' rx='40' ry='39.5' fill='url(%23paint0_linear_2103_6336)' fill-opacity='0.45'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2103_6336' x='-51' y='-60' width='160' height='159' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='20' result='effect1_foregroundBlur_2103_6336'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_2103_6336' x1='29' y1='-20' x2='29' y2='59' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white'/%3E%3Cstop offset='1' stop-color='%23B0E8D3'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E")
+    background-repeat: no-repeat
+    border-radius: toRem(16px)
+    transition: background-color 0.3s ease-in-out
+
+    +hover
+        background-color: #1F6046
+
+    &__header
+        display: flex
+        align-items: center
+        gap: toRem(10px)
+        padding: toRem(13.5px) toRem(20px)
+
+    &__count
+        line-height: 1.5
+        font-family: '29LTBukra-Bold'
+        font-size: toRem(46px)
+
+        &__percent
+            font-size: toRem(20px)
+
+    &__label
+        font-size: toRem(14px)
+        text-wrap-style: balance
+
+    &__body
+        flex-grow: 1
+        display: flex
+        justify-content: center
+        background-color: rgba(255, 255, 255, 0.07)
+        padding: toRem(10px) toRem(20px)
+
+    &__brief
+        display: flex
+        align-items: center
+        gap: toRem(6px)
+        line-height: 1.539
+        font-size: toRem(13px)
+        text-align: center
+
+        &::before
+            content: ""
+            width: toRem(7px)
+            height: toRem(10.5px)
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7.36 10.5'%3E%3Cpath d='M7.22,4a.51.51,0,0,1-.71,0L4.18,1.71V10.5h-1V1.71L.85,4a.5.5,0,0,1-.7,0,.5.5,0,0,1,0-.71L3.33.15A.5.5,0,0,1,4,.15L7.22,3.33A.51.51,0,0,1,7.22,4Z' fill='%23fff'/%3E%3C/svg%3E")
+
+.latest-achievements
+    display: flex
+    align-items: center
+    gap: toRem(24px)
+
+    &__header
+        flex-shrink: 0
+        background-image: linear-gradient(90deg, #FFF 0%, rgba(236, 236, 236, 0.00) 100%)
+        border-radius: 10em
+        padding: toRem(11px) toRem(14px)
+
+    &__title
+        display: flex
+        align-items: center
+        gap: toRem(10px)
+        font-size: toRem(14px)
+        margin-bottom: 0
+
+        & > img
+            width: toRem(18px)
+            height: toRem(18px)
+            object-fit: contain
+
+    &__body
+        flex-grow: 1
+        overflow: hidden
+
+    &__marquee
+        position: relative
+        overflow: hidden
+
+        .swiper-wrapper
+            transition-timing-function: linear !important
+
+        .swiper-slide
+            width: auto
+
+        &__item
+            display: flex
+            align-items: center
+            gap: toRem(10px)
+            font-size: toRem(14px)
+            white-space: nowrap
+            color: var(--clr-green)
+            text-decoration-line: underline
+            text-decoration-style: solid
+            text-decoration-skip-ink: auto
+            text-decoration-thickness: auto
+            text-underline-offset: auto
+            text-underline-position: from-font
+
+            &::before
+                content: ""
+                width: toRem(5px)
+                height: toRem(5px)
+                border-radius: 50%
+                background-color: var(--clr-green)
+
+            +hover
+                color: var(--clr-text)
+                text-decoration-line: none

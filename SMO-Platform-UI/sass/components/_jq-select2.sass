@@ -1,0 +1,181 @@
+
+.select2-container--default
+    .select2-selection--single
+        height: toRem(40px)
+        border-color: #9DA4AE
+        border-radius: toRem(4px) !important
+
+        &:focus
+            background-color: #F3F4F6
+            border-color: #9da4ae
+            box-shadow: 0 toRem(4px) toRem(8px) toRem(-2px) rgba(16, 24, 40, 0.10), 0 toRem(2px) toRem(4px) toRem(-2px) rgba(16, 24, 40, 0.06)
+
+        .select2-selection__rendered
+            display: flex
+            height: 100%
+            line-height: 1.5
+            align-items: center
+            padding: 0.544rem 1rem !important
+            padding-inline-end: toRem(40px) !important
+
+            .sorting-select + &
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16.25 16.25'%3E%3Cpath d='M14.17,10.62a.63.63,0,1,1-1.25,0V1.91h0l-.51.63,0,0a6,6,0,0,1-.46.55.63.63,0,0,1-.89,0,.64.64,0,0,1,0-.89,4.38,4.38,0,0,0,.37-.45l0-.05L12,1.1a5.32,5.32,0,0,1,.66-.68A2.09,2.09,0,0,1,13,.15,1,1,0,0,1,13.54,0a1.08,1.08,0,0,1,.54.15,1.74,1.74,0,0,1,.38.27,6.16,6.16,0,0,1,.67.68c.19.23.37.47.53.67l0,.05c.18.23.3.38.37.45a.63.63,0,0,1,0,.89.62.62,0,0,1-.88,0,6,6,0,0,1-.46-.55l0,0c-.16-.2-.33-.42-.51-.63h0ZM.62,6.25A.63.63,0,0,1,.62,5H6.46a.63.63,0,0,1,0,1.25Zm0,5A.63.63,0,0,1,.62,10H9.79a.63.63,0,1,1,0,1.25ZM0,15.62a.63.63,0,0,0,.62.63H14A.63.63,0,0,0,14,15H.62A.62.62,0,0,0,0,15.62Z' fill='%236c737f'/%3E%3C/svg%3E")
+                background-size: toRem(16.25px), toRem(11px)
+                background-repeat: no-repeat
+                padding-inline-start: toRem(44px) !important
+
+                [dir="rtl"] &
+                    background-position: right 1rem center, left toRem(16px) center
+
+                [dir="ltr"] &
+                    background-position: left 1rem center, right toRem(16px) center
+
+    &.select2-container--focus
+        .select2-selection--multiple
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.25 6.25'%3E%3Cpath d='M10.12,6l-.58-.77c-.37-.47-.86-1.08-1.39-1.7a21.51,21.51,0,0,0-1.6-1.66,4.07,4.07,0,0,0-.65-.49,1,1,0,0,0-.28-.13,1,1,0,0,0-.27.13,4.07,4.07,0,0,0-.65.49A21.51,21.51,0,0,0,3.1,3.53c-.53.62-1,1.23-1.39,1.7L1.13,6a.64.64,0,0,1-.88.13.64.64,0,0,1-.13-.88h0l.61-.79C1.1,4,1.61,3.35,2.16,2.72A18.28,18.28,0,0,1,3.87.94,6.46,6.46,0,0,1,4.71.3,1.86,1.86,0,0,1,5.63,0a1.86,1.86,0,0,1,.91.3,6.46,6.46,0,0,1,.84.64A18.28,18.28,0,0,1,9.09,2.72c.55.63,1.06,1.27,1.43,1.74l.61.79h0a.63.63,0,0,1-1,.75Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+            background-color: #F3F4F6
+            border-color: #9da4ae
+            box-shadow: 0 toRem(4px) toRem(8px) toRem(-2px) rgba(16, 24, 40, 0.10), 0 toRem(2px) toRem(4px) toRem(-2px) rgba(16, 24, 40, 0.06)
+
+    .select2-selection--multiple
+        display: flex
+        align-items: center
+        gap: toRem(6px)
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.25 6.25'%3E%3Cpath d='M1.13.25,1.71,1c.37.47.86,1.08,1.39,1.7A21.51,21.51,0,0,0,4.7,4.38a4.07,4.07,0,0,0,.65.49A1,1,0,0,0,5.63,5a1,1,0,0,0,.27-.13,4.07,4.07,0,0,0,.65-.49,21.51,21.51,0,0,0,1.6-1.66c.53-.62,1-1.23,1.39-1.7l.58-.77A.64.64,0,0,1,11,.12a.64.64,0,0,1,.13.88h0l-.61.79c-.37.47-.88,1.11-1.43,1.74A18.28,18.28,0,0,1,7.38,5.31,6.46,6.46,0,0,1,6.54,6a1.86,1.86,0,0,1-.92.3A1.86,1.86,0,0,1,4.71,6a6.46,6.46,0,0,1-.84-.64A18.28,18.28,0,0,1,2.16,3.53C1.61,2.9,1.1,2.26.73,1.79L.12,1h0A.64.64,0,0,1,.25.12.64.64,0,0,1,1.13.25Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+        background-size: toRem(11px)
+        background-repeat: no-repeat
+        border-color: #9DA4AE
+        border-radius: toRem(4px) !important
+        padding-bottom: unset
+        padding-right: unset
+        padding: 0.425rem 1rem
+        padding-inline-end: toRem(40px)
+
+        [dir="rtl"] &
+            background-position: left toRem(16px) center
+
+        [dir="ltr"] &
+            background-position: right toRem(16px) center
+
+        .select2-selection__choice__remove
+            order: 1
+            position: static
+            width: toRem(8px)
+            height: toRem(8px)
+            background-image: url(../images/close-icon.svg)
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            border: none !important
+            border-radius: 0 !important
+            padding: 0 !important
+
+            span
+                display: none
+
+        .select2-selection__choice__display
+            padding: 0 !important
+        
+        &:focus-within
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.25 6.25'%3E%3Cpath d='M10.12,6l-.58-.77c-.37-.47-.86-1.08-1.39-1.7a21.51,21.51,0,0,0-1.6-1.66,4.07,4.07,0,0,0-.65-.49,1,1,0,0,0-.28-.13,1,1,0,0,0-.27.13,4.07,4.07,0,0,0-.65.49A21.51,21.51,0,0,0,3.1,3.53c-.53.62-1,1.23-1.39,1.7L1.13,6a.64.64,0,0,1-.88.13.64.64,0,0,1-.13-.88h0l.61-.79C1.1,4,1.61,3.35,2.16,2.72A18.28,18.28,0,0,1,3.87.94,6.46,6.46,0,0,1,4.71.3,1.86,1.86,0,0,1,5.63,0a1.86,1.86,0,0,1,.91.3,6.46,6.46,0,0,1,.84.64A18.28,18.28,0,0,1,9.09,2.72c.55.63,1.06,1.27,1.43,1.74l.61.79h0a.63.63,0,0,1-1,.75Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+
+.select2-container
+    display: block
+    width: 100% !important
+    font-family: 'SSTArabic-Medium'
+    font-size: toRem(14px)
+
+    .select2-selection--multiple
+        min-height: toRem(40px)
+
+        .select2-selection__rendered
+            display: flex
+            flex-wrap: wrap
+            gap: toRem(6px)
+            margin-bottom: 0
+            display: none
+
+        .select2-selection__choice
+            display: flex
+            align-items: center
+            gap: toRem(8px)
+            line-height: 1.534
+            font-family: 'SSTArabic-Medium'
+            font-size: toRem(12px)
+            color: var(--clr-text)
+            background-color: #F9FAFB
+            border: toRem(1px) solid #E5E7EB
+            border-radius: 50vw
+            padding: toRem(2px) toRem(10px)
+            margin: 0 !important
+
+    .select2-search--inline
+        display: flex
+
+        .select2-search__field
+            margin-top: 0
+            margin-left: 0
+
+.select2-search--dropdown
+    display: none
+
+.select2-selection__arrow
+    top: 50% !important
+    right: unset !important
+    left: unset !important
+    inset-inline-end: 1rem !important
+    display: block
+    width: toRem(11px) !important
+    height: toRem(11px) !important
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11.25 6.25'%3E%3Cpath d='M1.13.25,1.71,1c.37.47.86,1.08,1.39,1.7A21.51,21.51,0,0,0,4.7,4.38a4.07,4.07,0,0,0,.65.49A1,1,0,0,0,5.63,5a1,1,0,0,0,.27-.13,4.07,4.07,0,0,0,.65-.49,21.51,21.51,0,0,0,1.6-1.66c.53-.62,1-1.23,1.39-1.7l.58-.77A.64.64,0,0,1,11,.12a.64.64,0,0,1,.13.88h0l-.61.79c-.37.47-.88,1.11-1.43,1.74A18.28,18.28,0,0,1,7.38,5.31,6.46,6.46,0,0,1,6.54,6a1.86,1.86,0,0,1-.92.3A1.86,1.86,0,0,1,4.71,6a6.46,6.46,0,0,1-.84-.64A18.28,18.28,0,0,1,2.16,3.53C1.61,2.9,1.1,2.26.73,1.79L.12,1h0A.64.64,0,0,1,.25.12.64.64,0,0,1,1.13.25Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    transform: translateY(-50%)
+    transition: transform 0.3s ease-in-out
+
+    b
+        display: none
+
+.select2-dropdown
+    background-color: #fff
+    border: toRem(1px) solid #D2D6DB !important
+    border-radius: toRem(4px) !important
+    box-shadow: 0 toRem(20px) toRem(24px) toRem(-4px) rgba(16, 24, 40, 0.08), 0 toRem(8px) toRem(8px) toRem(-4px) rgba(16, 24, 40, 0.03)
+    padding: toRem(8px)
+    margin-top: toRem(10px)
+
+.select2-results__option
+    line-height: 1.5
+    font-size: toRem(14px)
+    border-radius: toRem(4px)
+    padding: toRem(8px)
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, background-image 0.3s ease-in-out
+
+    &:not(.select2-results__option--disabled, .select2-results__option--selected)
+        +hover
+            background-color: #F3F4F6 !important
+
+.select2-container--default
+    .select2-results__option--highlighted
+        &.select2-results__option--selectable
+            color: var(--clr-text)
+            background-color: #fff
+
+    .select2-results__option--selected
+        color: var(--clr-text) !important
+        background-color: #fff !important
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.83 10.67'%3E%3Cpath d='M4.92,10.67a.77.77,0,0,1-.53-.22L.22,6.28A.75.75,0,0,1,1.28,5.22L4.92,8.86,13.55.22a.75.75,0,0,1,1.06,0,.74.74,0,0,1,0,1.06L5.45,10.45A.79.79,0,0,1,4.92,10.67Z' fill='%231a1a1a'/%3E%3C/svg%3E")
+        background-repeat: no-repeat
+        background-size: toRem(14.83px) toRem(10.67px)
+
+        [dir="rtl"] &
+            background-position: left toRem(7.5px) center
+
+        [dir="ltr"] &
+            background-position: right toRem(7.5px) center
+
+.select2-container--open
+    .select2-selection__arrow
+        transform: translateY(-50%) rotateX(180deg) rotateY(180deg)
+

@@ -1102,3 +1102,112 @@ npm install
 - **NuGet Packages** - See README.md Technology Stack section
 - **npm Packages** - See README.md Frontend section
 - **API Docs** - `https://localhost:7001/swagger` when API is running
+- after each commit of task run the agent --agent task-code-reviewer
+- The PRD contains 33 Use Cases, maintain this use case as an User Story and the grouping as an Epics :
+  Epic Breakdown
+
+  Epic 1: معلومات الرؤية (Vision Information Management)
+
+  3 User Stories | Foundation module for managing Vision 2030 core structure
+
+  | #     | User Story              | Description                                                                                       |
+  |-------|-------------------------|---------------------------------------------------------------------------------------------------|
+  | UC-01 | عرض معلومات الرؤية      | Display full Vision 2030 text with progress dashboard and key indicators                          |
+  | UC-02 | إدارة الركائز           | Manage strategic pillars (Vibrant Society, Thriving Economy) - CRUD operations with audit logging |
+  | UC-03 | إدارة المحاور التفصيلية | Manage detailed themes linked to pillars, entities, and objectives                                |
+
+  Epic Priority: 🔴 Critical - Foundation for entire systemComplexity: MediumDependencies: None (Starting point)
+
+  ---
+  Epic 2: الأهداف الإستراتيجية (Strategic Objectives Management)
+
+  6 User Stories | Core strategic objectives hierarchy (Levels 1-5)
+
+  | #     | User Story                             | Description                                                                              |
+  |-------|----------------------------------------|------------------------------------------------------------------------------------------|
+  | UC-04 | عرض قائمة الأهداف الإستراتيجية         | Display objectives by levels (1-5) in table/card view with codes, names, and KPIs        |
+  | UC-05 | إضافة هدف استراتيجي جديد               | Create new objective with code, name, description, and links to themes/parent objectives |
+  | UC-06 | تعديل معلومات الهدف الاستراتيجي        | Edit objective details without changing code/level, with change tracking                 |
+  | UC-07 | حذف هدف استراتيجي                      | Delete objective with dependency validation (check linked initiatives)                   |
+  | UC-08 | عرض تفاصيل الهدف الاستراتيجي           | View complete objective details including description, KPIs, links, with export options  |
+  | UC-09 | البحث والتصفية في الأهداف الإستراتيجية | Filter objectives by level, theme, program with advanced text search                     |
+
+  Epic Priority: 🔴 CriticalComplexity: High (hierarchical structure with 5 levels)Dependencies: Epic 1 (Pillars & Themes)
+
+  ---
+  Epic 3: برامج الرؤية (Vision Programs Management)
+
+  7 User Stories | Manage 13 Vision Realization Programs
+
+  | #     | User Story                     | Description                                                       |
+  |-------|--------------------------------|-------------------------------------------------------------------|
+  | UC-10 | عرض قائمة برامج الرؤية         | Display list of 13 programs with dimensions and linked objectives |
+  | UC-11 | إضافة برنامج رؤية جديد         | Create new program with name, description, and objective links    |
+  | UC-12 | تعديل معلومات البرنامج         | Edit program data without changing core links, with audit trail   |
+  | UC-13 | حذف برنامج                     | Delete program with validation (check linked initiatives/KPIs)    |
+  | UC-14 | عرض تفاصيل البرنامج            | View program details including dimensions, objectives, and KPIs   |
+  | UC-15 | إدارة الأبعاد                  | Manage program dimensions (add, edit, delete) with links          |
+  | UC-16 | التصفية والبحث المتقدم للبرامج | Filter programs by dimensions/objectives with advanced search     |
+
+  Epic Priority: 🟡 HighComplexity: MediumDependencies: Epic 2 (Strategic Objectives)
+
+  ---
+  Epic 4: مبادرات الرؤية (Vision Initiatives Management)
+
+  9 User Stories | Most complex module with deliverables, milestones, and document versioning
+
+  | #     | User Story                       | Description                                                                |
+  |-------|----------------------------------|----------------------------------------------------------------------------|
+  | UC-17 | عرض قائمة المبادرات              | Display initiatives list with basic details and program links              |
+  | UC-18 | إضافة مبادرة جديدة               | Create initiative with name, description, and links to objectives/programs |
+  | UC-19 | حذف مبادرة                       | Delete initiative with dependency validation (deliverables/milestones)     |
+  | UC-20 | عرض تفاصيل المبادرة              | View complete details including deliverables, milestones, and documents    |
+  | UC-21 | إدارة مخرجات المبادرة            | Manage initiative deliverables (CRUD) with initiative links                |
+  | UC-22 | إدارة معالم المبادرة             | Manage initiative milestones (CRUD with progress tracking)                 |
+  | UC-23 | إدارة مستندات المبادرة(تحسين)    | Upload, edit, delete initiative documents with version control             |
+  | UC-24 | تتبع تغييرات المبادرة            | Track change request history with timestamps and users                     |
+  | UC-25 | التصفية والبحث المتقدم للمبادرات | Filter initiatives by program/status with advanced search                  |
+
+  Epic Priority: 🔴 CriticalComplexity: ⚠️ Very High (Most complex epic - 9 stories with sub-entities)Dependencies: Epic 2, Epic 3
+
+  ---
+  Epic 5: مؤشرات الرؤية (Vision KPIs Management)
+
+  8 User Stories | KPI management with formulas and targets
+
+  | #     | User Story                      | Description                                                     |
+  |-------|---------------------------------|-----------------------------------------------------------------|
+  | UC-26 | عرض قائمة المؤشرات              | Display KPIs list with basic details and links                  |
+  | UC-27 | إضافة مؤشر جديد                 | Create new KPI with code, name, description, and formula        |
+  | UC-28 | تعديل معلومات المؤشر            | Edit KPI data without changing code, with audit trail           |
+  | UC-29 | حذف مؤشر                        | Delete KPI with dependency validation                           |
+  | UC-30 | عرض تفاصيل المؤشر               | View KPI details including formula, targets, and performance    |
+  | UC-31 | إدارة معادلة المؤشر             | Define/edit KPI calculation formula with components and sources |
+  | UC-32 | إدارة مستهدفات المؤشر           | Set and update annual KPI target values with notes              |
+  | UC-33 | التصفية والبحث المتقدم للمؤشرات | Filter KPIs by type, frequency, or entity with advanced search  |
+
+  Epic Priority: 🔴 CriticalComplexity: High (Complex formulas and calculations)Dependencies: Epic 2, Epic 3, Epic 4
+
+  ---
+  Statistics Summary
+
+  | Metric             | Count               |
+  |--------------------|---------------------|
+  | Total Epics        | 5                   |
+  | Total User Stories | 33                  |
+  | Epic 1 Stories     | 3 (9.1%)            |
+  | Epic 2 Stories     | 6 (18.2%)           |
+  | Epic 3 Stories     | 7 (21.2%)           |
+  | Epic 4 Stories     | 9 (27.3%) ⭐ Largest |
+  | Epic 5 Stories     | 8 (24.2%)           |
+
+  ---
+  Complexity Analysis
+
+  | Epic   | Complexity   | Reason                                                                                      |
+  |--------|--------------|---------------------------------------------------------------------------------------------|
+  | Epic 1 | 🟢 Medium    | Foundation - 3 simple CRUD entities                                                         |
+  | Epic 2 | 🟡 High      | 5-level hierarchical structure, parent-child relationships                                  |
+  | Epic 3 | 🟢 Medium    | 13 programs with dimensions management                                                      |
+  | Epic 4 | 🔴 Very High | 9 stories, nested entities (deliverables, milestones), document versioning, change tracking |
+  | Epic 5 | 🟡 High      | Complex formulas, calculation logic, annual targets                                         |
