@@ -1103,6 +1103,11 @@ npm install
 - **npm Packages** - See README.md Frontend section
 - **API Docs** - `https://localhost:7001/swagger` when API is running
 - after each commit of task run the agent --agent task-code-reviewer
+## Development Best Practices
+
+- Run git commit after each task completed in any story
+- DON'T Ever Use CQRS
+- Controllers should ONLY inject Application Services, NEVER repositories!
 - The PRD contains 33 Use Cases, maintain this use case as an User Story and the grouping as an Epics :
   Epic Breakdown
 
