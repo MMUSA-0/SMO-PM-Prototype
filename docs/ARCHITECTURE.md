@@ -258,29 +258,89 @@ Contains business logic and orchestrates domain operations for Vision 2030 strat
 **Actual Structure:**
 ```
 src/SMO.Application/
-├── Features/                  # Feature-based interfaces
-│   ├── Attachment/           # IAttachmentAppService
-│   ├── Pillar/               # IPillarAppService
-│   ├── Theme/                # IThemeAppService
-│   ├── StrategicObjective/   # IStrategicObjectiveAppService
-│   ├── VisionProgram/        # IVisionProgramAppService
-│   ├── Initiative/           # IInitiativeAppService
-│   ├── KPI/                  # IKPIAppService
-│   ├── InitiativeMilestone/  # IInitiativeMilestoneAppService
-│   ├── Lookup/               # ILookupAppService
-│   └── Workflow/             # IWorkflowAppService (change management)
-├── Services/                 # Concrete implementations
-│   ├── Attachment/           # File management services
-│   ├── Pillar/               # Strategic pillar management
-│   ├── Theme/                # Theme management
-│   ├── StrategicObjective/   # Objective management (5 levels)
-│   ├── VisionProgram/        # VRP management
-│   ├── Initiative/           # Initiative tracking & management
-│   ├── KPI/                  # KPI definition & tracking
-│   └── Dashboard/            # Performance dashboards
-├── MappingProfiles/          # AutoMapper profiles
+├── Features/                      # Vertical slice architecture - each feature is self-contained
+│   ├── Attachment/
+│   │   ├── DTOs/
+│   │   │   └── AttachmentDto.cs
+│   │   ├── Interfaces/
+│   │   │   └── IAttachmentAppService.cs
+│   │   ├── Services/
+│   │   │   └── AttachmentAppService.cs
+│   │   └── Validations/
+│   │       └── CreateAttachmentValidator.cs
+│   │
+│   ├── Pillar/
+│   │   ├── DTOs/
+│   │   │   └── PillarDto.cs
+│   │   ├── Interfaces/
+│   │   │   └── IPillarAppService.cs
+│   │   ├── Services/
+│   │   │   └── PillarAppService.cs
+│   │   └── Validations/
+│   │       └── CreatePillarValidator.cs
+│   │
+│   ├── Theme/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── StrategicObjective/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── VisionProgram/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── Initiative/
+│   │   ├── DTOs/
+│   │   │   ├── InitiativeDto.cs
+│   │   │   └── CreateInitiativeDto.cs
+│   │   ├── Interfaces/
+│   │   │   └── IInitiativeAppService.cs
+│   │   ├── Services/
+│   │   │   └── InitiativeAppService.cs
+│   │   └── Validations/
+│   │       └── CreateInitiativeValidator.cs
+│   │
+│   ├── KPI/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── InitiativeMilestone/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── Lookup/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   ├── Workflow/
+│   │   ├── DTOs/
+│   │   ├── Interfaces/
+│   │   ├── Services/
+│   │   └── Validations/
+│   │
+│   └── VisionInformation/
+│       ├── DTOs/
+│       ├── Interfaces/
+│       ├── Services/
+│       └── Validations/
+│
+├── MappingProfiles/               # AutoMapper profiles
 │   └── ApplicationAutoMappingProfile.cs
-└── ServiceCollectionExtensions.cs  # DI registration with auto-discovery
+└── ServiceCollectionExtensions.cs   # DI registration with auto-discovery
 ```
 
 **Key Services:**
