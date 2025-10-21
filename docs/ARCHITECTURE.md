@@ -633,6 +633,12 @@ src/SMO.Frontend/SMO-Portal/
 │   │   ├── shared/               # Shared components & services
 │   │   └── core/                 # Core services & guards
 │   ├── assets/
+│   │   ├── i18n/                 # Internationalization translation files
+│   │   │   ├── ar.json           # Arabic translations
+│   │   │   └── en.json           # English translations
+│   │   ├── css/                  # SMO-UI stylesheets
+│   │   ├── fonts/                # Arabic fonts (29LT Bukra)
+│   │   └── images/               # Icons, logos, assets
 │   ├── environments/
 │   │   ├── environment.ts
 │   │   ├── environment.production.ts
