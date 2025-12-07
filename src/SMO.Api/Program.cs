@@ -116,7 +116,14 @@ try
     #region JSON Serialization
 
     // Configure JSON serialization for controllers
-    builder.Services.AddControllers()
+    builder.Services.AddControllers(options =>
+        {
+            // Add development authentication bypass filter (only active in Development)
+            if (builder.Environment.IsDevelopment())
+            {
+                options.Filters.Add<SMO.Api.Filters.DevelopmentAuthBypassFilter>();
+            }
+        })
         .AddJsonOptions(options =>
         {
             // Handle circular references (important for EF Core navigation properties)

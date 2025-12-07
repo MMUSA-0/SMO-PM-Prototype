@@ -1,0 +1,384 @@
+/* Performance Module UI/UX Enhancements
+   ======================================= */
+
+:root {
+    /* Color System */
+    --perf-success: #28a745;
+    --perf-warning: #ffc107;
+    --perf-danger: #dc3545;
+    --perf-info: #17a2b8;
+    
+    /* Performance Levels */
+    --perf-excellent: #00c851;  /* >90% */
+    --perf-good: #ffbb33;       /* 70-90% */
+    --perf-moderate: #ff8800;   /* 50-70% */
+    --perf-poor: #cc0000;       /* <50% */
+    
+    /* Shadows */
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    --shadow-hover: 0 0.5rem 1.5rem rgba(0,0,0,0.2);
+}
+
+/* ==========================================
+   1. Card Enhancements
+   ========================================== */
+
+.program-card,
+.card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.program-card:hover,
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Performance-based borders */
+.border-success { border-color: var(--perf-excellent) !important; }
+.border-warning { border-color: var(--perf-good) !important; }
+.border-danger { border-color: var(--perf-poor) !important; }
+
+/* ==========================================
+   2. Table Enhancements
+   ========================================== */
+
+.table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0,123,255,0.03);
+    cursor: pointer;
+}
+
+/* Sticky headers for long tables */
+.table thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1);
+}
+
+/* MEI Code styling */
+.mei-code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    background: #f1f3f5;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* ==========================================
+   3. Progress Bars
+   ========================================== */
+
+.progress {
+    height: 20px;
+    border-radius: 10px;
+    background: #f1f3f5;
+    overflow: visible;
+}
+
+.progress-bar {
+    border-radius: 10px;
+    position: relative;
+    animation: progressSlide 1.5s ease-out;
+}
+
+@keyframes progressSlide {
+    from { width: 0; }
+}
+
+.progress-bar::after {
+    content: attr(data-value);
+    position: absolute;
+    right: 5px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* ==========================================
+   4. Status Badges
+   ========================================== */
+
+.badge {
+    padding: 0.35em 0.65em;
+    font-weight: 500;
+    border-radius: 6px;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #00c851 0%, #00a843 100%) !important;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffbb33 0%, #ff9800 100%) !important;
+}
+
+.badge.bg-danger {
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%) !important;
+}
+
+/* ==========================================
+   5. Buttons
+   ========================================== */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Ripple effect */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ==========================================
+   6. Dropdown Menus
+   ========================================== */
+
+.dropdown-menu {
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-md);
+    padding: 0.5rem;
+    animation: slideDown 0.2s;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0,123,255,0.1);
+    padding-left: 1.25rem;
+}
+
+.dropdown-item i {
+    width: 20px;
+    margin-right: 0.5rem;
+}
+
+/* ==========================================
+   7. Form Controls
+   ========================================== */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1.5px solid #dee2e6;
+    transition: all 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.15);
+}
+
+/* ==========================================
+   8. Loading States
+   ========================================== */
+
+.skeleton-loader {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% { background-color: hsl(200, 20%, 95%); }
+    100% { background-color: hsl(200, 20%, 85%); }
+}
+
+.skeleton-box {
+    display: inline-block;
+    height: 1em;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ==========================================
+   9. Trend Indicators
+   ========================================== */
+
+.trend-up {
+    color: var(--perf-success);
+    animation: bounce 2s infinite;
+}
+
+.trend-down {
+    color: var(--perf-danger);
+    animation: shake 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* ==========================================
+   10. Responsive Adjustments
+   ========================================== */
+
+@media (max-width: 768px) {
+    .card {
+        border-radius: 8px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        border-radius: 8px !important;
+        margin: 2px 0;
+    }
+    
+    .table {
+        font-size: 0.875rem;
+    }
+    
+    .dropdown-menu {
+        width: calc(100vw - 2rem);
+        max-width: 350px;
+    }
+    
+    .progress {
+        height: 16px;
+    }
+}
+
+/* ==========================================
+   11. Print Styles
+   ========================================== */
+
+@media print {
+    .btn,
+    .dropdown,
+    .form-control,
+    .page-sidebar {
+        display: none !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #dee2e6;
+    }
+    
+    .table {
+        font-size: 10pt;
+    }
+}
+
+/* ==========================================
+   12. Accessibility
+   ========================================== */
+
+/* Focus indicators */
+*:focus-visible {
+    outline: 3px solid rgba(0,123,255,0.25);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .card {
+        border: 2px solid currentColor;
+    }
+    
+    .badge {
+        border: 1px solid currentColor;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   13. Dark Mode Support (Future)
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+    /* Prepared for dark mode implementation */
+    /* Uncomment when dark mode is enabled
+    :root {
+        --bg-primary: #1a1a1a;
+        --text-primary: #ffffff;
+        --border-color: #404040;
+    }
+    */
+}

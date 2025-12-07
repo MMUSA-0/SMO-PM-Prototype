@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - مكتب الإدارة الاستراتيجية</title>
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+<body data-dev-status="partial" data-dev-progress="65">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">
+                            <i class="bi bi-person-circle"></i> الملف الشخصي
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-3 text-center">
+                                <img src="images/demo/user-photo.png" alt="صورة المستخدم" class="rounded-circle img-fluid mb-3">
+                                <button class="btn btn-sm btn-outline-primary">تغيير الصورة</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">الاسم الكامل</label>
+                                    <input type="text" class="form-control" value="محمد أحمد السالم" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">المسمى الوظيفي</label>
+                                    <input type="text" class="form-control" value="مدير إدارة الأداء" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">الإدارة</label>
+                                    <input type="text" class="form-control" value="مكتب الإدارة الاستراتيجية" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="mb-3">معلومات الاتصال</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">البريد الإلكتروني</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" value="mohammed.ahmed@smo.gov.sa" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">رقم الجوال</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                                    <input type="text" class="form-control" value="+966 50 123 4567" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="mb-3">الصلاحيات والأدوار</h4>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2 p-2">
+                                <i class="bi bi-speedometer2"></i> مدير الأداء
+                            </span>
+                            <span class="badge bg-success me-2 p-2">
+                                <i class="bi bi-collection"></i> مالك البرنامج
+                            </span>
+                            <span class="badge bg-info me-2 p-2">
+                                <i class="bi bi-graph-up"></i> محلل بيانات
+                            </span>
+                            <span class="badge bg-warning text-dark me-2 p-2">
+                                <i class="bi bi-eye"></i> مراجع تنفيذي
+                            </span>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="mb-3">البرامج المسؤول عنها</h4>
+                        <div class="list-group mb-4">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                برنامج تطوير القطاع المالي
+                                <span class="badge bg-success">نشط</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                برنامج التحول الرقمي
+                                <span class="badge bg-success">نشط</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                برنامج جودة الحياة
+                                <span class="badge bg-warning text-dark">قيد المراجعة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="index.html" class="btn btn-secondary">
+                                <i class="bi bi-arrow-right"></i> العودة للرئيسية
+                            </a>
+                            <div>
+                                <button class="btn btn-outline-primary me-2" onclick="editProfile()">
+                                    <i class="bi bi-pencil"></i> تعديل البيانات
+                                </button>
+                                <button class="btn btn-primary" onclick="saveProfile()">
+                                    <i class="bi bi-check-circle"></i> حفظ التغييرات
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function editProfile() {
+            // Enable editing of certain fields
+            document.querySelectorAll('input[readonly]').forEach(input => {
+                if (!input.type.includes('email') && !input.value.includes('مكتب')) {
+                    input.removeAttribute('readonly');
+                    input.classList.add('bg-light');
+                }
+            });
+        }
+        
+        function saveProfile() {
+            // Save profile changes (would call API in production)
+            alert('تم حفظ التغييرات بنجاح');
+            document.querySelectorAll('input').forEach(input => {
+                input.setAttribute('readonly', 'true');
+                input.classList.remove('bg-light');
+            });
+        }
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

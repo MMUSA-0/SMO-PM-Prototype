@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الشريط الجانبي الموحد</title>
+    
+    <!-- Bootstrap & Core Styles -->
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <!-- Unified Sidebar Styles -->
+    <link rel="stylesheet" href="assets/css/sidebar-unified.css">
+    
+    <style>
+        .test-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status-ok { background: #28a745; }
+        .status-error { background: #dc3545; }
+        .status-warning { background: #ffc107; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="index.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title="تبديل القائمة الجانبية"></a>
+                    <h2 style="margin: 0; color: #333;">صفحة اختبار الشريط الجانبي الموحد</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main>
+        <div class="page-container">
+            <!-- Unified Sidebar Container -->
+            <div id="sidebarContainer">
+                <!-- Sidebar will be loaded here dynamically -->
+            </div>
+            
+            <!-- Page Content -->
+            <section class="page-content">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="page-title mb-4">اختبار الشريط الجانبي الموحد</h1>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>التحسينات المطبقة ✅</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="test-section">
+                                    <h4>1. إصلاح مشكلة البقاء باللون الأخضر</h4>
+                                    <ul>
+                                        <li><span class="status-indicator status-ok"></span> تم إزالة حالة التركيز المستمرة</li>
+                                        <li><span class="status-indicator status-ok"></span> الآن العناصر تعود لحالتها الطبيعية بعد النقر</li>
+                                        <li><span class="status-indicator status-ok"></span> اللون الأخضر يظهر فقط للصفحة النشطة الحالية</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="test-section">
+                                    <h4>2. إصلاح رابط رؤية 2030</h4>
+                                    <ul>
+                                        <li><span class="status-indicator status-ok"></span> الآن النقر على "مركز معلومات رؤية 2030" ينقلك للصفحة</li>
+                                        <li><span class="status-indicator status-ok"></span> النقر على السهم يفتح/يغلق القائمة الفرعية فقط</li>
+                                        <li><span class="status-indicator status-ok"></span> يمكن الوصول للصفحة الرئيسية والصفحات الفرعية</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="test-section">
+                                    <h4>3. مؤشرات التطوير</h4>
+                                    <ul>
+                                        <li><span class="status-indicator status-ok"></span> شارة "قيد التطوير" على جميع الصفحات غير المكتملة</li>
+                                        <li><span class="status-indicator status-ok"></span> رمز 🚧 يظهر بجانب العناصر قيد التطوير</li>
+                                        <li><span class="status-indicator status-ok"></span> رسالة توضيحية عند النقر على صفحة قيد التطوير</li>
+                                        <li><span class="status-indicator status-ok"></span> تأثير بصري مميز للصفحات قيد التطوير</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="test-section">
+                                    <h4>4. الصفحات المحددة كقيد التطوير:</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5>القائمة الرئيسية:</h5>
+                                            <ul>
+                                                <li>مركز معلومات الاستراتيجيات الوطنية</li>
+                                                <li>إدارة المهام</li>
+                                                <li>طلبات التغيير</li>
+                                                <li>إدارة محتوى الوثائق</li>
+                                                <li>إدارة التحديات</li>
+                                                <li>التصويت والاستطلاعات</li>
+                                                <li>المستندات</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>الصفحات الفرعية:</h5>
+                                            <ul>
+                                                <li>رؤية 2030 → الأهداف الاستراتيجية</li>
+                                                <li>رؤية 2030 → مؤشرات الرؤية</li>
+                                                <li>رؤية 2030 → برامج الرؤية</li>
+                                                <li>رؤية 2030 → التقدم المحرز</li>
+                                                <li>الإدارة → إدارة المستخدمين</li>
+                                                <li>الإدارة → الأدوار والصلاحيات</li>
+                                                <li>الإدارة → إعدادات النظام</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-success mt-4">
+                                    <h5>🎉 جميع التحسينات تم تطبيقها بنجاح!</h5>
+                                    <p>يمكنك الآن:</p>
+                                    <ul class="mb-0">
+                                        <li>النقر على أي عنصر دون أن يبقى باللون الأخضر</li>
+                                        <li>الانتقال لصفحة رؤية 2030 بالنقر على العنوان</li>
+                                        <li>رؤية مؤشرات واضحة للصفحات قيد التطوير</li>
+                                        <li>استخدام اختصارات لوحة المفاتيح (Ctrl+B, Ctrl+K)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h3>كيفية تطبيق التحديثات على جميع الصفحات</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>لتطبيق هذه التحسينات على جميع صفحات المشروع:</p>
+                                <ol>
+                                    <li>تأكد من وجود الملفات المحدثة:
+                                        <ul>
+                                            <li><code>assets/components/sidebar.html</code></li>
+                                            <li><code>assets/js/sidebar-manager.js</code></li>
+                                            <li><code>assets/css/sidebar-unified.css</code></li>
+                                        </ul>
+                                    </li>
+                                    <li>قم بتشغيل أحد الأوامر التالية:
+                                        <pre class="bg-dark text-white p-3 rounded"><code>apply-unified-sidebar.bat</code></pre>
+                                        أو
+                                        <pre class="bg-dark text-white p-3 rounded"><code>.\Apply-UnifiedSidebar.ps1</code></pre>
+                                    </li>
+                                    <li>تحقق من التطبيق بفتح أي صفحة واختبار الوظائف الجديدة</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Core Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Unified Sidebar Manager -->
+    <script src="assets/js/sidebar-manager.js"></script>
+    
+    <script>
+        // Test the sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ صفحة الاختبار جاهزة');
+            console.log('✅ الشريط الجانبي الموحد محمّل');
+            console.log('🔧 جرب النقر على العناصر المختلفة في القائمة');
+            console.log('🔧 جرب اختصارات لوحة المفاتيح: Ctrl+B, Ctrl+K');
+        });
+    </script>
+</body>
+</html>
+

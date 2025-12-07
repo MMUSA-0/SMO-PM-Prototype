@@ -1,0 +1,193 @@
+<!-- Unified Sidebar Component -->
+<!-- This template is loaded dynamically across all pages -->
+<aside class="page-sidebar" id="unifiedSidebar">
+    <nav class="page__nav">
+        <ul class="page__nav__list">
+            <!-- Dashboard -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="performance-dashboard.html" data-page="performance-dashboard" role="button">
+                    <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                    <span>لوحة القيادة المتقدمة</span>
+                </a>
+            </li>
+            
+            <!-- Executive Dashboard -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="executive-performance-dashboard.html" data-page="executive-performance-dashboard" role="button">
+                    <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                    <span>لوحة المعلومات التنفيذية</span>
+                </a>
+            </li>
+            
+            <!-- Vision 2030 with Submenu -->
+            <li class="page__nav__list__item" data-has-submenu="true">
+                <a class="page__nav__link" href="vision.html" role="button" data-bs-toggle="collapse" data-bs-target="#visionSubmenu" data-page="vision">
+                    <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                    <span>مركز معلومات رؤية 2030</span>
+                    <i class="bi bi-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="page__nav__submenu-container collapse" id="visionSubmenu">
+                    <div class="page__nav__submenu">
+                        <a class="page__nav__submenu__item" href="vision.html" data-page="vision">نظرة عامة</a>
+                        <a class="page__nav__submenu__item" href="vision-goals.html" data-page="vision-goals" data-dev="true">الأهداف الاستراتيجية <span class="dev-badge">قيد التطوير</span></a>
+                        <a class="page__nav__submenu__item" href="vision-indicators.html" data-page="vision-indicators" data-dev="true">مؤشرات الرؤية <span class="dev-badge">قيد التطوير</span></a>
+                        <a class="page__nav__submenu__item" href="vision-programs.html" data-page="vision-programs" data-dev="true">برامج الرؤية <span class="dev-badge">قيد التطوير</span></a>
+                        <a class="page__nav__submenu__item" href="vision-progress.html" data-page="vision-progress" data-dev="true">التقدم المحرز <span class="dev-badge">قيد التطوير</span></a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- National Strategies -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                    <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Performance Management -->
+            <li class="page__nav__list__item" data-has-submenu="true">
+                <a class="page__nav__link" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#perfMgmtSubmenu">
+                    <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                    <span>إدارة الأداء</span>
+                    <i class="bi bi-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="page__nav__submenu-container collapse" id="perfMgmtSubmenu">
+                    <div class="page__nav__submenu">
+                        <a class="page__nav__submenu__item" href="performance-vision.html" data-page="performance-vision">مستوى الرؤية</a>
+                        <a class="page__nav__submenu__item" href="performance-programs.html" data-page="performance-programs">مستوى البرنامج</a>
+                        <a class="page__nav__submenu__item" href="performance-initiatives.html" data-page="performance-initiatives">مستوى المبادرات</a>
+                        <a class="page__nav__submenu__item" href="performance-approvals.html" data-page="performance-approvals">موافقاتي</a>
+                        <a class="page__nav__submenu__item" href="performance-requests.html" data-page="performance-requests">طلباتي</a>
+                        <a class="page__nav__submenu__item" href="performance-thresholds.html" data-page="performance-thresholds">حالات قياس المؤشرات</a>
+                        <a class="page__nav__submenu__item" href="report-generation.html" data-page="report-generation">التقارير</a>
+                        <a class="page__nav__submenu__item" href="data-sync-status.html" data-page="data-sync-status">حالة البيانات</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Programs & Initiatives -->
+            <li class="page__nav__list__item" data-has-submenu="true">
+                <a class="page__nav__link" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#progInitSubmenu">
+                    <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                    <span>البرامج والمبادرات</span>
+                    <i class="bi bi-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="page__nav__submenu-container collapse" id="progInitSubmenu">
+                    <div class="page__nav__submenu">
+                        <a class="page__nav__submenu__item" href="program-wizard.html" data-page="program-wizard">معالج إدخال البرنامج</a>
+                        <a class="page__nav__submenu__item" href="initiative-details.html" data-page="initiative-details">تفاصيل المبادرة</a>
+                        <a class="page__nav__submenu__item" href="milestone-tracking.html" data-page="milestone-tracking">تتبع المعالم الرئيسية</a>
+                        <a class="page__nav__submenu__item" href="achievements.html" data-page="achievements">الإنجازات</a>
+                        <a class="page__nav__submenu__item" href="indicators.html" data-page="indicators">المؤشرات</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Task Management -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                    <span>إدارة المهام</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Change Requests -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                    <span>طلبات التغيير</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Risk Management -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="risk-escalation.html" data-page="risk-escalation" role="button">
+                    <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                    <span>إدارة المخاطر</span>
+                </a>
+            </li>
+            
+            <!-- Document Management -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                    <span>إدارة محتوى الوثائق</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Challenges Management -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                    <span>إدارة التحديات</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Voting & Surveys -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                    <span>التصويت والاستطلاعات</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Documents -->
+            <li class="page__nav__list__item">
+                <a class="page__nav__link" href="#" role="button" data-dev="true">
+                    <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                    <span>المستندات</span>
+                    <span class="dev-badge">قيد التطوير</span>
+                </a>
+            </li>
+            
+            <!-- Reports & Analytics -->
+            <li class="page__nav__list__item" data-has-submenu="true">
+                <a class="page__nav__link" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#reportsSubmenu">
+                    <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                    <span>التقارير والتحليلات</span>
+                    <i class="bi bi-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="page__nav__submenu-container collapse" id="reportsSubmenu">
+                    <div class="page__nav__submenu">
+                        <a class="page__nav__submenu__item" href="report-generation.html" data-page="report-generation">توليد التقارير</a>
+                        <a class="page__nav__submenu__item" href="audit-logs.html" data-page="audit-logs">سجلات التدقيق</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Administration -->
+            <li class="page__nav__list__item" data-has-submenu="true">
+                <a class="page__nav__link" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#adminSubmenu">
+                    <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                    <span>الإدارة</span>
+                    <i class="bi bi-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="page__nav__submenu-container collapse" id="adminSubmenu">
+                    <div class="page__nav__submenu">
+                        <a class="page__nav__submenu__item" href="settings.html" data-page="settings">الإعدادات</a>
+                        <a class="page__nav__submenu__item" href="profile.html" data-page="profile">الملف الشخصي</a>
+                        <a class="page__nav__submenu__item" href="users-management.html" data-page="users-management" data-dev="true">إدارة المستخدمين <span class="dev-badge">قيد التطوير</span></a>
+                        <a class="page__nav__submenu__item" href="roles-permissions.html" data-page="roles-permissions" data-dev="true">الأدوار والصلاحيات <span class="dev-badge">قيد التطوير</span></a>
+                        <a class="page__nav__submenu__item" href="system-config.html" data-page="system-config" data-dev="true">إعدادات النظام <span class="dev-badge">قيد التطوير</span></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Version Info -->
+        <div class="sidebar-footer">
+            <div class="version-info">
+                <small class="text-muted">الإصدار 2.0.0</small>
+                <br>
+                <small class="text-muted">© 2024 مكتب الإدارة الاستراتيجية</small>
+            </div>
+        </div>
+    </nav>
+</aside>

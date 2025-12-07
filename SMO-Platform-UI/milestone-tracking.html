@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <title>معالم المبادرات - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+
+<body class="overflow-hidden" data-dev-status="partial" data-dev-progress="60">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" placeholder="البحث...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="الإشعارات"></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">4</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="notifications-list">
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">معلم متأخر عن الجدول</h4>
+                                                        <p class="notifications-list__item__description">أحد المعالم متأخر عن الموعد المحدد</p>
+                                                        <span class="notifications-list__item__date">قبل 5 دقائق</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">معلم مكتمل</h4>
+                                                        <p class="notifications-list__item__description">تم إكمال معلم مهم بنجاح</p>
+                                                        <span class="notifications-list__item__date">قبل ساعة</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">موعد معلم قادم</h4>
+                                                        <p class="notifications-list__item__description">معلم مهم موعده خلال أسبوع</p>
+                                                        <span class="notifications-list__item__date">أمس - 02:15 م</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__footer">
+                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-dropdown">
+                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
+                                <span>فهد محمد القحطاني</span>
+                                <img src="images/avatar.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                <div class="user-dropdown__info">
+                                    <span class="user-dropdown__info__name">فهد محمد القحطاني</span>
+                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
+                                </div>
+                                <div class="user-dropdown__actions">
+                                    <a class="user-dropdown__actions__item" href="profile.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/user-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="settings.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/settings-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="login.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/logout-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-container">
+            <!-- Sidebar -->
+            <aside class="page-sidebar">
+            <nav class="page__nav">
+                <ul class="page__nav__list">
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="performance-dashboard.html" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                            <span>لوحة القيادة المتقدمة</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="vision.html" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                            <span>مركز معلومات رؤية 2030</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                            <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item submenu-shown">
+                        <a class="page__nav__link active" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                            <span>إدارة الأداء</span>
+                        </a>
+                        <div class="page__nav__submenu-container">
+                            <div class="page__nav__submenu">
+                                <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                <a class="page__nav__submenu__item active" href="performance-initiatives.html">مستوى المبادرات</a>
+                                <a class="page__nav__submenu__item" href="performance-approvals.html">موافقاتي</a>
+                                <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
+                                <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                            <span>إدارة المهام</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                            <span>طلبات التغيير</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                            <span>إدارة المخاطر</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                            <span>إدارة محتوى الوثائق</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                            <span>إدارة التحديات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                            <span>التصويت والاستطلاعات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                            <span>المستندات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                            <span>الإدارة</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+            <!-- Main Area -->
+            <section class="page-content">
+                <!-- Page Title -->
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1 class="page-title">معالم المبادرات - UC-17</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
+                                <li class="breadcrumb-item"><a href="performance-initiatives.html">مستوى المبادرات</a></li>
+                                <li class="breadcrumb-item active">معالم المبادرات</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-info">
+                                    <i class="bi bi-flag"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">إجمالي المعالم</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">248</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">معالم مكتملة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">156</span>
+                                        <span class="statistic-card__count__unit">(63%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-warning">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">قيد التنفيذ</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">67</span>
+                                        <span class="statistic-card__count__unit">(27%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-danger">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">متأخرة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">25</span>
+                                        <span class="statistic-card__count__unit">(10%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="row">
+                    <div class="col-12">
+                    <!-- Filters and Actions -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label">البرنامج</label>
+                                    <select class="form-select" id="filterProgram">
+                                        <option value="">جميع البرامج</option>
+                                        <option value="FSDP">برنامج تطوير القطاع المالي</option>
+                                        <option value="NTP">برنامج التحول الوطني</option>
+                                        <option value="HP">برنامج الإسكان</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">المبادرة</label>
+                                    <select class="form-select" id="filterInitiative">
+                                        <option value="">جميع المبادرات</option>
+                                        <option value="INIT-001">مبادرة التحول الرقمي</option>
+                                        <option value="INIT-002">مبادرة تطوير الكوادر</option>
+                                        <option value="INIT-003">مبادرة البنية التحتية</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">الحالة</label>
+                                    <select class="form-select" id="filterStatus">
+                                        <option value="">جميع الحالات</option>
+                                        <option value="completed">مكتمل</option>
+                                        <option value="ongoing">قيد التنفيذ</option>
+                                        <option value="delayed">متأخر</option>
+                                        <option value="notstarted">لم يبدأ</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">الأولوية</label>
+                                    <select class="form-select" id="filterPriority">
+                                        <option value="">جميع الأولويات</option>
+                                        <option value="critical">حرجة</option>
+                                        <option value="high">عالية</option>
+                                        <option value="medium">متوسطة</option>
+                                        <option value="low">منخفضة</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 d-flex justify-content-between">
+                                    <button class="btn btn-primary">
+                                        <i class="bi bi-funnel"></i> تطبيق الفلاتر
+                                    </button>
+                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addMilestoneModal">
+                                        <i class="bi bi-plus-circle"></i> إضافة معلم جديد
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- View Toggle -->
+                    <div class="btn-group mb-3" role="group">
+                        <button type="button" class="btn btn-outline-primary active" onclick="showTableView()">
+                            <i class="bi bi-table"></i> عرض جدولي
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" onclick="showTimelineView()">
+                            <i class="bi bi-calendar-week"></i> عرض زمني
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" onclick="showGanttView()">
+                            <i class="bi bi-bar-chart-steps"></i> مخطط جانت
+                        </button>
+                    </div>
+
+                    <!-- Table View -->
+                    <div id="tableView">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <!-- UC-17 BRD Fields -->
+                                        <th>رقم المعلم</th>
+                                        <th>اسم المعلم</th>
+                                        <th>المبادرة</th>
+                                        <th>التاريخ المخطط</th>
+                                        <th>التاريخ الفعلي</th>
+                                        <th>نسبة الإنجاز</th>
+                                        <th>الحالة</th>
+                                        <th>المسؤول</th>
+                                        <th>الأولوية</th>
+                                        <th>التبعيات</th>
+                                        <th>المخرجات</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>MS-2024-001</td>
+                                        <td>إطلاق المنصة الرقمية</td>
+                                        <td>مبادرة التحول الرقمي</td>
+                                        <td>2024-12-30</td>
+                                        <td>2024-12-28</td>
+                                        <td>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar bg-success" style="width: 100%">100%</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">مكتمل</span></td>
+                                        <td>أحمد محمد</td>
+                                        <td><span class="badge bg-danger">حرجة</span></td>
+                                        <td>MS-2024-000</td>
+                                        <td>المنصة جاهزة</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-info me-1" onclick="viewMilestone('MS-2024-001')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-warning me-1" onclick="editMilestone('MS-2024-001')">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-secondary" onclick="viewDocuments('MS-2024-001')">
+                                                <i class="bi bi-file-earmark"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>MS-2024-002</td>
+                                        <td>تدريب الموظفين</td>
+                                        <td>مبادرة تطوير الكوادر</td>
+                                        <td>2025-01-15</td>
+                                        <td>-</td>
+                                        <td>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar bg-warning" style="width: 65%">65%</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-warning">قيد التنفيذ</span></td>
+                                        <td>فاطمة علي</td>
+                                        <td><span class="badge bg-warning">عالية</span></td>
+                                        <td>MS-2024-001</td>
+                                        <td>100 موظف مدرب</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-info me-1" onclick="viewMilestone('MS-2024-002')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-warning me-1" onclick="editMilestone('MS-2024-002')">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-primary" onclick="updateProgress('MS-2024-002')">
+                                                <i class="bi bi-arrow-up"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-danger">
+                                        <td>MS-2024-003</td>
+                                        <td>توقيع العقود</td>
+                                        <td>مبادرة البنية التحتية</td>
+                                        <td>2024-12-15</td>
+                                        <td>-</td>
+                                        <td>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar bg-danger" style="width: 30%">30%</div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-danger">متأخر</span></td>
+                                        <td>محمد سالم</td>
+                                        <td><span class="badge bg-danger">حرجة</span></td>
+                                        <td>-</td>
+                                        <td>عقود موقعة</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-danger me-1" onclick="escalateMilestone('MS-2024-003')">
+                                                <i class="bi bi-exclamation-triangle"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-warning me-1" onclick="editMilestone('MS-2024-003')">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-primary" onclick="updateProgress('MS-2024-003')">
+                                                <i class="bi bi-arrow-up"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Timeline View (Hidden by default) -->
+                    <div id="timelineView" style="display:none;">
+                        <div class="timeline">
+                            <!-- Q4 2024 -->
+                            <div class="timeline-section">
+                                <h5 class="mb-3">الربع الرابع 2024</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-success">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-success">
+                                                    <i class="bi bi-check-circle"></i> إطلاق المنصة الرقمية
+                                                </h6>
+                                                <p class="small mb-1">المبادرة: التحول الرقمي</p>
+                                                <p class="small mb-1">المخطط: 2024-12-30</p>
+                                                <p class="small mb-0">الفعلي: 2024-12-28</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-danger">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-danger">
+                                                    <i class="bi bi-exclamation-triangle"></i> توقيع العقود
+                                                </h6>
+                                                <p class="small mb-1">المبادرة: البنية التحتية</p>
+                                                <p class="small mb-1">المخطط: 2024-12-15</p>
+                                                <p class="small mb-0">متأخر 7 أيام</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Q1 2025 -->
+                            <div class="timeline-section">
+                                <h5 class="mb-3">الربع الأول 2025</h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-warning">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-warning">
+                                                    <i class="bi bi-hourglass-split"></i> تدريب الموظفين
+                                                </h6>
+                                                <p class="small mb-1">المبادرة: تطوير الكوادر</p>
+                                                <p class="small mb-1">المخطط: 2025-01-15</p>
+                                                <p class="small mb-0">الإنجاز: 65%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add/Edit Milestone Modal -->
+                    <div class="modal fade" id="addMilestoneModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">إضافة/تعديل معلم</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="milestoneForm">
+                                        <div class="row g-3">
+                                            <!-- All UC-17 BRD Fields -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">البرنامج <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="milestoneProgram" required onchange="loadInitiatives()">
+                                                    <option value="">-- اختر البرنامج --</option>
+                                                    <option value="FSDP">برنامج تطوير القطاع المالي</option>
+                                                    <option value="NTP">برنامج التحول الوطني</option>
+                                                    <option value="HP">برنامج الإسكان</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">المبادرة <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="milestoneInitiative" required>
+                                                    <option value="">-- اختر المبادرة --</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">اسم المعلم <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="milestoneName" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">وصف المعلم</label>
+                                                <textarea class="form-control" id="milestoneDescription" rows="2"></textarea>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">التاريخ المخطط <span class="text-danger">*</span></label>
+                                                <input type="date" class="form-control" id="plannedDate" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">التاريخ الفعلي</label>
+                                                <input type="date" class="form-control" id="actualDate">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">نسبة الإنجاز</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="progressPercent" min="0" max="100" value="0">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">الحالة <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="milestoneStatus" required>
+                                                    <option value="">-- اختر الحالة --</option>
+                                                    <option value="notstarted">لم يبدأ</option>
+                                                    <option value="ongoing">قيد التنفيذ</option>
+                                                    <option value="completed">مكتمل</option>
+                                                    <option value="delayed">متأخر</option>
+                                                    <option value="cancelled">ملغي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">الأولوية <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="milestonePriority" required>
+                                                    <option value="">-- اختر الأولوية --</option>
+                                                    <option value="critical">حرجة</option>
+                                                    <option value="high">عالية</option>
+                                                    <option value="medium">متوسطة</option>
+                                                    <option value="low">منخفضة</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">المسؤول <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="milestoneOwner" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">التبعيات (المعالم السابقة)</label>
+                                                <input type="text" class="form-control" id="dependencies" placeholder="MS-2024-001, MS-2024-002">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">المخرجات المتوقعة</label>
+                                                <input type="text" class="form-control" id="deliverables">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">معايير القبول</label>
+                                                <textarea class="form-control" id="acceptanceCriteria" rows="2"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">المرفقات</label>
+                                                <input type="file" class="form-control" id="attachments" multiple>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                    <button type="button" class="btn btn-primary" onclick="saveMilestone()">
+                                        <i class="bi bi-save"></i> حفظ المعلم
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Preloader -->
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        // View Toggle Functions
+        function showTableView() {
+            document.getElementById('tableView').style.display = 'block';
+            document.getElementById('timelineView').style.display = 'none';
+            // Update active button
+            const buttons = document.querySelectorAll('.btn-group button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons[0].classList.add('active');
+        }
+        
+        function showTimelineView() {
+            document.getElementById('tableView').style.display = 'none';
+            document.getElementById('timelineView').style.display = 'block';
+            // Update active button
+            const buttons = document.querySelectorAll('.btn-group button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons[1].classList.add('active');
+        }
+        
+        function showGanttView() {
+            alert('مخطط جانت قيد التطوير');
+        }
+        
+        // Milestone Functions
+        function loadInitiatives() {
+            const program = document.getElementById('milestoneProgram').value;
+            const initiativeSelect = document.getElementById('milestoneInitiative');
+            
+            // Clear current options
+            initiativeSelect.innerHTML = '<option value="">-- اختر المبادرة --</option>';
+            
+            // Load initiatives based on program
+            if(program === 'FSDP') {
+                initiativeSelect.innerHTML += '<option value="INIT-001">مبادرة التحول الرقمي</option>';
+                initiativeSelect.innerHTML += '<option value="INIT-002">مبادرة تطوير الأنظمة</option>';
+            } else if(program === 'NTP') {
+                initiativeSelect.innerHTML += '<option value="INIT-003">مبادرة تطوير الكوادر</option>';
+                initiativeSelect.innerHTML += '<option value="INIT-004">مبادرة التدريب المهني</option>';
+            } else if(program === 'HP') {
+                initiativeSelect.innerHTML += '<option value="INIT-005">مبادرة البنية التحتية</option>';
+                initiativeSelect.innerHTML += '<option value="INIT-006">مبادرة الإسكان الميسر</option>';
+            }
+        }
+        
+        function saveMilestone() {
+            const form = document.getElementById('milestoneForm');
+            if(form.checkValidity()) {
+                // BR-UC17-01: Auto-calculate status based on progress and dates
+                const progress = document.getElementById('progressPercent').value;
+                const plannedDate = new Date(document.getElementById('plannedDate').value);
+                const today = new Date();
+                const status = document.getElementById('milestoneStatus');
+                
+                if(progress == 100) {
+                    status.value = 'completed';
+                } else if(today > plannedDate && progress < 100) {
+                    status.value = 'delayed';
+                } else if(progress > 0) {
+                    status.value = 'ongoing';
+                }
+                
+                console.log('Saving milestone');
+                alert('تم حفظ المعلم بنجاح');
+                bootstrap.Modal.getInstance(document.getElementById('addMilestoneModal')).hide();
+                location.reload();
+            } else {
+                form.reportValidity();
+            }
+        }
+        
+        function viewMilestone(id) {
+            console.log('Viewing milestone:', id);
+        }
+        
+        function editMilestone(id) {
+            console.log('Editing milestone:', id);
+            const modal = new bootstrap.Modal(document.getElementById('addMilestoneModal'));
+            modal.show();
+        }
+        
+        function updateProgress(id) {
+            const newProgress = prompt('أدخل نسبة الإنجاز الجديدة (0-100):');
+            if(newProgress && newProgress >= 0 && newProgress <= 100) {
+                console.log('Updating progress for:', id, 'to', newProgress);
+                alert('تم تحديث نسبة الإنجاز بنجاح');
+                location.reload();
+            }
+        }
+        
+        function escalateMilestone(id) {
+            const reason = prompt('أدخل سبب التصعيد:');
+            if(reason) {
+                console.log('Escalating milestone:', id, 'Reason:', reason);
+                alert('تم تصعيد المعلم للإدارة العليا');
+            }
+        }
+        
+        function viewDocuments(id) {
+            console.log('Viewing documents for milestone:', id);
+        }
+        
+        // Auto-update status based on progress
+        document.getElementById('progressPercent')?.addEventListener('change', function() {
+            const status = document.getElementById('milestoneStatus');
+            if(this.value == 100) {
+                status.value = 'completed';
+            } else if(this.value > 0) {
+                status.value = 'ongoing';
+            } else {
+                status.value = 'notstarted';
+            }
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

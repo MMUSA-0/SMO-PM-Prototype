@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <title>تفاصيل المبادرة - نظام إدارة الأداء</title>
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+
+<body data-dev-status="partial" data-dev-progress="70">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" placeholder="البحث...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown">
+                                        <span class="badge">2</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <h3 class="dropdown-menu__title">
+                                                <span>الإشعارات</span>
+                                                <a href="#">عرض الكل</a>
+                                            </h3>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">تحديث على المبادرة</a></li>
+                                        <li><a class="dropdown-item" href="#">معلم قادم للمبادرة</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown profile-dropdown">
+                            <button class="dropdown-toggle profile-dropdown__btn" type="button" data-bs-toggle="dropdown">
+                                <span class="profile-dropdown__avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <h3 class="dropdown-menu__title">الملف الشخصي</h3>
+                                </li>
+                                <li><a class="dropdown-item" href="#">الإعدادات</a></li>
+                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content d-flex">
+        <!-- Sidebar -->
+        <aside class="page-sidebar">
+            <nav class="page-menu">
+                <ul class="page-menu__list">
+                    <li><a href="performance-dashboard.html"><i class="bi bi-speedometer2"></i> لوحة المعلومات</a></li>
+                    <li><a href="performance-vision.html"><i class="bi bi-eye"></i> مستوى الرؤية</a></li>
+                    <li><a href="performance-programs.html"><i class="bi bi-diagram-3"></i> مستوى البرنامج</a></li>
+                    <li class="active"><a href="performance-initiatives.html"><i class="bi bi-list-task"></i> مستوى المبادرات</a>
+                        <ul class="page-menu__sublist">
+                            <li class="active"><a href="performance-initiatives.html">قائمة المبادرات</a></li>
+                            <li><a href="milestone-tracking.html">معالم المبادرات</a></li>
+                            <li><a href="achievements.html">الإنجازات</a></li>
+                            <li><a href="risk-escalation.html">إدارة المخاطر</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="performance-approvals.html"><i class="bi bi-check2-square"></i> الموافقات</a></li>
+                    <li><a href="performance-requests.html"><i class="bi bi-headset"></i> طلبات الدعم</a></li>
+                    <li><a href="performance-thresholds.html"><i class="bi bi-sliders"></i> حالات القياس</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <div class="page-wrapper">
+            <section class="page-inner">
+                <!-- Page Title -->
+                <div class="page-title-wrapper">
+                    <div class="page-container">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
+                                <li class="breadcrumb-item"><a href="performance-initiatives.html">مستوى المبادرات</a></li>
+                                <li class="breadcrumb-item active">تفاصيل المبادرة</li>
+                            </ol>
+                        </nav>
+                        <h1 class="page-title">مبادرة التحول الرقمي - UC-14/15/16/17</h1>
+                    </div>
+                </div>
+
+                <!-- Initiative Header -->
+                <div class="page-container mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h2 class="h4 mb-2">مبادرة التحول الرقمي</h2>
+                                    <p class="mb-3">رقم المبادرة: <strong>INIT-2024-001</strong> | البرنامج: <strong>برنامج تطوير القطاع المالي</strong></p>
+                                    <div class="d-flex gap-3">
+                                        <span class="badge bg-success">قيد التنفيذ</span>
+                                        <span class="badge bg-warning">مبادرة محورية</span>
+                                        <span class="badge bg-info">الأولوية: عالية</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div class="mb-2">
+                                        <strong>التقدم الإجمالي</strong>
+                                    </div>
+                                    <div class="progress" style="height: 30px;">
+                                        <div class="progress-bar bg-success" style="width: 72%">72%</div>
+                                    </div>
+                                    <small class="text-muted">الفعلي: 72% | المخطط: 68%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="page-container mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-primary">
+                                    <i class="bi bi-calendar-range"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">المدة المتبقية</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">45</span>
+                                        <span class="statistic-card__count__unit">يوم</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-success">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">الميزانية المستخدمة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">68%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-warning">
+                                    <i class="bi bi-flag"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">المعالم المكتملة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">8/12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-info">
+                                    <i class="bi bi-speedometer2"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">مؤشرات مرتبطة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="page-container">
+                    <ul class="nav nav-tabs mb-4" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#detailsTab">
+                                <i class="bi bi-info-circle me-2"></i>
+                                تفاصيل المبادرة (UC-14)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#kpisTab">
+                                <i class="bi bi-speedometer2 me-2"></i>
+                                مؤشرات المبادرة (UC-15)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#budgetTab">
+                                <i class="bi bi-currency-dollar me-2"></i>
+                                ميزانية المبادرة (UC-16)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#milestonesTab">
+                                <i class="bi bi-flag me-2"></i>
+                                معالم المبادرات (UC-17)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#risksTab">
+                                <i class="bi bi-shield-exclamation me-2"></i>
+                                مخاطر المبادرة
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#documentsTab">
+                                <i class="bi bi-folder me-2"></i>
+                                وثائق المبادرة
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Details Tab (UC-14) -->
+                        <div class="tab-pane fade show active" id="detailsTab">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="h5 mb-4">معلومات المبادرة الأساسية</h3>
+                                    <div class="row g-3">
+                                        <!-- All 15 UC-14 Fields -->
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">كود المبادرة:</label>
+                                            <p>INIT-2024-001</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">اسم المبادرة (عربي):</label>
+                                            <p>مبادرة التحول الرقمي</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">اسم المبادرة (إنجليزي):</label>
+                                            <p>Digital Transformation Initiative</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">وصف المبادرة (عربي):</label>
+                                            <p>تحويل الخدمات الحكومية إلى خدمات رقمية متكاملة</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">وصف المبادرة (إنجليزي):</label>
+                                            <p>Transform government services into integrated digital services</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">الهدف المرحلي (عربي):</label>
+                                            <p>رقمنة 80% من الخدمات بنهاية 2024</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">الهدف المرحلي (إنجليزي):</label>
+                                            <p>Digitize 80% of services by end of 2024</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label fw-bold">تاريخ البداية:</label>
+                                            <p>2024-01-01</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label fw-bold">تاريخ النهاية:</label>
+                                            <p>2024-12-31</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label fw-bold">التقدم المخطط (%):</label>
+                                            <p>68%</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label fw-bold">التقدم الفعلي (%):</label>
+                                            <p class="text-success fw-bold">72%</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">الميزانية المعتمدة:</label>
+                                            <p>15,000,000 ريال سعودي</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">المصروف الفعلي:</label>
+                                            <p>10,200,000 ريال سعودي</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">حالة المبادرة:</label>
+                                            <p><span class="badge bg-success">قيد التنفيذ</span></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">الجهة المسؤولة:</label>
+                                            <p>وزارة الاتصالات وتقنية المعلومات</p>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <h3 class="h5 mb-3">تحديث حالة المبادرة</h3>
+                                    <form id="updateInitiativeForm">
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <label class="form-label">التقدم الفعلي (%)</label>
+                                                <input type="number" class="form-control" value="72" min="0" max="100">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">المصروف الفعلي</label>
+                                                <input type="number" class="form-control" value="10200000">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">حالة المبادرة</label>
+                                                <select class="form-select">
+                                                    <option value="ongoing" selected>قيد التنفيذ</option>
+                                                    <option value="completed">مكتملة</option>
+                                                    <option value="delayed">متأخرة</option>
+                                                    <option value="suspended">معلقة</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">ملاحظات التحديث</label>
+                                                <textarea class="form-control" rows="2"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="button" class="btn btn-primary" onclick="updateInitiative()">
+                                                    <i class="bi bi-save"></i> حفظ التحديث
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KPIs Tab (UC-15) -->
+                        <div class="tab-pane fade" id="kpisTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>كود المؤشر</th>
+                                            <th>اسم المؤشر</th>
+                                            <th>الوحدة</th>
+                                            <th>القيمة المستهدفة</th>
+                                            <th>القيمة الفعلية</th>
+                                            <th>نسبة الإنجاز</th>
+                                            <th>الحالة</th>
+                                            <th>آخر تحديث</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>KPI-DT-001</td>
+                                            <td>نسبة الخدمات المحولة رقمياً</td>
+                                            <td>%</td>
+                                            <td>80</td>
+                                            <td>72</td>
+                                            <td>
+                                                <div class="progress" style="height: 20px;">
+                                                    <div class="progress-bar bg-warning" style="width: 90%">90%</div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-warning">قريب من الهدف</span></td>
+                                            <td>اليوم</td>
+                                        </tr>
+                                        <tr>
+                                            <td>KPI-DT-002</td>
+                                            <td>عدد المستخدمين النشطين</td>
+                                            <td>مستخدم</td>
+                                            <td>100,000</td>
+                                            <td>125,000</td>
+                                            <td>
+                                                <div class="progress" style="height: 20px;">
+                                                    <div class="progress-bar bg-success" style="width: 125%">125%</div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-success">تجاوز الهدف</span></td>
+                                            <td>أمس</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mt-3">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addKPIModal">
+                                    <i class="bi bi-plus-circle"></i> إضافة مؤشر أداء
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Budget Tab (UC-16) -->
+                        <div class="tab-pane fade" id="budgetTab">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">تفاصيل الميزانية</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>الميزانية المعتمدة:</td>
+                                                            <td class="text-end fw-bold">15,000,000 ريال</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>المصروف الفعلي:</td>
+                                                            <td class="text-end">10,200,000 ريال</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>الالتزامات:</td>
+                                                            <td class="text-end">2,000,000 ريال</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>المتبقي:</td>
+                                                            <td class="text-end text-success">2,800,000 ريال</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>نسبة الاستخدام:</td>
+                                                            <td class="text-end">
+                                                                <div class="progress" style="height: 20px;">
+                                                                    <div class="progress-bar bg-info" style="width: 68%">68%</div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5 class="mb-0">توزيع الميزانية</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="budgetChart" width="200" height="200"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestones Tab (UC-17) -->
+                        <div class="tab-pane fade" id="milestonesTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم المعلم</th>
+                                            <th>التاريخ المخطط</th>
+                                            <th>التاريخ الفعلي</th>
+                                            <th>نسبة الإنجاز</th>
+                                            <th>الحالة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>إطلاق المنصة التجريبية</td>
+                                            <td>2024-03-01</td>
+                                            <td>2024-02-28</td>
+                                            <td>
+                                                <div class="progress" style="height: 20px;">
+                                                    <div class="progress-bar bg-success" style="width: 100%">100%</div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-success">مكتمل</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>تدريب الموظفين</td>
+                                            <td>2024-06-01</td>
+                                            <td>-</td>
+                                            <td>
+                                                <div class="progress" style="height: 20px;">
+                                                    <div class="progress-bar bg-warning" style="width: 75%">75%</div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-warning">قيد التنفيذ</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Risks Tab -->
+                        <div class="tab-pane fade" id="risksTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>المخاطرة</th>
+                                            <th>الاحتمالية</th>
+                                            <th>التأثير</th>
+                                            <th>درجة المخاطرة</th>
+                                            <th>خطة التخفيف</th>
+                                            <th>الحالة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>تأخر التكامل مع الأنظمة القديمة</td>
+                                            <td>4</td>
+                                            <td>4</td>
+                                            <td class="text-danger fw-bold">16</td>
+                                            <td>تخصيص فريق متخصص للتكامل</td>
+                                            <td><span class="badge bg-warning">تحت المراقبة</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Documents Tab -->
+                        <div class="tab-pane fade" id="documentsTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم الوثيقة</th>
+                                            <th>النوع</th>
+                                            <th>الحجم</th>
+                                            <th>تاريخ الرفع</th>
+                                            <th>رفع بواسطة</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="bi bi-file-pdf text-danger"></i> دراسة الجدوى.pdf</td>
+                                            <td>دراسة</td>
+                                            <td>2.5 MB</td>
+                                            <td>2024-01-15</td>
+                                            <td>أحمد محمد</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="bi bi-download"></i> تحميل
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="bi bi-file-word text-primary"></i> خطة التنفيذ.docx</td>
+                                            <td>خطة</td>
+                                            <td>1.8 MB</td>
+                                            <td>2024-02-01</td>
+                                            <td>فاطمة علي</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="bi bi-download"></i> تحميل
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-primary">
+                                    <i class="bi bi-upload"></i> رفع وثيقة جديدة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        // Initiative Functions
+        function updateInitiative() {
+            console.log('Updating initiative');
+            alert('تم تحديث بيانات المبادرة بنجاح');
+        }
+        
+        // Simple budget chart (placeholder)
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('budgetChart');
+            if(canvas) {
+                const ctx = canvas.getContext('2d');
+                // Draw simple pie chart
+                ctx.beginPath();
+                ctx.arc(100, 100, 80, 0, Math.PI * 1.36); // 68% used
+                ctx.strokeStyle = '#0d6efd';
+                ctx.lineWidth = 20;
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.arc(100, 100, 80, Math.PI * 1.36, Math.PI * 2);
+                ctx.strokeStyle = '#e9ecef';
+                ctx.lineWidth = 20;
+                ctx.stroke();
+                
+                // Add text
+                ctx.font = '24px Arial';
+                ctx.fillStyle = '#0d6efd';
+                ctx.textAlign = 'center';
+                ctx.fillText('68%', 100, 110);
+            }
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

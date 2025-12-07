@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <title>إدارة المخاطر - نظام إدارة الأداء</title>
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+
+<body data-dev-status="partial" data-dev-progress="50">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" placeholder="البحث...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown">
+                                        <span class="badge">5</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <h3 class="dropdown-menu__title">
+                                                <span>الإشعارات</span>
+                                                <a href="#">عرض الكل</a>
+                                            </h3>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">مخاطرة حرجة جديدة</a></li>
+                                        <li><a class="dropdown-item" href="#">تحديث خطة التخفيف</a></li>
+                                        <li><a class="dropdown-item" href="#">مخاطرة تم إغلاقها</a></li>
+                                        <li><a class="dropdown-item" href="#">تصعيد مخاطرة للإدارة</a></li>
+                                        <li><a class="dropdown-item" href="#">موعد مراجعة المخاطر</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown profile-dropdown">
+                            <button class="dropdown-toggle profile-dropdown__btn" type="button" data-bs-toggle="dropdown">
+                                <span class="profile-dropdown__avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <h3 class="dropdown-menu__title">الملف الشخصي</h3>
+                                </li>
+                                <li><a class="dropdown-item" href="#">الإعدادات</a></li>
+                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content d-flex">
+        <!-- Sidebar -->
+        <aside class="page-sidebar">
+            <nav class="page-menu">
+                <ul class="page-menu__list">
+                    <li><a href="performance-dashboard.html"><i class="bi bi-speedometer2"></i> لوحة المعلومات</a></li>
+                    <li><a href="performance-vision.html"><i class="bi bi-eye"></i> مستوى الرؤية</a></li>
+                    <li><a href="performance-programs.html"><i class="bi bi-diagram-3"></i> مستوى البرنامج</a></li>
+                    <li class="active"><a href="performance-initiatives.html"><i class="bi bi-list-task"></i> مستوى المبادرات</a>
+                        <ul class="page-menu__sublist">
+                            <li><a href="performance-initiatives.html">قائمة المبادرات</a></li>
+                            <li><a href="milestone-tracking.html">معالم المبادرات</a></li>
+                            <li><a href="achievements.html">الإنجازات</a></li>
+                            <li class="active"><a href="risk-escalation.html">إدارة المخاطر</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="performance-approvals.html"><i class="bi bi-check2-square"></i> الموافقات</a></li>
+                    <li><a href="performance-requests.html"><i class="bi bi-headset"></i> طلبات الدعم</a></li>
+                    <li><a href="performance-thresholds.html"><i class="bi bi-sliders"></i> حالات القياس</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <div class="page-wrapper">
+            <section class="page-inner">
+                <!-- Page Title -->
+                <div class="page-title-wrapper">
+                    <div class="page-container">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
+                                <li class="breadcrumb-item"><a href="performance-initiatives.html">مستوى المبادرات</a></li>
+                                <li class="breadcrumb-item active">إدارة المخاطر</li>
+                            </ol>
+                        </nav>
+                        <h1 class="page-title">إدارة المخاطر الرئيسية - UC-12</h1>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="page-container mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-danger">
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">مخاطر حرجة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-warning">
+                                    <i class="bi bi-exclamation-diamond"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">مخاطر عالية</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">24</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-info">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">تحت المعالجة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">تم التخفيف</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">42</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="page-container">
+                    <!-- Risk Matrix -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0">مصفوفة المخاطر</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" class="align-middle">الاحتمالية</th>
+                                            <th colspan="5">التأثير</th>
+                                        </tr>
+                                        <tr>
+                                            <th>ضئيل جداً (1)</th>
+                                            <th>ضئيل (2)</th>
+                                            <th>متوسط (3)</th>
+                                            <th>عالي (4)</th>
+                                            <th>حرج (5)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>مؤكد (5)</td>
+                                            <td class="bg-warning">5</td>
+                                            <td class="bg-warning">10</td>
+                                            <td class="bg-danger">15</td>
+                                            <td class="bg-danger">20</td>
+                                            <td class="bg-danger">25 <span class="badge bg-dark">3</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>محتمل (4)</td>
+                                            <td class="bg-success">4</td>
+                                            <td class="bg-warning">8</td>
+                                            <td class="bg-warning">12 <span class="badge bg-dark">5</span></td>
+                                            <td class="bg-danger">16 <span class="badge bg-dark">2</span></td>
+                                            <td class="bg-danger">20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ممكن (3)</td>
+                                            <td class="bg-success">3</td>
+                                            <td class="bg-warning">6 <span class="badge bg-dark">8</span></td>
+                                            <td class="bg-warning">9 <span class="badge bg-dark">4</span></td>
+                                            <td class="bg-warning">12</td>
+                                            <td class="bg-danger">15 <span class="badge bg-dark">1</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>نادر (2)</td>
+                                            <td class="bg-success">2</td>
+                                            <td class="bg-success">4</td>
+                                            <td class="bg-warning">6</td>
+                                            <td class="bg-warning">8</td>
+                                            <td class="bg-warning">10 <span class="badge bg-dark">2</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>نادر جداً (1)</td>
+                                            <td class="bg-success">1</td>
+                                            <td class="bg-success">2</td>
+                                            <td class="bg-success">3</td>
+                                            <td class="bg-success">4</td>
+                                            <td class="bg-warning">5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <small class="text-muted">الأرقام في الشارات تمثل عدد المخاطر في كل خلية</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-tabs mb-4" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#newRisksTab">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                المخاطر الجديدة (UC-11)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#previousRisksTab">
+                                <i class="bi bi-clock-history me-2"></i>
+                                المخاطر السابقة
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#topRisksTab">
+                                <i class="bi bi-fire me-2"></i>
+                                أبرز 5 مخاطر
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- New Risks Tab (UC-11) -->
+                        <div class="tab-pane fade show active" id="newRisksTab">
+                            <!-- Action Buttons -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="h5">المخاطر الجديدة</h3>
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addRiskModal">
+                                    <i class="bi bi-plus-circle"></i> إضافة مخاطرة جديدة
+                                </button>
+                            </div>
+
+                            <!-- New Risks Table -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <!-- UC-12 Fields -->
+                                            <th>اسم المخاطرة</th>
+                                            <th>رمز المخاطرة</th>
+                                            <th>أفضل 5 ✓</th>
+                                            <th>المستوى</th>
+                                            <th>البرنامج</th>
+                                            <th>المبادرة</th>
+                                            <th>الجهة المقدمة</th>
+                                            <th>الاحتمالية</th>
+                                            <th>التأثير</th>
+                                            <th>درجة المخاطرة</th>
+                                            <th>حالة التخفيف</th>
+                                            <th>التاريخ</th>
+                                            <th>حالة المخاطرة</th>
+                                            <th>% التخفيف المنجز</th>
+                                            <th>عدد الإجراءات</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-danger">
+                                            <td>تأخر توفير الموارد البشرية</td>
+                                            <td><code>VRP_1_NID_227</code></td>
+                                            <td class="text-center">
+                                                <input type="checkbox" class="form-check-input" checked onclick="toggleTop5(this, 'VRP_1_NID_227')">
+                                            </td>
+                                            <td><span class="badge bg-danger">برنامج</span></td>
+                                            <td>برنامج التحول الوطني</td>
+                                            <td>مبادرة التحول الرقمي</td>
+                                            <td>إدارة الموارد البشرية</td>
+                                            <td>عالي جداً (5)</td>
+                                            <td>عالي جداً (5)</td>
+                                            <td class="text-danger fw-bold">25</td>
+                                            <td><span class="badge bg-warning">قيد التنفيذ</span></td>
+                                            <td>2024 - Q4</td>
+                                            <td><span class="badge bg-danger">مفتوح</span></td>
+                                            <td>
+                                                <div class="progress" style="min-width: 60px;">
+                                                    <div class="progress-bar bg-warning" style="width: 40%">40%</div>
+                                                </div>
+                                            </td>
+                                            <td>5</td>
+                                            <td class="text-nowrap">
+                                                <button class="btn btn-sm btn-warning" title="تعديل" onclick="editRisk('VRP_1_NID_227')">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info" title="خطة التخفيف" onclick="viewMitigationPlan('VRP_1_NID_227')">
+                                                    <i class="bi bi-shield"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" title="تصعيد" onclick="escalateRisk('VRP_1_NID_227')">
+                                                    <i class="bi bi-arrow-up"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-success" title="إغلاق" onclick="closeRisk('VRP_1_NID_227')">
+                                                    <i class="bi bi-check2"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td>تجاوز الميزانية المخصصة</td>
+                                            <td><code>VRP_4_HOU_103</code></td>
+                                            <td class="text-center">
+                                                <input type="checkbox" class="form-check-input" onclick="toggleTop5(this, 'VRP_4_HOU_103')">
+                                            </td>
+                                            <td><span class="badge bg-warning">مبادرة</span></td>
+                                            <td>برنامج الإسكان</td>
+                                            <td>مبادرة البنية التحتية</td>
+                                            <td>الإدارة المالية</td>
+                                            <td>عالي (4)</td>
+                                            <td>متوسط (3)</td>
+                                            <td class="text-warning fw-bold">12</td>
+                                            <td><span class="badge bg-info">خطة جاهزة</span></td>
+                                            <td>2024 - Q4</td>
+                                            <td><span class="badge bg-warning">تحت المراقبة</span></td>
+                                            <td>
+                                                <div class="progress" style="min-width: 60px;">
+                                                    <div class="progress-bar bg-info" style="width: 60%">60%</div>
+                                                </div>
+                                            </td>
+                                            <td>3</td>
+                                            <td class="text-nowrap">
+                                                <button class="btn btn-sm btn-warning" title="تعديل" onclick="editRisk('VRP_4_HOU_103')">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-success" title="تفعيل" onclick="activateMitigation('VRP_4_HOU_103')">
+                                                    <i class="bi bi-play"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info" title="عرض" onclick="viewRiskDetails('VRP_4_HOU_103')">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-secondary" title="أرشفة" onclick="archiveRisk('VRP_4_HOU_103')">
+                                                    <i class="bi bi-archive"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>تأخر في سلسلة التوريد</td>
+                                            <td><code>VRP_2_IND_089</code></td>
+                                            <td class="text-center">
+                                                <input type="checkbox" class="form-check-input" checked onclick="toggleTop5(this, 'VRP_2_IND_089')">
+                                            </td>
+                                            <td><span class="badge bg-info">رؤية</span></td>
+                                            <td>برنامج تطوير الصناعة</td>
+                                            <td>مبادرة التصنيع المحلي</td>
+                                            <td>هيئة الصناعة</td>
+                                            <td>متوسط (3)</td>
+                                            <td>عالي (4)</td>
+                                            <td class="text-warning fw-bold">12</td>
+                                            <td><span class="badge bg-success">تم التخفيف</span></td>
+                                            <td>2024 - Q3</td>
+                                            <td><span class="badge bg-success">مغلق</span></td>
+                                            <td>
+                                                <div class="progress" style="min-width: 60px;">
+                                                    <div class="progress-bar bg-success" style="width: 100%">100%</div>
+                                                </div>
+                                            </td>
+                                            <td>7</td>
+                                            <td class="text-nowrap">
+                                                <button class="btn btn-sm btn-info" title="عرض" onclick="viewRiskDetails('VRP_2_IND_089')">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-success" title="إعادة فتح" onclick="reopenRisk('VRP_2_IND_089')">
+                                                    <i class="bi bi-arrow-counterclockwise"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Previous Risks Tab -->
+                        <div class="tab-pane fade" id="previousRisksTab">
+                            <h3 class="h5 mb-3">المخاطر السابقة وخطط التخفيف</h3>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>اسم المخاطرة</th>
+                                            <th>مسار التخفيف</th>
+                                            <th>الإجراء</th>
+                                            <th>تفاصيل الإجراء</th>
+                                            <th>الجهة</th>
+                                            <th>تاريخ البداية</th>
+                                            <th>تاريخ النهاية</th>
+                                            <th>حالة الإجراء</th>
+                                            <th>الجهة المسؤولة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>تأخر الموافقات الحكومية</td>
+                                            <td>تسريع المعاملات</td>
+                                            <td>التنسيق المباشر</td>
+                                            <td>عقد اجتماعات أسبوعية مع الجهات المعنية</td>
+                                            <td>مكتب البرنامج</td>
+                                            <td>2024-11-01</td>
+                                            <td>2024-12-01</td>
+                                            <td><span class="badge bg-success">مكتمل</span></td>
+                                            <td>مدير البرنامج</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نقص الكفاءات التقنية</td>
+                                            <td>التدريب والتطوير</td>
+                                            <td>برنامج تدريبي مكثف</td>
+                                            <td>تدريب 50 موظف على التقنيات الجديدة</td>
+                                            <td>إدارة التدريب</td>
+                                            <td>2024-10-15</td>
+                                            <td>2024-11-30</td>
+                                            <td><span class="badge bg-success">مكتمل</span></td>
+                                            <td>مدير الموارد البشرية</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Top 5 Risks Tab -->
+                        <div class="tab-pane fade" id="topRisksTab">
+                            <h3 class="h5 mb-4">أبرز 5 مخاطر حرجة</h3>
+
+                            <div class="row g-3">
+                                <!-- Risk Card 1 -->
+                                <div class="col-12">
+                                    <div class="card border-danger">
+                                        <div class="card-header bg-danger text-white">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h6 class="mb-0">
+                                                    <i class="bi bi-exclamation-octagon-fill"></i>
+                                                    #1 - تأخر توفير الموارد البشرية
+                                                </h6>
+                                                <span class="badge bg-white text-danger">درجة المخاطرة: 25</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <p><strong>البرنامج:</strong> برنامج التحول الوطني</p>
+                                                    <p><strong>المبادرة:</strong> مبادرة التحول الرقمي</p>
+                                                    <p><strong>الوصف:</strong> نقص حاد في الكوادر المتخصصة مما يهدد تنفيذ المبادرة</p>
+                                                    <p><strong>التأثير المتوقع:</strong> تأخر المشروع 3 أشهر وتجاوز الميزانية بنسبة 20%</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h6>خطة التخفيف:</h6>
+                                                    <ul class="small">
+                                                        <li>التعاقد مع استشاريين خارجيين</li>
+                                                        <li>برنامج تدريب سريع للموظفين الحاليين</li>
+                                                        <li>إعادة توزيع المهام</li>
+                                                    </ul>
+                                                    <div class="progress" style="height: 20px;">
+                                                        <div class="progress-bar bg-warning" style="width: 40%">40% تقدم التخفيف</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Risk Cards 2-5 (Similar structure) -->
+                                <div class="col-12">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h6 class="mb-0">
+                                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                                    #2 - تجاوز الميزانية المخصصة
+                                                </h6>
+                                                <span class="badge bg-white text-warning">درجة المخاطرة: 16</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>البرنامج:</strong> برنامج الإسكان</p>
+                                            <p><strong>التأثير:</strong> احتمال توقف بعض الأنشطة</p>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar bg-info" style="width: 60%">60% تقدم التخفيف</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Risk Modal -->
+                    <div class="modal fade" id="addRiskModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">إضافة مخاطرة جديدة</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="riskForm">
+                                        <div class="row g-3">
+                                            <!-- All UC-12 Fields -->
+                                            <div class="col-12">
+                                                <label class="form-label">اسم المخاطرة <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="riskName" required maxlength="500">
+                                                <small class="text-muted">حد أقصى 500 حرف</small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">رمز المخاطرة</label>
+                                                <input type="text" class="form-control" id="riskCode" readonly placeholder="سيتم توليده تلقائياً">
+                                                <small class="text-muted">مثال: VRP_1_NID_227</small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">هل من أفضل 5 مخاطر؟</label>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="checkbox" id="isTop5">
+                                                    <label class="form-check-label" for="isTop5">
+                                                        تحديد كأحد أفضل 5 مخاطر حرجة
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">مستوى المخاطرة <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="riskLevel" required>
+                                                    <option value="">-- اختر المستوى --</option>
+                                                    <option value="vision">رؤية</option>
+                                                    <option value="program">برنامج</option>
+                                                    <option value="initiative">مبادرة</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">البرنامج <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="riskProgram" required onchange="updateRiskCode()">
+                                                    <option value="">-- اختر البرنامج --</option>
+                                                    <option value="VRP_1">برنامج تطوير القطاع المالي</option>
+                                                    <option value="VRP_2">برنامج التحول الوطني</option>
+                                                    <option value="VRP_3">برنامج الإسكان</option>
+                                                    <option value="VRP_4">برنامج جودة الحياة</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">المبادرة <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="riskInitiative" required onchange="updateRiskCode()">
+                                                    <option value="">-- اختر المبادرة --</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الجهة المقدمة للطلب <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="submittingEntity" required maxlength="250">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الجهة المعنية</label>
+                                                <input type="text" class="form-control" id="responsibleEntity" maxlength="250">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">الاحتمالية <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="probability" required onchange="calculateRiskScore()">
+                                                    <option value="">-- اختر --</option>
+                                                    <option value="1">منخفض جداً (1)</option>
+                                                    <option value="2">منخفض (2)</option>
+                                                    <option value="3">متوسط (3)</option>
+                                                    <option value="4">عالي (4)</option>
+                                                    <option value="5">عالي جداً (5)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">التأثير <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="impact" required onchange="calculateRiskScore()">
+                                                    <option value="">-- اختر --</option>
+                                                    <option value="1">منخفض جداً (1)</option>
+                                                    <option value="2">منخفض (2)</option>
+                                                    <option value="3">متوسط (3)</option>
+                                                    <option value="4">عالي (4)</option>
+                                                    <option value="5">عالي جداً (5)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">درجة المخاطرة</label>
+                                                <input type="text" class="form-control" id="riskScore" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">السنة <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="riskYear" required>
+                                                    <option value="">-- اختر السنة --</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الربع <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="riskQuarter" required>
+                                                    <option value="">-- اختر الربع --</option>
+                                                    <option value="Q1">الربع الأول</option>
+                                                    <option value="Q2">الربع الثاني</option>
+                                                    <option value="Q3">الربع الثالث</option>
+                                                    <option value="Q4">الربع الرابع</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">وصف المخاطرة</label>
+                                                <textarea class="form-control" id="riskDescription" rows="2" maxlength="2000"></textarea>
+                                                <small class="text-muted">حد أقصى 2000 حرف</small>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">إجراءات التخفيف</label>
+                                                <textarea class="form-control" id="mitigationActions" rows="3" maxlength="2000"></textarea>
+                                                <small class="text-muted">حد أقصى 2000 حرف</small>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">حالة إجراء التخفيف</label>
+                                                <select class="form-select" id="mitigationStatus">
+                                                    <option value="not_started">لم يبدأ</option>
+                                                    <option value="planning">في التخطيط</option>
+                                                    <option value="in_progress">قيد التنفيذ</option>
+                                                    <option value="completed">مكتمل</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">حالة المخاطرة</label>
+                                                <select class="form-select" id="riskStatus">
+                                                    <option value="open">مفتوح</option>
+                                                    <option value="closed">مغلق</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">عدد إجراءات التخفيف</label>
+                                                <input type="number" class="form-control" id="mitigationCount" min="0" value="0">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">النسبة المئوية لإجراءات التخفيف المنجزة</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="mitigationPercentage" min="0" max="100" value="0">
+                                                    <span class="input-group-text">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                    <button type="button" class="btn btn-danger" onclick="saveRisk()">
+                                        <i class="bi bi-save"></i> حفظ المخاطرة
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        // UC-12 Risk Management Functions
+        let top5RisksCount = 3; // Current count of top 5 risks (from existing data)
+        
+        // Generate risk code automatically
+        function generateRiskCode() {
+            const program = document.getElementById('riskProgram')?.value || '';
+            const initiative = document.getElementById('riskInitiative')?.value || '';
+            const randomNum = Math.floor(Math.random() * 999) + 1;
+            
+            if(program && initiative) {
+                return `${program}_${initiative}_${String(randomNum).padStart(3, '0')}`;
+            }
+            return '';
+        }
+        
+        function updateRiskCode() {
+            const codeField = document.getElementById('riskCode');
+            if(codeField) {
+                codeField.value = generateRiskCode();
+            }
+        }
+        
+        // Calculate risk score and auto-categorize
+        function calculateRiskScore() {
+            const probability = document.getElementById('probability').value;
+            const impact = document.getElementById('impact').value;
+            const scoreField = document.getElementById('riskScore');
+            const isTop5Checkbox = document.getElementById('isTop5');
+            
+            if(probability && impact) {
+                const score = probability * impact;
+                scoreField.value = score;
+                
+                // Auto-categorize risk level
+                if(score >= 20) {
+                    scoreField.className = 'form-control bg-danger text-white';
+                } else if(score >= 12) {
+                    scoreField.className = 'form-control bg-warning';
+                } else {
+                    scoreField.className = 'form-control bg-success text-white';
+                }
+                
+                // Auto-flag as top 5 if score >= 15
+                if(score >= 15 && isTop5Checkbox && !isTop5Checkbox.checked) {
+                    if(confirm('هذه مخاطرة حرجة (درجة المخاطرة ≥ 15). هل تريد إضافتها لأفضل 5 مخاطر؟')) {
+                        if(top5RisksCount < 5) {
+                            isTop5Checkbox.checked = true;
+                        } else {
+                            alert('تحذير: تم الوصول للحد الأقصى (5 مخاطر حرجة). يجب إزالة مخاطرة من القائمة أولاً.');
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Cannot have more than 5 top risks
+        function toggleTop5(checkbox, riskId) {
+            if(checkbox.checked) {
+                if(top5RisksCount >= 5) {
+                    alert('لا يمكن تحديد أكثر من 5 مخاطر حرجة. يجب إزالة مخاطرة أخرى أولاً.');
+                    checkbox.checked = false;
+                    return false;
+                }
+                top5RisksCount++;
+                console.log(`Risk ${riskId} added to top 5. Total: ${top5RisksCount}`);
+            } else {
+                top5RisksCount--;
+                console.log(`Risk ${riskId} removed from top 5. Total: ${top5RisksCount}`);
+            }
+            return true;
+        }
+        
+        // Validate required fields before save
+        function saveRisk() {
+            const form = document.getElementById('riskForm');
+            
+            // Generate risk code if not present
+            if(!document.getElementById('riskCode').value) {
+                updateRiskCode();
+            }
+            
+            // Validate mitigation percentage
+            const percentage = document.getElementById('mitigationPercentage').value;
+            if(percentage < 0 || percentage > 100) {
+                alert('النسبة المئوية يجب أن تكون بين 0 و 100');
+                return false;
+            }
+            
+            // Check top 5 limit
+            const isTop5 = document.getElementById('isTop5').checked;
+            if(isTop5 && top5RisksCount >= 5) {
+                alert('لا يمكن إضافة أكثر من 5 مخاطر لقائمة الأولوية');
+                return false;
+            }
+            
+            if(form.checkValidity()) {
+                console.log('Saving risk with all UC-12 fields');
+                // Here would be API call to save risk
+                alert('تم حفظ المخاطرة بنجاح وفقاً لمتطلبات UC-12');
+                bootstrap.Modal.getInstance(document.getElementById('addRiskModal')).hide();
+                location.reload();
+            } else {
+                form.reportValidity();
+            }
+        }
+        
+        function editRisk(riskId) {
+            console.log('Editing risk:', riskId);
+            // Load risk data and populate form
+            document.getElementById('riskCode').value = riskId;
+            const modal = new bootstrap.Modal(document.getElementById('addRiskModal'));
+            modal.show();
+        }
+        
+        function viewMitigationPlan(riskId) {
+            console.log('Viewing mitigation plan:', riskId);
+            // Show detailed mitigation plan with all actions
+            const planHtml = `
+                <div class="p-3">
+                    <h6>خطة التخفيف للمخاطرة: ${riskId}</h6>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>الإجراء</th>
+                                <th>المسؤول</th>
+                                <th>التاريخ المستهدف</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>التنسيق مع الموارد البشرية</td>
+                                <td>مدير البرنامج</td>
+                                <td>2025-01-15</td>
+                                <td><span class="badge bg-warning">قيد التنفيذ</span></td>
+                            </tr>
+                            <tr>
+                                <td>التعاقد مع استشاريين</td>
+                                <td>إدارة المشتريات</td>
+                                <td>2025-02-01</td>
+                                <td><span class="badge bg-info">مخطط</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            // Would show in modal
+            alert('عرض تفاصيل خطة التخفيف للمخاطرة ' + riskId);
+        }
+        
+        function escalateRisk(riskId) {
+            // Risk escalation requires justification
+            const reason = prompt('أدخل سبب التصعيد (إلزامي):');
+            if(reason && reason.trim().length > 0) {
+                console.log('Escalating risk:', riskId, 'Reason:', reason);
+                // Would call API to escalate risk
+                alert('تم تصعيد المخاطرة للإدارة العليا وإرسال إشعار');
+            } else if(reason !== null) {
+                alert('يجب إدخال سبب التصعيد');
+            }
+        }
+        
+        function closeRisk(riskId) {
+            // Cannot close risk with open mitigation actions
+            if(confirm('هل تم إكمال جميع إجراءات التخفيف؟')) {
+                console.log('Closing risk:', riskId);
+                alert('تم إغلاق المخاطرة بنجاح');
+                location.reload();
+            }
+        }
+        
+        function reopenRisk(riskId) {
+            const reason = prompt('أدخل سبب إعادة فتح المخاطرة:');
+            if(reason) {
+                console.log('Reopening risk:', riskId);
+                alert('تم إعادة فتح المخاطرة');
+                location.reload();
+            }
+        }
+        
+        function archiveRisk(riskId) {
+            if(confirm('هل تريد أرشفة هذه المخاطرة؟ سيتم الاحتفاظ بها في السجل التاريخي.')) {
+                console.log('Archiving risk:', riskId);
+                alert('تم أرشفة المخاطرة بنجاح');
+                location.reload();
+            }
+        }
+        
+        function activateMitigation(riskId) {
+            if(confirm('هل تريد تفعيل خطة التخفيف لهذه المخاطرة؟')) {
+                console.log('Activating mitigation for:', riskId);
+                alert('تم تفعيل خطة التخفيف وإرسال المهام للمسؤولين');
+                location.reload();
+            }
+        }
+        
+        function viewRiskDetails(riskId) {
+            console.log('Viewing risk details:', riskId);
+            // Would show full risk details in modal
+        }
+        
+        // Load initiatives based on program selection
+        document.getElementById('riskProgram')?.addEventListener('change', function() {
+            const initiativeSelect = document.getElementById('riskInitiative');
+            initiativeSelect.innerHTML = '<option value="">-- اختر المبادرة --</option>';
+            
+            // Map program codes to initiatives
+            const initiativeMap = {
+                'VRP_1': [
+                    {code: 'FIN', name: 'مبادرة التحول المالي الرقمي'},
+                    {code: 'PAY', name: 'مبادرة أنظمة المدفوعات'}
+                ],
+                'VRP_2': [
+                    {code: 'NID', name: 'مبادرة التحول الرقمي'},
+                    {code: 'GOV', name: 'مبادرة الحكومة الإلكترونية'}
+                ],
+                'VRP_3': [
+                    {code: 'HOU', name: 'مبادرة البنية التحتية'},
+                    {code: 'DEV', name: 'مبادرة التطوير العقاري'}
+                ],
+                'VRP_4': [
+                    {code: 'QOL', name: 'مبادرة جودة الحياة'},
+                    {code: 'ENT', name: 'مبادرة الترفيه'}
+                ]
+            };
+            
+            const initiatives = initiativeMap[this.value];
+            if(initiatives) {
+                initiatives.forEach(init => {
+                    initiativeSelect.innerHTML += `<option value="${init.code}">${init.name}</option>`;
+                });
+            }
+            
+            updateRiskCode();
+        });
+        
+        // Auto-refresh risk matrix
+        function updateRiskMatrix() {
+            console.log('Updating risk matrix based on current risks');
+            // This would fetch current risk data and update the matrix cell counts
+        }
+        
+        // Auto-save draft every 30 seconds
+        let autoSaveInterval;
+        function startAutoSave() {
+            autoSaveInterval = setInterval(() => {
+                console.log('Auto-saving risk draft...');
+                // Save form data to localStorage
+                const formData = {
+                    riskName: document.getElementById('riskName')?.value,
+                    riskLevel: document.getElementById('riskLevel')?.value,
+                    // ... other fields
+                    savedAt: new Date().toISOString()
+                };
+                localStorage.setItem('riskDraft', JSON.stringify(formData));
+            }, 30000);
+        }
+        
+        function stopAutoSave() {
+            if(autoSaveInterval) {
+                clearInterval(autoSaveInterval);
+                localStorage.removeItem('riskDraft');
+            }
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateRiskMatrix();
+            
+            // Check for saved draft
+            const savedDraft = localStorage.getItem('riskDraft');
+            if(savedDraft) {
+                if(confirm('يوجد مسودة محفوظة. هل تريد استعادتها؟')) {
+                    const draft = JSON.parse(savedDraft);
+                    // Restore form fields
+                    console.log('Draft restored from:', draft.savedAt);
+                }
+            }
+            
+            // Start auto-save when modal opens
+            document.getElementById('addRiskModal')?.addEventListener('shown.bs.modal', startAutoSave);
+            document.getElementById('addRiskModal')?.addEventListener('hidden.bs.modal', stopAutoSave);
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

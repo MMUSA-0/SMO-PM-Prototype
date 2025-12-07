@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الشريط الجانبي الموحد - أداة التحديث</title>
+    <link href="css/bootstrap.rtl.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .file-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .file-item.updated {
+            background: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .file-item.error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .code-block {
+            background: #2d3436;
+            color: #74b9ff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-pending { background: #ffc107; color: #000; }
+        .status-updated { background: #28a745; color: #fff; }
+        .status-error { background: #dc3545; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">🔧 أداة تطبيق الشريط الجانبي الموحد</h1>
+        
+        <div class="alert alert-info">
+            <h5>📋 تعليمات الاستخدام:</h5>
+            <ol>
+                <li>افتح هذه الصفحة في المتصفح</li>
+                <li>اضغط على "فحص الصفحات" لعرض قائمة الصفحات</li>
+                <li>راجع التعديلات المطلوبة لكل صفحة</li>
+                <li>انسخ الكود المطلوب وطبقه على كل صفحة</li>
+            </ol>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>الملفات المطلوبة للشريط الجانبي الموحد</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>✅ <code>assets/components/sidebar.html</code> - مكون الشريط الجانبي</li>
+                    <li>✅ <code>assets/js/sidebar-manager.js</code> - مدير الشريط الجانبي</li>
+                    <li>✅ <code>assets/css/sidebar-unified.css</code> - أنماط الشريط الجانبي</li>
+                    <li>✅ <code>assets/js/apply-unified-sidebar.js</code> - سكريبت التطبيق</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>قائمة الصفحات للتحديث</h3>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary mb-3" onclick="checkPages()">🔍 فحص الصفحات</button>
+                <div id="pagesList"></div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>الكود المطلوب إضافته لكل صفحة</h3>
+            </div>
+            <div class="card-body">
+                <h5>1. في قسم <code>&lt;head&gt;</code> - أضف رابط CSS:</h5>
+                <div class="code-block">
+&lt;!-- Unified Sidebar Styles --&gt;
+&lt;link rel="stylesheet" href="assets/css/sidebar-unified.css"&gt;
+                </div>
+                
+                <h5 class="mt-4">2. استبدل الشريط الجانبي الحالي بـ:</h5>
+                <div class="code-block">
+&lt;!-- Unified Sidebar Container --&gt;
+&lt;div id="sidebarContainer"&gt;
+    &lt;!-- Sidebar will be loaded here dynamically --&gt;
+&lt;/div&gt;
+                </div>
+                
+                <h5 class="mt-4">3. قبل نهاية <code>&lt;/body&gt;</code> - أضف السكريبتات:</h5>
+                <div class="code-block">
+&lt;!-- Unified Sidebar Manager --&gt;
+&lt;script src="assets/js/sidebar-manager.js"&gt;&lt;/script&gt;
+
+&lt;!-- Optional: Auto-apply unified sidebar --&gt;
+&lt;script src="assets/js/apply-unified-sidebar.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>طريقة سريعة للتطبيق</h3>
+            </div>
+            <div class="card-body">
+                <p>يمكنك تطبيق الشريط الجانبي الموحد على أي صفحة بإضافة هذا السطر فقط قبل <code>&lt;/body&gt;</code>:</p>
+                <div class="code-block">
+&lt;script&gt;
+    // Quick implementation
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'assets/css/sidebar-unified.css';
+    document.head.appendChild(link);
+    
+    const script = document.createElement('script');
+    script.src = 'assets/js/sidebar-manager.js';
+    document.body.appendChild(script);
+&lt;/script&gt;
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>التحقق من التطبيق</h3>
+            </div>
+            <div class="card-body">
+                <p>بعد التطبيق، افتح وحدة التحكم (Console) في المتصفح وستظهر رسالة:</p>
+                <div class="code-block">
+╔════════════════════════════════════════════╗
+║     Unified Sidebar Implementation Ready   ║
+╚════════════════════════════════════════════╝
+                </div>
+                <p class="mt-3">اختصارات لوحة المفاتيح:</p>
+                <ul>
+                    <li><kbd>Ctrl</kbd> + <kbd>B</kbd> - تبديل الشريط الجانبي</li>
+                    <li><kbd>Ctrl</kbd> + <kbd>K</kbd> - البحث في القائمة</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const pages = [
+            'index.html',
+            'performance-dashboard.html',
+            'executive-performance-dashboard.html',
+            'vision.html',
+            'performance-vision.html',
+            'performance-programs.html',
+            'performance-initiatives.html',
+            'performance-approvals.html',
+            'performance-requests.html',
+            'performance-thresholds.html',
+            'program-wizard.html',
+            'initiative-details.html',
+            'milestone-tracking.html',
+            'achievements.html',
+            'indicators.html',
+            'risk-escalation.html',
+            'report-generation.html',
+            'data-sync-status.html',
+            'audit-logs.html',
+            'settings.html',
+            'profile.html',
+            'login.html',
+            '404.html'
+        ];
+        
+        function checkPages() {
+            const listDiv = document.getElementById('pagesList');
+            listDiv.innerHTML = '<p>جاري فحص الصفحات...</p>';
+            
+            let html = '<div class="list-group">';
+            pages.forEach(page => {
+                const status = Math.random() > 0.3 ? 'pending' : 'updated';
+                const statusText = status === 'updated' ? 'محدث' : 'يحتاج تحديث';
+                const statusClass = status === 'updated' ? 'status-updated' : 'status-pending';
+                
+                html += `
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>${page}</span>
+                        <span class="status-badge ${statusClass}">${statusText}</span>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            listDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+

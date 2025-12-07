@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <title>حالة مزامنة البيانات - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+
+<body class="overflow-hidden" data-dev-status="partial" data-dev-progress="50">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" placeholder="البحث...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown">
+                                        <span class="badge">2</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <h3 class="dropdown-menu__title">
+                                                <span>الإشعارات</span>
+                                                <a href="#">عرض الكل</a>
+                                            </h3>
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">فشل مزامنة البيانات</a></li>
+                                        <li><a class="dropdown-item" href="#">اكتملت المزامنة بنجاح</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown profile-dropdown">
+                            <button class="dropdown-toggle profile-dropdown__btn" type="button" data-bs-toggle="dropdown">
+                                <span class="profile-dropdown__avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <h3 class="dropdown-menu__title">الملف الشخصي</h3>
+                                </li>
+                                <li><a class="dropdown-item" href="#">الإعدادات</a></li>
+                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-container">
+            <!-- Sidebar -->
+            <aside class="page-sidebar">
+            <nav class="page-menu">
+                <ul class="page-menu__list">
+                    <li><a href="performance-dashboard.html"><i class="bi bi-speedometer2"></i> لوحة المعلومات</a></li>
+                    <li><a href="performance-vision.html"><i class="bi bi-eye"></i> مستوى الرؤية</a></li>
+                    <li><a href="performance-programs.html"><i class="bi bi-diagram-3"></i> مستوى البرنامج</a></li>
+                    <li><a href="performance-initiatives.html"><i class="bi bi-list-task"></i> مستوى المبادرات</a></li>
+                    <li><a href="performance-approvals.html"><i class="bi bi-check2-square"></i> الموافقات</a></li>
+                    <li><a href="performance-requests.html"><i class="bi bi-headset"></i> طلبات الدعم</a></li>
+                    <li><a href="performance-thresholds.html"><i class="bi bi-sliders"></i> حالات القياس</a></li>
+                    <li class="active"><a href="data-sync-status.html"><i class="bi bi-arrow-repeat"></i> مزامنة البيانات</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+            <!-- Main Area -->
+            <section class="page-content">
+                <!-- Page Title -->
+                <div class="page-title-wrapper">
+                    <div class="page-container">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
+                                <li class="breadcrumb-item active">حالة مزامنة البيانات</li>
+                            </ol>
+                        </nav>
+                        <h1 class="page-title">حالة مزامنة البيانات</h1>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="page-container mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-success">
+                                    <i class="bi bi-check2-circle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">مزامنات ناجحة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">156</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-warning">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">قيد المزامنة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-danger">
+                                    <i class="bi bi-x-circle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">مزامنات فاشلة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-info">
+                                    <i class="bi bi-database"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">إجمالي السجلات</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">45.2K</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="page-container">
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="h5">أنظمة المصدر ومهام المزامنة</h3>
+                        <div>
+                            <button class="btn btn-success me-2" onclick="syncAll()">
+                                <i class="bi bi-arrow-repeat"></i> مزامنة الكل
+                            </button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#configSyncModal">
+                                <i class="bi bi-gear"></i> إعدادات المزامنة
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sync Status Overview -->
+                    <div class="row g-3 mb-4">
+                        <!-- National Center System -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <i class="bi bi-building"></i> النظام الوطني المركزي
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>آخر مزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-success">2024-12-22 10:30 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>السجلات المزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>12,456 سجل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>الحالة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="badge bg-success">متصل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>المزامنة التالية:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>2024-12-23 12:00 AM</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary w-100" onclick="syncSystem('national')">
+                                        <i class="bi bi-arrow-clockwise"></i> مزامنة الآن
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Financial Management System -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    <i class="bi bi-currency-dollar"></i> نظام الإدارة المالية
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>آخر مزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-success">2024-12-22 09:15 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>السجلات المزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>8,234 سجل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>الحالة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="badge bg-success">متصل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>المزامنة التالية:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>2024-12-22 06:00 PM</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-success w-100" onclick="syncSystem('financial')">
+                                        <i class="bi bi-arrow-clockwise"></i> مزامنة الآن
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Risk Management System -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-warning text-white">
+                                    <i class="bi bi-shield-exclamation"></i> نظام إدارة المخاطر
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>آخر مزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-warning">2024-12-21 11:45 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>السجلات المزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>3,567 سجل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>الحالة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="badge bg-warning">قيد المزامنة</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress mb-3" style="height: 20px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 65%">65%</div>
+                                    </div>
+                                    <button class="btn btn-sm btn-warning w-100" disabled>
+                                        <i class="bi bi-hourglass-split"></i> جاري المزامنة...
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Workflow System -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">
+                                    <i class="bi bi-diagram-3"></i> نظام سير العمل والموافقات
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>آخر مزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-danger">2024-12-20 08:30 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>السجلات المزامنة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>0 سجل</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>الحالة:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="badge bg-danger">فشل الاتصال</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <strong>رسالة الخطأ:</strong>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-danger">انتهت صلاحية الوصول</small>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-danger w-100" onclick="retrySync('workflow')">
+                                        <i class="bi bi-arrow-repeat"></i> إعادة المحاولة
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sync Jobs Table -->
+                    <h3 class="h5 mb-3">سجل مهام المزامنة</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>النظام المصدر</th>
+                                    <th>وقت المزامنة</th>
+                                    <th>السجلات المزامنة</th>
+                                    <th>حالة المزامنة</th>
+                                    <th>الوقت المستغرق</th>
+                                    <th>سجل الأخطاء</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>النظام الوطني المركزي</td>
+                                    <td>2024-12-22 10:30 AM</td>
+                                    <td>12,456</td>
+                                    <td><span class="badge bg-success">نجحت</span></td>
+                                    <td>2 دقيقة 15 ثانية</td>
+                                    <td>-</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" onclick="viewDetails('SYNC-001')">
+                                            <i class="bi bi-eye"></i> التفاصيل
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>نظام الإدارة المالية</td>
+                                    <td>2024-12-22 09:15 AM</td>
+                                    <td>8,234</td>
+                                    <td><span class="badge bg-success">نجحت</span></td>
+                                    <td>1 دقيقة 45 ثانية</td>
+                                    <td>-</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" onclick="viewDetails('SYNC-002')">
+                                            <i class="bi bi-eye"></i> التفاصيل
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <td>نظام سير العمل والموافقات</td>
+                                    <td>2024-12-20 08:30 PM</td>
+                                    <td>0</td>
+                                    <td><span class="badge bg-danger">فشلت</span></td>
+                                    <td>5 ثواني</td>
+                                    <td>
+                                        <a href="#" class="text-danger" onclick="viewErrorLog('ERROR-001')">
+                                            <i class="bi bi-file-text"></i> عرض السجل
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick="retrySync('SYNC-003')">
+                                            <i class="bi bi-arrow-repeat"></i> إعادة
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Configuration Modal -->
+                    <div class="modal fade" id="configSyncModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">إعدادات المزامنة</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="syncConfigForm">
+                                        <h6 class="mb-3">جدولة المزامنة التلقائية</h6>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label">النظام الوطني المركزي</label>
+                                                <select class="form-select">
+                                                    <option value="daily">يومياً</option>
+                                                    <option value="weekly">أسبوعياً</option>
+                                                    <option value="monthly">شهرياً</option>
+                                                    <option value="manual">يدوي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الوقت</label>
+                                                <input type="time" class="form-control" value="00:00">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">نظام الإدارة المالية</label>
+                                                <select class="form-select">
+                                                    <option value="daily" selected>مرتين يومياً</option>
+                                                    <option value="weekly">أسبوعياً</option>
+                                                    <option value="manual">يدوي</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الأوقات</label>
+                                                <input type="text" class="form-control" value="09:00, 18:00">
+                                            </div>
+                                        </div>
+
+                                        <h6 class="mb-3">إعدادات إعادة المحاولة</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">عدد المحاولات</label>
+                                                <input type="number" class="form-control" value="3" min="1" max="10">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">الانتظار بين المحاولات (دقيقة)</label>
+                                                <input type="number" class="form-control" value="5" min="1" max="60">
+                                            </div>
+                                        </div>
+
+                                        <h6 class="mt-4 mb-3">التنبيهات</h6>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="alertOnFailure" checked>
+                                            <label class="form-check-label" for="alertOnFailure">
+                                                تنبيه عند فشل المزامنة
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="alertOnDelay">
+                                            <label class="form-check-label" for="alertOnDelay">
+                                                تنبيه عند التأخير أكثر من ساعة
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                    <button type="button" class="btn btn-primary" onclick="saveConfig()">
+                                        <i class="bi bi-save"></i> حفظ الإعدادات
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Preloader -->
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        // Sync Functions
+        function syncAll() {
+            if(confirm('هل تريد مزامنة جميع الأنظمة الآن؟')) {
+                console.log('Starting sync for all systems');
+                alert('بدأت عملية المزامنة لجميع الأنظمة');
+                // Start sync animation
+                updateSyncStatus();
+            }
+        }
+        
+        function syncSystem(system) {
+            console.log('Syncing system:', system);
+            alert('بدأت مزامنة نظام: ' + system);
+            // Update UI to show syncing
+        }
+        
+        function retrySync(system) {
+            console.log('Retrying sync for:', system);
+            alert('إعادة محاولة المزامنة...');
+        }
+        
+        function viewDetails(syncId) {
+            console.log('Viewing sync details:', syncId);
+            // Show detailed modal
+        }
+        
+        function viewErrorLog(errorId) {
+            console.log('Viewing error log:', errorId);
+            alert('سجل الخطأ:\nانتهت صلاحية الوصول - يرجى تحديث بيانات الاعتماد');
+        }
+        
+        function saveConfig() {
+            console.log('Saving sync configuration');
+            alert('تم حفظ إعدادات المزامنة بنجاح');
+            bootstrap.Modal.getInstance(document.getElementById('configSyncModal')).hide();
+        }
+        
+        // Auto-refresh sync status
+        function updateSyncStatus() {
+            console.log('Updating sync status');
+            // Update cards and table with latest status
+        }
+        
+        // Refresh every 30 seconds
+        setInterval(updateSyncStatus, 30000);
+        
+        // WebSocket for real-time sync updates (example)
+        function connectWebSocket() {
+            // const ws = new WebSocket('ws://localhost:3000/sync-status');
+            // ws.onmessage = function(event) {
+            //     const data = JSON.parse(event.data);
+            //     updateSyncStatus();
+            // };
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSyncStatus();
+            // connectWebSocket();
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

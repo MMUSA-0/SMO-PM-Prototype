@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/fancybox.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/styles.min.css">
-    <title>معلومات الرؤية - مكتب الإدارة الاستراتيجية</title>
+    <title>لوحة متابعة الأداء - مكتب الإدارة الاستراتيجية</title>
     <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
@@ -67,7 +67,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="#">
                                                         <span>إشعارات جديدة</span>
-                                                        <span class="nav-link__count">2</span>
+                                                        <span class="nav-link__count">5</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -75,8 +75,8 @@
                                                 <div class="notifications-list__item notifications-list__item--unread">
                                                     <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
                                                     <div class="notifications-list__item__details">
-                                                        <h4 class="notifications-list__item__title">إشعار طلب تغيير</h4>
-                                                        <p class="notifications-list__item__description">تم استلام طلب تغييرك وجارٍ مراجعته من الفريق المختص</p>
+                                                        <h4 class="notifications-list__item__title">تقرير أداء جديد</h4>
+                                                        <p class="notifications-list__item__description">تم إنشاء تقرير أداء البرنامج للربع الرابع</p>
                                                         <span class="notifications-list__item__date">قبل 10 دقائق</span>
                                                     </div>
                                                 </div>
@@ -84,64 +84,41 @@
                                                     <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
                                                     <div class="notifications-list__item__details">
                                                         <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
-                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
-                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
-                                                    </div>
-                                                </div>
-                                                <div class="notifications-list__item">
-                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
-                                                    <div class="notifications-list__item__details">
-                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
-                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
-                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
-                                                    </div>
-                                                </div>
-                                                <div class="notifications-list__item">
-                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
-                                                    <div class="notifications-list__item__details">
-                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
-                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
+                                                        <p class="notifications-list__item__description">مؤشر "نسبة البطالة" انخفض عن المستهدف</p>
                                                         <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="notifications-dropdown__menu__footer">
-                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="dropdown user-dropdown">
-                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
-                                <span>فهد محمد القحطاني</span>
-                                <img src="images/avatar.svg" alt="">
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
-                                <div class="user-dropdown__info">
-                                    <span class="user-dropdown__info__name">فهد محمد القحطاني</span>
-                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
-                                </div>
-                                <div class="user-dropdown__actions">
-                                    <a class="user-dropdown__actions__item" href="">
-                                        <span class="user-dropdown__actions__item__icon">
-                                            <img src="images/user-icon.svg" alt="">
-                                        </span>
-                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
-                                    </a>
-                                    <a class="user-dropdown__actions__item" href="">
-                                        <span class="user-dropdown__actions__item__icon">
-                                            <img src="images/settings-icon.svg" alt="">
-                                        </span>
-                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
-                                    </a>
-                                    <a class="user-dropdown__actions__item" href="">
-                                        <span class="user-dropdown__actions__item__icon">
-                                            <img src="images/logout-icon.svg" alt="">
-                                        </span>
-                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
-                                    </a>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown user-dropdown">
+                                    <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" aria-expanded="false" title="">
+                                        <img class="user-dropdown__btn__avatar" src="images/demo/user-photo.png" alt="">
+                                        <span class="user-dropdown__btn__name">أحمد محمد</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/user-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                        </a>
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/settings-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                        </a>
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/logout-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,25 +133,16 @@
                 <nav class="page__nav">
                     <ul class="page__nav__list">
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link active" href="performance-dashboard.html" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
                                 <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item submenu-shown">
-                            <a class="page__nav__link active" href="" role="button">
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="vision.html" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
-                            <div class="page__nav__submenu-container">
-                                <div class="page__nav__submenu">
-                                    <a class="page__nav__submenu__item active" href="">معلومات الرؤية</a>
-                                    <a class="page__nav__submenu__item" href="">الأهداف الإستراتيجية</a>
-                                    <a class="page__nav__submenu__item" href="">برامج الرؤية</a>
-                                    <a class="page__nav__submenu__item" href="">المبادرات</a>
-                                    <a class="page__nav__submenu__item" href="">المؤشرات</a>
-                                </div>
-                            </div>
                         </li>
                         <li class="page__nav__list__item">
                             <a class="page__nav__link" href="" role="button">
@@ -182,10 +150,28 @@
                                 <span>مركز معلومات الاستراتيجيات الوطنية</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
+                        <li class="page__nav__list__item submenu-shown">
                             <a class="page__nav__link" href="" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
                                 <span>إدارة الأداء</span>
+                            </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                    <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                    <a class="page__nav__submenu__item" href="performance-approvals.html">موافقاتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                    <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                                <span>مركز معلومات الاستراتيجيات الوطنية</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
@@ -242,7 +228,17 @@
             <section class="page-content">
                 <div class="row">
                     <div class="col-12 mb-2">
-                        <h1 class="page-title">معلومات الرؤية</h1>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="page-title">لوحة متابعة الأداء</h1>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="bi bi-download"></i> تصدير التقرير
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="bi bi-plus-circle"></i> تقرير جديد
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -254,17 +250,22 @@
                                         <img src="images/home-icon.svg" alt="">
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">مركز معلومات رؤية 2030</li>
+                                <li class="breadcrumb-item"><a href="#">إدارة الأداء</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">لوحة متابعة الأداء</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
+                
+                <!-- Performance Overview Statistics -->
                 <div class="row">
                     <div class="col-12 mb-4">
                         <div class="accordion" id="accordionStatistics">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStatistics" aria-expanded="true" aria-controls="collapseStatistics">لوحة متابعة رؤية المملكة 2030</button>
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStatistics" aria-expanded="true" aria-controls="collapseStatistics">
+                                        إحصائيات الأداء الإجمالي
+                                    </button>
                                 </h2>
                                 <div id="collapseStatistics" class="accordion-collapse collapse show" data-bs-parent="#accordionStatistics">
                                     <div class="accordion-body">
@@ -273,47 +274,51 @@
                                                 <div class="statistic-card">
                                                     <div class="statistic-card__header">
                                                         <span class="statistic-card__count">87.3<span class="statistic-card__count__percent">%</span></span>
-                                                        <span class="statistic-card__label">التقدم الإجمالي</span>
+                                                        <span class="statistic-card__label">الأداء الإجمالي للرؤية</span>
                                                     </div>
                                                     <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">المستهدف السنوي: 90%</span>
+                                                        <span class="statistic-card__brief text-success">
+                                                            <i class="bi bi-arrow-up"></i> +2.5% عن الربع السابق
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
                                                 <div class="statistic-card">
                                                     <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">1522</span>
-                                                        <span class="statistic-card__label">المبادرات</span>
+                                                        <span class="statistic-card__count">13</span>
+                                                        <span class="statistic-card__label">البرامج التنفيذية</span>
                                                     </div>
                                                     <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">منجز: 456 | قيد التنفيذ: 873</span>
+                                                        <span class="statistic-card__brief">جميع البرامج نشطة</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
                                                 <div class="statistic-card">
                                                     <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">52.1<span class="statistic-card__count__percent">%</span></span>
-                                                        <span class="statistic-card__label">استخدام الميزانية</span>
+                                                        <span class="statistic-card__count">524</span>
+                                                        <span class="statistic-card__label">المبادرات النشطة</span>
                                                     </div>
                                                     <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">250 مليار من 480 مليار</span>
+                                                        <span class="statistic-card__brief">423 على المسار</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
                                                 <div class="statistic-card">
                                                     <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">6234</span>
-                                                        <span class="statistic-card__label">المعالم المنجزة</span>
+                                                        <span class="statistic-card__count">1,247</span>
+                                                        <span class="statistic-card__label">مؤشرات الأداء</span>
                                                     </div>
                                                     <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">من أصل 8934 معلم</span>
+                                                        <span class="statistic-card__brief">KPIs متابعة</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Latest Achievements -->
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="latest-achievements">
@@ -327,13 +332,13 @@
                                                         <div class="swiper latest-achievements__marquee">
                                                             <div class="swiper-wrapper">
                                                                 <div class="swiper-slide">
-                                                                    <a href="" class="latest-achievements__marquee__item">تحقيق أعلى معدل لمشاركة المرأة في سوق العمل</a>
+                                                                    <a href="" class="latest-achievements__marquee__item">تحقيق 150% من هدف المستخدمين النشطين</a>
                                                                 </div>
                                                                 <div class="swiper-slide">
-                                                                    <a href="" class="latest-achievements__marquee__item">إطلاق 250 خدمة حكومية رقمية جديدة</a>
+                                                                    <a href="" class="latest-achievements__marquee__item">تقليل وقت المعالجة بنسبة 80%</a>
                                                                 </div>
                                                                 <div class="swiper-slide">
-                                                                    <a href="" class="latest-achievements__marquee__item">تحقيق أعلى معدل لمشاركة المرأة في سوق العمل</a>
+                                                                    <a href="" class="latest-achievements__marquee__item">إطلاق خدمة الذكاء الاصطناعي للتحليل المالي</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -347,68 +352,130 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Macroeconomic Indicators Table -->
                 <div class="row">
-                    <div class="col-12">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">المعلومات الخاصة بالرؤية</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">الركائز</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">المحاور التفصيلية</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">مؤشرات الاقتصاد الكلي</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">المستندات</a>
-                            </li>
-                        </ul>
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">مؤشرات الاقتصاد الكلي</h5>
+                                <a href="performance-vision.html" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>المؤشر</th>
+                                                <th>القيمة الحالية</th>
+                                                <th>المستهدف 2030</th>
+                                                <th>الأداء</th>
+                                                <th>الحالة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>نسبة مشاركة المرأة في سوق العمل</td>
+                                                <td>35.5%</td>
+                                                <td>30%</td>
+                                                <td>
+                                                    <div class="progress" style="height: 20px;">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 118%">118%</div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-success">متقدم</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>نسبة البطالة</td>
+                                                <td>11.3%</td>
+                                                <td>7%</td>
+                                                <td>
+                                                    <div class="progress" style="height: 20px;">
+                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 64%">64%</div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-warning">يحتاج متابعة</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Programs Performance Grid -->
                 <div class="row">
                     <div class="col-12">
-                        <div class="content-container">
-                            <article class="page-article">
-                                <div class="row">
-                                    <div class="col-12 d-flex flex-column flex-lg-row mb-5">
-                                        <div class="vision-images">
-                                            <div class="vision-images__item">
-                                                <img src="images/vision-img-1.jpg" alt="">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">أداء البرامج التنفيذية - الربع الحالي</h5>
+                                <select class="form-select form-select-sm" style="width: 150px;">
+                                    <option>Q4 2024</option>
+                                    <option>Q3 2024</option>
+                                    <option>Q2 2024</option>
+                                </select>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-4">
+                                    <!-- Program Card 1 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <div class="text-center mb-3">
+                                                    <img src="images/2030-vision-logo.svg" alt="Program Logo" style="width: 64px; height: 64px;">
+                                                    <h5 class="card-title mt-2 mb-1">
+                                                        <a href="program-wizard.html?id=1" class="text-decoration-none">برنامج تطوير القطاع المالي</a>
+                                                    </h5>
+                                                    <span class="badge bg-success">نشط</span>
+                                                </div>
+                                                
+                                                <div class="row g-2 mb-3 text-center">
+                                                    <div class="col-6">
+                                                        <div class="p-2 bg-light rounded">
+                                                            <small class="text-muted d-block">مؤشرات</small>
+                                                            <strong class="text-success">45/48</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="p-2 bg-light rounded">
+                                                            <small class="text-muted d-block">مبادرات</small>
+                                                            <strong class="text-success">32/35</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="p-2 bg-light rounded">
+                                                            <small class="text-muted d-block">مخاطر</small>
+                                                            <strong class="text-warning">5</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="p-2 bg-light rounded">
+                                                            <small class="text-muted d-block">الميزانية</small>
+                                                            <strong>78%</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <small class="text-muted">الأداء الإجمالي</small>
+                                                        <strong class="text-success">92%</strong>
+                                                    </div>
+                                                    <div class="progress" style="height: 10px;">
+                                                        <div class="progress-bar bg-success" style="width: 92%"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="d-grid gap-2">
+                                                    <a href="program-wizard.html?id=1" class="btn btn-sm btn-outline-primary">عرض التفاصيل</a>
+                                                    <a href="report-generation.html?type=program&id=1" class="btn btn-sm btn-primary">التقرير الربعي</a>
+                                                </div>
                                             </div>
-                                            <div class="vision-images__item">
-                                                <img src="images/vision-img-2.jpg" alt="">
-                                            </div>
-                                            <div class="vision-images__item">
-                                                <img src="images/vision-img-3.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column">
-                                            <div class="vision-logo">
-                                                <img src="images/2030-vision-logo.svg" alt="">
-                                            </div>
-                                            <h2 class="vision-title">نبذة حول رؤية السعودية 2030</h2>
-                                            <ul class="vision-points">
-                                                <li>مجتمع حيوي</li>
-                                                <li>اقتصاد مزدهر</li>
-                                                <li>وطن طموح</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <p>لقد حبانا الله في المملكة العربية السعودية مقوّمات جغرافية وحضارية واجتماعية وديموغرافية واقتصادية عديدة، تمكّننا من تبوء مكانة رفيعة بين الدول القيادية على مستوى العالم. ورؤية أي دولة لمستقبلها تنطلق من مكامن القوة فيها، وذلك ما انتهجناه عند بناء رؤيتنا للمملكة العربية السعودية للعام (1452هـ - 2030م). فمكانتنا في العالم الإسلامي ستمكننا من أداء دورنا الريادي كعمق وسند لأمتينا العربية والإسلامية، كما ستكون قوتنا الاستثمارية المفتاح والمحرّك لتنويع اقتصادنا وتحقيق استدامته. فيما سيمكّننا موقعنا الاستراتيجي من أن نكون محوراً لربط القارات الثلاث.</p>
-                                        <p>تعتمد رؤيتنا على (3) محاور وهي المجتمع الحيوي والاقتصاد المزدهر والوطن الطموح، وهذه المحاور تتكامل وتتّسق مع بعضها في سبيل تحقيق أهدافنا وتعظيم الاستفادة من مرتكزات هذه الرؤية.</p>
-                                        <p>تبدأ رؤيتنا من المجتمع، وإليه تنتهي، ويمثّل المحور الأول أساساً لتحقيق هذه الرؤية وتأسيس قاعدة صلبة لازدهارنا الاقتصادي. ينبثق هذا المحور من إيماننا بأهمية بناء مجتمع حيوي، يعيش أفراده وفق المبادئ الإسلامية ومنهج الوسطية والاعتدال، معتزّين بهويتهم الوطنية وفخورين بإرثهم الثقافي العريق، في بيئة إيجابية وجاذبة، تتوافر فيها مقوّمات جودة الحياة للمواطنين والمقيمين، ويسندهم بنيان أسري متين ومنظومتي رعاية صحية واجتماعية ممكّنة.</p>
-                                        <p>وفي المحور الثاني الاقتصاد المزدهر، نركّز على توفير الفرص للجميع، عبر بناء منظومة تعليمية مرتبطة باحتياجات سوق العمل، وتنمية الفرص للجميع من روّاد الأعمال والمنشآت الصغيرة إلى الشركات الكبرى. ونؤمن بتطوير أدواتنا الاستثمارية، لإطلاق إمكانات قطاعاتنا الاقتصادية الواعدة وتنويع الاقتصاد وتوليد فرص العمل للمواطنين. ولإيماننا بدور التنافسية في رفع جودة الخدمات والتنمية الاقتصادية، نركّز جهودنا على تخصيص الخدمات الحكومية وتحسين بيئة الأعمال، بما يسهم في استقطاب أفضل الكفاءات العالميّة والاستثمارات النوعيّة، وصولاً إلى استغلال موقعنا الاستراتيجي الفريد.</p>
-                                        <p>ولأن الفاعلية والمسؤولية مفهومان جوهريان نسعى لتطبيقهما على جميع المستويات لنكون وطناً طموحاً بإنتاجه ومنجزاته. ولذلك، نركز في المحور الثالث من الرؤية على القطاع العام، حيث نرسم ملامح الحكومة الفاعلة من خلال تعزيز الكفاءة والشفافية والمساءلة وتشجيع ثقافة الأداء لتمكين مواردنا وطاقاتنا البشرية، ونهيئ البيئة اللازمة للمواطنين وقطاع الأعمال والقطاع غير الربحي لتحمل مسؤولياتهم وأخذ زمام المبادرة في مواجهة التحديّات واقتناص الفرص.</p>
-                                        <p>وفي كل محور من محاور الرؤية، قمنا بسرد عدد من الالتزامات والأهداف، والتي تمثّل نموذجا ممّا سنعمل على تحقيقه، وتعكس طموحنا بالأرقام. كما سيتّم اعتماد الرؤية كمرجعية عند اتخاذ قراراتنا، للتأكد من مواءمة المشاريع المستقبلية مع ما تضمنّته محاور الرؤية وتعزيز العمل على تنفيذها.</p>
-                                    </div>
-                                </div>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -445,6 +512,20 @@
     <script src="js/ar.umd.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/scripts.js"></script>
+    
+    <script>
+        // Initialize Swiper for latest achievements
+        var swiper = new Swiper('.latest-achievements__marquee', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            speed: 3000,
+        });
+    </script>
 </body>
 
 </html>

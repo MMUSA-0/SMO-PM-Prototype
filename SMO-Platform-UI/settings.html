@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - مكتب الإدارة الاستراتيجية</title>
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+<body data-dev-status="partial" data-dev-progress="55">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="mb-0">
+                            <i class="bi bi-gear-fill"></i> الإعدادات
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Navigation Tabs -->
+                        <ul class="nav nav-tabs mb-4" id="settingsTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button">
+                                    <i class="bi bi-sliders"></i> عام
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="display-tab" data-bs-toggle="tab" data-bs-target="#display" type="button">
+                                    <i class="bi bi-display"></i> العرض
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="notifications-tab" data-bs-toggle="tab" data-bs-target="#notifications" type="button">
+                                    <i class="bi bi-bell"></i> الإشعارات
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button">
+                                    <i class="bi bi-shield-lock"></i> الأمان
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="advanced-tab" data-bs-toggle="tab" data-bs-target="#advanced" type="button">
+                                    <i class="bi bi-tools"></i> متقدم
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="settingsTabContent">
+                            <!-- General Settings -->
+                            <div class="tab-pane fade show active" id="general" role="tabpanel">
+                                <h4 class="mb-3">الإعدادات العامة</h4>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">اللغة</label>
+                                    <select class="form-select">
+                                        <option selected>العربية</option>
+                                        <option>English</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">المنطقة الزمنية</label>
+                                    <select class="form-select">
+                                        <option selected>توقيت الرياض (GMT+3)</option>
+                                        <option>توقيت مكة المكرمة (GMT+3)</option>
+                                        <option>توقيت جدة (GMT+3)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">صيغة التاريخ</label>
+                                    <select class="form-select">
+                                        <option selected>هجري - ميلادي</option>
+                                        <option>ميلادي فقط</option>
+                                        <option>هجري فقط</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">الصفحة الرئيسية الافتراضية</label>
+                                    <select class="form-select">
+                                        <option selected>لوحة المعلومات</option>
+                                        <option>البرامج</option>
+                                        <option>المبادرات</option>
+                                        <option>التقارير</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Display Settings -->
+                            <div class="tab-pane fade" id="display" role="tabpanel">
+                                <h4 class="mb-3">إعدادات العرض</h4>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="darkMode">
+                                    <label class="form-check-label" for="darkMode">
+                                        <i class="bi bi-moon-stars"></i> الوضع الليلي
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="highContrast">
+                                    <label class="form-check-label" for="highContrast">
+                                        <i class="bi bi-circle-half"></i> التباين العالي
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="compactView">
+                                    <label class="form-check-label" for="compactView">
+                                        <i class="bi bi-layout-text-sidebar"></i> العرض المضغوط
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="animations" checked>
+                                    <label class="form-check-label" for="animations">
+                                        <i class="bi bi-magic"></i> تفعيل الحركات
+                                    </label>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">حجم الخط</label>
+                                    <input type="range" class="form-range" min="12" max="20" value="16" id="fontSize">
+                                    <div class="d-flex justify-content-between">
+                                        <small>صغير</small>
+                                        <small>متوسط</small>
+                                        <small>كبير</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Notifications Settings -->
+                            <div class="tab-pane fade" id="notifications" role="tabpanel">
+                                <h4 class="mb-3">إعدادات الإشعارات</h4>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                    <label class="form-check-label" for="emailNotifications">
+                                        <i class="bi bi-envelope"></i> إشعارات البريد الإلكتروني
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="browserNotifications">
+                                    <label class="form-check-label" for="browserNotifications">
+                                        <i class="bi bi-browser-chrome"></i> إشعارات المتصفح
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                    <label class="form-check-label" for="smsNotifications">
+                                        <i class="bi bi-phone-vibrate"></i> رسائل SMS
+                                    </label>
+                                </div>
+                                
+                                <hr>
+                                
+                                <h5>أنواع الإشعارات</h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="approvalNotifications" checked>
+                                    <label class="form-check-label" for="approvalNotifications">
+                                        طلبات الموافقة
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="performanceAlerts" checked>
+                                    <label class="form-check-label" for="performanceAlerts">
+                                        تنبيهات الأداء
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="reportNotifications" checked>
+                                    <label class="form-check-label" for="reportNotifications">
+                                        التقارير الجديدة
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="systemUpdates">
+                                    <label class="form-check-label" for="systemUpdates">
+                                        تحديثات النظام
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Security Settings -->
+                            <div class="tab-pane fade" id="security" role="tabpanel">
+                                <h4 class="mb-3">إعدادات الأمان</h4>
+                                
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-key"></i> كلمة المرور
+                                        </h5>
+                                        <p class="text-muted">آخر تغيير: قبل 45 يوم</p>
+                                        <button class="btn btn-warning">
+                                            <i class="bi bi-arrow-repeat"></i> تغيير كلمة المرور
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-shield-check"></i> المصادقة الثنائية
+                                        </h5>
+                                        <p class="text-muted">إضافة طبقة حماية إضافية لحسابك</p>
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="twoFactorAuth">
+                                            <label class="form-check-label" for="twoFactorAuth">
+                                                تفعيل المصادقة الثنائية
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-info" disabled id="setupTwoFactor">
+                                            <i class="bi bi-gear"></i> إعداد المصادقة
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-clock-history"></i> سجل الجلسات
+                                        </h5>
+                                        <p class="text-muted">عرض جميع الأجهزة المتصلة بحسابك</p>
+                                        <button class="btn btn-outline-primary">
+                                            <i class="bi bi-list-ul"></i> عرض السجل
+                                        </button>
+                                        <button class="btn btn-danger ms-2">
+                                            <i class="bi bi-x-circle"></i> إنهاء جميع الجلسات
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Advanced Settings -->
+                            <div class="tab-pane fade" id="advanced" role="tabpanel">
+                                <h4 class="mb-3">الإعدادات المتقدمة</h4>
+                                
+                                <div class="alert alert-warning">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                    تحذير: هذه الإعدادات للمستخدمين المتقدمين فقط
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="developerMode">
+                                    <label class="form-check-label" for="developerMode">
+                                        <i class="bi bi-code-slash"></i> وضع المطور
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="debugMode">
+                                    <label class="form-check-label" for="debugMode">
+                                        <i class="bi bi-bug"></i> وضع التصحيح
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="apiLogs">
+                                    <label class="form-check-label" for="apiLogs">
+                                        <i class="bi bi-terminal"></i> سجلات API
+                                    </label>
+                                </div>
+                                
+                                <hr>
+                                
+                                <h5>البيانات والخصوصية</h5>
+                                <button class="btn btn-outline-info mb-2 me-2">
+                                    <i class="bi bi-download"></i> تصدير بياناتي
+                                </button>
+                                <button class="btn btn-outline-warning mb-2 me-2">
+                                    <i class="bi bi-arrow-clockwise"></i> مسح ذاكرة التخزين المؤقت
+                                </button>
+                                <button class="btn btn-outline-danger mb-2">
+                                    <i class="bi bi-trash"></i> حذف حسابي
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="index.html" class="btn btn-secondary">
+                                <i class="bi bi-arrow-right"></i> العودة للرئيسية
+                            </a>
+                            <div>
+                                <button class="btn btn-outline-secondary me-2" onclick="resetSettings()">
+                                    <i class="bi bi-arrow-counterclockwise"></i> استعادة الافتراضي
+                                </button>
+                                <button class="btn btn-primary" onclick="saveSettings()">
+                                    <i class="bi bi-check-circle"></i> حفظ الإعدادات
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        // Two-factor authentication toggle
+        document.getElementById('twoFactorAuth').addEventListener('change', function() {
+            document.getElementById('setupTwoFactor').disabled = !this.checked;
+        });
+        
+        // Save settings
+        function saveSettings() {
+            // Collect all settings
+            const settings = {
+                language: document.querySelector('#general select').value,
+                darkMode: document.getElementById('darkMode').checked,
+                notifications: {
+                    email: document.getElementById('emailNotifications').checked,
+                    browser: document.getElementById('browserNotifications').checked,
+                    sms: document.getElementById('smsNotifications').checked
+                }
+            };
+            
+            // Save to localStorage (in production, this would call API)
+            localStorage.setItem('userSettings', JSON.stringify(settings));
+            
+            // Show success message
+            alert('تم حفظ الإعدادات بنجاح');
+        }
+        
+        // Reset settings to default
+        function resetSettings() {
+            if (confirm('هل أنت متأكد من استعادة الإعدادات الافتراضية؟')) {
+                // Reset all checkboxes and selects to default values
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.checked = cb.hasAttribute('checked');
+                });
+                document.querySelectorAll('select').forEach(select => {
+                    select.selectedIndex = 0;
+                });
+                document.getElementById('fontSize').value = 16;
+                
+                alert('تم استعادة الإعدادات الافتراضية');
+            }
+        }
+        
+        // Load saved settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedSettings = localStorage.getItem('userSettings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                // Apply saved settings
+                if (settings.darkMode) {
+                    document.getElementById('darkMode').checked = true;
+                }
+            }
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMO Platform - Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            direction: rtl;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .warning h2 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .solution {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .solution h3 {
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .links {
+            list-style: none;
+            padding: 0;
+        }
+        .links li {
+            margin: 10px 0;
+        }
+        .links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .links a:hover {
+            background: #5568d3;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .step {
+            background: #e7f3ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-right: 4px solid #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="warning">
+        <h2>⚠️ تنبيه: الأيقونات لا تظهر عند فتح الملفات مباشرة</h2>
+        <p>عند فتح ملفات HTML مباشرة بالضغط المزدوج، قد لا تظهر بعض الأيقونات والصور بسبب قيود الأمان في المتصفح.</p>
+    </div>
+
+    <div class="solution">
+        <h3>✅ الحل: استخدم أحد هذه الخيارات</h3>
+        
+        <div class="step">
+            <h4>الخيار 1: استخدام VS Code Live Server (الأفضل)</h4>
+            <ol>
+                <li>افتح المشروع في VS Code</li>
+                <li>ثبت إضافة <strong>Live Server</strong></li>
+                <li>انقر بالزر الأيمن على <code>index.html</code></li>
+                <li>اختر <strong>"Open with Live Server"</strong></li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h4>الخيار 2: استخدام Python Server</h4>
+            <p>افتح Command Prompt في مجلد المشروع واكتب:</p>
+            <code>python -m http.server 8000</code>
+            <p>ثم افتح: <a href="http://localhost:8000">http://localhost:8000</a></p>
+        </div>
+
+        <div class="step">
+            <h4>الخيار 3: استخدام Node.js</h4>
+            <p>اكتب في Command Prompt:</p>
+            <code>npx http-server</code>
+        </div>
+
+        <h3 style="margin-top: 30px;">📋 صفحات المشروع</h3>
+        <ul class="links">
+            <li><a href="index.html">🏠 الصفحة الرئيسية</a></li>
+            <li><a href="performance-dashboard.html">📊 لوحة المعلومات</a></li>
+            <li><a href="indicators.html">📈 المؤشرات</a></li>
+            <li><a href="performance-programs.html">📁 البرامج</a></li>
+            <li><a href="program-wizard.html">➕ إضافة برنامج جديد</a></li>
+        </ul>
+
+        <p style="margin-top: 30px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+            <strong>ملاحظة:</strong> هذه الروابط ستعمل فقط عند استخدام أحد الخيارات أعلاه (Web Server). 
+            لن تعمل الأيقونات عند فتح الملفات مباشرة.
+        </p>
+    </div>
+</body>
+</html>

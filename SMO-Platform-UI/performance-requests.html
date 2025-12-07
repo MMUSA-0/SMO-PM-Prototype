@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="images/favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    
+    <title>طلبات الدعم - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+</head>
+
+<body class="overflow-hidden" data-dev-status="partial" data-dev-progress="60">
+    <!-- Header -->
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
+                    </a>
+                    <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" placeholder="البحث...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="الإشعارات"></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">3</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="notifications-list">
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">تم الرد على طلب الدعم</h4>
+                                                        <p class="notifications-list__item__description">تم الرد على طلبك من قبل فريق الدعم</p>
+                                                        <span class="notifications-list__item__date">قبل 5 دقائق</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">طلب دعم جديد مخصص لك</h4>
+                                                        <p class="notifications-list__item__description">تم تخصيص طلب دعم جديد لك</p>
+                                                        <span class="notifications-list__item__date">قبل ساعة</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">تم إغلاق طلب الدعم</h4>
+                                                        <p class="notifications-list__item__description">تم إغلاق طلب الدعم الخاص بك</p>
+                                                        <span class="notifications-list__item__date">أمس - 03:20 م</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__footer">
+                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-dropdown">
+                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
+                                <span>فهد محمد القحطاني</span>
+                                <img src="images/avatar.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                <div class="user-dropdown__info">
+                                    <span class="user-dropdown__info__name">فهد محمد القحطاني</span>
+                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
+                                </div>
+                                <div class="user-dropdown__actions">
+                                    <a class="user-dropdown__actions__item" href="profile.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/user-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="settings.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/settings-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="login.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/logout-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-container">
+            <!-- Sidebar -->
+            <aside class="page-sidebar">
+            <nav class="page__nav">
+                <ul class="page__nav__list">
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="performance-dashboard.html" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                            <span>لوحة القيادة المتقدمة</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="vision.html" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                            <span>مركز معلومات رؤية 2030</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                            <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item submenu-shown">
+                        <a class="page__nav__link active" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                            <span>إدارة الأداء</span>
+                        </a>
+                        <div class="page__nav__submenu-container">
+                            <div class="page__nav__submenu">
+                                <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                <a class="page__nav__submenu__item" href="performance-approvals.html">موافقاتي</a>
+                                <a class="page__nav__submenu__item active" href="performance-requests.html">طلباتي</a>
+                                <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                            <span>إدارة المهام</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                            <span>طلبات التغيير</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                            <span>إدارة المخاطر</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                            <span>إدارة محتوى الوثائق</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                            <span>إدارة التحديات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                            <span>التصويت والاستطلاعات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                            <span>المستندات</span>
+                        </a>
+                    </li>
+                    <li class="page__nav__list__item">
+                        <a class="page__nav__link" href="" role="button">
+                            <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                            <span>الإدارة</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+            <!-- Main Area -->
+            <section class="page-content">
+                <!-- Page Title -->
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1 class="page-title">طلبات الدعم - UC-12/25</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
+                                <li class="breadcrumb-item active">طلبات الدعم</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-danger">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">طلبات مفتوحة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-warning">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">قيد المعالجة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">طلبات محلولة</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">42</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="statistic-card">
+                                <div class="statistic-card__icon bg-info">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="statistic-card__content">
+                                    <div class="statistic-card__title">متوسط وقت الحل</div>
+                                    <div class="statistic-card__count">
+                                        <span class="statistic-card__count__number">3.5</span>
+                                        <span class="statistic-card__count__unit">أيام</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="row">
+                    <div class="col-12">
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h4">إدارة طلبات الدعم</h2>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newRequestModal">
+                            <i class="bi bi-plus-circle"></i> طلب دعم جديد
+                        </button>
+                    </div>
+
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-tabs mb-4" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#myRequestsTab">
+                                <i class="bi bi-person ms-2"></i>
+                                طلباتي (UC-12)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#assignedTab">
+                                <i class="bi bi-inbox ms-2"></i>
+                                مخصصة لي (UC-25)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#allRequestsTab">
+                                <i class="bi bi-list me-2"></i>
+                                جميع الطلبات
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- My Requests Tab -->
+                        <div class="tab-pane fade show active" id="myRequestsTab">
+                            <!-- Filters -->
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-3">
+                                            <label class="form-label">الحالة</label>
+                                            <select class="form-select" id="filterStatus">
+                                                <option value="">جميع الحالات</option>
+                                                <option value="open">مفتوح</option>
+                                                <option value="processing">قيد المعالجة</option>
+                                                <option value="resolved">محلول</option>
+                                                <option value="closed">مغلق</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">الأولوية</label>
+                                            <select class="form-select" id="filterPriority">
+                                                <option value="">جميع الأولويات</option>
+                                                <option value="critical">حرجة</option>
+                                                <option value="high">عالية</option>
+                                                <option value="medium">متوسطة</option>
+                                                <option value="low">منخفضة</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">النوع</label>
+                                            <select class="form-select" id="filterType">
+                                                <option value="">جميع الأنواع</option>
+                                                <option value="technical">دعم تقني</option>
+                                                <option value="data">مشكلة بيانات</option>
+                                                <option value="process">دعم عملية</option>
+                                                <option value="training">تدريب</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label">&nbsp;</label>
+                                            <button type="button" class="btn btn-primary d-block w-100" id="applyFiltersBtn">
+                                                <i class="bi bi-funnel"></i> تطبيق الفلاتر
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Requests Table -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <!-- UC-12 Fields -->
+                                            <th>رقم الطلب</th>
+                                            <th>البرنامج</th>
+                                            <th>الدعم المطلوب</th>
+                                            <th>السبب</th>
+                                            <th>نوع الدعم</th>
+                                            <th>الحالة</th>
+                                            <th>السنة</th>
+                                            <th>الربع</th>
+                                            <th>تاريخ الطلب</th>
+                                            <th>مقدم الطلب</th>
+                                            <th>الملاحظات</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>SUP-2024-001</td>
+                                            <td>برنامج تطوير القطاع المالي</td>
+                                            <td>دعم في تحديث البيانات</td>
+                                            <td>صعوبة في رفع البيانات الربعية</td>
+                                            <td><span class="badge bg-info">دعم تقني</span></td>
+                                            <td><span class="badge bg-warning">قيد المعالجة</span></td>
+                                            <td>2024</td>
+                                            <td>Q4</td>
+                                            <td>2024-12-20</td>
+                                            <td>أحمد محمد</td>
+                                            <td>يحتاج توضيح للصيغة المطلوبة</td>
+                                            <td>
+                                                <div class="d-flex gap-1 flex-wrap">
+                                                    <button class="btn btn-sm btn-info" onclick="viewRequest('SUP-2024-001')" title="عرض">
+                                                        <i class="bi bi-eye"></i> عرض
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" onclick="editRequest('SUP-2024-001')" title="تعديل">
+                                                        <i class="bi bi-pencil"></i> تعديل
+                                                    </button>
+                                                    <button class="btn btn-sm btn-secondary" onclick="addComment('SUP-2024-001')" title="تعليق">
+                                                        <i class="bi bi-chat"></i> تعليق
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>SUP-2024-002</td>
+                                            <td>برنامج التحول الوطني</td>
+                                            <td>طلب تدريب على النظام</td>
+                                            <td>موظفون جدد يحتاجون تدريب</td>
+                                            <td><span class="badge bg-primary">تدريب</span></td>
+                                            <td><span class="badge bg-info">مفتوح</span></td>
+                                            <td>2024</td>
+                                            <td>Q4</td>
+                                            <td>2024-12-22</td>
+                                            <td>فاطمة علي</td>
+                                            <td>3 موظفين جدد</td>
+                                            <td>
+                                                <div class="d-flex gap-1 flex-wrap">
+                                                    <button class="btn btn-sm btn-info" onclick="viewRequest('SUP-2024-002')" title="عرض">
+                                                        <i class="bi bi-eye"></i> عرض
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" onclick="editRequest('SUP-2024-002')" title="تعديل">
+                                                        <i class="bi bi-pencil"></i> تعديل
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" onclick="cancelRequest('SUP-2024-002')" title="إلغاء">
+                                                        <i class="bi bi-x"></i> إلغاء
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Assigned to Me Tab -->
+                        <div class="tab-pane fade" id="assignedTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم الطلب</th>
+                                            <th>البرنامج</th>
+                                            <th>نوع الدعم</th>
+                                            <th>الأولوية</th>
+                                            <th>مقدم الطلب</th>
+                                            <th>تاريخ التخصيص</th>
+                                            <th>SLA المتبقي</th>
+                                            <th>الحالة</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>SUP-2024-003</td>
+                                            <td>برنامج الإسكان</td>
+                                            <td><span class="badge bg-danger">مشكلة بيانات</span></td>
+                                            <td><span class="badge bg-danger">حرجة</span></td>
+                                            <td>محمد سالم</td>
+                                            <td>2024-12-21</td>
+                                            <td class="text-danger">4 ساعات</td>
+                                            <td><span class="badge bg-warning">قيد المعالجة</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1 flex-wrap">
+                                                    <button class="btn btn-sm btn-success" onclick="resolveRequest('SUP-2024-003')" title="حل">
+                                                        <i class="bi bi-check"></i> حل
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" onclick="escalateRequest('SUP-2024-003')" title="تصعيد">
+                                                        <i class="bi bi-arrow-up"></i> تصعيد
+                                                    </button>
+                                                    <button class="btn btn-sm btn-info" onclick="respondToRequest('SUP-2024-003')" title="رد">
+                                                        <i class="bi bi-reply"></i> رد
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- All Requests Tab -->
+                        <div class="tab-pane fade" id="allRequestsTab">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم الطلب</th>
+                                            <th>البرنامج</th>
+                                            <th>نوع الدعم</th>
+                                            <th>الأولوية</th>
+                                            <th>مقدم الطلب</th>
+                                            <th>المخصص له</th>
+                                            <th>الحالة</th>
+                                            <th>تاريخ الطلب</th>
+                                            <th>آخر تحديث</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- All requests data here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Request Modal -->
+                <div class="modal fade" id="newRequestModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">طلب دعم جديد</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="newRequestForm">
+                                    <div class="row g-3">
+                                        <!-- All UC-12 Fields -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">البرنامج <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="requestProgram" required>
+                                                <option value="">-- اختر البرنامج --</option>
+                                                <option value="FSDP">برنامج تطوير القطاع المالي</option>
+                                                <option value="NTP">برنامج التحول الوطني</option>
+                                                <option value="HP">برنامج الإسكان</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">نوع الدعم <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="requestType" required>
+                                                <option value="">-- اختر النوع --</option>
+                                                <option value="technical">دعم تقني</option>
+                                                <option value="data">مشكلة بيانات</option>
+                                                <option value="process">دعم عملية</option>
+                                                <option value="training">تدريب</option>
+                                                <option value="other">أخرى</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">الدعم المطلوب <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="requestTitle" required placeholder="عنوان واضح للدعم المطلوب">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">السبب <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="requestReason" rows="3" required placeholder="اشرح سبب طلب الدعم"></textarea>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">الأولوية <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="requestPriority" required>
+                                                <option value="">-- اختر الأولوية --</option>
+                                                <option value="critical">حرجة (4 ساعات)</option>
+                                                <option value="high">عالية (يوم واحد)</option>
+                                                <option value="medium">متوسطة (3 أيام)</option>
+                                                <option value="low">منخفضة (أسبوع)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">السنة <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="requestYear" required>
+                                                <option value="2024">2024</option>
+                                                <option value="2025" selected>2025</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">الربع <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="requestQuarter" required>
+                                                <option value="Q1">الربع الأول</option>
+                                                <option value="Q2">الربع الثاني</option>
+                                                <option value="Q3">الربع الثالث</option>
+                                                <option value="Q4" selected>الربع الرابع</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">الملاحظات</label>
+                                            <textarea class="form-control" id="requestNotes" rows="2" placeholder="أي ملاحظات إضافية"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">المرفقات</label>
+                                            <input type="file" class="form-control" id="requestAttachments" multiple>
+                                            <small class="text-muted">يمكنك إرفاق ملفات توضيحية (PDF, Excel, Word, Images)</small>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                <button type="button" class="btn btn-primary" onclick="submitNewRequest()" id="submitRequestBtn">
+                                    <i class="bi bi-send"></i> إرسال الطلب
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Response Modal -->
+                <div class="modal fade" id="responseModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">الرد على الطلب</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="responseForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">الرد <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="responseText" rows="5" required placeholder="اكتب ردك هنا"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">حالة الطلب</label>
+                                        <select class="form-select" id="responseStatus">
+                                            <option value="processing">قيد المعالجة</option>
+                                            <option value="resolved">محلول</option>
+                                            <option value="needinfo">يحتاج معلومات</option>
+                                            <option value="escalated">تم التصعيد</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">المرفقات</label>
+                                        <input type="file" class="form-control" id="responseAttachments" multiple>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                                <button type="button" class="btn btn-primary" onclick="submitResponse()" id="submitResponseBtn">
+                                    <i class="bi bi-send"></i> إرسال الرد
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Preloader -->
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/crud-operations.js"></script>
+
+    <script>
+        // Check if jQuery and Bootstrap are loaded
+        if (typeof jQuery === 'undefined') {
+            console.warn('jQuery is not loaded. Some features may not work properly.');
+        }
+        if (typeof bootstrap === 'undefined') {
+            console.warn('Bootstrap is not loaded. Some features may not work properly.');
+        }
+        
+        // Store modal instances
+        let newRequestModalInstance = null;
+        let responseModalInstance = null;
+        
+        // Fallback function for tab switching
+        function handleTabSwitch(tabTrigger) {
+            // Remove active class from all tabs
+            const allTabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tabTrigger.classList.add('active');
+            
+            // Hide all tab panes
+            const allPanes = document.querySelectorAll('.tab-pane');
+            allPanes.forEach(pane => {
+                pane.classList.remove('show', 'active');
+            });
+            
+            // Show target pane
+            const targetId = tabTrigger.getAttribute('href');
+            if (targetId) {
+                const targetPane = document.querySelector(targetId);
+                if (targetPane) {
+                    targetPane.classList.add('show', 'active');
+                }
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Performance Requests page initializing...');
+            try {
+            // Initialize modals
+            const newRequestModalEl = document.getElementById('newRequestModal');
+            const responseModalEl = document.getElementById('responseModal');
+            
+            if (newRequestModalEl && typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    newRequestModalInstance = new bootstrap.Modal(newRequestModalEl);
+                } catch (error) {
+                    console.error('Failed to initialize new request modal:', error);
+                }
+            }
+            
+            if (responseModalEl && typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    responseModalInstance = new bootstrap.Modal(responseModalEl);
+                } catch (error) {
+                    console.error('Failed to initialize response modal:', error);
+                }
+            }
+            
+            // Initialize tabs
+            const triggerTabList = document.querySelectorAll('a[data-bs-toggle="tab"]');
+            triggerTabList.forEach(tabTrigger => {
+                tabTrigger.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+                        try {
+                            const tab = new bootstrap.Tab(tabTrigger);
+                            tab.show();
+                        } catch (error) {
+                            console.error('Tab initialization error:', error);
+                            // Fallback: manually handle tab switching
+                            handleTabSwitch(tabTrigger);
+                        }
+                    } else {
+                        // Fallback: manually handle tab switching
+                        handleTabSwitch(tabTrigger);
+                    }
+                });
+            });
+            
+            // Initialize filter button
+            const filterBtn = document.getElementById('applyFiltersBtn');
+            if (filterBtn) {
+                filterBtn.addEventListener('click', applyFilters);
+            }
+            
+            // Initialize Nice Select2 for all select elements
+            try {
+                const selectElements = document.querySelectorAll('select.form-select');
+                selectElements.forEach(select => {
+                    if (typeof NiceSelect !== 'undefined') {
+                        NiceSelect.bind(select, {searchable: false});
+                    }
+                });
+            } catch (error) {
+                console.log('Nice Select2 initialization skipped:', error);
+            }
+            
+            // Initialize sidebar toggle
+            const sidebarToggle = document.querySelector('.page-sidebar-toggle-btn');
+            const pageContent = document.querySelector('.page-content');
+            const pageSidebar = document.querySelector('.page-sidebar');
+            
+            if (sidebarToggle && pageContent) {
+                sidebarToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    pageContent.classList.toggle('sidebar-collapsed');
+                    if (pageSidebar) {
+                        pageSidebar.classList.toggle('collapsed');
+                    }
+                });
+            }
+            
+            // Initialize search toggle
+            const searchToggle = document.querySelector('.search-toggle-btn');
+            const searchMenu = document.querySelector('.search-menu');
+            
+            if (searchToggle && searchMenu) {
+                searchToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    searchMenu.classList.toggle('active');
+                    const searchInput = searchMenu.querySelector('input');
+                    if (searchInput && searchMenu.classList.contains('active')) {
+                        searchInput.focus();
+                    }
+                });
+                
+                // Close search when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!searchMenu.contains(e.target)) {
+                        searchMenu.classList.remove('active');
+                    }
+                });
+            }
+            
+            console.log('Performance Requests page initialized successfully');
+            
+            } catch (error) {
+                console.error('Error during page initialization:', error);
+            }
+        });
+        
+        // Support Request Functions
+        function submitNewRequest() {
+            const form = document.getElementById('newRequestForm');
+            const submitBtn = document.getElementById('submitRequestBtn');
+            
+            // Add bootstrap validation classes
+            form.classList.add('was-validated');
+            
+            if(form.checkValidity()) {
+                // Disable submit button to prevent double submission
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>جاري الإرسال...';
+                }
+                // Get form values
+                const requestData = {
+                    program: document.getElementById('requestProgram').value,
+                    type: document.getElementById('requestType').value,
+                    title: document.getElementById('requestTitle').value,
+                    reason: document.getElementById('requestReason').value,
+                    priority: document.getElementById('requestPriority').value,
+                    year: document.getElementById('requestYear').value,
+                    quarter: document.getElementById('requestQuarter').value,
+                    notes: document.getElementById('requestNotes').value
+                };
+                
+                // BR-UC12-01: Generate unique request ID with proper formatting
+                const timestamp = Date.now();
+                const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                const requestId = 'SUP-' + new Date().getFullYear() + '-' + random;
+                
+                console.log('New request:', requestId, requestData);
+                
+                // Close modal properly
+                if (newRequestModalInstance) {
+                    newRequestModalInstance.hide();
+                }
+                
+                // Show success message with a slight delay
+                setTimeout(() => {
+                    alert('تم إرسال طلب الدعم بنجاح. رقم الطلب: ' + requestId);
+                    
+                    // Reset form
+                    form.classList.remove('was-validated');
+                    form.reset();
+                    
+                    // Reload page to show new request
+                    location.reload();
+                }, 300);
+            } else {
+                // Re-enable submit button if validation fails
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="bi bi-send"></i> إرسال الطلب';
+                }
+                
+                // Focus on first invalid field
+                const firstInvalid = form.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+            }
+        }
+        
+        async function viewRequest(requestId) {
+            try {
+                const data = await window.CRUDOperations.view(`/performance/requests/${requestId}`);
+                alert(`تفاصيل الطلب:\nرقم الطلب: ${data.requestNumber}\nالنوع: ${data.requestType}\nالحالة: ${data.status}\nالأولوية: ${data.priority}`);
+            } catch (error) {
+                console.error('Failed to load request:', error);
+                alert('فشل تحميل تفاصيل الطلب');
+            }
+        }
+        
+        async function editRequest(requestId) {
+            try {
+                const data = await window.CRUDOperations.view(`/performance/requests/${requestId}`);
+                if (newRequestModalInstance) {
+                    // Populate form with existing data
+                    document.getElementById('requestTitle').value = data.title || '';
+                    document.getElementById('requestDescription').value = data.description || '';
+                    document.getElementById('requestType').value = data.type || '';
+                    document.getElementById('requestPriority').value = data.priority || '';
+                    newRequestModalInstance.show();
+                }
+            } catch (error) {
+                console.error('Failed to load request for editing:', error);
+                if (newRequestModalInstance) {
+                    newRequestModalInstance.show();
+                }
+            }
+        }
+        
+        async function cancelRequest(requestId) {
+            if(confirm('هل أنت متأكد من إلغاء هذا الطلب؟')) {
+                try {
+                    await window.CRUDOperations.add(`/performance/requests/${requestId}/cancel`, {}, 'تم إلغاء الطلب بنجاح', () => {
+                        location.reload();
+                    });
+                } catch (error) {
+                    console.error('Failed to cancel request:', error);
+                }
+            }
+        }
+        
+        async function resolveRequest(requestId) {
+            const resolution = prompt('أدخل الحل المقدم:');
+            if(resolution && resolution.trim()) {
+                try {
+                    await window.CRUDOperations.add(`/performance/requests/${requestId}/resolve`, {
+                        resolution: resolution.trim()
+                    }, 'تم حل الطلب بنجاح', () => {
+                        location.reload();
+                    });
+                } catch (error) {
+                    console.error('Failed to resolve request:', error);
+                }
+            }
+        }
+        
+        async function escalateRequest(requestId) {
+            const reason = prompt('أدخل سبب التصعيد:');
+            if(reason && reason.trim()) {
+                try {
+                    await window.CRUDOperations.add(`/performance/requests/${requestId}/escalate`, {
+                        reason: reason.trim()
+                    }, 'تم تصعيد الطلب بنجاح', () => {
+                        location.reload();
+                    });
+                } catch (error) {
+                    console.error('Failed to escalate request:', error);
+                }
+            }
+        }
+        
+        function respondToRequest(requestId) {
+            console.log('Opening response modal for:', requestId);
+            
+            // Store the request ID for later use
+            if (responseModalInstance) {
+                responseModalInstance._requestId = requestId;
+                responseModalInstance.show();
+            }
+        }
+        
+        function submitResponse() {
+            const form = document.getElementById('responseForm');
+            const submitBtn = document.getElementById('submitResponseBtn');
+            
+            // Add bootstrap validation classes
+            form.classList.add('was-validated');
+            
+            if(form.checkValidity()) {
+                // Disable submit button to prevent double submission
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>جاري الإرسال...';
+                }
+                const responseData = {
+                    text: document.getElementById('responseText').value,
+                    status: document.getElementById('responseStatus').value,
+                    requestId: responseModalInstance._requestId || null
+                };
+                
+                console.log('Response:', responseData);
+                
+                // Close modal properly
+                if (responseModalInstance) {
+                    responseModalInstance.hide();
+                }
+                
+                // Show success message with a slight delay
+                setTimeout(() => {
+                    alert('تم إرسال الرد بنجاح');
+                    
+                    // Reset form
+                    form.classList.remove('was-validated');
+                    form.reset();
+                    
+                    // Reload page to show updates
+                    location.reload();
+                }, 300);
+            } else {
+                // Re-enable submit button if validation fails
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="bi bi-send"></i> إرسال الرد';
+                }
+                
+                // Focus on first invalid field
+                const firstInvalid = form.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+            }
+        }
+        
+        async function addComment(requestId) {
+            const comment = prompt('أدخل تعليقك:');
+            if(comment && comment.trim()) {
+                try {
+                    await window.CRUDOperations.add(`/performance/requests/${requestId}/comments`, {
+                        comment: comment.trim()
+                    }, 'تم إضافة التعليق بنجاح', () => {
+                        location.reload();
+                    });
+                } catch (error) {
+                    console.error('Failed to add comment:', error);
+                }
+            }
+        }
+        
+        function applyFilters() {
+            const status = document.getElementById('filterStatus').value;
+            const priority = document.getElementById('filterPriority').value;
+            const type = document.getElementById('filterType').value;
+            
+            console.log('Applying filters:', { status, priority, type });
+            
+            // TODO: Implement actual filtering logic
+            alert('تم تطبيق الفلاتر');
+        }
+        
+        // SLA Timer
+        function updateSLATimers() {
+            // Update SLA countdown for critical requests
+            const slaElements = document.querySelectorAll('td.text-danger');
+            slaElements.forEach(el => {
+                if(el.textContent.includes('ساعات') || el.textContent.includes('ساعة')) {
+                    // Extract hours from text
+                    const match = el.textContent.match(/\d+/);
+                    if (match) {
+                        const hours = parseInt(match[0]);
+                        // Update countdown logic here
+                        console.log('SLA hours remaining:', hours);
+                    }
+                }
+            });
+        }
+        
+        // Update SLA timers every minute
+        setInterval(updateSLATimers, 60000);
+        
+        // Initial call
+        updateSLATimers();
+        
+        // Reset forms when modals are hidden
+        document.addEventListener('hidden.bs.modal', function (event) {
+            if (event.target.id === 'newRequestModal') {
+                const form = document.getElementById('newRequestForm');
+                if (form) {
+                    form.classList.remove('was-validated');
+                    form.reset();
+                }
+            } else if (event.target.id === 'responseModal') {
+                const form = document.getElementById('responseForm');
+                if (form) {
+                    form.classList.remove('was-validated');
+                    form.reset();
+                }
+            }
+        });
+        
+        // Prevent form submission on enter key (except in textarea)
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                const form = e.target.closest('form');
+                if (form && (form.id === 'newRequestForm' || form.id === 'responseForm')) {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        });
+        
+        // Handle file input changes
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        fileInputs.forEach(input => {
+            input.addEventListener('change', function(e) {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    console.log(`Selected ${files.length} file(s)`);
+                    // Could add file size validation here
+                    const maxSize = 10 * 1024 * 1024; // 10MB
+                    for (let i = 0; i < files.length; i++) {
+                        if (files[i].size > maxSize) {
+                            alert(`الملف ${files[i].name} كبير جداً. الحد الأقصى 10 ميجابايت.`);
+                            e.target.value = '';
+                            break;
+                        }
+                    }
+                }
+            });
+        });
+        
+            // Additional initialization when window is fully loaded
+            window.addEventListener('load', function() {
+                // Remove any loading indicators if present
+                document.body.classList.add('loaded');
+                
+                // Verify critical resources are loaded
+                const criticalResources = {
+                    'jQuery': typeof jQuery !== 'undefined',
+                    'Bootstrap': typeof bootstrap !== 'undefined',
+                    'Bootstrap Modal': typeof bootstrap !== 'undefined' && bootstrap.Modal,
+                    'Bootstrap Tab': typeof bootstrap !== 'undefined' && bootstrap.Tab
+                };
+                
+                console.log('Resource loading status:', criticalResources);
+            
+            // Initialize tooltips if Bootstrap tooltips are used
+            try {
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+            } catch (error) {
+                console.log('Tooltips initialization skipped');
+            }
+            
+            // Initialize popovers if Bootstrap popovers are used
+            try {
+                const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+                const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+            } catch (error) {
+                console.log('Popovers initialization skipped');
+            }
+        });
+    </script>
+    <script src="assets/js/dev-indicators.js"></script>
+</body>
+</html>
