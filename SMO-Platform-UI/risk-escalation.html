@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
     <link rel="shortcut icon" href="images/favicons/favicon.ico">
@@ -19,19 +20,20 @@
     <link rel="stylesheet" href="css/fancybox.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/styles.min.css">
-    
-    <title>إدارة المخاطر - نظام إدارة الأداء</title>
-    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+    <title>إدارة المخاطر - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
 </head>
 
-<body data-dev-status="partial" data-dev-progress="50">
-    <!-- Header -->
+<body class="overflow-hidden">
     <header class="page-header">
         <div class="page-container">
             <div class="row">
                 <div class="col-12 d-flex align-items-center gap-4">
-                    <a class="page-header__logo" href="performance-dashboard.html" title="الرئيسية">
-                        <img src="images/logo.svg" alt="">
+                    <a class="page-header__logo" href="index.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
                     </a>
                     <a class="page-sidebar-toggle-btn" href="#" role="button" title=""></a>
                     <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
@@ -40,95 +42,218 @@
                                 <div class="search-menu">
                                     <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
                                     <div class="search-menu__input">
-                                        <input class="form-control" type="search" placeholder="البحث...">
+                                        <input class="form-control" type="search" name="" id="">
                                     </div>
                                 </div>
                             </div>
                             <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
                                 <div class="dropdown notifications-dropdown">
-                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown">
-                                        <span class="badge">5</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <h3 class="dropdown-menu__title">
-                                                <span>الإشعارات</span>
-                                                <a href="#">عرض الكل</a>
-                                            </h3>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">مخاطرة حرجة جديدة</a></li>
-                                        <li><a class="dropdown-item" href="#">تحديث خطة التخفيف</a></li>
-                                        <li><a class="dropdown-item" href="#">مخاطرة تم إغلاقها</a></li>
-                                        <li><a class="dropdown-item" href="#">تصعيد مخاطرة للإدارة</a></li>
-                                        <li><a class="dropdown-item" href="#">موعد مراجعة المخاطر</a></li>
-                                    </ul>
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title=""></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">2</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="notifications-list">
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">مخاطرة حرجة جديدة</h4>
+                                                        <p class="notifications-list__item__description">تم رصد مخاطرة حرجة تحتاج لمتابعة فورية</p>
+                                                        <span class="notifications-list__item__date">قبل 10 دقائق</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">تحديث خطة التخفيف</h4>
+                                                        <p class="notifications-list__item__description">تم تحديث خطة التخفيف للمخاطرة VRP_1_NID_227</p>
+                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__footer">
+                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown profile-dropdown">
-                            <button class="dropdown-toggle profile-dropdown__btn" type="button" data-bs-toggle="dropdown">
-                                <span class="profile-dropdown__avatar">
-                                    <img src="images/avatar.jpg" alt="">
-                                </span>
+                        <div class="dropdown user-dropdown">
+                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
+                                <span>فهد محمد القحطاني</span>
+                                <img src="images/avatar.svg" alt="">
                             </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <h3 class="dropdown-menu__title">الملف الشخصي</h3>
-                                </li>
-                                <li><a class="dropdown-item" href="#">الإعدادات</a></li>
-                                <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
-                            </ul>
+                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                <div class="user-dropdown__info">
+                                    <span class="user-dropdown__info__name">فهد محمد القحطاني</span>
+                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
+                                </div>
+                                <div class="user-dropdown__actions">
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/user-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/settings-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/logout-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
-    <main class="page-content d-flex">
-        <!-- Sidebar -->
-        <aside class="page-sidebar">
-            <nav class="page-menu">
-                <ul class="page-menu__list">
-                    <li><a href="performance-dashboard.html"><i class="bi bi-speedometer2"></i> لوحة المعلومات</a></li>
-                    <li><a href="performance-vision.html"><i class="bi bi-eye"></i> مستوى الرؤية</a></li>
-                    <li><a href="performance-programs.html"><i class="bi bi-diagram-3"></i> مستوى البرنامج</a></li>
-                    <li class="active"><a href="performance-initiatives.html"><i class="bi bi-list-task"></i> مستوى المبادرات</a>
-                        <ul class="page-menu__sublist">
-                            <li><a href="performance-initiatives.html">قائمة المبادرات</a></li>
-                            <li><a href="milestone-tracking.html">معالم المبادرات</a></li>
-                            <li><a href="achievements.html">الإنجازات</a></li>
-                            <li class="active"><a href="risk-escalation.html">إدارة المخاطر</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="performance-approvals.html"><i class="bi bi-check2-square"></i> الموافقات</a></li>
-                    <li><a href="performance-requests.html"><i class="bi bi-headset"></i> طلبات الدعم</a></li>
-                    <li><a href="performance-thresholds.html"><i class="bi bi-sliders"></i> حالات القياس</a></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Area -->
-        <div class="page-wrapper">
-            <section class="page-inner">
-                <!-- Page Title -->
-                <div class="page-title-wrapper">
-                    <div class="page-container">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="performance-dashboard.html">الرئيسية</a></li>
-                                <li class="breadcrumb-item"><a href="performance-initiatives.html">مستوى المبادرات</a></li>
-                                <li class="breadcrumb-item active">إدارة المخاطر</li>
-                            </ol>
-                        </nav>
+    <main>
+        <div class="page-container">
+            <aside class="page-sidebar">
+                <nav class="page__nav">
+                    <ul class="page__nav__list">
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="index.html" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                                <span>لوحة القيادة المتقدمة</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                                <span>مركز معلومات رؤية 2030</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                                <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link active" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                                <span>إدارة الأداء</span>
+                            </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
+                                    <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                    <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                    <a class="page__nav__submenu__item" href="#">موافقاتي</a>
+                                    <a class="page__nav__submenu__item" href="#">طلباتي</a>
+                                    <a class="page__nav__submenu__item" href="#">حالات قياس المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="#">التقارير</a>
+                                    <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item" href="#">لوحة الأداء التنفيذي</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                                <span>إدارة المهام</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                                <span>طلبات التغيير</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                                <span>إدارة المخاطر</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                                <span>إدارة محتوى الوثائق</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                                <span>إدارة التحديات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                                <span>التصويت والاستطلاعات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                                <span>المستندات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                                <span>الإدارة</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="page-content">
+                <div class="row">
+                    <div class="col-12 mb-2">
                         <h1 class="page-title">إدارة المخاطر الرئيسية - UC-12</h1>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">
+                                        <img src="images/home-icon.svg" alt="">
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#">إدارة الأداء</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">إدارة المخاطر</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
 
-                <!-- Statistics Cards -->
-                <div class="page-container mb-4">
-                    <div class="row g-3">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <!-- Statistics Cards -->
+                        <div class="row g-3">
                         <div class="col-md-3">
                             <div class="statistic-card">
                                 <div class="statistic-card__icon bg-danger">
@@ -181,11 +306,11 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Content Area -->
-                <div class="page-container">
+                <div class="row">
+                    <div class="col-12">
                     <!-- Risk Matrix -->
                     <div class="card mb-4">
                         <div class="card-header">
@@ -695,12 +820,11 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
-
-    <!-- Footer -->
     <footer class="page-footer">
         <div class="page-container">
             <div class="row">
@@ -710,11 +834,26 @@
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
     <script src="js/scripts.js"></script>
 
     <script>
@@ -1002,6 +1141,9 @@
             document.getElementById('addRiskModal')?.addEventListener('hidden.bs.modal', stopAutoSave);
         });
     </script>
-    <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
+
 </html>

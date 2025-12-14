@@ -109,14 +109,25 @@
                 id: 1,
                 username: 'dev-user',
                 fullName: 'مستخدم تطوير',
-                roles: ['PerformanceManager', 'ProgramOwner', 'Executive']
+                roles: ['SMO', 'PerformanceManager', 'VRO', 'ExecutiveOffice', 'VRP']
             }));
             
             // Show success message
             alert('تم تفعيل وضع التطوير - Development mode activated');
             
-            // Redirect to main page or dashboard
-            window.location.href = 'index.html';
+            // Check if user has multiple roles
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user.roles && user.roles.length > 1) {
+                // Redirect to profile selection if multiple roles
+                window.location.href = 'profile-selection.html';
+            } else if (user.roles && user.roles.length === 1) {
+                // Set the single role as current
+                localStorage.setItem('currentRole', user.roles[0]);
+                window.location.href = 'index.html';
+            } else {
+                // Default redirect
+                window.location.href = 'index.html';
+            }
         }
 
         // Handle Nafath login (placeholder)

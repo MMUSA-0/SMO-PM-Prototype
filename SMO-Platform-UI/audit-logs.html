@@ -76,11 +76,20 @@
                                 <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="vision.html" role="button">
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item" href="indicators.html">المؤشرات</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="page__nav__list__item">
                             <a class="page__nav__link" href="" role="button">
@@ -750,5 +759,8 @@
         }
     </style>
     <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

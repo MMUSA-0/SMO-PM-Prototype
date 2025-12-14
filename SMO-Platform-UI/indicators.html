@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+remove the orange st<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -25,10 +25,24 @@
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+
+    <style>
+        /* Disabled menu items for under-development features */
+        .page__nav__submenu__item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none;
+            position: relative;
+        }
+        .page__nav__submenu__item.disabled::after {
+            content: " 🚧";
+            font-size: 0.8em;
+        }
+    </style>
+
 </head>
 
-<body class="overflow-hidden" data-dev-status="partial" data-dev-progress="65">
+<body class="overflow-hidden">
     <header class="page-header">
         <div class="page-container">
             <div class="row">
@@ -125,19 +139,19 @@
                                     <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
                                 </div>
                                 <div class="user-dropdown__actions">
-                                    <a class="user-dropdown__actions__item" href="">
+                                    <a class="user-dropdown__actions__item" href="#">
                                         <span class="user-dropdown__actions__item__icon">
                                             <img src="images/user-icon.svg" alt="">
                                         </span>
                                         <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
                                     </a>
-                                    <a class="user-dropdown__actions__item" href="">
+                                    <a class="user-dropdown__actions__item" href="#">
                                         <span class="user-dropdown__actions__item__icon">
                                             <img src="images/settings-icon.svg" alt="">
                                         </span>
                                         <span class="user-dropdown__actions__item__title">إعداداتي</span>
                                     </a>
-                                    <a class="user-dropdown__actions__item" href="">
+                                    <a class="user-dropdown__actions__item" href="#">
                                         <span class="user-dropdown__actions__item__icon">
                                             <img src="images/logout-icon.svg" alt="">
                                         </span>
@@ -157,82 +171,96 @@
                 <nav class="page__nav">
                     <ul class="page__nav__list">
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="performance-dashboard.html" role="button">
                                 <svg class="page__nav__link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.5 21.51"><path d="M21.29,9.82a3.15,3.15,0,0,0,.19-.91c0-.31,0-.68,0-1.12v-4c0-.45,0-.82,0-1.12h0a3,3,0,0,0-.19-.91A2.79,2.79,0,0,0,19.8.22,3,3,0,0,0,18.9,0a8,8,0,0,0-1.13,0c-.49,0-.86,0-1.17,0a3,3,0,0,0-.9.19A2.67,2.67,0,0,0,14,2.62c0,.3,0,.67,0,1.12V7.79c0,.44,0,.81,0,1.12A2.68,2.68,0,0,0,15.7,11.3a2.51,2.51,0,0,0,.91.19c.3,0,.67,0,1.17,0s.81,0,1.12,0a2.5,2.5,0,0,0,.9-.19A2.77,2.77,0,0,0,21.29,9.82Zm-2.06.1a1.37,1.37,0,0,1-.44.07c-.22,0-.51,0-.92,0h-.13c-.48,0-.79,0-1,0a1,1,0,0,1-.44-.08,1.21,1.21,0,0,1-.68-.67,1.86,1.86,0,0,1-.07-.43c0-.24,0-.54,0-1V3.76c0-.51,0-.81,0-1a1.4,1.4,0,0,1,.08-.45,1.18,1.18,0,0,1,.67-.66,1.25,1.25,0,0,1,.44-.08c.24,0,.55,0,1,0a8.4,8.4,0,0,1,1.06,0,1.25,1.25,0,0,1,.44.08,1.16,1.16,0,0,1,.67.67,1.38,1.38,0,0,1,.08.44c0,.25,0,.56,0,1v4c0,.48,0,.8,0,1.05a1.38,1.38,0,0,1-.08.44A1.29,1.29,0,0,1,19.23,9.92Zm2.06,9.9a3.15,3.15,0,0,0,.19-.91c0-.31,0-.68,0-1.17s0-.82,0-1.12a3,3,0,0,0-.19-.91h0a2.79,2.79,0,0,0-1.49-1.49,3,3,0,0,0-.91-.19c-.3,0-.67,0-1.11,0s-.87,0-1.18,0a3,3,0,0,0-.9.19A2.67,2.67,0,0,0,14,16.62c0,.3,0,.67,0,1.17s0,.81,0,1.12a2.86,2.86,0,0,0,.19.91A2.74,2.74,0,0,0,15.7,21.3a2.51,2.51,0,0,0,.91.19c.3,0,.67,0,1.17,0s.81,0,1.12,0a2.5,2.5,0,0,0,.9-.19A2.77,2.77,0,0,0,21.29,19.82Zm-2.06.1a1.37,1.37,0,0,1-.44.07c-.24,0-.55,0-1,0h-.27c-.33,0-.58,0-.78,0a1.34,1.34,0,0,1-.43-.07,1.26,1.26,0,0,1-.68-.68,1.49,1.49,0,0,1-.07-.43c0-.24,0-.54,0-1l.5-.14h-.5c0-.44,0-.74,0-1a1.4,1.4,0,0,1,.08-.45,1.21,1.21,0,0,1,.57-.61l.11-.06a1.75,1.75,0,0,1,.43-.07c.24,0,.56,0,1,0s.8,0,1,0a2,2,0,0,1,.43.07,1.26,1.26,0,0,1,.68.68,1.38,1.38,0,0,1,.08.44c0,.24,0,.57,0,1s0,.8,0,1a1.38,1.38,0,0,1-.08.44A1.22,1.22,0,0,1,19.23,19.92Zm-7.81-.86a18.57,18.57,0,0,0,.08-2.25v-2.1a18.39,18.39,0,0,0-.08-2.24,2.73,2.73,0,0,0-.73-1.65A2.79,2.79,0,0,0,9,10.09,18.31,18.31,0,0,0,6.8,10H4.7a18.31,18.31,0,0,0-2.24.08,2.84,2.84,0,0,0-1.66.73,2.77,2.77,0,0,0-.72,1.65A18.39,18.39,0,0,0,0,14.71v2.1a18.57,18.57,0,0,0,.08,2.25A2.82,2.82,0,0,0,.8,20.71a2.82,2.82,0,0,0,1.65.72,18.57,18.57,0,0,0,2.25.08H6.8A18.31,18.31,0,0,0,9,21.43a2.77,2.77,0,0,0,1.65-.72A2.77,2.77,0,0,0,11.42,19.06ZM10,16.76a16.13,16.13,0,0,1-.07,2.09,1.3,1.3,0,0,1-.3.8,1.37,1.37,0,0,1-.79.3A19.59,19.59,0,0,1,6.75,20h-2A19.59,19.59,0,0,1,2.66,20a1.27,1.27,0,0,1-.79-.31,1.21,1.21,0,0,1-.3-.78,17,17,0,0,1-.07-2.1v-2a16.81,16.81,0,0,1,.07-2.09,1.27,1.27,0,0,1,.3-.79,1.24,1.24,0,0,1,.79-.3,16.13,16.13,0,0,1,2.09-.07h2a16.13,16.13,0,0,1,2.09.07,1.33,1.33,0,0,1,.79.29,1.3,1.3,0,0,1,.3.8A16.13,16.13,0,0,1,10,14.76ZM11.29,5.82a3.15,3.15,0,0,0,.19-.91c0-.31,0-.68,0-1.17s0-.82,0-1.12a3,3,0,0,0-.19-.91h0A2.79,2.79,0,0,0,9.8.22,3,3,0,0,0,8.9,0c-.31,0-.68,0-1.12,0H3.72C3.28,0,2.91,0,2.6,0a3,3,0,0,0-.9.19A2.72,2.72,0,0,0,.21,1.71,2.74,2.74,0,0,0,0,2.62c0,.3,0,.67,0,1.17S0,4.6,0,4.91A2.68,2.68,0,0,0,1.7,7.3a2.51,2.51,0,0,0,.91.19c.3,0,.67,0,1.11,0H7.78c.44,0,.81,0,1.12,0a2.5,2.5,0,0,0,.9-.19A2.77,2.77,0,0,0,11.29,5.82Zm-2.06.1A1.51,1.51,0,0,1,8.79,6a7.09,7.09,0,0,1-.71,0H3.75c-.47,0-.79,0-1,0a1.16,1.16,0,0,1-.45-.08,1.22,1.22,0,0,1-.67-.67,1.86,1.86,0,0,1-.07-.43c0-.24,0-.54,0-1V3.69c0-.44,0-.74,0-1a1.4,1.4,0,0,1,.08-.45,1.18,1.18,0,0,1,.67-.66,1.25,1.25,0,0,1,.44-.08h5c.48,0,.8,0,1,0a1.25,1.25,0,0,1,.44.08,1.16,1.16,0,0,1,.67.67,1.38,1.38,0,0,1,.08.44c0,.25,0,.56,0,1s0,.8,0,1a1.38,1.38,0,0,1-.08.44A1.29,1.29,0,0,1,9.23,5.92Z" fill="currentColor"/></svg>
                                 <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item submenu-shown">
-                            <a class="page__nav__link active" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <svg class="page__nav__link__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.5 20.5"><path d="M8.5,5.25a.76.76,0,0,1,.75-.75h6a.75.75,0,0,1,0,1.5h-6A.76.76,0,0,1,8.5,5.25ZM5.25,4.5a.75.75,0,0,0,0,1.5h1a.75.75,0,0,0,0-1.5ZM4.5,10.25a.76.76,0,0,1,.75-.75h1a.75.75,0,0,1,0,1.5h-1A.76.76,0,0,1,4.5,10.25Zm.75,4.25a.75.75,0,0,0,0,1.5h1a.75.75,0,0,0,0-1.5ZM8.5,10.25a.76.76,0,0,1,.75-.75h6a.75.75,0,0,1,0,1.5h-6A.76.76,0,0,1,8.5,10.25Zm.75,4.25a.75.75,0,0,0,0,1.5h6a.75.75,0,0,0,0-1.5ZM10.19,0h.12a43.41,43.41,0,0,1,5.25.18,5.48,5.48,0,0,1,3.33,1.43,5.48,5.48,0,0,1,1.43,3.33,43.41,43.41,0,0,1,.18,5.25v.12a43.41,43.41,0,0,1-.18,5.25,5.48,5.48,0,0,1-1.43,3.33,5.48,5.48,0,0,1-3.33,1.43,43.41,43.41,0,0,1-5.25.18h-.12a43.41,43.41,0,0,1-5.25-.18,5.48,5.48,0,0,1-3.33-1.43A5.48,5.48,0,0,1,.18,15.56,43.41,43.41,0,0,1,0,10.31v-.12A43.41,43.41,0,0,1,.18,4.94,5.48,5.48,0,0,1,1.61,1.61,5.48,5.48,0,0,1,4.94.18,43.41,43.41,0,0,1,10.19,0Zm-5,1.67a4,4,0,0,0-2.47,1,4,4,0,0,0-1,2.47,41.76,41.76,0,0,0-.17,5.11,41.76,41.76,0,0,0,.17,5.11,4,4,0,0,0,1,2.47,4,4,0,0,0,2.47,1,41.76,41.76,0,0,0,5.11.17,41.76,41.76,0,0,0,5.11-.17,4,4,0,0,0,2.47-1,4,4,0,0,0,1-2.47A41.76,41.76,0,0,0,19,10.25a41.76,41.76,0,0,0-.17-5.11,4,4,0,0,0-1-2.47,4,4,0,0,0-2.47-1,41.76,41.76,0,0,0-5.11-.17A41.76,41.76,0,0,0,5.14,1.67Z" fill="currentColor"/></svg>
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
                             <div class="page__nav__submenu-container">
                                 <div class="page__nav__submenu">
-                                    <a class="page__nav__submenu__item" href="">معلومات الرؤية</a>
-                                    <a class="page__nav__submenu__item" href="">الأهداف الإستراتيجية</a>
-                                    <a class="page__nav__submenu__item" href="">برامج الرؤية</a>
-                                    <a class="page__nav__submenu__item" href="">المبادرات</a>
-                                    <a class="page__nav__submenu__item active" href="">المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item active" href="indicators.html">المؤشرات</a>
                                 </div>
                             </div>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
                                 <span>مركز معلومات الاستراتيجيات الوطنية</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="performance-dashboard.html" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
                                 <span>إدارة الأداء</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
+                                    <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                    <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                    <a class="page__nav__submenu__item" href="performance-approvals.html">موافقاتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                    <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item" href="executive-performance-dashboard.html">لوحة الأداء التنفيذي</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
                                 <span>إدارة المهام</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
                                 <span>طلبات التغيير</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
                                 <span>إدارة المخاطر</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
                                 <span>إدارة محتوى الوثائق</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
                                 <span>إدارة التحديات</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
                                 <span>التصويت والاستطلاعات</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
                                 <span>المستندات</span>
                             </a>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
                                 <span>الإدارة</span>
                             </a>
@@ -1298,7 +1326,9 @@
             // TODO: Implement add modal
         }
     </script>
-    <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 
 </html>

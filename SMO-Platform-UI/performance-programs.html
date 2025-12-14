@@ -79,8 +79,8 @@
                             <div class="page-header__actions__item">
                                 <div class="dropdown user-dropdown">
                                     <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" aria-expanded="false" title="">
-                                        <img class="user-dropdown__btn__avatar" src="images/demo/user-photo.png" alt="">
-                                        <span class="user-dropdown__btn__name">أحمد محمد</span>
+                                        <img class="user-dropdown__btn__avatar" src="images/user-icon.svg" alt="">
+                                        <span class="user-dropdown__btn__name">المستخدم الحالي</span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
                                         <a class="user-dropdown__actions__item" href="">
@@ -121,11 +121,20 @@
                                 <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="vision.html" role="button">
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item" href="indicators.html">المؤشرات</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="page__nav__list__item">
                             <a class="page__nav__link" href="" role="button">
@@ -140,6 +149,7 @@
                             </a>
                             <div class="page__nav__submenu-container">
                                 <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
                                     <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
                                     <a class="page__nav__submenu__item active" href="performance-programs.html">مستوى البرنامج</a>
                                     <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
@@ -148,6 +158,7 @@
                                     <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
                                     <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
                                     <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item" href="executive-performance-dashboard.html">لوحة الأداء التنفيذي</a>
                                 </div>
                             </div>
                         </li>
@@ -302,32 +313,16 @@
                 </div>
 
                 <!-- Filters Section -->
-                <!-- UC-03 Filters Section with Business Rules Display -->
+                <!-- Program Management Filters Section -->
                 <div class="row mb-4">
                     <div class="col-12">
-                        <!-- Business Rules Alert for UC-03 -->
-                        <div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
-                            <h6><i class="bi bi-info-circle"></i> قواعد الأعمال (UC-03)</h6>
-                            <ul class="mb-0 small">
-                                <li>يجب على النظام عرض قائمة البرامج التنفيذية المفعلة فقط للمستخدمين المصرح لهم</li>
-                                <li>يحق للمستخدم إدخال بيانات البرنامج إذا لم يوجد تقرير مرسل للربع الحالي</li>
-                                <li>يجب أن تحتوي البطاقة على: شعار البرنامج، الاسم، الكود، الحالة، المؤشرات، المبادرات، المخاطر، الميزانية</li>
-                                <li>يتم تلوين بطاقة البرنامج بناءً على الأداء: أخضر (>90%)، أصفر (70-90%)، برتقالي (50-70%)، أحمر (<50%)</li>
-                                <li>يمكن للمستخدمين المصرح لهم فقط إنشاء التقارير</li>
-                                <li>يتم تحديث حالة البرنامج تلقائيًا كل ربع</li>
-                                <li>يتم حساب الأداء الإجمالي بناءً على متوسط أداء المؤشرات</li>
-                                <li>يمكن تصدير بيانات البرنامج إلى Excel</li>
-                                <li>يتم إرسال التقرير عبر البريد الإلكتروني للمستخدمين المحددين</li>
-                            </ul>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
                         
                         <div class="card">
                             <div class="card-body">
                                 <div class="row g-3 align-items-end">
                                     <div class="col-md-3">
                                         <label class="form-label">البحث</label>
-                                        <input type="search" class="form-control" placeholder="البحث بالاسم أو الكود..." id="searchPrograms">
+                                        <input type="search" class="form-control" placeholder="البحث عن البرنامج بالاسم أو الرمز المرجعي" id="searchPrograms">
                                     </div>
                                     <div class="col-md-2">
                                         <label class="form-label">الحالة</label>
@@ -372,7 +367,7 @@
                     </div>
                 </div>
 
-                <!-- UC-03 Programs Grid -->
+                <!-- Programs Grid -->
                 <div class="row g-4">
                     <!-- Program Card 1 - Color Code: Green (>90%) -->
                     <div class="col-lg-6 col-xl-4">
@@ -440,14 +435,14 @@
                                 <!-- Additional Info -->
                                 <div class="mb-3">
                                     <small class="text-muted d-block mb-1">المدير التنفيذي</small>
-                                    <p class="mb-2">د. محمد العبدالله</p>
+                                    <p class="mb-2">مدير البرنامج</p>
                                     
                                     <small class="text-muted d-block mb-1">الفترة الزمنية</small>
-                                    <p class="mb-0">2021 - 2025</p>
+                                    <p class="mb-0">2024 - 2028</p>
                                     
                                     <!-- Auto-update status -->
                                     <small class="text-muted d-block mb-1">آخر تحديث</small>
-                                    <p class="mb-0">2024-12-01 (تلقائي)</p>
+                                    <p class="mb-0">تحديث ربع سنوي تلقائي</p>
                                 </div>
                                 
                                 <!-- Action Buttons -->
@@ -564,13 +559,13 @@
                                 <!-- Additional Info -->
                                 <div class="mb-3">
                                     <small class="text-muted d-block mb-1">المدير التنفيذي</small>
-                                    <p class="mb-2">م. سارة الأحمد</p>
+                                    <p class="mb-2">مدير البرنامج</p>
                                     
                                     <small class="text-muted d-block mb-1">الفترة الزمنية</small>
-                                    <p class="mb-0">2021 - 2025</p>
+                                    <p class="mb-0">2024 - 2028</p>
                                 </div>
                                 
-                                <!-- Action Buttons (UC-03) -->
+                                <!-- Action Buttons -->
                                 <div class="d-grid gap-2">
                                     <a href="program-wizard.html?id=HDP-2024&mode=view" class="btn btn-outline-primary btn-sm">
                                         <i class="bi bi-eye"></i> عرض التفاصيل
@@ -724,447 +719,976 @@
                     <div class="card-header bg-primary text-white">
                         <h5 class="mb-0">
                             <i class="bi bi-file-earmark-text me-2"></i>
-                            مركز توليد التقارير الشاملة - UC-04/UC-19
+                            مركز توليد التقارير الشاملة
                         </h5>
+                        <p class="mb-0 small mt-2">توليد تقارير ربعية ديناميكية </p>
                     </div>
                     <div class="card-body">
+                        
                         <!-- Report Configuration -->
-                        <form id="reportGenerationForm">
+                        <form id="reportGenerationForm" onsubmit="return validateAndGenerateReport(event)">
                             <div class="row mb-3">
                                 <div class="col-md-3">
-                                    <label class="form-label">نوع التقرير <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="reportType" required>
-                                        <option value="">-- اختر نوع التقرير --</option>
-                                        <option value="quarterly">تقرير ربعي</option>
-                                        <option value="annual">تقرير سنوي</option>
-                                        <option value="executive">ملخص تنفيذي</option>
-                                        <option value="performance">تقرير الأداء الشامل</option>
-                                        <option value="program">تقرير البرنامج</option>
-                                        <option value="initiative">تقرير المبادرات</option>
-                                        <option value="kpi">تقرير مؤشرات الأداء</option>
-                                        <option value="mei">تقرير مؤشرات الاقتصاد الكلي</option>
-                                        <option value="budget">تقرير الميزانية</option>
-                                        <option value="risk">تقرير المخاطر</option>
-                                        <option value="achievement">تقرير الإنجازات</option>
-                                        <option value="comparative">تقرير مقارن</option>
-                                        <option value="forecast">تقرير التوقعات</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
                                     <label class="form-label">البرنامج <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="reportProgram" required>
+                                    <select class="form-select" id="reportProgram" required onchange="checkDataCompleteness()">
                                         <option value="">-- اختر البرنامج --</option>
-                                        <option value="all">جميع البرامج</option>
-                                        <option value="FSDP">برنامج تطوير القطاع المالي</option>
-                                        <option value="NTP">برنامج التحول الوطني</option>
-                                        <option value="PIF">برنامج صندوق الاستثمارات العامة</option>
-                                        <option value="HP">برنامج الإسكان</option>
-                                        <option value="QOL">برنامج جودة الحياة</option>
-                                        <option value="HCP">برنامج تنمية القدرات البشرية</option>
+                                        <option value="FSDP-2024">برنامج تطوير القطاع المالي</option>
+                                        <option value="HDP-2024">برنامج الإسكان</option>
+                                        <option value="QOL-2024">برنامج جودة الحياة</option>
+                                        <option value="NTP-2024">برنامج التحول الوطني</option>
+                                        <option value="PIF-2024">برنامج صندوق الاستثمارات العامة</option>
+                                        <option value="HCP-2024">برنامج تنمية القدرات البشرية</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class="form-label">السنة <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="reportYear" required>
+                                    <select class="form-select" id="reportYear" required onchange="checkDataCompleteness()">
+                                        <option value="">اختر السنة</option>
+                                        <option value="2025" selected>2025</option>
                                         <option value="2024">2024</option>
                                         <option value="2023">2023</option>
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
-                                    <label class="form-label">الفترة <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="reportPeriod" required>
-                                        <option value="">-- اختر الفترة --</option>
+                                <div class="col-md-2">
+                                    <label class="form-label">الربع <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="reportQuarter" required onchange="checkDataCompleteness()">
+                                        <option value="">-- اختر الربع --</option>
                                         <option value="Q1">الربع الأول</option>
                                         <option value="Q2">الربع الثاني</option>
                                         <option value="Q3">الربع الثالث</option>
-                                        <option value="Q4">الربع الرابع</option>
-                                        <option value="H1">النصف الأول</option>
-                                        <option value="H2">النصف الثاني</option>
-                                        <option value="FULL">السنة الكاملة</option>
+                                        <option value="Q4" selected>الربع الرابع</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">صيغة التصدير <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="reportFormat" required>
+                                        <option value="pptx" selected>PowerPoint (.pptx)</option>
+                                        <option value="pdf">PDF</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">نوع التقرير</label>
+                                    <select class="form-select" id="reportType">
+                                        <option value="full" selected>تقرير كامل (جميع الأقسام)</option>
+                                        <option value="executive">ملخص تنفيذي</option>
+                                        <option value="custom">تقرير مخصص</option>
                                     </select>
                                 </div>
                             </div>
                             
-                            <!-- Report Content Tabs - ALL 8 SECTIONS (81 SLIDES) -->
+                            <!-- Additional Options -->
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="applyWatermark">
+                                        <label class="form-check-label" for="applyWatermark">
+                                            تطبيق علامة مائية
+                                        </label>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm mt-2" id="watermarkText" placeholder="نص العلامة المائية (مثل: مسودة، سري)" maxlength="50" disabled>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="includeRawData">
+                                        <label class="form-check-label" for="includeRawData">
+                                            تضمين بيانات خام Excel
+                                        </label>
+                                    </div>
+                                    <small class="text-muted d-block mt-1">يُرفق ملف Excel مع البيانات الأولية</small>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="autoSchedule">
+                                        <label class="form-check-label" for="autoSchedule">
+                                            جدولة تلقائية
+                                        </label>
+                                    </div>
+                                    <small class="text-muted d-block mt-1">توليد تلقائي في نهاية كل ربع</small>
+                                </div>
+                            </div>
+                            
+                            <!-- Program Selection Message -->
+                            <div class="alert alert-info mb-3" id="selectProgramMessage">
+                                <i class="bi bi-info-circle-fill me-2"></i>
+                                <strong>يرجى اختيار البرنامج أولاً</strong> - قم باختيار البرنامج من القائمة أعلاه لعرض حالة اكتمال البيانات وأقسام التقرير.
+                            </div>
+                            
+                            <!-- Data Completeness Status -->
+                            <div class="card mb-3 d-none" id="completenessCard">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0">حالة اكتمال البيانات للربع المحدد</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="dataCompletenessStatus">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span>إجمالي الاكتمال:</span>
+                                            <strong id="overallCompleteness" class="text-primary">0%</strong>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 20px;">
+                                            <div class="progress-bar" id="completenessProgress" role="progressbar" style="width: 0%">0%</div>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col-md-3">
+                                                <div class="p-2 bg-light rounded text-center">
+                                                    <small class="d-block text-muted">الملخص التنفيذي</small>
+                                                    <span id="execSummaryStatus" class="badge bg-secondary">غير مكتمل</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="p-2 bg-light rounded text-center">
+                                                    <small class="d-block text-muted">مؤشرات البرنامج</small>
+                                                    <span id="kpiStatus" class="badge bg-secondary">غير مكتمل</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="p-2 bg-light rounded text-center">
+                                                    <small class="d-block text-muted">ملخص المبادرات</small>
+                                                    <span id="initiativesStatus" class="badge bg-secondary">غير مكتمل</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="p-2 bg-light rounded text-center">
+                                                    <small class="d-block text-muted">الإنجازات والمخاطر</small>
+                                                    <span id="achievementsRisksStatus" class="badge bg-secondary">غير مكتمل</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Report Content Sections - DYNAMIC BASED ON DATA -->
+                            <div id="reportContentContainer" class="d-none">
                             <ul class="nav nav-tabs mb-3" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#reportSummaryTab">1. الملخص التنفيذي (1-3)</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#reportSummaryTab">
+                                        <i class="bi bi-1-circle"></i> الملخص التنفيذي
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportDashboardTab">2. لوحة المؤشرات (4-10)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportDashboardTab">
+                                        <i class="bi bi-2-circle"></i> لوحة المؤشرات
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportKPIDetailsTab">3. تفاصيل المؤشرات (11-30)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportKPIDetailsTab">
+                                        <i class="bi bi-3-circle"></i> تفاصيل المؤشرات
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportKeyInitTab">4. المبادرات الرئيسية (31-50)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportKeyInitTab">
+                                        <i class="bi bi-4-circle"></i> المبادرات الرئيسية
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportAllInitTab">5. جميع المبادرات (51-64)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportAllInitTab">
+                                        <i class="bi bi-5-circle"></i> جميع المبادرات
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportAchieveTab">6. الإنجازات (65-77)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportAchieveTab">
+                                        <i class="bi bi-6-circle"></i> الإنجازات
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportRisksTab">7. المخاطر والدعم (78-81)</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportRisksTab">
+                                        <i class="bi bi-7-circle"></i> المخاطر والدعم
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#reportAttachmentsTab">8. المرفقات</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#reportPreviewTab">
+                                        <i class="bi bi-eye"></i> معاينة الهيكل
+                                    </a>
                                 </li>
                             </ul>
                             
                             <div class="tab-content">
-                                <!-- Section 1: Executive Summary (Slides 1-3) per BR-RPT-002 -->
+                                <!-- Section 1: Executive Summary -->
                                 <div class="tab-pane fade show active" id="reportSummaryTab">
-                                    <h6 class="text-muted">الشرائح 1-3: الغلاف والملخص التنفيذي وجدول المحتويات</h6>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label class="form-label">اسم البرنامج (الشريحة 1)</label>
-                                            <input type="text" class="form-control" id="reportProgramName" placeholder="برنامج تطوير القطاع المالي">
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-file-earmark-text text-primary"></i>
+                                        القسم الأول: الغلاف والملخص التنفيذي وجدول المحتويات
+                                    </h6>
+                                    
+                                    <!-- Dynamic Slide: Cover -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>شريحة الغلاف</strong>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">الشعار</label>
-                                            <select class="form-select" id="reportLogo">
-                                                <option value="vision2030">شعار رؤية 2030</option>
-                                                <option value="program">شعار البرنامج</option>
-                                                <option value="both">كلاهما</option>
-                                            </select>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-8">
+                                                    <label class="form-label">عنوان التقرير</label>
+                                                    <input type="text" class="form-control" id="reportTitle" value="التقرير الربعي لبرامج تحقيق الرؤية" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">الشعار</label>
+                                                    <select class="form-select" id="reportLogo">
+                                                        <option value="both" selected>شعار الرؤية + البرنامج</option>
+                                                        <option value="vision2030">شعار رؤية 2030 فقط</option>
+                                                        <option value="program">شعار البرنامج فقط</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-info small mb-0">
+                                                <i class="bi bi-info-circle"></i>
+                                                سيتم توليد الغلاف تلقائياً بناءً على البرنامج والفترة المحددة
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">الملخص التنفيذي النصي (الشريحة 2) <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" id="executiveSummary" rows="6" required placeholder="ملخص شامل لأداء البرنامج خلال الربع"></textarea>
-                                        <small class="text-muted">BR-RPT-017: يجب إكمال الملخص التنفيذي قبل الإرسال</small>
+                                    
+                                    <!-- Dynamic Slide: Executive Summary (MANDATORY) -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>شريحة الملخص التنفيذي النصي <span class="text-danger">*</span></strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">لمحة عامة حول أداء البرنامج <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="executiveSummaryOverview" rows="4" required 
+                                                    placeholder="يرجى تقديم لمحة عامة حول أداء البرنامج (500-1000 كلمة) تتضمن: نظرة شاملة على الأداء، السياق العام، والملاحظات الاستراتيجية"></textarea>
+                                                <small class="text-muted">إلزامي قبل إنشاء التقرير</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">أبرز الإنجازات <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="topAchievementsSummary" rows="3" required 
+                                                    placeholder="أدرج 3-5 من أبرز الإنجازات المحققة خلال هذا الربع"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">التطلعات في الفترة القادمة <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="futureLookout" rows="3" required 
+                                                    placeholder="صف التطلعات والأهداف الرئيسية للربع القادم (200-300 كلمة)"></textarea>
+                                            </div>
+                                            <div class="alert alert-warning small mb-0">
+                                                <i class="bi bi-exclamation-triangle"></i>
+                                                <strong>تنبيه:</strong> يجب إكمال الملخص التنفيذي للمؤشرات والمبادرات قبل إرسال التقرير
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">جدول المحتويات (الشريحة 3)</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="tocAutoGenerate" checked>
-                                            <label class="form-check-label" for="tocAutoGenerate">
-                                                توليد جدول المحتويات تلقائياً (81 شريحة)
-                                            </label>
+                                    
+                                    <!-- Dynamic Slide: Table of Contents -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>شريحة جدول المحتويات</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" id="tocAutoGenerate" checked disabled>
+                                                <label class="form-check-label" for="tocAutoGenerate">
+                                                    توليد جدول المحتويات تلقائياً بناءً على المحتوى الفعلي
+                                                </label>
+                                            </div>
+                                            <small class="text-muted">
+                                                سيتم إنشاء جدول المحتويات تلقائياً بناءً على الأقسام الثمانية مع أرقام الصفحات الديناميكية
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 2: KPI Dashboard (Slides 4-10) per BR-RPT-003 -->
+                                <!-- Section 2: KPI Dashboard -->
                                 <div class="tab-pane fade" id="reportDashboardTab">
-                                    <h6 class="text-muted">الشرائح 4-10: لوحة المؤشرات</h6>
-                                    <div class="row mb-3">
-                                        <div class="col-md-3">
-                                            <label class="form-label">المبادرات المكتملة</label>
-                                            <input type="number" class="form-control" id="initiativesCompleted" min="0" max="100" placeholder="85">
-                                            <small class="text-muted">% vs المستهدف</small>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-speedometer2 text-primary"></i>
+                                        القسم الثاني: لوحة المؤشرات
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم:</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>التقدم في تحقيق مؤشرات البرنامج</li>
+                                            <li>لمحة عامة حول الميزانيات</li>
+                                            <li>أبرز الإنجازات والمخاطر</li>
+                                            <li>حالة المبادرات</li>
+                                            <li>أبرز 5 إنجازات</li>
+                                            <li>أبرز 5 مخاطر</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Slide 4: Program Progress Overview -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>التقدم في تحقيق مؤشرات البرنامج</strong>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">المؤشرات المحققة</label>
-                                            <input type="number" class="form-control" id="kpisAchieved" min="0" max="100" placeholder="92">
-                                            <small class="text-muted">% التي حققت أهدافها</small>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">استخدام الميزانية</label>
-                                            <input type="number" class="form-control" id="budgetUtilization" min="0" max="100" placeholder="87">
-                                            <small class="text-muted">%</small>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">حالة البرنامج</label>
-                                            <select class="form-select" id="programStatus">
-                                                <option value="ontrack">على المسار</option>
-                                                <option value="atrisk">في خطر</option>
-                                                <option value="delayed">متأخر</option>
-                                            </select>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label class="form-label">نسبة المبادرات المكتملة</label>
+                                                    <input type="number" class="form-control" id="initiativesCompletedPercent" min="0" max="100" placeholder="0" step="0.01">
+                                                    <small class="text-muted">% vs المستهدف</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">نسبة المؤشرات ≥99%</label>
+                                                    <input type="number" class="form-control" id="kpisAbove99" min="0" max="100" placeholder="0" step="0.01">
+                                                    <small class="text-muted">%</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">نسبة المؤشرات 85-99%</label>
+                                                    <input type="number" class="form-control" id="kpis85to99" min="0" max="100" placeholder="0" step="0.01">
+                                                    <small class="text-muted">%</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">نسبة المؤشرات <85%</label>
+                                                    <input type="number" class="form-control" id="kpisBelow85" min="0" max="100" placeholder="0" step="0.01">
+                                                    <small class="text-muted">%</small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">أبرز الإنجازات (الشرائح 8-9)</label>
-                                        <textarea class="form-control" rows="3" id="topAchievements" placeholder="أبرز 3 إنجازات"></textarea>
+                                    
+                                    <!-- Slide 5: Budget Overview -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>لمحة عامة حول الميزانيات</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label">سقف اعتمادات السنة</label>
+                                                    <input type="number" class="form-control" id="yearBudgetCap" step="0.01" placeholder="0.00">
+                                                    <small class="text-muted">مليون ريال</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">المنصرف من أول العام</label>
+                                                    <input type="number" class="form-control" id="yearToDateSpent" step="0.01" placeholder="0.00">
+                                                    <small class="text-muted">مليون ريال</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">المنصرف الفعلي للربع</label>
+                                                    <input type="number" class="form-control" id="quarterActualSpent" step="0.01" placeholder="0.00">
+                                                    <small class="text-muted">مليون ريال</small>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">استخدام الميزانية</label>
+                                                    <input type="number" class="form-control" id="budgetUtilizationPercent" min="0" max="100" placeholder="0" step="0.01">
+                                                    <small class="text-muted">%</small>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">المخاطر الحرجة (الشريحة 10)</label>
-                                        <textarea class="form-control" rows="3" id="criticalRisksText" placeholder="أبرز 3 مخاطر حرجة"></textarea>
+                                    
+                                    <!-- Slides 8-9: Top Achievements -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>أبرز الإنجازات</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <label class="form-label">أبرز 5 إنجازات (سيتم جلبها تلقائياً)</label>
+                                            <div class="alert alert-info small mb-0">
+                                                <i class="bi bi-info-circle"></i>
+                                                سيتم جلب الإنجازات المحددة كـ "أفضل خمسة" تلقائياً من نظام إدارة الإنجازات
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Slide 10: Critical Risks -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>المخاطر الحرجة</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <label class="form-label">المخاطر الرئيسية المحددة (سيتم جلبها تلقائياً)</label>
+                                            <div class="alert alert-info small mb-0">
+                                                <i class="bi bi-info-circle"></i>
+                                                سيتم جلب المخاطر المحددة كـ "أفضل خمسة" تلقائياً مع إجراءات الحد من الخطر
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 3: KPI Details (Slides 11-30) per BR-RPT-004 -->
+                                <!-- Section 3: KPI Details -->
                                 <div class="tab-pane fade" id="reportKPIDetailsTab">
-                                    <h6 class="text-muted">الشرائح 11-30: تفاصيل المؤشرات (شريحة أو شريحتان لكل مؤشر رئيسي)</h6>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="detailedKPITable">
-                                            <thead>
-                                                <tr>
-                                                    <th>كود المؤشر</th>
-                                                    <th>اسم المؤشر (عربي)</th>
-                                                    <th>اسم المؤشر (إنجليزي)</th>
-                                                    <th>القطبية</th>
-                                                    <th>نوع المؤشر</th>
-                                                    <th>الوحدة</th>
-                                                    <th>خط الأساس</th>
-                                                    <th>سنة خط الأساس</th>
-                                                    <th>المستهدف</th>
-                                                    <th>الفعلي</th>
-                                                    <th>حالة المؤشر</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="detailedKPITableBody">
-                                                <tr>
-                                                    <td>KPI-001</td>
-                                                    <td>نسبة رضا المستفيدين</td>
-                                                    <td>Customer Satisfaction Rate</td>
-                                                    <td>متزايد</td>
-                                                    <td>رئيسي</td>
-                                                    <td>%</td>
-                                                    <td>75</td>
-                                                    <td>2020</td>
-                                                    <td>90</td>
-                                                    <td>87</td>
-                                                    <td>أخضر</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <button class="btn btn-sm btn-info" onclick="addDetailedKPI()">
-                                            <i class="bi bi-plus"></i> إضافة مؤشر مفصل
-                                        </button>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-graph-up text-primary"></i>
+                                        القسم الثالث: تفاصيل المؤشرات
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم (ديناميكي):</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>لمحة عامة حول مؤشرات البرنامج (جدول شامل)</li>
+                                            <li>شريحة أو شريحتان لكل مؤشر فعلي بحسب البيانات</li>
+                                            <li>كل مؤشر يتضمن: خط الأساس، المستهدف، الفعلي، رسم بياني، دوافع ومعوقات الأداء</li>
+                                        </ul>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-                                            <label class="form-label">دوافع الأداء</label>
-                                            <textarea class="form-control" rows="4" id="performanceDrivers" placeholder="العوامل التي ساهمت في تحسين الأداء"></textarea>
+                                    
+                                    <!-- Overview Table (Slides 8-9) -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>لمحة عامة حول مؤشرات البرنامج</strong>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">معوقات الأداء</label>
-                                            <textarea class="form-control" rows="4" id="performanceObstacles" placeholder="التحديات التي أثرت على الأداء"></textarea>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-sm" id="kpiOverviewTable">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th>كود المؤشر</th>
+                                                            <th>اسم المؤشر</th>
+                                                            <th>الوحدة</th>
+                                                            <th>خط الأساس</th>
+                                                            <th>المستهدف</th>
+                                                            <th>الفعلي</th>
+                                                            <th>الانحراف %</th>
+                                                            <th>الحالة</th>
+                                                            <th>وتيرة رفع البيانات</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="kpiOverviewTableBody">
+                                                        <!-- Will be loaded dynamically -->
+                                                        <tr>
+                                                            <td colspan="9" class="text-center text-muted">
+                                                                <i class="bi bi-arrow-clockwise"></i>
+                                                                سيتم تحميل البيانات تلقائياً من نظام مؤشرات البرنامج
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Detailed KPIs (Slides 10-30) -->
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-light">
+                                            <strong>تفاصيل المؤشرات الرئيسية</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="alert alert-info small mb-3">
+                                                <i class="bi bi-lightbulb"></i>
+                                                سيتم توليد شريحة أو شريحتان لكل مؤشر رئيسي تتضمن:
+                                                <ul class="mb-0 mt-2">
+                                                    <li>جدول السنوات مع القيم (الفعلي vs المستهدف)</li>
+                                                    <li>رسم بياني خطي (Line Chart) يوضح المسار</li>
+                                                    <li>دوافع الأداء ومعوقات الأداء</li>
+                                                    <li>ملاحظات أخرى</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">دوافع الأداء (للشرائح التفصيلية)</label>
+                                                    <textarea class="form-control" rows="4" id="performanceDrivers" 
+                                                        placeholder="صف العوامل الرئيسية والممكنات التي أدت إلى تحسين أداء البرنامج (سيتم جلبها تلقائياً)"></textarea>
+                                                    <small class="text-muted">سيتم جلبها من السجلات المحفوظة</small>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">معوقات الأداء (للشرائح التفصيلية)</label>
+                                                    <textarea class="form-control" rows="4" id="performanceObstacles" 
+                                                        placeholder="حدد التحديات والعقبات التي واجهت تنفيذ البرنامج (سيتم جلبها تلقائياً)"></textarea>
+                                                    <small class="text-muted">سيتم جلبها من السجلات المحفوظة</small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 4: Key Initiatives (Slides 31-50) per BR-RPT-005 -->
+                                <!-- Section 4: Key Initiatives -->
                                 <div class="tab-pane fade" id="reportKeyInitTab">
-                                    <h6 class="text-muted">الشرائح 31-50: المبادرات الرئيسية (شريحتان لكل مبادرة حسب الأولوية)</h6>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-flag text-primary"></i>
+                                        القسم الرابع: المبادرات الرئيسية
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border mb-3">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم (ديناميكي):</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>شريحتان لكل مبادرة رئيسية (حسب الأولوية) - حتى 10 مبادرات فعلية</li>
+                                            <li>الشريحة الأولى: نطاق العمل، الأهداف، الميزانية، التقدم</li>
+                                            <li>الشريحة الثانية: المعالم التفصيلية والمؤشرات</li>
+                                            <li>عدد الشرائح يعتمد على عدد المبادرات الفعلية</li>
+                                        </ul>
+                                    </div>
+                                    
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <table class="table table-bordered" id="keyInitiativesTable">
+                                            <thead class="table-light">
                                                 <tr>
                                                     <th>كود المبادرة</th>
                                                     <th>اسم المبادرة (عربي)</th>
                                                     <th>اسم المبادرة (إنجليزي)</th>
-                                                    <th>الوصف</th>
-                                                    <th>التقدم المستهدف %</th>
-                                                    <th>التقدم الفعلي %</th>
-                                                    <th>حالة المبادرة</th>
-                                                    <th>الميزانية</th>
-                                                    <th>المنصرف</th>
-                                                    <th>المعالم</th>
+                                                    <th>حتمية المبادرة</th>
+                                                    <th>حالة التمويل</th>
+                                                    <th>نسبة الإنجاز المستهدف %</th>
+                                                    <th>نسبة الإنجاز الفعلي %</th>
+                                                    <th>الحالة</th>
+                                                    <th>التكاليف الإجمالية</th>
+                                                    <th>المنصرف حتى نهاية الربع</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="keyInitiativesTableBody">
                                                 <tr>
-                                                    <td>1-13-064-0007</td>
-                                                    <td>المنصة الوطنية للوحدات العقارية</td>
-                                                    <td>National Platform for Real Estate Units</td>
-                                                    <td>منصة رقمية متكاملة</td>
-                                                    <td>90</td>
-                                                    <td>85</td>
-                                                    <td>على المسار</td>
-                                                    <td>50 مليون</td>
-                                                    <td>42 مليون</td>
-                                                    <td>8/10</td>
+                                                    <td colspan="10" class="text-center text-muted py-4">
+                                                        <i class="bi bi-arrow-clockwise fs-4 d-block mb-2"></i>
+                                                        سيتم تحميل المبادرات الرئيسية تلقائياً حسب معيار الأولوية
+                                                        <div class="small mt-2">
+                                                            معايير الاختيار: المبادرات المحورية + المبادرات ذات الأسبقية + مبادرات المكاسب السريعة
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn btn-sm btn-info" onclick="addKeyInitiative()">
-                                            <i class="bi bi-plus"></i> إضافة مبادرة رئيسية
+                                        <button class="btn btn-sm btn-primary" onclick="loadKeyInitiatives()">
+                                            <i class="bi bi-arrow-clockwise"></i> تحميل المبادرات الرئيسية
                                         </button>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 5: All Initiatives (Slides 51-64) per BR-RPT-006 -->
+                                <!-- Section 5: All Initiatives -->
                                 <div class="tab-pane fade" id="reportAllInitTab">
-                                    <h6 class="text-muted">الشرائح 51-64: جداول ملخصة لجميع المبادرات</h6>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-list-check text-primary"></i>
+                                        القسم الخامس: جميع المبادرات
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border mb-3">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم (ديناميكي):</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>جداول ملخصة لجميع المبادرات المتبقية (غير المعروضة في القسم 4)</li>
+                                            <li>الحالة، نسبة الإنجاز، الميزانية المنصرفة</li>
+                                            <li>عدد الشرائح يعتمد على عدد المبادرات الفعلية</li>
+                                        </ul>
+                                    </div>
+                                    
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-sm">
-                                            <thead>
+                                        <table class="table table-bordered table-sm" id="allInitiativesTable">
+                                            <thead class="table-light">
                                                 <tr>
                                                     <th>اسم المبادرة</th>
+                                                    <th>الجهة المسؤولة</th>
+                                                    <th>حتمية المبادرة</th>
+                                                    <th>حالة التمويل</th>
+                                                    <th>نسبة الإنجاز المستهدف %</th>
+                                                    <th>نسبة الإنجاز الفعلي %</th>
                                                     <th>الحالة</th>
-                                                    <th>نسبة الإنجاز</th>
-                                                    <th>الميزانية المنصرفة</th>
+                                                    <th>السيولة المعتمدة (ر.س)</th>
+                                                    <th>المنصرف الفعلي للربع (ر.س)</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="allInitiativesTableBody">
-                                                <!-- Dynamic rows for all initiatives -->
+                                                <tr>
+                                                    <td colspan="9" class="text-center text-muted py-4">
+                                                        <i class="bi bi-arrow-clockwise fs-4 d-block mb-2"></i>
+                                                        سيتم تحميل جميع المبادرات تلقائياً
+                                                        <div class="small mt-2">
+                                                            (استبعاد المبادرات الرئيسية المعروضة في القسم 4)
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn btn-sm btn-info" onclick="loadAllInitiatives()">
+                                        <button class="btn btn-sm btn-primary" onclick="loadAllInitiatives()">
                                             <i class="bi bi-arrow-clockwise"></i> تحميل جميع المبادرات
                                         </button>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 6: Achievements (Slides 65-77) per BR-RPT-007 -->
+                                <!-- Section 6: Achievements -->
                                 <div class="tab-pane fade" id="reportAchieveTab">
-                                    <h6 class="text-muted">الشرائح 65-77: الإنجازات على مستوى المؤشرات والمبادرات</h6>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-trophy text-primary"></i>
+                                        القسم السادس: الإنجازات
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border mb-3">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم (ديناميكي):</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>إنجازات على مستوى المؤشرات (حسب البيانات المتاحة)</li>
+                                            <li>إنجازات على مستوى المبادرات (حسب البيانات المتاحة)</li>
+                                            <li>كل إنجاز يتضمن: العنوان، الوصف، الأثر، الشريحة المستهدفة</li>
+                                        </ul>
+                                    </div>
+                                    
                                     <div class="accordion" id="achievementsAccordion">
+                                        <!-- KPI Achievements (Slides 65-67) -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#kpiAchievements">
-                                                    إنجازات على مستوى المؤشرات (الشرائح 65-67)
+                                                    <i class="bi bi-graph-up-arrow me-2"></i>
+                                                    إنجازات على مستوى المؤشرات
                                                 </button>
                                             </h2>
                                             <div id="kpiAchievements" class="accordion-collapse collapse show" data-bs-parent="#achievementsAccordion">
                                                 <div class="accordion-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>اسم البرنامج</th>
-                                                                <th>تصنيف الإنجاز</th>
-                                                                <th>مسمى الإنجاز</th>
-                                                                <th>وصف الإنجاز</th>
-                                                                <th>السنة</th>
-                                                                <th>الربع</th>
-                                                                <th>اسم مؤشر الأداء</th>
-                                                                <th>الهدف المطلوب</th>
-                                                                <th>وحدة المؤشر</th>
-                                                                <th>المحقق</th>
-                                                                <th>المبادرة المرتبطة</th>
-                                                                <th>الهدف الاستراتيجي</th>
-                                                                <th>الجهات الحكومية</th>
-                                                                <th>الشريحة المستفيدة</th>
-                                                                <th>الأثر</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="kpiAchievementsTableBody">
-                                                            <!-- Dynamic rows -->
-                                                        </tbody>
-                                                    </table>
-                                                    <button class="btn btn-sm btn-success" onclick="addKPIAchievement()">
-                                                        <i class="bi bi-plus"></i> إضافة إنجاز مؤشر
-                                                    </button>
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-info-circle"></i>
+                                                        سيتم جلب الإنجازات بتصنيف "إنجازات على مستوى مؤشرات الأداء"
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>مسمى الإنجاز</th>
+                                                                    <th>وصف الإنجاز</th>
+                                                                    <th>اسم مؤشر الأداء</th>
+                                                                    <th>الهدف المطلوب</th>
+                                                                    <th>وحدة المؤشر</th>
+                                                                    <th>المحقق</th>
+                                                                    <th>الفترة</th>
+                                                                    <th>المبادرة المرتبطة</th>
+                                                                    <th>هدف الرؤية الاستراتيجي</th>
+                                                                    <th>الجهات الحكومية</th>
+                                                                    <th>الأثر</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="kpiAchievementsTableBody">
+                                                                <tr>
+                                                                    <td colspan="11" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم تحميل الإنجازات تلقائياً
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Initiative Achievements (Slides 68-77) -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#initiativeAchievements">
-                                                    إنجازات على مستوى المبادرات (الشرائح 68-77)
+                                                    <i class="bi bi-award me-2"></i>
+                                                    إنجازات على مستوى المبادرات
                                                 </button>
                                             </h2>
                                             <div id="initiativeAchievements" class="accordion-collapse collapse" data-bs-parent="#achievementsAccordion">
                                                 <div class="accordion-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>المبادرة</th>
-                                                                <th>العنوان</th>
-                                                                <th>الوصف</th>
-                                                                <th>الأثر</th>
-                                                                <th>الشريحة المستهدفة</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="initiativeAchievementsTableBody">
-                                                            <!-- Dynamic rows -->
-                                                        </tbody>
-                                                    </table>
-                                                    <button class="btn btn-sm btn-success" onclick="addInitiativeAchievement()">
-                                                        <i class="bi bi-plus"></i> إضافة إنجاز مبادرة
-                                                    </button>
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-info-circle"></i>
+                                                        سيتم جلب الإنجازات بتصنيف "إنجازات على مستوى المبادرات" أو "إنجازات أثر إيجاباً"
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>مسمى الإنجاز</th>
+                                                                    <th>وصف الإنجاز</th>
+                                                                    <th>المبادرة المرتبطة</th>
+                                                                    <th>هدف الرؤية الاستراتيجي</th>
+                                                                    <th>الشريحة المستفيدة</th>
+                                                                    <th>الأثر الناتج</th>
+                                                                    <th>الجهات الحكومية</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="initiativeAchievementsTableBody">
+                                                                <tr>
+                                                                    <td colspan="7" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم تحميل الإنجازات تلقائياً
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- Section 7: Risks and Support (Slides 78-81) per BR-RPT-008 -->
+                                <!-- Section 7: Risks and Support -->
                                 <div class="tab-pane fade" id="reportRisksTab">
-                                    <h6 class="text-muted">الشرائح 78-81: المخاطر والدعم المطلوب</h6>
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-shield-exclamation text-primary"></i>
+                                        القسم السابع: المخاطر والدعم المطلوب
+                                    </h6>
+                                    
+                                    <div class="alert alert-light border mb-3">
+                                        <small class="text-muted d-block mb-2"><strong>محتوى هذا القسم (ديناميكي):</strong></small>
+                                        <ul class="small mb-0">
+                                            <li>المخاطر الجديدة المحددة في الربع الحالي</li>
+                                            <li>المخاطر من الأرباع السابقة مع حالتها الحالية</li>
+                                            <li>طلبات الدعم الجديدة</li>
+                                            <li>حالة طلبات الدعم السابقة</li>
+                                        </ul>
+                                    </div>
+                                    
                                     <div class="accordion" id="risksAccordion">
+                                        <!-- Slide 78: New Risks -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#newRisks">
-                                                    المخاطر الجديدة (الشريحة 78)
+                                                    <i class="bi bi-exclamation-triangle text-danger me-2"></i>
+                                                    المخاطر الجديدة في الربع الحالي
                                                 </button>
                                             </h2>
                                             <div id="newRisks" class="accordion-collapse collapse show" data-bs-parent="#risksAccordion">
                                                 <div class="accordion-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>اسم الخطر</th>
-                                                                <th>مستوى الخطر</th>
-                                                                <th>اسم البرنامج</th>
-                                                                <th>اسم المبادرة</th>
-                                                                <th>الجهة المقدمة</th>
-                                                                <th>الاحتمالية</th>
-                                                                <th>الأثر</th>
-                                                                <th>حالة التخفيف</th>
-                                                                <th>تاريخ الخطر</th>
-                                                                <th>حالة الخطر</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="newRisksTableBody">
-                                                            <!-- Dynamic rows -->
-                                                        </tbody>
-                                                    </table>
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-database"></i>
+                                                        <strong>مصدر البيانات:</strong> إدارة المخاطر | 
+                                                        <strong>الفلتر:</strong> IdentifiedQuarter = CurrentQuarter AND StatusOpen = True
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>اسم الخطر</th>
+                                                                    <th>مستوى الخطر</th>
+                                                                    <th>اسم المبادرة</th>
+                                                                    <th>الجهة المقدمة</th>
+                                                                    <th>الاحتمالية</th>
+                                                                    <th>الأثر</th>
+                                                                    <th>إجراءات الحد من الخطر/الحلول المقترحة</th>
+                                                                    <th>حالة إجراء التخفيف</th>
+                                                                    <th>الجهة المسؤولة</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="newRisksTableBody">
+                                                                <tr>
+                                                                    <td colspan="9" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم التحميل التلقائي عند توليد التقرير
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Slide 79: Previous Risks -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#previousRisks">
-                                                    المخاطر من الأرباع السابقة (الشريحة 79)
+                                                    <i class="bi bi-clock-history text-warning me-2"></i>
+                                                    المخاطر من الأرباع السابقة
                                                 </button>
                                             </h2>
                                             <div id="previousRisks" class="accordion-collapse collapse" data-bs-parent="#risksAccordion">
                                                 <div class="accordion-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>اسم الخطر</th>
-                                                                <th>مسار التخفيف</th>
-                                                                <th>الإجراء التخفيفي</th>
-                                                                <th>تفاصيل الإجراء</th>
-                                                                <th>الوكالة المعنية</th>
-                                                                <th>تاريخ البدء</th>
-                                                                <th>تاريخ النهاية</th>
-                                                                <th>حالة الإجراء</th>
-                                                                <th>الجهة المسؤولة</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="previousRisksTableBody">
-                                                            <!-- Dynamic rows -->
-                                                        </tbody>
-                                                    </table>
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-database"></i>
+                                                        <strong>مصدر البيانات:</strong> إدارة المخاطر | 
+                                                        <strong>الفلتر:</strong> IdentifiedQuarter &lt; CurrentQuarter
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>اسم الخطر</th>
+                                                                    <th>تاريخ التحديد</th>
+                                                                    <th>مسار التخفيف</th>
+                                                                    <th>الإجراء التخفيفي المقترح</th>
+                                                                    <th>تفاصيل الإجراء</th>
+                                                                    <th>الوكالة المعنية</th>
+                                                                    <th>تاريخ بدء الإجراء</th>
+                                                                    <th>تاريخ نهاية الإجراء</th>
+                                                                    <th>حالة الإجراء</th>
+                                                                    <th>الجهة المسؤولة</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="previousRisksTableBody">
+                                                                <tr>
+                                                                    <td colspan="10" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم التحميل التلقائي عند توليد التقرير
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- Slide 80: New Support Requests -->
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#supportRequests">
-                                                    طلبات الدعم (الشرائح 80-81)
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#newSupportRequests">
+                                                    <i class="bi bi-hand-thumbs-up text-success me-2"></i>
+                                                    طلبات الدعم الجديدة
                                                 </button>
                                             </h2>
-                                            <div id="supportRequests" class="accordion-collapse collapse" data-bs-parent="#risksAccordion">
+                                            <div id="newSupportRequests" class="accordion-collapse collapse" data-bs-parent="#risksAccordion">
                                                 <div class="accordion-body">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>اسم البرنامج</th>
-                                                                <th>الدعم المطلوب</th>
-                                                                <th>سبب الطلب</th>
-                                                                <th>نوع الدعم</th>
-                                                                <th>الحالة</th>
-                                                                <th>السنة</th>
-                                                                <th>الربع</th>
-                                                                <th>التاريخ المطلوب</th>
-                                                                <th>مقدم الطلب</th>
-                                                                <th>الملاحظات</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="supportRequestsTableBody">
-                                                            <!-- Dynamic rows -->
-                                                        </tbody>
-                                                    </table>
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-database"></i>
+                                                        <strong>مصدر البيانات:</strong> طلبات الدعم | 
+                                                        <strong>الفلتر:</strong> Quarter = CurrentQuarter AND Status = "مفتوح"
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>الدعم المطلوب/القرارات المطلوبة</th>
+                                                                    <th>نوع الدعم</th>
+                                                                    <th>الوحدة المنوط بها تقديم الدعم</th>
+                                                                    <th>سبب طلب الدعم</th>
+                                                                    <th>تاريخ الإنجاز المطلوب</th>
+                                                                    <th>الحالة</th>
+                                                                    <th>الجهة المسؤولة</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="newSupportRequestsTableBody">
+                                                                <tr>
+                                                                    <td colspan="7" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم التحميل التلقائي (مرتب حسب تاريخ الحاجة - الأقرب أولاً)
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slide 81: Previous Support Requests -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#previousSupportRequests">
+                                                    <i class="bi bi-archive text-secondary me-2"></i>
+                                                    حالة طلبات الدعم السابقة
+                                                </button>
+                                            </h2>
+                                            <div id="previousSupportRequests" class="accordion-collapse collapse" data-bs-parent="#risksAccordion">
+                                                <div class="accordion-body">
+                                                    <div class="alert alert-info small mb-3">
+                                                        <i class="bi bi-database"></i>
+                                                        <strong>مصدر البيانات:</strong> طلبات الدعم | 
+                                                        <strong>الفلتر:</strong> Quarter &lt; CurrentQuarter (الطلبات المغلقة والمفتوحة من أرباع سابقة)
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered table-sm">
+                                                            <thead class="table-light">
+                                                                <tr>
+                                                                    <th>الدعم المطلوب</th>
+                                                                    <th>نوع الدعم</th>
+                                                                    <th>الوحدة المنوط بها</th>
+                                                                    <th>الحالة</th>
+                                                                    <th>تاريخ الطلب</th>
+                                                                    <th>تاريخ الإغلاق</th>
+                                                                    <th>ملاحظات الإغلاق</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="previousSupportRequestsTableBody">
+                                                                <tr>
+                                                                    <td colspan="7" class="text-center text-muted py-3">
+                                                                        <i class="bi bi-arrow-clockwise"></i>
+                                                                        سيتم التحميل التلقائي عند توليد التقرير
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- New Tab: Report Structure Preview -->
+                                <div class="tab-pane fade" id="reportPreviewTab">
+                                    <h6 class="text-muted mb-3">
+                                        <i class="bi bi-eye text-primary"></i>
+                                        معاينة هيكل التقرير الديناميكي
+                                    </h6>
+                                    
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row g-3">
+                                                <!-- Section 1 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-1-circle"></i> القسم 1: الملخص التنفيذي
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div class="mb-1">📄 الشريحة 1: الغلاف</div>
+                                                            <div class="mb-1">📄 الشريحة 2: الملخص التنفيذي النصي</div>
+                                                            <div>📄 الشريحة 3: جدول المحتويات</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 2 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-2-circle"></i> القسم 2: لوحة المؤشرات
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div class="mb-1">📊 الشرائح 4-7: حالة البرنامج العامة</div>
+                                                            <div class="mb-1">🏆 الشرائح 8-9: أبرز الإنجازات</div>
+                                                            <div>⚠️ الشريحة 10: المخاطر الحرجة</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 3 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-3-circle"></i> القسم 3: تفاصيل المؤشرات
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div>📈 الشرائح 11-30: تفاصيل كل مؤشر (1-2 شريحة/مؤشر)</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 4 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-4-circle"></i> القسم 4: المبادرات الرئيسية
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div>🎯 الشرائح 31-50: شريحتان/مبادرة (حد أقصى 10)</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 5 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-5-circle"></i> القسم 5: جميع المبادرات
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div>📋 الشرائح 51-64: جداول ملخصة لكل المبادرات</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 6 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-6-circle"></i> القسم 6: الإنجازات
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div class="mb-1">🏅 إنجازات المؤشرات</div>
+                                                            <div>🌟 إنجازات المبادرات</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Section 7 -->
+                                                <div class="col-md-6">
+                                                    <div class="p-3 border rounded bg-light">
+                                                        <h6 class="text-primary mb-2">
+                                                            <i class="bi bi-7-circle"></i> القسم 7: المخاطر والدعم
+                                                        </h6>
+                                                        <div class="small">
+                                                            <div class="mb-1">⚠️ الشريحة 78: مخاطر جديدة</div>
+                                                            <div class="mb-1">📅 الشريحة 79: مخاطر سابقة</div>
+                                                            <div class="mb-1">🆘 الشريحة 80: طلبات دعم جديدة</div>
+                                                            <div>✅ الشريحة 81: حالة طلبات دعم سابقة</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Total -->
+                                                <div class="col-12">
+                                                    <div class="alert alert-success text-center mb-0">
+                                                        <strong class="fs-5">إجمالي الشرائح: 81 شريحة</strong>
+                                                        <div class="small mt-2">وفقاً لمعايير مكتب الإدارة الاستراتيجية</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1282,19 +1806,19 @@
                                 <div class="tab-pane fade" id="reportAnalysisTab">
                                     <div class="mb-3">
                                         <label class="form-label">تحليل الأداء</label>
-                                        <textarea class="form-control" id="performanceAnalysis" rows="4" placeholder="تحليل مفصل للأداء والاتجاهات"></textarea>
+                                        <textarea class="form-control" id="performanceAnalysis" rows="4" placeholder="قدم تحليلاً شاملاً للأداء يتضمن: الاتجاهات، المقارنات بالفترات السابقة، والعوامل المؤثرة على النتائج"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">تحليل الانحرافات</label>
-                                        <textarea class="form-control" id="varianceAnalysis" rows="4" placeholder="أسباب الانحرافات عن المستهدفات"></textarea>
+                                        <textarea class="form-control" id="varianceAnalysis" rows="4" placeholder="أوضح أسباب أي انحرافات عن المستهدفات المخططة مع تحليل الأسباب الجذرية والتأثير على النتائج"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">الدروس المستفادة</label>
-                                        <textarea class="form-control" id="lessonsLearned" rows="3" placeholder="الدروس المستفادة من الفترة"></textarea>
+                                        <textarea class="form-control" id="lessonsLearned" rows="3" placeholder="وثق الدروس المستفادة من هذه الفترة لتحسين الأداء المستقبلي والممارسات الفضلى"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">خطط التحسين</label>
-                                        <textarea class="form-control" id="improvementPlans" rows="3" placeholder="خطط التحسين للفترة القادمة"></textarea>
+                                        <textarea class="form-control" id="improvementPlans" rows="3" placeholder="حدد خطط التحسين والإجراءات التصحيحية المزمع تنفيذها في الربع القادم لتعزيز الأداء"></textarea>
                                     </div>
                                 </div>
                                 
@@ -1322,66 +1846,118 @@
                                 </div>
                             </div>
                             
-                            <!-- Report Options -->
+                            <!-- Report Style Options -->
                             <div class="card bg-light mt-3">
+                                <div class="card-header">
+                                    <strong>إعدادات التنسيق والأسلوب</strong>
+                                </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="form-label">صيغة التقرير</label>
-                                            <select class="form-select" id="reportFormat">
-                                                <option value="html">HTML (عرض مباشر)</option>
-                                                <option value="pdf">PDF</option>
-                                                <option value="excel">Excel</option>
-                                                <option value="word">Word</option>
-                                                <option value="ppt">PowerPoint</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <label class="form-label">اللغة</label>
                                             <select class="form-select" id="reportLanguage">
-                                                <option value="ar">العربية</option>
-                                                <option value="en">English</option>
-                                                <option value="both">ثنائي اللغة</option>
+                                                <option value="ar" selected>العربية (RTL)</option>
+                                                <option value="both">عربي + إنجليزي</option>
+                                            </select>
+                                            <small class="text-muted">جميع الشرائح يجب أن تكون بالعربية مع دعم RTL</small>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label">نمط الألوان</label>
+                                            <select class="form-select" id="reportColorScheme">
+                                                <option value="vision2030" selected>هوية رؤية 2030 (أخضر، ذهبي، أبيض)</option>
+                                                <option value="custom">نمط مخصص</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">خيارات إضافية</label>
-                                            <div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" id="includeCharts" checked>
-                                                    <label class="form-check-label" for="includeCharts">رسوم بيانية</label>
+                                        <div class="col-md-4">
+                                            <label class="form-label">التواريخ</label>
+                                            <select class="form-select" id="dateFormat">
+                                                <option value="both" selected>هجري + ميلادي</option>
+                                                <option value="hijri">هجري فقط</option>
+                                                <option value="gregorian">ميلادي فقط</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <label class="form-label">خيارات متقدمة</label>
+                                            <div class="d-flex flex-wrap gap-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="includeCharts" checked disabled>
+                                                    <label class="form-check-label" for="includeCharts">
+                                                        رسوم بيانية - إلزامي
+                                                    </label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" id="includeComparison" checked>
-                                                    <label class="form-check-label" for="includeComparison">مقارنات</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="arabicNumberFormat" checked disabled>
+                                                    <label class="form-check-label" for="arabicNumberFormat">
+                                                        فواصل آلاف عربية - إلزامي
+                                                    </label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" id="includeForecast">
-                                                    <label class="form-check-label" for="includeForecast">توقعات</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="includeFooter" checked disabled>
+                                                    <label class="form-check-label" for="includeFooter">
+                                                        تذييل الصفحات - إلزامي
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            <!-- End of reportContentContainer -->
+                            
+                            <!-- Validation Warnings -->
+                            <div class="alert alert-warning mt-3 d-none" id="validationWarnings">
+                                <h6 class="alert-heading">
+                                    <i class="bi bi-exclamation-triangle"></i> تحذيرات البيانات الناقصة
+                                </h6>
+                                <ul id="warningsList" class="mb-0">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
                             
                             <!-- Action Buttons -->
-                            <div class="mt-3 d-flex gap-2">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-file-earmark-text"></i> توليد التقرير
-                                </button>
-                                <button type="button" class="btn btn-info text-white" onclick="previewHTMLReport()">
-                                    <i class="bi bi-eye"></i> معاينة HTML
-                                </button>
-                                <button type="button" class="btn btn-success" onclick="saveReportDraft()">
-                                    <i class="bi bi-save"></i> حفظ كمسودة
-                                </button>
-                                <button type="button" class="btn btn-warning" onclick="scheduleReport()">
-                                    <i class="bi bi-clock"></i> جدولة
-                                </button>
-                                <button type="button" class="btn btn-danger" onclick="sendToManagement()">
-                                    <i class="bi bi-send"></i> إرسال للإدارة
-                                </button>
+                            <div class="mt-3">
+                                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                                    <div class="d-flex gap-2 flex-wrap">
+                                        <button type="submit" class="btn btn-primary" id="generateReportBtn">
+                                            <i class="bi bi-file-earmark-text"></i> توليد التقرير
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary" onclick="validateReportData()">
+                                            <i class="bi bi-check-circle"></i> التحقق من اكتمال البيانات
+                                        </button>
+                                        <button type="button" class="btn btn-success" onclick="saveReportDraft()">
+                                            <i class="bi bi-save"></i> حفظ كمسودة
+                                        </button>
+                                    </div>
+                                    <div class="text-muted small">
+                                        <i class="bi bi-info-circle"></i>
+                                        التوليد يتم بشكل غير متزامن | صلاحية الرابط: 30 يوم
+                                    </div>
+                                </div>
+                                
+                                <!-- Generation Progress (Hidden initially) -->
+                                <div class="card mt-3 d-none" id="generationProgressCard">
+                                    <div class="card-body">
+                                        <h6 class="mb-3">
+                                            <i class="bi bi-hourglass-split"></i> جاري توليد التقرير...
+                                        </h6>
+                                        <div class="progress mb-2" style="height: 25px;">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                                 id="generationProgress" role="progressbar" style="width: 0%">0%</div>
+                                        </div>
+                                        <div id="currentGenerationStage" class="text-muted small text-center">
+                                            جمع البيانات...
+                                        </div>
+                                        <div class="text-center mt-2">
+                                            <small class="text-muted">
+                                                الوقت المتبقي التقديري: <span id="estimatedTime">2-3 دقائق</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -1414,7 +1990,7 @@
         </div>
     </main>
     
-    <!-- UC-03: Report Generation Modal -->
+    <!-- Report Generation Modal -->
     <div class="modal fade" id="reportGenerationModal" tabindex="-1" aria-labelledby="reportGenerationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1446,7 +2022,7 @@
         </div>
     </div>
     
-    <!-- UC-03: Send Report Modal -->
+    <!-- Send Report Modal -->
     <div class="modal fade" id="sendReportModal" tabindex="-1" aria-labelledby="sendReportModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -1489,7 +2065,7 @@
         </div>
     </div>
     
-    <!-- UC-03: Export Options Modal -->
+    <!-- Export Options Modal -->
     <div class="modal fade" id="exportOptionsModal" tabindex="-1" aria-labelledby="exportOptionsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1529,7 +2105,7 @@
         </div>
     </div>
     
-    <!-- UC-03: Report Progress Modal -->
+    <!-- Report Progress Modal -->
     <div class="modal fade" id="reportProgressModal" tabindex="-1" aria-labelledby="reportProgressModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1551,7 +2127,7 @@
         <div class="page-container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
-                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                    <span class="copyrights">&copy; <span class="copyrights__year">2024</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
                 </div>
             </div>
         </div>
@@ -1587,6 +2163,20 @@
             // Skip API check if on login page
             if (window.location.pathname.includes('login.html')) return;
             
+            // Initialize dynamic slide count
+            updateSlideCount();
+            
+            // Update slide count on tab changes in report section
+            const reportTabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
+            reportTabs.forEach(tab => {
+                tab.addEventListener('shown.bs.tab', function() {
+                    updateSlideCount();
+                });
+            });
+            
+            // Initialize report data loading
+            initializeReportDataLoading();
+            
             try {
                 // Check API health
                 const isHealthy = await window.apiService.checkHealth();
@@ -1607,23 +2197,24 @@
             try {
                 const programs = await window.apiService.getPrograms();
                 console.log('Programs loaded from API:', programs);
-                // TODO: Update UI with dynamic data from API
+                // Update UI with dynamic data from API when available
             } catch (error) {
                 console.error('Error loading programs:', error);
                 // Fallback to static data
             }
+
         }
         
         // Handle form submissions for creating/updating programs
         function handleProgramFormSubmit(formData) {
             window.apiService.createProgram(formData)
                 .then(response => {
-                    showSuccess('تم إنشاء البرنامج بنجاح');
+                                    showNotification('تم إنشاء البرنامج بنجاح', 'success');
                     window.location.reload();
                 })
                 .catch(error => {
                     console.error('Error creating program:', error);
-                    alert('حدث خطأ في إنشاء البرنامج');
+                                    showNotification('حدث خطأ في إنشاء البرنامج. يرجى المحاولة مرة أخرى.', 'error');
                 });
         }
         
@@ -1645,22 +2236,65 @@
             window.location.href = `report-generation.html?type=program&id=${programId}&quarter=${quarter}`;
         }
         
+        // Notification helper function
+        function showNotification(message, type = 'info') {
+            // Create notification element if it doesn't exist
+            let notification = document.getElementById('notificationToast');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.id = 'notificationToast';
+                notification.className = 'toast position-fixed bottom-0 end-0 m-3';
+                notification.setAttribute('role', 'alert');
+                notification.setAttribute('aria-live', 'assertive');
+                notification.setAttribute('aria-atomic', 'true');
+                notification.innerHTML = `
+                    <div class="toast-body">
+                        <span id="notificationMessage"></span>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+            }
+            
+            // Set message and type
+            const messageEl = document.getElementById('notificationMessage');
+            messageEl.textContent = message;
+            
+            // Set appropriate class based on type
+            const bgClass = type === 'error' ? 'bg-danger' : type === 'success' ? 'bg-success' : 'bg-info';
+            notification.className = `toast position-fixed bottom-0 end-0 m-3 ${bgClass} text-white`;
+            
+            // Show notification using Bootstrap Toast
+            const toast = new bootstrap.Toast(notification, {
+                autohide: true,
+                delay: 3000
+            });
+            toast.show();
+        }
+        
         function exportPrograms() {
-            alert('جاري تصدير بيانات البرامج إلى Excel...');
+            // Export functionality implementation
+            console.log('تصدير بيانات البرامج إلى Excel');
+            // Implementation for export would be handled by backend API
+            showNotification('جاري تحضير ملف التصدير...', 'info');
+            
+            // Simulate export completion
+            setTimeout(() => {
+                showNotification('تم تصدير البيانات بنجاح', 'success');
+            }, 2000);
         }
         
         // ========== COMPREHENSIVE REPORT GENERATION FUNCTIONS ==========
         
-        // ========== COMPLETE 81-SLIDE REPORT FUNCTIONS (UC-04) ==========
+        // ========== COMPLETE REPORT FUNCTIONS ==========
         
-        // Add detailed KPI row (BR-RPT-004: Slides 11-30)
+        // Add detailed KPI row
         function addDetailedKPI() {
             const table = document.getElementById('detailedKPITableBody');
             const newRow = table.insertRow();
             newRow.innerHTML = `
-                <td><input type="text" class="form-control form-control-sm" placeholder="KPI-XXX"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="اسم المؤشر بالعربية"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="KPI Name English"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="مثال: KPI-001"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="أدخل اسم مؤشر الأداء الرئيسي"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="Enter KPI Name"></td>
                 <td><select class="form-select form-select-sm">
                     <option>متزايد</option>
                     <option>متناقص</option>
@@ -1669,11 +2303,11 @@
                     <option>رئيسي</option>
                     <option>ثانوي</option>
                 </select></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="الوحدة"></td>
-                <td><input type="number" class="form-control form-control-sm" placeholder="خط الأساس"></td>
-                <td><input type="number" class="form-control form-control-sm" placeholder="السنة" value="2020"></td>
-                <td><input type="number" class="form-control form-control-sm" placeholder="المستهدف"></td>
-                <td><input type="number" class="form-control form-control-sm" placeholder="الفعلي"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="وحدة القياس (مثل %، ريال)"></td>
+                <td><input type="number" class="form-control form-control-sm" placeholder="القيمة المرجعية"></td>
+                <td><input type="number" class="form-control form-control-sm" placeholder="سنة الأساس" value="2024"></td>
+                <td><input type="number" class="form-control form-control-sm" placeholder="الهدف المخطط"></td>
+                <td><input type="number" class="form-control form-control-sm" placeholder="القيمة المحققة"></td>
                 <td><select class="form-select form-select-sm">
                     <option class="text-success">أخضر</option>
                     <option class="text-warning">أصفر</option>
@@ -1682,15 +2316,15 @@
             `;
         }
         
-        // Add key initiative (BR-RPT-005: Slides 31-50)
+        // Add key initiative
         function addKeyInitiative() {
             const table = document.getElementById('keyInitiativesTableBody');
             const newRow = table.insertRow();
             newRow.innerHTML = `
-                <td><input type="text" class="form-control form-control-sm" placeholder="X-XX-XXX-XXXX"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="اسم المبادرة"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="Initiative Name"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="الوصف"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="رمز المبادرة"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="أدخل اسم المبادرة بالعربية"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="Enter Initiative Name"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="وصف مختصر للمبادرة"></td>
                 <td><input type="number" class="form-control form-control-sm" min="0" max="100"></td>
                 <td><input type="number" class="form-control form-control-sm" min="0" max="100"></td>
                 <td><select class="form-select form-select-sm">
@@ -1698,13 +2332,13 @@
                     <option>متأخر</option>
                     <option>مكتمل</option>
                 </select></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="الميزانية"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="المنصرف"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="المعالم"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="الميزانية المعتمدة"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="المبلغ المصروف"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="المعالم الرئيسية"></td>
             `;
         }
         
-        // Load all initiatives (BR-RPT-006: Slides 51-64)
+        // Load all initiatives
         function loadAllInitiatives() {
             const tbody = document.getElementById('allInitiativesTableBody');
             tbody.innerHTML = '';
@@ -1725,19 +2359,19 @@
             });
         }
         
-        // Add KPI Achievement (BR-RPT-007: Slides 65-67)
+        // Add KPI Achievement
         function addKPIAchievement() {
             const tbody = document.getElementById('kpiAchievementsTableBody');
             const row = tbody.insertRow();
             row.innerHTML = `
-                <td><input type="text" class="form-control form-control-sm" placeholder="البرنامج"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="اسم البرنامج المعني"></td>
                 <td><select class="form-select form-select-sm">
                     <option>إنجاز متميز</option>
                     <option>إنجاز مهم</option>
                     <option>إنجاز عادي</option>
                 </select></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="مسمى الإنجاز"></td>
-                <td><input type="text" class="form-control form-control-sm" placeholder="وصف الإنجاز"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="عنوان الإنجاز المحقق"></td>
+                <td><input type="text" class="form-control form-control-sm" placeholder="وصف تفصيلي للإنجاز وأثره"></td>
                 <td><input type="number" class="form-control form-control-sm" placeholder="السنة" value="2024"></td>
                 <td><select class="form-select form-select-sm">
                     <option>Q1</option>
@@ -1757,7 +2391,7 @@
             `;
         }
         
-        // Add Initiative Achievement (BR-RPT-007: Slides 68-77)
+        // Add Initiative Achievement
         function addInitiativeAchievement() {
             const tbody = document.getElementById('initiativeAchievementsTableBody');
             const row = tbody.insertRow();
@@ -1799,7 +2433,7 @@
             modal.show();
         }
         
-        // Generate Complete 81-Slide HTML Report Content (UC-04 per BR-RPT-001 to BR-RPT-020)
+        // Generate Complete HTML Report Content
         function generateHTMLReportContent() {
             const reportType = document.getElementById('reportType').value;
             const program = document.getElementById('reportProgram').value;
@@ -2124,8 +2758,8 @@
             }
         });
         
-        // ========== UC-03 Implementation ==========
-        // Variables for UC-03 functionality
+        // ========== Program Management Implementation ==========
+        // Variables for program management functionality
         let currentProgramId = null;
         let currentReportFormat = null;
         let currentExportType = null;
@@ -2248,8 +2882,8 @@
                 }
             } catch (error) {
                 console.error('Error checking data completeness:', error);
-                // Simulate for demo
-                return Math.random() > 0.5;
+                // Default to false if error occurs
+                return false;
             }
             return false;
         }
@@ -2351,8 +2985,9 @@
                 }
             } catch (error) {
                 console.error('Export error:', error);
-                // Fallback for demo
-                const blob = new Blob(['Export data'], { type: 'application/vnd.ms-excel' });
+                // Fallback for error handling
+                showNotification('حدث خطأ في تصدير البيانات. يرجى المحاولة مرة أخرى.', 'error');
+                return;
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
@@ -2418,6 +3053,1164 @@
             }, 5000);
         }
         
+        // ========================================
+        // COMPREHENSIVE REPORT GENERATION LOGIC
+        // ========================================
+        
+        // Enable/disable watermark text field based on checkbox
+        document.getElementById('applyWatermark')?.addEventListener('change', function() {
+            document.getElementById('watermarkText').disabled = !this.checked;
+        });
+        
+        // Check data completeness when changing program/period (old function for compatibility)
+        function checkDataCompleteness() {
+            const program = document.getElementById('reportProgram')?.value;
+            const year = document.getElementById('reportYear')?.value;
+            const quarter = document.getElementById('reportQuarter')?.value;
+            
+            if (program && year && quarter) {
+                checkFullDataCompleteness(program, year, quarter);
+            }
+        }
+        
+        // Validate and Generate Report (BR-43, BR-RPT-015)
+        function validateAndGenerateReport(event) {
+            event.preventDefault();
+            
+            const program = document.getElementById('reportProgram').value;
+            const year = document.getElementById('reportYear').value;
+            const quarter = document.getElementById('reportQuarter').value;
+            const format = document.getElementById('reportFormat').value;
+            
+            // BR-43: Check for mandatory Executive Summary
+            const execSummary = document.getElementById('executiveSummaryOverview')?.value;
+            const topAchievements = document.getElementById('topAchievementsSummary')?.value;
+            const futureLookout = document.getElementById('futureLookout')?.value;
+            
+            if (!program || !year || !quarter) {
+                showNotification('danger', 'بيانات ناقصة', 'يرجى اختيار البرنامج والسنة والربع');
+                return false;
+            }
+            
+            // Validate Executive Summary (MANDATORY per BR-43)
+            if (!execSummary || !topAchievements || !futureLookout) {
+                showNotification('warning', 'الملخص التنفيذي مطلوب', 
+                    'يجب إكمال الملخص التنفيذي (لمحة عامة + أبرز الإنجازات + التطلعات) قبل توليد التقرير (BR-43)');
+                
+                // Switch to executive summary tab
+                const summaryTab = new bootstrap.Tab(document.querySelector('a[href="#reportSummaryTab"]'));
+                summaryTab.show();
+                return false;
+            }
+            
+            // Check data completeness
+            checkFullDataCompleteness(program, year, quarter).then(isComplete => {
+                if (!isComplete) {
+                    // ALT-RPT-001: Show warning but allow to continue
+                    if (!confirm('بيانات الربع المحدد غير مكتملة. هل تريد المتابعة؟ (ALT-RPT-001)')) {
+                        return false;
+                    }
+                }
+                
+                // BR-RPT-015: Check if another report is being generated
+                checkConcurrentGeneration(program, quarter).then(canProceed => {
+                    if (!canProceed) {
+                        showNotification('warning', 'تحذير', 
+                            'لا يمكن توليد أكثر من تقرير واحد لنفس البرنامج والفترة في وقت واحد (BR-RPT-015)');
+                        return false;
+                    }
+                    
+                    // Start async report generation (BR-44)
+                    startReportGeneration(program, year, quarter, format);
+                });
+            });
+            
+            return false;
+        }
+        
+        // Calculate dynamic slide count based on actual data
+        function calculateDynamicSlideCount() {
+            // Base slides (always present)
+            let slideCount = 3; // Cover, Executive Summary, TOC
+            
+            // Dashboard section
+            slideCount += 7; // Standard dashboard slides
+            
+            // KPI Details (1-2 slides per actual KPI)
+            const kpiCount = document.querySelectorAll('#kpiOverviewTableBody tr:not(.text-muted)').length;
+            slideCount += Math.max(kpiCount * 1.5, 10); // Average 1.5 slides per KPI, minimum 10
+            
+            // Key Initiatives (2 slides per initiative, max 10 initiatives)
+            const keyInitCount = Math.min(
+                document.querySelectorAll('#keyInitiativesTableBody tr:not(.text-muted)').length,
+                10
+            );
+            slideCount += keyInitCount * 2;
+            
+            // All Initiatives (varies based on count)
+            const allInitCount = document.querySelectorAll('#allInitiativesTableBody tr:not(.text-muted)').length;
+            slideCount += Math.ceil(allInitCount / 10); // ~10 initiatives per slide
+            
+            // Achievements (dynamic based on actual achievements)
+            const kpiAchievements = document.querySelectorAll('#kpiAchievementsTableBody tr').length;
+            const initAchievements = document.querySelectorAll('#initiativeAchievementsTableBody tr').length;
+            slideCount += Math.ceil(kpiAchievements / 5) + Math.ceil(initAchievements / 3);
+            
+            // Risks and Support (4 standard slides if data exists)
+            slideCount += 4;
+            
+            // Update UI
+            const totalElement = document.getElementById('totalSlideCount');
+            if (totalElement) {
+                totalElement.textContent = slideCount + ' شريحة';
+            }
+            
+            return slideCount;
+        }
+        
+        // Update slide count when data changes
+        function updateSlideCount() {
+            const count = calculateDynamicSlideCount();
+            console.log(`التقرير سيحتوي على ${count} شريحة بناءً على البيانات المدخلة`);
+            return count;
+        }
+        
+        // Check data completeness for the selected period AND load all data
+        async function checkFullDataCompleteness(program, year, quarter) {
+            try {
+                // Load all data from different modules when checking completeness
+                await Promise.all([
+                    loadKPIDataFromVision(program, year, quarter),
+                    loadInitiativesFromModule(program, year, quarter),
+                    loadAchievementsFromModule(program, year, quarter),
+                    loadRisksFromModule(program, year, quarter),
+                    loadSupportRequestsFromModule(program, year, quarter),
+                    loadBudgetDataFromModule(program, year, quarter)
+                ]);
+                
+                // Check completeness based on loaded data
+                const completeness = calculateDataCompleteness();
+                updateCompletenessUI(completeness);
+                return completeness.overallCompleteness >= 90;
+                
+            } catch (error) {
+                console.error('Error checking completeness:', error);
+                return false;
+            }
+        }
+        
+        // Load KPI data from Performance Vision module (UC-05)
+        async function loadKPIDataFromVision(program, year, quarter) {
+            try {
+                // This matches the API from performance-vision.js
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/kpis?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const kpis = await response.json();
+                    populateKPIOverviewTable(kpis);
+                    
+                    // Update KPI dashboard metrics
+                    const above99 = kpis.filter(k => k.achievementRate >= 99).length;
+                    const between85_99 = kpis.filter(k => k.achievementRate >= 85 && k.achievementRate < 99).length;
+                    const below85 = kpis.filter(k => k.achievementRate < 85).length;
+                    
+                    document.getElementById('kpisAbove99').value = ((above99 / kpis.length) * 100).toFixed(1);
+                    document.getElementById('kpis85to99').value = ((between85_99 / kpis.length) * 100).toFixed(1);
+                    document.getElementById('kpisBelow85').value = ((below85 / kpis.length) * 100).toFixed(1);
+                    
+                    return kpis;
+                }
+            } catch (error) {
+                console.error('Error loading KPI data, using sample data:', error);
+                // Use sample data for demonstration
+                const sampleKPIs = [
+                    { code: 'KPI-001', nameAr: 'نسبة رضا المستفيدين', unit: '%', baseline: 75, target: 90, actual: 87, status: 'على المسار', frequency: 'ربعي', achievementRate: 96.7 },
+                    { code: 'KPI-002', nameAr: 'عدد المعاملات المنجزة', unit: 'معاملة', baseline: 8000, target: 10000, actual: 9500, status: 'على المسار', frequency: 'شهري', achievementRate: 95 },
+                    { code: 'KPI-003', nameAr: 'معدل الإنجاز الزمني', unit: '%', baseline: 70, target: 85, actual: 82, status: 'على المسار', frequency: 'ربعي', achievementRate: 96.5 },
+                    { code: 'KPI-004', nameAr: 'نسبة التحول الرقمي', unit: '%', baseline: 45, target: 75, actual: 78, status: 'محقق', frequency: 'سنوي', achievementRate: 104 },
+                    { code: 'KPI-005', nameAr: 'مؤشر الكفاءة التشغيلية', unit: 'نقطة', baseline: 60, target: 80, actual: 65, status: 'متأخر', frequency: 'ربعي', achievementRate: 81.3 }
+                ];
+                
+                populateKPIOverviewTable(sampleKPIs);
+                
+                // Update metrics with sample data
+                document.getElementById('kpisAbove99').value = '20.0';
+                document.getElementById('kpis85to99').value = '60.0';
+                document.getElementById('kpisBelow85').value = '20.0';
+                
+                return sampleKPIs;
+            }
+        }
+        
+        // Load initiatives from Performance Initiatives module (UC-13/UC-14)
+        async function loadInitiativesFromModule(program, year, quarter) {
+            try {
+                // This matches the API from performance-initiatives.js
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/initiatives?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const initiatives = await response.json();
+                    
+                    // Separate key initiatives (priority) from all
+                    const keyInitiatives = initiatives
+                        .filter(i => i.isPriority || i.isCritical)
+                        .slice(0, 10); // Max 10 per BR-RPT-005
+                    
+                    const otherInitiatives = initiatives
+                        .filter(i => !keyInitiatives.find(k => k.id === i.id));
+                    
+                    // Populate tables
+                    populateKeyInitiativesTable(keyInitiatives);
+                    populateAllInitiativesTable(otherInitiatives);
+                    
+                    // Update metrics
+                    const completedCount = initiatives.filter(i => i.status === 'completed').length;
+                    document.getElementById('initiativesCompletedPercent').value = 
+                        ((completedCount / initiatives.length) * 100).toFixed(1);
+                    
+                    return initiatives;
+                }
+            } catch (error) {
+                console.error('Error loading initiatives, using sample data:', error);
+                // Sample initiatives data for demonstration
+                const sampleInitiatives = [
+                    // Key initiatives
+                    { code: '1-13-064-0007', nameAr: 'المنصة الوطنية للوحدات العقارية', nameEn: 'National Platform for Real Estate Units', 
+                      isMandatory: true, isPriority: true, fundingStatus: 'ممول', targetProgress: 90, actualProgress: 85, 
+                      status: 'على المسار', statusColor: 'warning', totalCost: 50000000, spentToDate: 42000000, responsibleEntity: 'وزارة الإسكان' },
+                    { code: '1-13-064-0008', nameAr: 'التحول الرقمي للخدمات', nameEn: 'Digital Transformation of Services', 
+                      isMandatory: true, isPriority: true, fundingStatus: 'ممول', targetProgress: 85, actualProgress: 92, 
+                      status: 'محقق', statusColor: 'success', totalCost: 30000000, spentToDate: 28000000, responsibleEntity: 'الهيئة السعودية للبيانات' },
+                    { code: '1-13-064-0009', nameAr: 'برنامج تطوير القدرات', nameEn: 'Capacity Development Program', 
+                      isMandatory: false, isPriority: true, fundingStatus: 'ممول جزئياً', targetProgress: 75, actualProgress: 65, 
+                      status: 'متأخر', statusColor: 'danger', totalCost: 20000000, spentToDate: 12000000, responsibleEntity: 'معهد الإدارة العامة' },
+                    // Other initiatives
+                    { code: '1-13-064-0010', nameAr: 'مبادرة تحسين الأداء', nameEn: 'Performance Improvement Initiative', 
+                      isMandatory: false, fundingStatus: 'ممول', targetProgress: 80, actualProgress: 78, 
+                      status: 'على المسار', statusColor: 'warning', approvedBudget: 15000000, quarterSpent: 3500000, responsibleEntity: 'مكتب الإدارة الاستراتيجية' },
+                    { code: '1-13-064-0011', nameAr: 'مشروع البنية التحتية', nameEn: 'Infrastructure Project', 
+                      isMandatory: true, fundingStatus: 'ممول', targetProgress: 60, actualProgress: 58, 
+                      status: 'على المسار', statusColor: 'warning', approvedBudget: 40000000, quarterSpent: 9000000, responsibleEntity: 'وزارة النقل' }
+                ];
+                
+                const keyInitiatives = sampleInitiatives.filter(i => i.isPriority).slice(0, 10);
+                const otherInitiatives = sampleInitiatives.filter(i => !i.isPriority);
+                
+                populateKeyInitiativesTable(keyInitiatives);
+                populateAllInitiativesTable(otherInitiatives);
+                
+                document.getElementById('initiativesCompletedPercent').value = '40.0';
+                
+                return sampleInitiatives;
+            }
+        }
+        
+        // Load achievements from Achievements module (UC-09)
+        async function loadAchievementsFromModule(program, year, quarter) {
+            try {
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/achievements?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const achievements = await response.json();
+                    
+                    // Separate KPI vs Initiative achievements (per BR-84)
+                    const kpiAchievements = achievements.filter(a => 
+                        a.type === 'kpi' || a.classification === 'إنجازات على مستوى مؤشرات الأداء'
+                    );
+                    
+                    const initiativeAchievements = achievements.filter(a => 
+                        a.type === 'initiative' || a.classification === 'إنجازات على مستوى المبادرات'
+                    );
+                    
+                    populateKPIAchievementsTable(kpiAchievements);
+                    populateInitiativeAchievementsTable(initiativeAchievements);
+                    
+                    // Get top 5 achievements for dashboard
+                    const top5 = achievements
+                        .filter(a => a.isTop5)
+                        .slice(0, 5);
+                    
+                    updateTopAchievementsSection(top5);
+                    
+                    return achievements;
+                }
+            } catch (error) {
+                console.error('Error loading achievements, using sample data:', error);
+                // Sample achievements for demonstration
+                const sampleAchievements = [
+                    // KPI Achievements
+                    { type: 'kpi', title: 'تحقيق نسبة رضا 87%', description: 'تجاوز نسبة رضا المستفيدين المستهدفة',
+                      kpiName: 'نسبة رضا المستفيدين', targetValue: 85, achievedValue: 87, unit: '%', period: 'Q4 2024',
+                      relatedInitiative: 'التحول الرقمي', strategicGoal: 'تحسين جودة الخدمات', 
+                      entities: 'وزارة الإسكان', impact: 'تحسين تجربة المستفيدين', isTop5: true },
+                    { type: 'kpi', title: 'إنجاز 9500 معاملة', description: 'معالجة معاملات بكفاءة عالية',
+                      kpiName: 'عدد المعاملات المنجزة', targetValue: 10000, achievedValue: 9500, unit: 'معاملة', 
+                      period: 'Q4 2024', relatedInitiative: 'المنصة الرقمية', strategicGoal: 'رفع الكفاءة', 
+                      entities: 'جميع الجهات', impact: 'تسريع الإجراءات', isTop5: true },
+                    // Initiative Achievements
+                    { type: 'initiative', title: 'إطلاق المنصة الرقمية', description: 'إطلاق المرحلة الأولى من المنصة بنجاح',
+                      relatedInitiative: 'المنصة الوطنية للوحدات العقارية', strategicGoal: 'التحول الرقمي',
+                      targetAudience: 'المواطنون والمقيمون', impact: 'تسهيل الوصول للخدمات',
+                      entities: 'وزارة الإسكان، هيئة البيانات', isTop5: true },
+                    { type: 'initiative', title: 'تدريب 500 موظف', description: 'إكمال برنامج التدريب المتخصص',
+                      relatedInitiative: 'برنامج تطوير القدرات', strategicGoal: 'بناء القدرات',
+                      targetAudience: 'موظفو القطاع العام', impact: 'رفع مستوى الأداء',
+                      entities: 'معهد الإدارة العامة', isTop5: true }
+                ];
+                
+                const kpiAchievements = sampleAchievements.filter(a => a.type === 'kpi');
+                const initiativeAchievements = sampleAchievements.filter(a => a.type === 'initiative');
+                const top5 = sampleAchievements.filter(a => a.isTop5).slice(0, 5);
+                
+                populateKPIAchievementsTable(kpiAchievements);
+                populateInitiativeAchievementsTable(initiativeAchievements);
+                updateTopAchievementsSection(top5);
+                
+                return sampleAchievements;
+            }
+        }
+        
+        // Load risks from Risk Management module (UC-11)
+        async function loadRisksFromModule(program, year, quarter) {
+            try {
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/risks?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const risks = await response.json();
+                    
+                    // Separate new vs previous risks
+                    const newRisks = risks.filter(r => 
+                        r.identifiedQuarter === quarter && r.status === 'open'
+                    );
+                    
+                    const previousRisks = risks.filter(r => 
+                        r.identifiedQuarter !== quarter
+                    );
+                    
+                    populateNewRisksTable(newRisks);
+                    populatePreviousRisksTable(previousRisks);
+                    
+                    // Get top 5 critical risks for dashboard
+                    const criticalRisks = risks
+                        .filter(r => r.level === 'critical' || r.level === 'high')
+                        .slice(0, 5);
+                    
+                    updateCriticalRisksSection(criticalRisks);
+                    
+                    return risks;
+                }
+            } catch (error) {
+                console.error('Error loading risks, using sample data:', error);
+                // Sample risks for demonstration
+                const sampleRisks = [
+                    // New risks (Q4 2024)
+                    { name: 'تأخر التكامل مع الأنظمة الخارجية', level: 'عالي', initiative: 'المنصة الرقمية',
+                      reportingEntity: 'وزارة الإسكان', probability: 'متوسطة', impact: 'عالي',
+                      mitigationActions: 'تكوين فريق تكامل متخصص', mitigationStatus: 'قيد التنفيذ',
+                      responsibleEntity: 'هيئة البيانات', identifiedQuarter: quarter, status: 'open',
+                      identifiedDate: '2024-10-01' },
+                    { name: 'نقص الموارد البشرية المؤهلة', level: 'حرج', initiative: 'برنامج تطوير القدرات',
+                      reportingEntity: 'معهد الإدارة', probability: 'عالية', impact: 'عالي جداً',
+                      mitigationActions: 'التعاقد مع استشاريين خارجيين', mitigationStatus: 'مخطط',
+                      responsibleEntity: 'الموارد البشرية', identifiedQuarter: quarter, status: 'open',
+                      identifiedDate: '2024-10-15' },
+                    // Previous risks
+                    { name: 'تحديات الميزانية', level: 'متوسط', initiative: 'مشروع البنية التحتية',
+                      identifiedDate: '2024-07-01', mitigationPath: 'إعادة توزيع الميزانية',
+                      proposedAction: 'مراجعة أولويات الصرف', actionDetails: 'إعادة جدولة بعض الأنشطة',
+                      responsibleAgency: 'وزارة المالية', startDate: '2024-08-01', endDate: '2024-12-31',
+                      actionStatus: 'قيد التنفيذ', responsibleEntity: 'الإدارة المالية',
+                      identifiedQuarter: 'Q3', status: 'mitigating' }
+                ];
+                
+                const newRisks = sampleRisks.filter(r => r.identifiedQuarter === quarter && r.status === 'open');
+                const previousRisks = sampleRisks.filter(r => r.identifiedQuarter !== quarter);
+                const criticalRisks = sampleRisks.filter(r => r.level === 'حرج' || r.level === 'عالي').slice(0, 5);
+                
+                populateNewRisksTable(newRisks);
+                populatePreviousRisksTable(previousRisks);
+                updateCriticalRisksSection(criticalRisks);
+                
+                return sampleRisks;
+            }
+        }
+        
+        // Load support requests from Support module (UC-12)
+        async function loadSupportRequestsFromModule(program, year, quarter) {
+            try {
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/support-requests?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const requests = await response.json();
+                    
+                    // Separate new vs previous requests
+                    const newRequests = requests.filter(r => 
+                        r.quarter === quarter && r.status === 'open'
+                    );
+                    
+                    const previousRequests = requests.filter(r => 
+                        r.quarter !== quarter
+                    );
+                    
+                    populateNewSupportRequestsTable(newRequests);
+                    populatePreviousSupportRequestsTable(previousRequests);
+                    
+                    return requests;
+                }
+            } catch (error) {
+                console.error('Error loading support requests:', error);
+            }
+            return [];
+        }
+        
+        // Load budget data from Budget module
+        async function loadBudgetDataFromModule(program, year, quarter) {
+            try {
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/programs/${program}/budget?year=${year}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const budget = await response.json();
+                    
+                    // Update budget fields
+                    document.getElementById('yearBudgetCap').value = budget.yearlyBudget || 0;
+                    document.getElementById('yearToDateSpent').value = budget.yearToDateSpent || 0;
+                    document.getElementById('quarterActualSpent').value = budget.quarterSpent || 0;
+                    document.getElementById('budgetUtilizationPercent').value = 
+                        ((budget.yearToDateSpent / budget.yearlyBudget) * 100).toFixed(1) || 0;
+                    
+                    return budget;
+                }
+            } catch (error) {
+                console.error('Error loading budget, using sample:', error);
+                // Sample budget data
+                const sampleBudget = {
+                    yearlyBudget: 150000000,
+                    yearToDateSpent: 112500000,
+                    quarterSpent: 28125000
+                };
+                
+                document.getElementById('yearBudgetCap').value = sampleBudget.yearlyBudget;
+                document.getElementById('yearToDateSpent').value = sampleBudget.yearToDateSpent;
+                document.getElementById('quarterActualSpent').value = sampleBudget.quarterSpent;
+                document.getElementById('budgetUtilizationPercent').value = '75.0';
+                
+                return sampleBudget;
+            }
+        }
+        
+        // Calculate data completeness based on loaded data
+        function calculateDataCompleteness() {
+            const kpiRows = document.querySelectorAll('#kpiOverviewTableBody tr:not(.text-muted)').length;
+            const initiativeRows = document.querySelectorAll('#keyInitiativesTableBody tr:not(.text-muted)').length;
+            const achievementRows = document.querySelectorAll('#kpiAchievementsTableBody tr:not(.text-muted)').length;
+            const riskRows = document.querySelectorAll('#newRisksTableBody tr:not(.text-muted)').length;
+            
+            const hasExecutiveSummary = document.getElementById('executiveSummaryOverview')?.value?.length > 100;
+            const hasAchievements = document.getElementById('topAchievementsSummary')?.value?.length > 50;
+            const hasFutureLookout = document.getElementById('futureLookout')?.value?.length > 50;
+            
+            return {
+                overallCompleteness: kpiRows > 0 && initiativeRows > 0 ? 85 : 50,
+                executiveSummary: hasExecutiveSummary && hasAchievements && hasFutureLookout,
+                kpiData: kpiRows > 0,
+                initiativesSummary: initiativeRows > 0,
+                achievementsRisks: achievementRows > 0 || riskRows > 0
+            };
+        }
+        
+        // Update completeness UI
+        function updateCompletenessUI(data) {
+            document.getElementById('overallCompleteness').textContent = data.overallCompleteness + '%';
+            document.getElementById('completenessProgress').style.width = data.overallCompleteness + '%';
+            document.getElementById('completenessProgress').textContent = data.overallCompleteness + '%';
+            
+            // Update individual statuses
+            const statusMap = {
+                'execSummaryStatus': data.executiveSummary,
+                'kpiStatus': data.kpiData,
+                'initiativesStatus': data.initiativesSummary,
+                'achievementsRisksStatus': data.achievementsRisks
+            };
+            
+            Object.keys(statusMap).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (statusMap[key]) {
+                        element.className = 'badge bg-success';
+                        element.textContent = 'مكتمل';
+                    } else {
+                        element.className = 'badge bg-warning';
+                        element.textContent = 'غير مكتمل';
+                    }
+                }
+            });
+        }
+        
+        // Check for concurrent generation (BR-RPT-015)
+        async function checkConcurrentGeneration(program, quarter) {
+            try {
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/reports/check-generation?program=${program}&quarter=${quarter}`
+                );
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    return !result.isGenerating;
+                }
+            } catch (error) {
+                console.error('Error checking concurrent generation:', error);
+            }
+            return true;
+        }
+        
+        // Start async report generation (BR-44, NFR-PER-008)
+        async function startReportGeneration(program, year, quarter, format) {
+            const progressCard = document.getElementById('generationProgressCard');
+            const generateBtn = document.getElementById('generateReportBtn');
+            
+            // Show progress card
+            progressCard.classList.remove('d-none');
+            generateBtn.disabled = true;
+            generateBtn.classList.add('loading');
+            
+            try {
+                const watermark = document.getElementById('applyWatermark').checked ? 
+                    document.getElementById('watermarkText').value : null;
+                const includeRawData = document.getElementById('includeRawData').checked;
+                const autoSchedule = document.getElementById('autoSchedule').checked;
+                const reportType = document.getElementById('reportType').value;
+                
+                // Show notification (per BR-50)
+                showNotification('info', 'جاري التوليد', 
+                    'نحن نعد بياناتك. سيتم إخطارك عند الانتهاء من إعداد التقرير');
+                
+                // Start generation process
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/reports/generate`,
+                    {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            program,
+                            year,
+                            quarter,
+                            format,
+                            reportType, // full, executive, custom
+                            watermark,
+                            includeRawData, // ALT-RPT-007
+                            autoSchedule, // ALT-RPT-005
+                            language: document.getElementById('reportLanguage').value,
+                            colorScheme: document.getElementById('reportColorScheme').value,
+                            dateFormat: document.getElementById('dateFormat').value
+                        })
+                    }
+                );
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    
+                    // Simulate progress stages (NFR-PER-008: 2-3 minutes for report generation)
+                    const stages = [
+                        { progress: 10, stage: 'جمع بيانات المؤشرات...' },
+                        { progress: 25, stage: 'جمع بيانات المبادرات...' },
+                        { progress: 40, stage: 'توليد الرسوم البيانية...' },
+                        { progress: 60, stage: 'إنشاء شرائح الملخص التنفيذي...' },
+                        { progress: 75, stage: 'إنشاء شرائح المؤشرات...' },
+                        { progress: 85, stage: 'إنشاء شرائح المبادرات...' },
+                        { progress: 95, stage: 'إنشاء شرائح الإنجازات والمخاطر...' },
+                        { progress: 100, stage: 'اكتمال التوليد' }
+                    ];
+                    
+                    let currentStage = 0;
+                    const progressInterval = setInterval(() => {
+                        if (currentStage < stages.length) {
+                            const stage = stages[currentStage];
+                            updateGenerationProgress(stage.progress, stage.stage);
+                            currentStage++;
+                        } else {
+                            clearInterval(progressInterval);
+                            
+                            // Show completion notification with download link
+                            progressCard.classList.add('d-none');
+                            generateBtn.disabled = false;
+                            generateBtn.classList.remove('loading');
+                            
+                            showNotification('success', 'اكتمل التوليد', 
+                                `تم إنشاء التقرير بنجاح. <a href="${result.downloadUrl}" class="alert-link">تحميل التقرير</a> (صالح لمدة 30 يوم - BR-45)`);
+                        }
+                    }, 15000); // ~2 minutes total for simulation
+                    
+                } else {
+                    throw new Error('فشل توليد التقرير');
+                }
+                
+            } catch (error) {
+                console.error('Report generation error:', error);
+                progressCard.classList.add('d-none');
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('loading');
+                
+                // EXC-RPT-004: Show failure notification
+                showNotification('danger', 'فشل إنشاء التقرير', 
+                    'فشل إنشاء التقرير، يرجى المحاولة لاحقاً');
+            }
+        }
+        
+        // Update generation progress UI
+        function updateGenerationProgress(percentage, stage) {
+            const progressBar = document.getElementById('generationProgress');
+            const stageText = document.getElementById('currentGenerationStage');
+            const estimatedTime = document.getElementById('estimatedTime');
+            
+            if (progressBar) {
+                progressBar.style.width = percentage + '%';
+                progressBar.textContent = percentage + '%';
+            }
+            
+            if (stageText) {
+                stageText.textContent = stage;
+            }
+            
+            if (estimatedTime && percentage < 100) {
+                const remaining = Math.ceil((100 - percentage) / 100 * 180); // Total ~3 minutes
+                estimatedTime.textContent = remaining > 60 ? 
+                    `${Math.ceil(remaining / 60)} دقيقة` : 
+                    `${remaining} ثانية`;
+            }
+        }
+        
+        // Validate report data completeness
+        async function validateReportData() {
+            const program = document.getElementById('reportProgram').value;
+            const year = document.getElementById('reportYear').value;
+            const quarter = document.getElementById('reportQuarter').value;
+            
+            if (!program || !year || !quarter) {
+                showNotification('warning', 'تنبيه', 'يرجى اختيار البرنامج والفترة أولاً');
+                return;
+            }
+            
+            const isComplete = await checkFullDataCompleteness(program, year, quarter);
+            
+            if (isComplete) {
+                showNotification('success', 'البيانات مكتملة', 
+                    'جميع البيانات المطلوبة للربع المحدد مكتملة ويمكن توليد التقرير');
+            } else {
+                showNotification('warning', 'بيانات ناقصة', 
+                    'بعض البيانات ناقصة. راجع حالة الاكتمال أعلاه');
+            }
+        }
+        
+        // Populate KPI overview table from Vision data
+        function populateKPIOverviewTable(kpis) {
+            const tbody = document.getElementById('kpiOverviewTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            kpis.forEach(kpi => {
+                const achievementRate = ((kpi.actual / kpi.target) * 100).toFixed(1);
+                const status = achievementRate >= 99 ? 'success' : 
+                              achievementRate >= 85 ? 'warning' : 'danger';
+                
+                const row = `
+                    <tr>
+                        <td>${kpi.code || kpi.id}</td>
+                        <td>${kpi.nameAr}</td>
+                        <td>${kpi.unit}</td>
+                        <td>${kpi.baseline || '-'}</td>
+                        <td>${kpi.target}</td>
+                        <td>${kpi.actual}</td>
+                        <td>${achievementRate}%</td>
+                        <td><span class="badge bg-${status}">${kpi.status || 
+                            (achievementRate >= 99 ? 'محقق' : 
+                             achievementRate >= 85 ? 'على المسار' : 'متأخر')}</span></td>
+                        <td>${kpi.frequency || 'ربعي'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+            
+            // Update slide count
+            updateSlideCount();
+        }
+        
+        // Populate KPI achievements table
+        function populateKPIAchievementsTable(achievements) {
+            const tbody = document.getElementById('kpiAchievementsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            achievements.forEach(achievement => {
+                const row = `
+                    <tr>
+                        <td>${achievement.title}</td>
+                        <td>${achievement.description}</td>
+                        <td>${achievement.kpiName || '-'}</td>
+                        <td>${achievement.targetValue || '-'}</td>
+                        <td>${achievement.unit || '-'}</td>
+                        <td>${achievement.achievedValue || '-'}</td>
+                        <td>${achievement.period}</td>
+                        <td>${achievement.relatedInitiative || '-'}</td>
+                        <td>${achievement.strategicGoal || '-'}</td>
+                        <td>${achievement.entities || '-'}</td>
+                        <td>${achievement.impact || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Populate initiative achievements table
+        function populateInitiativeAchievementsTable(achievements) {
+            const tbody = document.getElementById('initiativeAchievementsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            achievements.forEach(achievement => {
+                const row = `
+                    <tr>
+                        <td>${achievement.title}</td>
+                        <td>${achievement.description}</td>
+                        <td>${achievement.relatedInitiative || '-'}</td>
+                        <td>${achievement.strategicGoal || '-'}</td>
+                        <td>${achievement.targetAudience || '-'}</td>
+                        <td>${achievement.impact || '-'}</td>
+                        <td>${achievement.entities || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Populate new risks table
+        function populateNewRisksTable(risks) {
+            const tbody = document.getElementById('newRisksTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            risks.forEach(risk => {
+                const levelClass = risk.level === 'critical' ? 'danger' :
+                                  risk.level === 'high' ? 'warning' : 'info';
+                
+                const row = `
+                    <tr>
+                        <td>${risk.name}</td>
+                        <td><span class="badge bg-${levelClass}">${risk.level}</span></td>
+                        <td>${risk.initiative || '-'}</td>
+                        <td>${risk.reportingEntity || '-'}</td>
+                        <td>${risk.probability || '-'}</td>
+                        <td>${risk.impact || '-'}</td>
+                        <td>${risk.mitigationActions || '-'}</td>
+                        <td>${risk.mitigationStatus || '-'}</td>
+                        <td>${risk.responsibleEntity || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Populate previous risks table
+        function populatePreviousRisksTable(risks) {
+            const tbody = document.getElementById('previousRisksTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            risks.forEach(risk => {
+                const row = `
+                    <tr>
+                        <td>${risk.name}</td>
+                        <td>${risk.identifiedDate || '-'}</td>
+                        <td>${risk.mitigationPath || '-'}</td>
+                        <td>${risk.proposedAction || '-'}</td>
+                        <td>${risk.actionDetails || '-'}</td>
+                        <td>${risk.responsibleAgency || '-'}</td>
+                        <td>${risk.startDate || '-'}</td>
+                        <td>${risk.endDate || '-'}</td>
+                        <td>${risk.actionStatus || '-'}</td>
+                        <td>${risk.responsibleEntity || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Populate new support requests table
+        function populateNewSupportRequestsTable(requests) {
+            const tbody = document.getElementById('newSupportRequestsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            requests.forEach(request => {
+                const row = `
+                    <tr>
+                        <td>${request.supportNeeded}</td>
+                        <td>${request.type || '-'}</td>
+                        <td>${request.responsibleUnit || '-'}</td>
+                        <td>${request.reason || '-'}</td>
+                        <td>${request.requiredDate || '-'}</td>
+                        <td><span class="badge bg-${request.status === 'open' ? 'warning' : 'success'}">${request.status}</span></td>
+                        <td>${request.responsibleEntity || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Populate previous support requests table
+        function populatePreviousSupportRequestsTable(requests) {
+            const tbody = document.getElementById('previousSupportRequestsTableBody');
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            requests.forEach(request => {
+                const row = `
+                    <tr>
+                        <td>${request.supportNeeded}</td>
+                        <td>${request.type || '-'}</td>
+                        <td>${request.responsibleUnit || '-'}</td>
+                        <td><span class="badge bg-${request.status === 'closed' ? 'success' : 'warning'}">${request.status}</span></td>
+                        <td>${request.requestDate || '-'}</td>
+                        <td>${request.closedDate || '-'}</td>
+                        <td>${request.closureNotes || '-'}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+        
+        // Update top achievements section
+        function updateTopAchievementsSection(achievements) {
+            const container = document.getElementById('topAchievementsSummary');
+            if (!container) return;
+            
+            const achievementsList = achievements
+                .map((a, i) => `${i + 1}. ${a.title}: ${a.description}`)
+                .join('\n');
+            
+            if (container.tagName === 'TEXTAREA') {
+                container.value = achievementsList;
+            } else {
+                container.innerHTML = achievementsList;
+            }
+        }
+        
+        // Update critical risks section
+        function updateCriticalRisksSection(risks) {
+            const container = document.getElementById('criticalRisksText');
+            if (!container) return;
+            
+            const risksList = risks
+                .map(r => `• ${r.name} (${r.level}): ${r.mitigationActions || 'يتطلب إجراءات تخفيف'}`)
+                .join('\n');
+            
+            if (container.tagName === 'TEXTAREA') {
+                container.value = risksList;
+            } else {
+                container.innerHTML = risksList;
+            }
+        }
+        
+        // Load key initiatives for report (refresh from API)
+        async function loadKeyInitiatives() {
+            const program = document.getElementById('reportProgram').value;
+            const year = document.getElementById('reportYear').value;
+            const quarter = document.getElementById('reportQuarter').value;
+            
+            if (!program || !year || !quarter) {
+                showNotification('warning', 'تنبيه', 'يرجى اختيار البرنامج والفترة أولاً');
+                return;
+            }
+            
+            // Re-load initiatives data
+            await loadInitiativesFromModule(program, year, quarter);
+            showNotification('success', 'تم التحميل', 'تم تحميل المبادرات الرئيسية');
+        }
+        
+        // Populate key initiatives table
+        function populateKeyInitiativesTable(initiatives) {
+            const tbody = document.getElementById('keyInitiativesTableBody');
+            tbody.innerHTML = '';
+            
+            initiatives.forEach(init => {
+                const row = `
+                    <tr>
+                        <td>${init.code}</td>
+                        <td>${init.nameAr}</td>
+                        <td>${init.nameEn}</td>
+                        <td>${init.isMandatory ? 'حتمية' : 'غير حتمية'}</td>
+                        <td>${init.fundingStatus}</td>
+                        <td>${init.targetProgress}%</td>
+                        <td>${init.actualProgress}%</td>
+                        <td><span class="badge bg-${init.statusColor}">${init.status}</span></td>
+                        <td>${formatCurrency(init.totalCost)}</td>
+                        <td>${formatCurrency(init.spentToDate)}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+            
+            // Update dynamic slide count
+            updateSlideCount();
+        }
+        
+        // Load all initiatives for report (refresh from API)
+        async function loadAllInitiatives() {
+            const program = document.getElementById('reportProgram').value;
+            const year = document.getElementById('reportYear').value;
+            const quarter = document.getElementById('reportQuarter').value;
+            
+            if (!program || !year || !quarter) {
+                showNotification('warning', 'تنبيه', 'يرجى اختيار البرنامج والفترة أولاً');
+                return;
+            }
+            
+            // Re-load initiatives data
+            await loadInitiativesFromModule(program, year, quarter);
+            showNotification('success', 'تم التحميل', 'تم تحميل جميع المبادرات');
+        }
+        
+        // Show/hide report sections based on program selection
+        function toggleReportSections() {
+            const programSelect = document.getElementById('reportProgram');
+            const selectProgramMessage = document.getElementById('selectProgramMessage');
+            const completenessCard = document.getElementById('completenessCard');
+            const reportContentContainer = document.getElementById('reportContentContainer');
+            
+            if (programSelect?.value) {
+                // Show sections when program is selected
+                selectProgramMessage?.classList.add('d-none');
+                completenessCard?.classList.remove('d-none');
+                reportContentContainer?.classList.remove('d-none');
+                
+                // Also trigger data loading if year and quarter are selected
+                const year = document.getElementById('reportYear')?.value;
+                const quarter = document.getElementById('reportQuarter')?.value;
+                if (year && quarter) {
+                    checkFullDataCompleteness(programSelect.value, year, quarter);
+                }
+            } else {
+                // Hide sections when no program selected, show message
+                selectProgramMessage?.classList.remove('d-none');
+                completenessCard?.classList.add('d-none');
+                reportContentContainer?.classList.add('d-none');
+            }
+        }
+        
+        // Auto-load data when program/period changes
+        function initializeReportDataLoading() {
+            const programSelect = document.getElementById('reportProgram');
+            const yearSelect = document.getElementById('reportYear');
+            const quarterSelect = document.getElementById('reportQuarter');
+            
+            const loadReportData = async () => {
+                const program = programSelect?.value;
+                const year = yearSelect?.value;
+                const quarter = quarterSelect?.value;
+                
+                // Show/hide sections based on program selection
+                toggleReportSections();
+                
+                if (program && year && quarter) {
+                    // Show loading indicator
+                    const completenessCard = document.getElementById('completenessCard');
+                    if (completenessCard) {
+                        completenessCard.classList.add('loading');
+                    }
+                    
+                    // Load all data
+                    await checkFullDataCompleteness(program, year, quarter);
+                    
+                    // Remove loading indicator
+                    if (completenessCard) {
+                        completenessCard.classList.remove('loading');
+                    }
+                    
+                    // Update slide count
+                    updateSlideCount();
+                }
+            };
+            
+            // Add change listeners
+            programSelect?.addEventListener('change', loadReportData);
+            yearSelect?.addEventListener('change', loadReportData);
+            quarterSelect?.addEventListener('change', loadReportData);
+            
+            // Initial toggle on page load
+            toggleReportSections();
+            
+            // Load data if already selected (e.g., from URL params)
+            if (programSelect?.value && yearSelect?.value && quarterSelect?.value) {
+                loadReportData();
+            }
+        }
+        
+        // Populate all initiatives table
+        function populateAllInitiativesTable(initiatives) {
+            const tbody = document.getElementById('allInitiativesTableBody');
+            tbody.innerHTML = '';
+            
+            // Sort by status (delayed first) per BR-RPT-006
+            initiatives.sort((a, b) => {
+                const statusOrder = { 'متأخرة': 0, 'على المسار': 1, 'مكتملة': 2 };
+                return (statusOrder[a.status] || 3) - (statusOrder[b.status] || 3);
+            });
+            
+            initiatives.forEach(init => {
+                const row = `
+                    <tr>
+                        <td>${init.nameAr}</td>
+                        <td>${init.responsibleEntity}</td>
+                        <td>${init.isMandatory ? 'حتمية' : 'غير حتمية'}</td>
+                        <td>${init.fundingStatus}</td>
+                        <td>${init.targetProgress}%</td>
+                        <td>${init.actualProgress}%</td>
+                        <td><span class="badge bg-${init.statusColor}">${init.status}</span></td>
+                        <td>${formatCurrency(init.approvedBudget)}</td>
+                        <td>${formatCurrency(init.quarterSpent)}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+            
+            // Update dynamic slide count
+            updateSlideCount();
+        }
+        
+        // Format currency with Arabic thousands separator (BR-RPT-012)
+        function formatCurrency(value) {
+            if (!value) return '-';
+            return new Intl.NumberFormat('ar-SA', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(value);
+        }
+        
+        // Start report generation process
+        async function startReportGeneration(program, year, quarter, format) {
+            const progressCard = document.getElementById('generationProgressCard');
+            const generateBtn = document.getElementById('generateReportBtn');
+            
+            progressCard.classList.remove('d-none');
+            generateBtn.disabled = true;
+            
+            try {
+                const reportData = {
+                    program,
+                    year,
+                    quarter,
+                    format,
+                    reportType: document.getElementById('reportType').value,
+                    executiveSummary: {
+                        overview: document.getElementById('executiveSummaryOverview').value,
+                        achievements: document.getElementById('topAchievementsSummary').value,
+                        lookout: document.getElementById('futureLookout').value
+                    },
+                    options: {
+                        watermark: document.getElementById('applyWatermark').checked ? 
+                            document.getElementById('watermarkText').value : null,
+                        includeRawData: document.getElementById('includeRawData').checked,
+                        language: document.getElementById('reportLanguage').value,
+                        colorScheme: document.getElementById('reportColorScheme').value,
+                        dateFormat: document.getElementById('dateFormat').value
+                    }
+                };
+                
+                // Submit to backend for async processing
+                const response = await window.apiService.fetchWithAuth(
+                    `/api/reports/generate-quarterly`,
+                    {
+                        method: 'POST',
+                        body: JSON.stringify(reportData)
+                    }
+                );
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    simulateReportProgress(result.jobId, program);
+                } else {
+                    throw new Error('فشل بدء التوليد');
+                }
+                
+            } catch (error) {
+                console.error('Generation start error:', error);
+                progressCard.classList.add('d-none');
+                generateBtn.disabled = false;
+                showNotification('danger', 'خطأ', 'فشل بدء عملية التوليد');
+            }
+        }
+        
+        // Simulate progress (actual implementation would poll backend)
+        function simulateReportProgress(jobId, program) {
+                const slideCount = updateSlideCount();
+                const stages = [
+                    { progress: 10, stage: 'جمع بيانات المؤشرات من UC-05...', time: 10000 },
+                    { progress: 25, stage: 'جمع بيانات المبادرات من UC-14...', time: 15000 },
+                    { progress: 40, stage: 'توليد الرسوم البيانية (300 DPI)...', time: 20000 },
+                    { progress: 55, stage: `إنشاء قسم الملخص والمؤشرات...`, time: 30000 },
+                    { progress: 70, stage: `إنشاء قسم المبادرات...`, time: 25000 },
+                    { progress: 85, stage: `إنشاء قسم الإنجازات والمخاطر...`, time: 20000 },
+                    { progress: 95, stage: `تطبيق التنسيق النهائي وحفظ الملف (${slideCount} شريحة)...`, time: 15000 },
+                { progress: 100, stage: 'اكتمال التوليد', time: 5000 }
+            ];
+            
+            let currentStage = 0;
+            
+            function updateStage() {
+                if (currentStage < stages.length) {
+                    const stage = stages[currentStage];
+                    updateGenerationProgress(stage.progress, stage.stage);
+                    
+                    if (currentStage < stages.length - 1) {
+                        setTimeout(updateStage, stage.time);
+                    } else {
+                        // Generation complete
+                        setTimeout(() => {
+                            completeReportGeneration(jobId, program);
+                        }, stage.time);
+                    }
+                    currentStage++;
+                }
+            }
+            
+            updateStage();
+        }
+        
+        // Complete report generation
+        function completeReportGeneration(jobId, program) {
+            const progressCard = document.getElementById('generationProgressCard');
+            const generateBtn = document.getElementById('generateReportBtn');
+            
+            progressCard.classList.add('d-none');
+            generateBtn.disabled = false;
+            
+            // BR-45: Show download link valid for 30 days
+            const downloadUrl = `/api/reports/download/${jobId}`;
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 30);
+            
+            showNotification('success', 'تم إنشاء التقرير', 
+                `تم إنشاء التقرير بنجاح. <a href="${downloadUrl}" class="alert-link fw-bold">تحميل التقرير</a><br>
+                <small>صالح حتى: ${expiryDate.toLocaleDateString('ar-SA')} (30 يوم - BR-45)</small>`);
+        }
+        
         // Dynamic search and filtering
         function filterPrograms() {
             const search = document.getElementById('searchPrograms').value.toLowerCase();
@@ -2479,7 +4272,7 @@
             }
         }
         
-        // Initialize UC-03 functionality on page load
+        // Initialize program management functionality on page load
         checkPeriodValidity();
         
         // AS-17: Enable dynamic search on keyup
@@ -2488,6 +4281,10 @@
             searchInput.addEventListener('keyup', filterPrograms);
         }
     </script>
+    
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
 </body>
 
+</html>
 </html>

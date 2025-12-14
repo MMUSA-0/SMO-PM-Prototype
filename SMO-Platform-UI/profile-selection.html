@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SMO">
+    <link rel="manifest" href="/images/favicons/site.webmanifest">
+    
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/nice-select2.css">
+    <link rel="stylesheet" href="css/fancybox.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <title>اختيار الدور - مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+        /* Profile Selection Page Styles - Saudi Vision 2030 Green Theme */
+        :root {
+            --profile-primary: #00875A;
+            --profile-primary-hover: #006644;
+            --profile-primary-light: #00A86B;
+            --profile-success: #1cc88a;
+            --profile-border: #e3e6f0;
+            --profile-text-primary: #2c3e50;
+            --profile-text-secondary: #6c757d;
+            --profile-text-muted: #95a5a6;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Content Animation */
+        .profile-selection-content {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        /* User Welcome Card */
+        .user-welcome-card {
+            background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+            border: 2px solid rgba(0, 135, 90, 0.15);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .user-welcome-label {
+            font-size: 0.875rem;
+            color: var(--profile-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .user-welcome-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--profile-text-primary);
+        }
+        
+        /* Section Title */
+        .profile-selection-content .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--profile-text-primary);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .profile-selection-content .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+            border-radius: 2px;
+        }
+        
+        /* Roles Grid */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .roles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .roles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Role Card */
+        .role-card {
+            background: white;
+            border: 2px solid #e3e6f0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 135, 90, 0.08);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        /* Default Profile Badge */
+        .default-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+            z-index: 5;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+            }
+            50% {
+                box-shadow: 0 2px 12px rgba(243, 156, 18, 0.5);
+            }
+            100% {
+                box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+            }
+        }
+        
+        .default-badge i {
+            font-size: 0.625rem;
+        }
+        
+        /* Set as Default Button */
+        .set-default-btn {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(243, 156, 18, 0.1);
+            color: #f39c12;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            padding: 0.25rem 0.625rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        
+        .role-card:hover .set-default-btn:not(.is-default) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .set-default-btn:hover {
+            background: rgba(243, 156, 18, 0.2);
+            border-color: #f39c12;
+            transform: scale(1.05);
+        }
+        
+        .set-default-btn.is-default {
+            opacity: 1;
+            transform: translateY(0);
+            background: rgba(0, 135, 90, 0.1);
+            color: var(--profile-primary);
+            border-color: rgba(0, 135, 90, 0.3);
+            cursor: default;
+        }
+        
+        .set-default-btn i {
+            font-size: 0.75rem;
+        }
+        
+        /* Default Profile Highlight */
+        .role-card.is-default {
+            border-color: rgba(243, 156, 18, 0.3);
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.02) 0%, rgba(230, 126, 34, 0.02) 100%);
+        }
+        
+        .role-card.is-default::before {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            transform: scaleX(1);
+        }
+        
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .role-card:hover {
+            border-color: #00875A;
+            box-shadow: 0 8px 24px rgba(0, 135, 90, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .role-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .role-card:focus {
+            outline: 3px solid rgba(0, 135, 90, 0.4);
+            outline-offset: 2px;
+        }
+        
+        .role-card.selected {
+            background: linear-gradient(135deg, rgba(0, 135, 90, 0.05) 0%, rgba(0, 168, 107, 0.05) 100%);
+            border-color: #00875A;
+            box-shadow: 0 8px 24px rgba(0, 135, 90, 0.2);
+        }
+        
+        .role-card.selected::before {
+            transform: scaleX(1);
+        }
+        
+        /* Selection Indicator */
+        .role-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 32px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 135, 90, 0.4);
+            animation: scaleIn 0.3s ease;
+            z-index: 10;
+        }
+        
+        /* Role Icon */
+        .role-icon-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .role-icon {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .role-card:hover .role-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Role Colors - Saudi Vision 2030 Theme */
+        .role-card.smo .role-icon { 
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+            color: #ffffff;
+        }
+        .role-card.executive .role-icon { 
+            background: linear-gradient(135deg, #006644 0%, #00875A 100%);
+            color: #ffffff;
+        }
+        .role-card.vro .role-icon { 
+            background: linear-gradient(135deg, #00A86B 0%, #26D88B 100%);
+            color: #ffffff;
+        }
+        .role-card.vrp .role-icon { 
+            background: linear-gradient(135deg, #f5af19 0%, #f39c12 100%);
+            color: #ffffff;
+        }
+        .role-card.adaa .role-icon { 
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: #ffffff;
+        }
+        .role-card.performance .role-icon { 
+            background: linear-gradient(135deg, #00875A 0%, #006644 100%);
+            color: #ffffff;
+        }
+        
+        /* Role Content */
+        .role-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .role-name-ar {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--profile-text-primary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+            line-height: 1.3;
+        }
+        
+        .role-card:hover .role-name-ar {
+            color: var(--profile-primary);
+        }
+        
+        .role-name-en {
+            font-size: 0.8125rem;
+            color: var(--profile-text-secondary);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+            line-height: 1.2;
+        }
+        
+        .role-description {
+            font-size: 0.875rem;
+            color: var(--profile-text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Auto-Selection Settings */
+        .auto-selection-settings {
+            background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+            border: 2px solid rgba(0, 135, 90, 0.15);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .auto-selection-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+            color: var(--profile-text-primary);
+            font-weight: 500;
+        }
+        
+        .auto-selection-label i {
+            font-size: 1.125rem;
+            color: var(--profile-primary);
+        }
+        
+        .auto-selection-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 26px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            right: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.3);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(-24px);
+        }
+        
+        .auto-selection-text {
+            font-size: 0.875rem;
+            color: var(--profile-text-secondary);
+        }
+        
+        /* Action Section */
+        .action-section {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+            border: 2px solid rgba(0, 135, 90, 0.15);
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        /* Buttons */
+        .action-section .btn-primary {
+            background: linear-gradient(135deg, #00875A 0%, #00A86B 100%);
+            color: #ffffff !important;
+            border: none;
+            padding: 0.875rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 135, 90, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-section .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        
+        .action-section .btn-primary:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 135, 90, 0.4);
+        }
+        
+        .action-section .btn-primary:hover:not(:disabled)::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .action-section .btn-primary:active:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0, 135, 90, 0.3);
+        }
+        
+        .action-section .btn-primary:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.4), 0 4px 12px rgba(0, 135, 90, 0.3);
+        }
+        
+        .action-section .btn-primary:disabled {
+            background: linear-gradient(135deg, #d1d3e2 0%, #b8bac8 100%);
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+        
+        /* Loading State */
+        .action-section .btn-primary.loading {
+            color: transparent;
+        }
+        
+        .action-section .btn-primary.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid white;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Auto-login Countdown */
+        .action-section .btn-primary.countdown {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            animation: countdownPulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes countdownPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+            }
+        }
+        
+        .cancel-auto-login {
+            margin-top: 1rem;
+            color: var(--profile-text-secondary);
+            background: transparent;
+            border: 1px solid var(--profile-border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .cancel-auto-login.show {
+            display: inline-block;
+        }
+        
+        .cancel-auto-login:hover {
+            background: white;
+            border-color: var(--profile-text-secondary);
+            color: var(--profile-text-primary);
+        }
+        
+        /* Smart Suggestion */
+        .smart-suggestion {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--profile-text-primary);
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .smart-suggestion.show {
+            display: block;
+        }
+        
+        .smart-suggestion i {
+            color: #f39c12;
+            margin-left: 0.5rem;
+        }
+        
+        /* Helper Text */
+        .helper-text {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--profile-text-secondary);
+        }
+        
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Page Title Override */
+        .page-content .page-title {
+            color: var(--profile-text-primary);
+        }
+        
+        /* Breadcrumb Colors */
+        .breadcrumb-item {
+            color: var(--profile-text-secondary);
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--profile-text-primary);
+        }
+        
+        .breadcrumb-item a {
+            color: var(--profile-text-secondary);
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--profile-primary);
+        }
+        
+        /* Full Width Layout (No Sidebar) */
+        .profile-selection-full-width {
+            width: 100% !important;
+            margin: 0 auto !important;
+            max-width: 1200px !important;
+            padding: 0 1.5rem !important;
+        }
+        
+        @media (min-width: 768px) {
+            .profile-selection-full-width {
+                padding: 0 2rem !important;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .profile-selection-full-width {
+                padding: 0 3rem !important;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 767px) {
+            .roles-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .action-section .btn-primary {
+                width: 100%;
+            }
+            
+            .role-name-ar {
+                font-size: 1rem;
+            }
+            
+            .profile-selection-full-width {
+                padding: 0 1rem !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="overflow-hidden">
+    <header class="page-header">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex align-items-center gap-4">
+                    <a class="page-header__logo" href="index.html" title="الرئيسية">
+                        <img src="images/logo.svg" alt="مكتب الإدارة الاستراتيجية">
+                    </a>
+                    <div class="d-flex align-items-center gap-3 gap-lg-5 ms-auto">
+                        <div class="page-header__actions">
+                            <div class="page-header__actions__item">
+                                <div class="search-menu">
+                                    <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
+                                    <div class="search-menu__input">
+                                        <input class="form-control" type="search" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown notifications-dropdown">
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title=""></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">2</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="notifications-list">
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">إشعار طلب تغيير</h4>
+                                                        <p class="notifications-list__item__description">تم استلام طلب تغييرك وجارٍ مراجعته من الفريق المختص</p>
+                                                        <span class="notifications-list__item__date">قبل 10 دقائق</span>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-list__item notifications-list__item--unread">
+                                                    <img class="notifications-list__item__user-photo" src="images/demo/user-photo.png" alt="">
+                                                    <div class="notifications-list__item__details">
+                                                        <h4 class="notifications-list__item__title">مؤشر يحتاج متابعة</h4>
+                                                        <p class="notifications-list__item__description">مؤشر "نسبة مشاركة المرأة في سوق العمل</p>
+                                                        <span class="notifications-list__item__date">اليوم - 09:30 ص</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__footer">
+                                            <button type="button" class="btn btn-primary">عرض كل الإشعارات</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-dropdown">
+                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="قائمة المستخدم">
+                                <span id="headerUserName">فهد محمد القحطاني</span>
+                                <img src="images/avatar.svg" alt="">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                <div class="user-dropdown__info">
+                                    <span class="user-dropdown__info__name" id="dropdownUserName">فهد محمد القحطاني</span>
+                                    <span class="user-dropdown__info__job-title">المدير التنفيذي</span>
+                                </div>
+                                <div class="user-dropdown__actions">
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/user-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/settings-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                    </a>
+                                    <a class="user-dropdown__actions__item" href="login.html">
+                                        <span class="user-dropdown__actions__item__icon">
+                                            <img src="images/logout-icon.svg" alt="">
+                                        </span>
+                                        <span class="user-dropdown__actions__item__title text-danger">تسجيل الخروج</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </header>
+    <main>
+        <div class="page-container">
+            <section class="page-content profile-selection-full-width">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <h1 class="page-title">اختيار الدور</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">
+                                        <img src="images/home-icon.svg" alt="">
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">اختيار الدور</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Profile Selection Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-container profile-selection-content">
+                            <!-- User Welcome Card -->
+                            <div class="user-welcome-card" id="userWelcome" style="display: none;">
+                    <div class="user-welcome-label">المستخدم الحالي</div>
+                    <div class="user-welcome-name" id="userName">-</div>
+                            </div>
+                
+                            <!-- Section Title -->
+                    <h2 class="section-title">اختر الدور المطلوب</h2>
+                    
+                            <!-- Auto-Selection Settings -->
+                            <div class="auto-selection-settings" id="autoSelectionSettings">
+                                <div class="auto-selection-label">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                    <span>الدخول التلقائي للدور الافتراضي</span>
+                                </div>
+                                <div class="auto-selection-toggle">
+                                    <span class="auto-selection-text">تفعيل</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoLoginToggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                    
+                            <!-- Roles Grid -->
+                            <div class="roles-grid" id="rolesGrid" role="group" aria-label="قائمة الأدوار المتاحة">
+                        <!-- Role cards will be dynamically inserted here -->
+                    </div>
+                
+                <!-- Actions -->
+                            <div class="action-section">
+                    <button type="button" class="btn-primary" id="continueBtn" disabled>
+                        الدخول للنظام
+                    </button>
+                    <button type="button" class="cancel-auto-login" id="cancelAutoLogin">
+                        إلغاء الدخول التلقائي
+                    </button>
+                    <div class="helper-text" id="helperText">
+                        الرجاء اختيار أحد الأدوار المتاحة لك للمتابعة
+                    </div>
+                    <div class="smart-suggestion" id="smartSuggestion">
+                        <i class="bi bi-lightbulb-fill"></i>
+                        <span id="suggestionText"></span>
+                    </div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="page-container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <span class="copyrights">&copy; <span class="copyrights__year">2025</span> جميع الحقوق محفوظة - مكتب الإدارة الاستراتيجية</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="page-preloader">
+        <div class="loading-bar">
+            <div class="loading-line"></div>
+            <div class="loading-line"></div>
+        </div>
+        <div class="loading-message">
+            <div class="loading-spinner"></div>
+            <div class="loading-logo">
+                <img src="images/logo-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/ar.umd.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <script>
+        // Configuration
+        const ROLES_CONFIG = [
+            {
+                id: 'SMO',
+                nameAr: 'مكتب الإدارة الاستراتيجية',
+                nameEn: 'Strategic Management Office',
+                icon: 'bi-building',
+                class: 'smo',
+                description: 'إدارة وتنسيق الأداء الاستراتيجي للمنظمة',
+                dashboard: 'performance-dashboard.html'
+            },
+            {
+                id: 'ExecutiveOffice',
+                nameAr: 'المكتب التنفيذي',
+                nameEn: 'Executive Office',
+                icon: 'bi-briefcase',
+                class: 'executive',
+                description: 'متابعة القرارات التنفيذية والمبادرات',
+                dashboard: 'executive-performance-dashboard.html'
+            },
+            {
+                id: 'VRO',
+                nameAr: 'مكتب تحقيق الرؤية',
+                nameEn: 'Vision Realization Office',
+                icon: 'bi-eye',
+                class: 'vro',
+                description: 'تنفيذ ومتابعة برامج الرؤية 2030',
+                dashboard: 'performance-vision.html'
+            },
+            {
+                id: 'VRP',
+                nameAr: 'برنامج تحقيق الرؤية',
+                nameEn: 'Vision Realization Program',
+                icon: 'bi-diagram-3',
+                class: 'vrp',
+                description: 'إدارة برامج ومبادرات الرؤية',
+                dashboard: 'performance-programs.html'
+            },
+            {
+                id: 'ADAA',
+                nameAr: 'المركز الوطني لقياس الأداء',
+                nameEn: 'ADAA',
+                icon: 'bi-graph-up',
+                class: 'adaa',
+                description: 'قياس ومتابعة مؤشرات الأداء الوطنية',
+                dashboard: 'indicators.html'
+            },
+            {
+                id: 'PerformanceManager',
+                nameAr: 'مدير الأداء',
+                nameEn: 'Performance Manager',
+                icon: 'bi-speedometer2',
+                class: 'performance',
+                description: 'إدارة ومتابعة الأداء المؤسسي',
+                dashboard: 'performance-dashboard.html'
+            }
+        ];
+        
+        // State
+        let selectedRole = null;
+        let userRoles = [];
+        let defaultProfile = null;
+        let autoLoginEnabled = false;
+        let profileUsageStats = {};
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', init);
+        
+        function init() {
+            // Check authentication
+            if (!checkAuth()) return;
+            
+            // Load user data
+            loadUserData();
+            
+            // Load preferences
+            loadPreferences();
+            
+            // Render roles
+            renderRoles();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Check for auto-selection
+            checkAutoSelection();
+        }
+        
+        function loadPreferences() {
+            // Load default profile
+            defaultProfile = localStorage.getItem('defaultProfile');
+            
+            // Load auto-login preference
+            autoLoginEnabled = localStorage.getItem('autoLoginEnabled') === 'true';
+            document.getElementById('autoLoginToggle').checked = autoLoginEnabled;
+            
+            // Load usage stats for smart selection
+            const stats = localStorage.getItem('profileUsageStats');
+            profileUsageStats = stats ? JSON.parse(stats) : {};
+        }
+        
+        function savePreferences() {
+            localStorage.setItem('defaultProfile', defaultProfile || '');
+            localStorage.setItem('autoLoginEnabled', autoLoginEnabled);
+            localStorage.setItem('profileUsageStats', JSON.stringify(profileUsageStats));
+        }
+        
+        function updateProfileUsage(roleId) {
+            if (!profileUsageStats[roleId]) {
+                profileUsageStats[roleId] = {
+                    count: 0,
+                    lastUsed: null,
+                    totalTime: 0
+                };
+            }
+            profileUsageStats[roleId].count++;
+            profileUsageStats[roleId].lastUsed = new Date().toISOString();
+            savePreferences();
+        }
+        
+        function getSmartDefaultProfile() {
+            // If no default is set, determine based on usage patterns
+            if (defaultProfile && userRoles.includes(defaultProfile)) {
+                return defaultProfile;
+            }
+            
+            // Find most frequently used profile
+            let mostUsed = null;
+            let maxCount = 0;
+            
+            userRoles.forEach(roleId => {
+                const stats = profileUsageStats[roleId];
+                if (stats && stats.count > maxCount) {
+                    maxCount = stats.count;
+                    mostUsed = roleId;
+                }
+            });
+            
+            // If we have usage data, use most frequent
+            if (mostUsed && maxCount > 2) {
+                return mostUsed;
+            }
+            
+            // Otherwise, check for last used role
+            const lastRole = localStorage.getItem('currentRole');
+            if (lastRole && userRoles.includes(lastRole)) {
+                return lastRole;
+            }
+            
+            // Default to first available role
+            return userRoles[0];
+        }
+        
+        function setDefaultProfile(roleId) {
+            // Remove previous default
+            document.querySelectorAll('.role-card').forEach(card => {
+                card.classList.remove('is-default');
+                const badge = card.querySelector('.default-badge');
+                if (badge) badge.remove();
+                const btn = card.querySelector('.set-default-btn');
+                if (btn) {
+                    btn.classList.remove('is-default');
+                    btn.innerHTML = '<i class="bi bi-star"></i> تعيين كافتراضي';
+                    btn.onclick = () => setDefaultProfile(card.getAttribute('data-role-id'));
+                }
+            });
+            
+            // Set new default
+            defaultProfile = roleId;
+            const card = document.querySelector(`[data-role-id="${roleId}"]`);
+            if (card) {
+                card.classList.add('is-default');
+                
+                // Add default badge
+                const badge = document.createElement('div');
+                badge.className = 'default-badge';
+                badge.innerHTML = '<i class="bi bi-star-fill"></i> افتراضي';
+                card.appendChild(badge);
+                
+                // Update button
+                const btn = card.querySelector('.set-default-btn');
+                if (btn) {
+                    btn.classList.add('is-default');
+                    btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> الدور الافتراضي';
+                    btn.onclick = null;
+                }
+            }
+            
+            // Save preference
+            savePreferences();
+            
+            // Announce change
+            const role = ROLES_CONFIG.find(r => r.id === roleId);
+            if (role) {
+                announceToScreenReader(`تم تعيين ${role.nameAr} كدور افتراضي`);
+            }
+        }
+        
+        function checkAuth() {
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return false;
+            }
+            return true;
+        }
+        
+        function loadUserData() {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            // Display user name in multiple locations
+            if (user.fullName) {
+                document.getElementById('userWelcome').style.display = 'block';
+                document.getElementById('userName').textContent = user.fullName;
+                
+                // Update header user name
+                const headerUserName = document.getElementById('headerUserName');
+                if (headerUserName) {
+                    headerUserName.textContent = user.fullName;
+                }
+                
+                // Update dropdown user name
+                const dropdownUserName = document.getElementById('dropdownUserName');
+                if (dropdownUserName) {
+                    dropdownUserName.textContent = user.fullName;
+                }
+            }
+            
+            // Get user roles (mock data for development)
+            userRoles = user.roles || ['SMO', 'PerformanceManager', 'VRO'];
+        }
+        
+        function renderRoles() {
+            const container = document.getElementById('rolesGrid');
+            container.innerHTML = '';
+            
+            ROLES_CONFIG.forEach(role => {
+                if (userRoles.includes(role.id)) {
+                    container.appendChild(createRoleCard(role));
+                }
+            });
+        }
+        
+        function createRoleCard(role) {
+            const card = document.createElement('div');
+            const isDefault = role.id === defaultProfile;
+            card.className = `role-card ${role.class} ${isDefault ? 'is-default' : ''}`;
+            card.tabIndex = 0;
+            card.role = 'radio';
+            card.setAttribute('aria-checked', 'false');
+            card.setAttribute('data-role-id', role.id);
+            
+            card.innerHTML = `
+                <div class="role-icon-wrapper">
+                    <div class="role-icon">
+                        <i class="bi ${role.icon}"></i>
+                    </div>
+                    <div class="role-content">
+                        <h3 class="role-name-ar">${role.nameAr}</h3>
+                        <div class="role-name-en">${role.nameEn}</div>
+                        <p class="role-description">${role.description}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Add default badge if this is the default profile
+            if (isDefault) {
+                const badge = document.createElement('div');
+                badge.className = 'default-badge';
+                badge.innerHTML = '<i class="bi bi-star-fill"></i> افتراضي';
+                card.appendChild(badge);
+            }
+            
+            // Add set as default button
+            const setDefaultBtn = document.createElement('button');
+            setDefaultBtn.className = `set-default-btn ${isDefault ? 'is-default' : ''}`;
+            setDefaultBtn.type = 'button';
+            
+            if (isDefault) {
+                setDefaultBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> الدور الافتراضي';
+                setDefaultBtn.disabled = true;
+            } else {
+                setDefaultBtn.innerHTML = '<i class="bi bi-star"></i> تعيين كافتراضي';
+                setDefaultBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    setDefaultProfile(role.id);
+                };
+            }
+            
+            card.appendChild(setDefaultBtn);
+            
+            // Event handlers
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.set-default-btn')) {
+                    selectRole(role.id);
+                }
+            });
+            
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    if (!e.target.closest('.set-default-btn')) {
+                        e.preventDefault();
+                        selectRole(role.id);
+                    }
+                }
+            });
+            
+            return card;
+        }
+        
+        function selectRole(roleId) {
+            // Clear previous selection
+            document.querySelectorAll('.role-card').forEach(card => {
+                card.classList.remove('selected');
+                card.setAttribute('aria-checked', 'false');
+            });
+            
+            // Set new selection
+            const card = document.querySelector(`[data-role-id="${roleId}"]`);
+            if (card) {
+                card.classList.add('selected');
+                card.setAttribute('aria-checked', 'true');
+                selectedRole = roleId;
+                
+                // Enable continue button
+                const btn = document.getElementById('continueBtn');
+                btn.disabled = false;
+                
+                // Update button text
+                const role = ROLES_CONFIG.find(r => r.id === roleId);
+                if (role) {
+                    btn.textContent = `الدخول كـ ${role.nameAr}`;
+                }
+                
+                // Announce to screen readers
+                announceToScreenReader(`تم اختيار ${role.nameAr}`);
+            }
+        }
+        
+        function setupEventListeners() {
+            document.getElementById('continueBtn').addEventListener('click', handleContinue);
+            
+            // Auto-login toggle
+            document.getElementById('autoLoginToggle').addEventListener('change', (e) => {
+                autoLoginEnabled = e.target.checked;
+                savePreferences();
+                
+                if (autoLoginEnabled) {
+                    // If no default is set, set the currently selected or smart default
+                    if (!defaultProfile) {
+                        const smartDefault = selectedRole || getSmartDefaultProfile();
+                        if (smartDefault) {
+                            setDefaultProfile(smartDefault);
+                        }
+                    }
+                    announceToScreenReader('تم تفعيل الدخول التلقائي للدور الافتراضي');
+                } else {
+                    announceToScreenReader('تم إلغاء تفعيل الدخول التلقائي');
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && selectedRole && !e.target.closest('.role-card')) {
+                    handleContinue();
+                }
+            });
+        }
+        
+        function handleContinue() {
+            if (!selectedRole) return;
+            
+            const btn = document.getElementById('continueBtn');
+            btn.classList.add('loading');
+            btn.disabled = true;
+            
+            // Save selection
+            localStorage.setItem('currentRole', selectedRole);
+            
+            // Update usage statistics
+            updateProfileUsage(selectedRole);
+            
+            // Navigate to dashboard
+            setTimeout(() => {
+                const role = ROLES_CONFIG.find(r => r.id === selectedRole);
+                window.location.href = role.dashboard;
+            }, 300);
+        }
+        
+        function checkAutoSelection() {
+            // If only one role, auto-select and continue
+            if (userRoles.length === 1) {
+                selectRole(userRoles[0]);
+                setDefaultProfile(userRoles[0]); // Set as default automatically
+                autoLoginEnabled = true;
+                document.getElementById('autoLoginToggle').checked = true;
+                savePreferences();
+                
+                // Show message before auto-continuing
+                const role = ROLES_CONFIG.find(r => r.id === userRoles[0]);
+                const helperText = document.getElementById('helperText');
+                helperText.textContent = `لديك دور واحد فقط. سيتم الدخول تلقائياً كـ ${role.nameAr}`;
+                announceToScreenReader(helperText.textContent);
+                
+                setTimeout(handleContinue, 1000);
+                return;
+            }
+            
+            // Get smart default profile
+            const smartDefault = getSmartDefaultProfile();
+            
+            // If auto-login is enabled and we have a default, use it
+            if (autoLoginEnabled && defaultProfile && userRoles.includes(defaultProfile)) {
+                selectRole(defaultProfile);
+                
+                // Show countdown for auto-login
+                let countdown = 3;
+                const btn = document.getElementById('continueBtn');
+                const cancelBtn = document.getElementById('cancelAutoLogin');
+                const helperText = document.getElementById('helperText');
+                const originalText = btn.textContent;
+                const originalHelperText = helperText.textContent;
+                let countdownInterval;
+                
+                // Add countdown class for visual effect
+                btn.classList.add('countdown');
+                cancelBtn.classList.add('show');
+                
+                // Update helper text
+                const role = ROLES_CONFIG.find(r => r.id === defaultProfile);
+                helperText.textContent = `سيتم الدخول التلقائي كـ ${role.nameAr}`;
+                
+                const startCountdown = () => {
+                    countdownInterval = setInterval(() => {
+                        if (countdown > 0) {
+                            btn.textContent = `الدخول التلقائي خلال ${countdown} ثانية...`;
+                            countdown--;
+                        } else {
+                            clearInterval(countdownInterval);
+                            handleContinue();
+                        }
+                    }, 1000);
+                };
+                
+                // Start countdown
+                btn.textContent = `الدخول التلقائي خلال ${countdown} ثانية...`;
+                countdown--;
+                startCountdown();
+                
+                // Cancel auto-login handler
+                const cancelAutoLogin = () => {
+                    clearInterval(countdownInterval);
+                    btn.textContent = originalText;
+                    btn.classList.remove('countdown');
+                    cancelBtn.classList.remove('show');
+                    helperText.textContent = originalHelperText;
+                    announceToScreenReader('تم إلغاء الدخول التلقائي');
+                    
+                    // Remove the event listener
+                    cancelBtn.removeEventListener('click', cancelAutoLogin);
+                };
+                
+                // Add cancel button listener
+                cancelBtn.addEventListener('click', cancelAutoLogin);
+                
+                // Allow ESC key to cancel
+                const escHandler = (e) => {
+                    if (e.key === 'Escape') {
+                        cancelAutoLogin();
+                        document.removeEventListener('keydown', escHandler);
+                    }
+                };
+                document.addEventListener('keydown', escHandler);
+                
+                return;
+            }
+            
+            // Otherwise, just pre-select the smart default
+            if (smartDefault) {
+                selectRole(smartDefault);
+                
+                // If this is a frequently used profile, suggest setting it as default
+                const stats = profileUsageStats[smartDefault];
+                if (stats && stats.count > 5 && !defaultProfile) {
+                    setTimeout(() => {
+                        const role = ROLES_CONFIG.find(r => r.id === smartDefault);
+                        if (role) {
+                            const suggestion = document.getElementById('smartSuggestion');
+                            const suggestionText = document.getElementById('suggestionText');
+                            
+                            suggestionText.textContent = `نلاحظ أنك تستخدم "${role.nameAr}" بشكل متكرر. يمكنك تعيينها كدور افتراضي للدخول السريع`;
+                            suggestion.classList.add('show');
+                            
+                            announceToScreenReader(suggestionText.textContent);
+                            
+                            // Hide suggestion after 10 seconds
+                            setTimeout(() => {
+                                suggestion.classList.remove('show');
+                            }, 10000);
+                        }
+                    }, 500);
+                }
+            }
+        }
+        
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.className = 'sr-only';
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
+        }
+    </script>
+</body>
+
+</html>

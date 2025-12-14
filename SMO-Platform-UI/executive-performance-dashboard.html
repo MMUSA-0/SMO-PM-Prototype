@@ -19,358 +19,255 @@
     <link rel="stylesheet" href="css/fancybox.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/styles.min.css">
-    
-    <title>لوحة القيادة التنفيذية - إدارة الأداء</title>
+    <link rel="stylesheet" href="assets/css/performance-enhancements.css">
+    <title>لوحة القيادة التنفيذية - إدارة الأداء | مكتب الإدارة الاستراتيجية</title>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
     
     <style>
-        /* Custom Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        
-        /* Main Layout Fixes */
-        body {
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        main {
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .page-container {
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            overflow: hidden;
-        }
-        
-        .page-content {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 20px;
-            height: calc(100vh - 80px); /* Adjust based on header height */
-        }
-        
-        .page-sidebar {
-            width: 280px;
-            min-width: 280px;
-            max-width: 280px;
-            height: calc(100vh - 80px);
-            overflow-y: auto;
-            overflow-x: hidden;
-            background: #ffffff;
-            border-left: 1px solid #e9ecef;
+        /* Enhanced Dashboard Specific Styles */
+        /* Executive KPI Cards */
+        .kpi-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            flex-shrink: 0;
-            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            background: white;
         }
         
-        .page-sidebar::-webkit-scrollbar {
-            width: 6px;
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         
-        .page-sidebar::-webkit-scrollbar-track {
-            background: transparent;
+        .kpi-card .bi {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
         }
         
-        .page-sidebar::-webkit-scrollbar-thumb {
-            background: #dee2e6;
-            border-radius: 3px;
-        }
-        
-        .page-sidebar::-webkit-scrollbar-thumb:hover {
-            background: #adb5bd;
-        }
-        
-        .page-sidebar.collapsed {
-            width: 70px;
-            min-width: 70px;
-            max-width: 70px;
-        }
-        
-        .page-sidebar.collapsed .page__nav__link span {
-            opacity: 0;
-            width: 0;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            display: none;
-        }
-        
-        .page-sidebar.collapsed .page__nav__link {
-            justify-content: center;
-            padding: 14px 12px;
-        }
-        
-        .page-sidebar.collapsed .page__nav__link__icon {
-            margin-left: 0;
-            margin-right: 0;
-        }
-        
-        .page__nav {
-            padding: 15px 0;
-        }
-        
-        .page__nav__list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .page__nav__list__item {
-            margin-bottom: 2px;
-        }
-        
-        .page__nav__link {
-            display: flex;
-            align-items: center;
-            padding: 14px 20px;
-            color: #495057;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            border-right: 3px solid transparent;
-            position: relative;
-            font-size: 14px;
-        }
-        
-        .page__nav__link:hover {
-            background-color: #f8f9fa;
-            color: #0d6efd;
-            border-right-color: #0d6efd;
-        }
-        
-        .page__nav__link.active {
-            background-color: #e7f1ff;
-            color: #0d6efd;
-            border-right-color: #0d6efd;
+        .kpi-card h6 {
+            color: #6c757d;
+            font-size: 0.875rem;
             font-weight: 600;
+            margin-bottom: 0.5rem;
         }
         
-        .page__nav__link.active::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: #0d6efd;
+        .kpi-card h4 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
         
-        .page__nav__link__icon {
-            width: 22px;
-            height: 22px;
-            margin-left: 15px;
-            flex-shrink: 0;
-            transition: all 0.25s ease;
-            object-fit: contain;
-        }
-        
-        .page-sidebar.collapsed .page__nav__link__icon {
-            margin-left: 0;
-            margin-right: 0;
-        }
-        
-        .page__nav__link span {
-            white-space: nowrap;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            flex: 1;
-        }
-        
-        /* Sidebar Toggle Button Styling */
-        .page-sidebar-toggle-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
+        /* Strategic Alignment Circle */
+        .circular-progress {
             position: relative;
+            display: inline-block;
         }
         
-        .page-sidebar-toggle-btn:hover {
-            background-color: #f8f9fa;
+        .circular-progress svg {
+            transform: rotate(-90deg);
         }
         
-        .page-sidebar-toggle-btn::before {
-            content: '';
-            width: 20px;
-            height: 2px;
-            background: #495057;
-            position: relative;
-            display: block;
-            transition: all 0.3s ease;
-            box-shadow: 0 -6px 0 #495057, 0 6px 0 #495057;
+        .circular-progress text {
+            transform: rotate(90deg);
+            transform-origin: center;
         }
         
-        .page-sidebar.collapsed ~ .page-content {
-            margin-right: 0;
-        }
-        
-        /* Card Improvements */
-        .card {
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
-        }
-        
-        /* Alerts Container */
-        .alerts-container {
-            max-height: 340px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 5px;
-        }
-        
-        /* KPI Cards Responsive */
-        @media (max-width: 1400px) {
-            .col-md-2 {
-                flex: 0 0 auto;
-                width: 33.333333%;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .col-md-2 {
-                flex: 0 0 auto;
-                width: 50%;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .page-sidebar {
-                position: fixed;
-                right: 0;
-                top: 80px;
-                z-index: 1000;
-                height: calc(100vh - 80px);
-                transform: translateX(100%);
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-                transition: transform 0.3s ease;
-            }
-            
-            .page-sidebar.show {
-                transform: translateX(0);
-            }
-            
-            .page-content {
-                width: 100%;
-                margin-right: 0;
-            }
-            
-            /* Overlay for mobile */
-            .sidebar-overlay {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.5);
-                z-index: 999;
-            }
-            
-            .sidebar-overlay.show {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .col-md-2 {
-                flex: 0 0 auto;
-                width: 100%;
-            }
-            
-            .page-sidebar {
-                width: 260px;
-            }
-        }
-        
-        /* Chart Container Fix */
+        /* Chart Container */
         .chart-container {
             position: relative;
             height: 300px !important;
             width: 100%;
         }
         
-        /* Progress Bar Animation */
-        .progress-bar {
-            transition: width 1s ease-in-out;
+        /* Alerts Container */
+        .alerts-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+        
+        .alerts-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .alerts-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .alerts-container::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 3px;
         }
         
         /* Risk Heat Map */
         .risk-heat-map table {
             table-layout: fixed;
+            width: 100%;
         }
         
         .risk-heat-map td {
-            padding: 15px;
+            padding: 1rem;
             font-weight: bold;
-            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
         }
         
         .risk-heat-map td:hover {
             transform: scale(1.05);
-            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
-        /* Button Time Filter Group */
-        .btn-group {
-            flex-wrap: wrap;
+        /* Progress Bars */
+        .progress {
+            height: 30px;
+            border-radius: 15px;
+            overflow: visible;
+            background: #f1f3f5;
         }
         
-        @media (max-width: 768px) {
-            .btn-group .btn {
-                flex: 1 0 auto;
-                margin: 2px;
+        .progress-bar {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: progressAnimation 1.5s ease-out;
+        }
+        
+        @keyframes progressAnimation {
+            from { width: 0; }
+        }
+        
+        /* Time Filter Buttons */
+        .btn-group .btn {
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1400px) {
+            .col-xl-2 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
             }
         }
         
-        /* Header Sticky */
-        .page-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        @media (max-width: 992px) {
+            .col-xl-2 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .col-xl-2 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-group .btn {
+                width: 100%;
+                margin: 2px 0;
+            }
         }
     </style>
+
+    <style>
+        /* Government-style development indicators */
+        .dev-indicator {
+            display: inline-block;
+            background-color: #FFA500;
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+            position: relative;
+            top: -1px;
+        }
+        
+        .dev-indicator.sprint-2 {
+            background-color: #FF6B6B;
+        }
+        
+        .dev-indicator.sprint-3 {
+            background-color: #4ECDC4;
+        }
+        
+        .page__nav__link.dev-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            position: relative;
+        }
+        
+        .page__nav__link.dev-disabled:hover {
+            background-color: transparent !important;
+        }
+        
+        .page__nav__link.dev-disabled::after {
+            content: "تحت التطوير";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #FFA500;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .page__nav__submenu__item.dev-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            position: relative;
+        }
+        
+        .page__nav__submenu__item.dev-disabled::after {
+            content: "قريباً";
+            position: absolute;
+            left: 10px;
+            background-color: #FFA500;
+            color: white;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <style>
+        /* Disabled menu items for under-development features */
+        .page__nav__submenu__item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none;
+            position: relative;
+        }
+        .page__nav__submenu__item.disabled::after {
+            content: " 🚧";
+            font-size: 0.8em;
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- Executive Performance Dashboard - Complete Implementation -->
-    <!-- Header -->
     <header class="page-header">
         <div class="page-container">
             <div class="row">
@@ -385,23 +282,67 @@
                                 <div class="search-menu">
                                     <button type="button" class="page-header__actions__btn search-toggle-btn" title="البحث"></button>
                                     <div class="search-menu__input">
-                                        <input class="form-control" type="search" placeholder="البحث...">
+                                        <input class="form-control" type="search" name="" id="">
                                     </div>
                                 </div>
                             </div>
                             <div class="page-header__actions__item">
+                                <button type="button" class="page-header__actions__btn grayscale-toggle-btn" title="وضع التدرج الرمادي"></button>
+                            </div>
+                            <div class="page-header__actions__item">
                                 <div class="dropdown notifications-dropdown">
-                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown">
-                                        <span class="badge">5</span>
-                                    </button>
+                                    <button type="button" class="dropdown-toggle page-header__actions__btn notifications-toggle-btn has-new" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title=""></button>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown__menu">
+                                        <div class="notifications-dropdown__menu__header">
+                                            <div class="notifications-dropdown__menu__icon">
+                                                <img src="images/notifications-icon.svg" alt="">
+                                            </div>
+                                            <h3 class="notifications-dropdown__menu__title">الإشعارات</h3>
+                                        </div>
+                                        <div class="notifications-dropdown__menu__body">
+                                            <ul class="nav nav-pills">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" aria-current="page" href="#">الكل</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">
+                                                        <span>إشعارات جديدة</span>
+                                                        <span class="nav-link__count">3</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="dropdown user-dropdown">
-                            <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown">
-                                <span>محمد أحمد</span>
-                                <img src="images/avatar.svg" alt="">
-                            </button>
+                            <div class="page-header__actions__item">
+                                <div class="dropdown user-dropdown">
+                                    <button type="button" class="dropdown-toggle user-dropdown__btn" data-bs-toggle="dropdown" aria-expanded="false" title="">
+                                        <img class="user-dropdown__btn__avatar" src="images/demo/user-photo.png" alt="">
+                                        <span class="user-dropdown__btn__name">أحمد محمد</span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-end user-dropdown__menu">
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/user-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title">الملف الشخصي</span>
+                                        </a>
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/settings-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title">إعداداتي</span>
+                                        </a>
+                                        <a class="user-dropdown__actions__item" href="">
+                                            <span class="user-dropdown__actions__item__icon">
+                                                <img src="images/logout-icon.svg" alt="">
+                                            </span>
+                                            <span class="user-dropdown__actions__item__title">تسجيل الخروج</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -411,37 +352,107 @@
 
     <main class="flex-fill d-flex">
         <div class="page-container w-100 d-flex position-relative">
-            <!-- Sidebar Overlay for Mobile -->
-            <div class="sidebar-overlay" id="sidebarOverlay"></div>
-            
             <aside class="page-sidebar flex-shrink-0" id="pageSidebar">
                 <nav class="page__nav">
+                    
                     <ul class="page__nav__list">
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link active" href="executive-performance-dashboard.html" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
-                                <span>لوحة القيادة التنفيذية</span>
+                                <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="vision.html" role="button">
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item" href="indicators.html">المؤشرات</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
                                 <span>مركز معلومات الاستراتيجيات الوطنية</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
                                 <span>إدارة الأداء</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
+                                    <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                    <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                    <a class="page__nav__submenu__item" href="performance-approvals.html">موافقاتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                    <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item active" href="executive-performance-dashboard.html">لوحة الأداء التنفيذي</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                                <span>إدارة المهام</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                                <span>طلبات التغيير</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                                <span>إدارة المخاطر</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                                <span>إدارة محتوى الوثائق</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                                <span>إدارة التحديات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                                <span>التصويت والاستطلاعات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                                <span>المستندات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                                <span>الإدارة</span>
+                            </a>
                         </li>
                     </ul>
+                
                 </nav>
             </aside>
 
@@ -450,11 +461,11 @@
                     <!-- Executive Header -->
                     <div class="row mb-4">
                     <div class="col-lg-7 col-md-12 mb-3 mb-lg-0">
-                        <h1 class="page-title mb-2">لوحة القيادة التنفيذية</h1>
+                        <h1 class="fs-3 fw-bold mb-2">لوحة القيادة التنفيذية</h1>
                         <p class="text-muted mb-0">نظرة شاملة على الأداء الاستراتيجي لجميع البرامج والمبادرات</p>
                     </div>
-                    <div class="col-lg-5 col-md-12 text-lg-end text-center">
-                        <div class="btn-group w-100" role="group" aria-label="Time filter">
+                    <div class="col-lg-5 col-md-12 d-flex justify-content-end align-items-center">
+                        <div class="btn-group" role="group" aria-label="Time filter">
                             <button class="btn btn-outline-primary btn-sm active" data-period="daily">يومي</button>
                             <button class="btn btn-outline-primary btn-sm" data-period="weekly">أسبوعي</button>
                             <button class="btn btn-outline-primary btn-sm" data-period="monthly">شهري</button>
@@ -475,10 +486,9 @@
                                             <svg viewBox="0 0 100 100" style="width: 150px; height: 150px;">
                                                 <circle cx="50" cy="50" r="45" fill="none" stroke="#e9ecef" stroke-width="10"/>
                                                 <circle cx="50" cy="50" r="45" fill="none" stroke="#198754" stroke-width="10" 
-                                                        stroke-dasharray="283" stroke-dashoffset="37" 
-                                                        transform="rotate(-90 50 50)"/>
-                                                <text x="50" y="45" text-anchor="middle" font-size="24" font-weight="bold">87%</text>
-                                                <text x="50" y="60" text-anchor="middle" font-size="10">مؤشر التوافق</text>
+                                                        stroke-dasharray="283" stroke-dashoffset="37"/>
+                                                <text x="50" y="50" text-anchor="middle" font-size="24" font-weight="bold" fill="#198754">87%</text>
+                                                <text x="50" y="65" text-anchor="middle" font-size="10" fill="#6c757d">مؤشر التوافق</text>
                                             </svg>
                                         </div>
                                     </div>
@@ -512,62 +522,62 @@
 
                 <!-- Executive KPIs -->
                 <div class="row mb-4 g-3">
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-currency-dollar text-success fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">الناتج المحلي الإجمالي</h6>
-                                <h4 class="mb-1">3.2 تريليون</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-currency-dollar text-success"></i>
+                                <h6>الناتج المحلي الإجمالي</h6>
+                                <h4>3.2 تريليون</h4>
                                 <small class="text-success"><i class="bi bi-arrow-up"></i> +4.2%</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-people-fill text-primary fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">معدل البطالة</h6>
-                                <h4 class="mb-1">7.4%</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-people-fill text-primary"></i>
+                                <h6>معدل البطالة</h6>
+                                <h4>7.4%</h4>
                                 <small class="text-success"><i class="bi bi-arrow-down"></i> -0.8%</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-graph-up text-info fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">الإيرادات غير النفطية</h6>
-                                <h4 class="mb-1">450 مليار</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-graph-up text-info"></i>
+                                <h6>الإيرادات غير النفطية</h6>
+                                <h4>450 مليار</h4>
                                 <small class="text-success"><i class="bi bi-arrow-up"></i> +18%</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-building text-warning fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">الاستثمار الأجنبي</h6>
-                                <h4 class="mb-1">28.5 مليار</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-building text-warning"></i>
+                                <h6>الاستثمار الأجنبي</h6>
+                                <h4>28.5 مليار</h4>
                                 <small class="text-success"><i class="bi bi-arrow-up"></i> +25%</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-house-door text-danger fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">تملك السكن</h6>
-                                <h4 class="mb-1">70%</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-house-door text-danger"></i>
+                                <h6>تملك السكن</h6>
+                                <h4>70%</h4>
                                 <small class="text-success"><i class="bi bi-arrow-up"></i> +5%</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
-                        <div class="card border-0 shadow-sm h-100">
-                            <div class="card-body text-center d-flex flex-column justify-content-center">
-                                <i class="bi bi-heart-pulse text-success fs-2"></i>
-                                <h6 class="text-muted mt-2 mb-1">متوسط العمر</h6>
-                                <h4 class="mb-1">77.6 سنة</h4>
+                    <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6">
+                        <div class="kpi-card card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <i class="bi bi-heart-pulse text-success"></i>
+                                <h6>متوسط العمر</h6>
+                                <h4>77.6 سنة</h4>
                                 <small class="text-success"><i class="bi bi-arrow-up"></i> +0.3</small>
                             </div>
                         </div>
@@ -578,8 +588,8 @@
                 <div class="row mb-4">
                     <div class="col-md-8">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white">
-                                <h5 class="mb-0">أداء البرامج الاستراتيجية</h5>
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0 fw-bold">أداء البرامج الاستراتيجية</h5>
                             </div>
                             <div class="card-body">
                                 <div class="chart-container">
@@ -590,8 +600,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">التنبيهات الحرجة</h5>
+                            <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0 fw-bold">التنبيهات الحرجة</h5>
                                 <span class="badge bg-danger">4 تنبيهات</span>
                             </div>
                             <div class="card-body alerts-container">
@@ -632,9 +642,9 @@
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white">
+                            <div class="card-header bg-white border-bottom">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="mb-0">خريطة المخاطر</h5>
+                                    <h5 class="mb-0 fw-bold">خريطة المخاطر</h5>
                                     <span class="badge bg-danger">23 خطر نشط</span>
                                 </div>
                             </div>
@@ -677,8 +687,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white">
-                                <h5 class="mb-0">حالة المبادرات</h5>
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0 fw-bold">حالة المبادرات</h5>
                             </div>
                             <div class="card-body">
                                 <div class="row text-center">
@@ -726,8 +736,8 @@
                 <div class="row mb-4">
                     <div class="col-12">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white">
-                                <h5 class="mb-0">الأداء المالي والميزانيات</h5>
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0 fw-bold">الأداء المالي والميزانيات</h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -769,31 +779,31 @@
                 <div class="row mb-4">
                     <div class="col-12">
                         <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-white">
-                                <h5 class="mb-0">الإجراءات السريعة</h5>
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0 fw-bold">الإجراءات السريعة</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-4">
                                 <div class="row g-2">
-                                    <div class="col-lg-3 col-md-6">
-                                        <button class="btn btn-primary w-100" onclick="window.location.href='report-generation.html'">
+                                    <div class="col-lg-3 col-md-6 mb-2">
+                                        <a href="report-generation.html" class="btn btn-primary w-100 py-3 d-flex align-items-center justify-content-center">
                                             <i class="bi bi-file-earmark-pdf me-2"></i>
                                             <span>توليد تقرير تنفيذي</span>
-                                        </button>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <button class="btn btn-success w-100" onclick="window.location.href='performance-approvals.html'">
+                                    <div class="col-lg-3 col-md-6 mb-2">
+                                        <a href="performance-approvals.html" class="btn btn-success w-100 py-3 d-flex align-items-center justify-content-center">
                                             <i class="bi bi-check2-square me-2"></i>
                                             <span>الموافقات المعلقة (7)</span>
-                                        </button>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <button class="btn btn-warning w-100" onclick="window.location.href='risk-escalation.html'">
+                                    <div class="col-lg-3 col-md-6 mb-2">
+                                        <a href="risk-escalation.html" class="btn btn-warning w-100 py-3 d-flex align-items-center justify-content-center">
                                             <i class="bi bi-exclamation-triangle me-2"></i>
                                             <span>المخاطر الحرجة</span>
-                                        </button>
+                                        </a>
                                     </div>
-                                    <div class="col-lg-3 col-md-6">
-                                        <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                                    <div class="col-lg-3 col-md-6 mb-2">
+                                        <button type="button" class="btn btn-info w-100 py-3 d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#scheduleModal">
                                             <i class="bi bi-calendar-check me-2"></i>
                                             <span>جدولة اجتماع</span>
                                         </button>
@@ -809,37 +819,37 @@
     </main>
 
     <!-- Schedule Meeting Modal -->
-    <div class="modal fade" id="scheduleModal" tabindex="-1">
-        <div class="modal-dialog">
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">جدولة اجتماع</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="scheduleModalLabel">جدولة اجتماع</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="scheduleForm">
                         <div class="mb-3">
-                            <label class="form-label">عنوان الاجتماع</label>
-                            <input type="text" class="form-control">
+                            <label for="meetingTitle" class="form-label fw-semibold">عنوان الاجتماع</label>
+                            <input type="text" class="form-control" id="meetingTitle" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">التاريخ والوقت</label>
-                            <input type="datetime-local" class="form-control">
+                            <label for="meetingDateTime" class="form-label fw-semibold">التاريخ والوقت</label>
+                            <input type="datetime-local" class="form-control" id="meetingDateTime" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">المشاركون</label>
-                            <select class="form-select" multiple>
-                                <option>مدراء البرامج</option>
-                                <option>اللجنة التنفيذية</option>
-                                <option>فريق المخاطر</option>
-                                <option>الإدارة المالية</option>
+                            <label for="meetingParticipants" class="form-label fw-semibold">المشاركون</label>
+                            <select class="form-select" id="meetingParticipants" multiple size="4">
+                                <option value="1">مدراء البرامج</option>
+                                <option value="2">اللجنة التنفيذية</option>
+                                <option value="3">فريق المخاطر</option>
+                                <option value="4">الإدارة المالية</option>
                             </select>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
-                    <button type="button" class="btn btn-primary">جدولة</button>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="submit" form="scheduleForm" class="btn btn-primary px-4">جدولة الاجتماع</button>
                 </div>
             </div>
         </div>
@@ -849,142 +859,27 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/nice-select2.js"></script>
+    <script src="js/fancybox.umd.js"></script>
+    <script src="js/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/scripts.js"></script>
     
     <script>
-        // Initialize Dashboard
-        document.addEventListener("DOMContentLoaded", function() {
-            // Sidebar Toggle
-            const sidebarToggle = document.querySelector('.page-sidebar-toggle-btn');
-            const sidebar = document.querySelector('.page-sidebar');
-            const pageContent = document.querySelector('.page-content');
-            let sidebarOverlay = document.querySelector('.sidebar-overlay');
-            
-            // Create overlay if it doesn't exist
-            if (!sidebarOverlay && window.innerWidth <= 992) {
-                sidebarOverlay = document.createElement('div');
-                sidebarOverlay.className = 'sidebar-overlay';
-                document.body.appendChild(sidebarOverlay);
-                
-                // Close sidebar when overlay is clicked
-                sidebarOverlay.addEventListener('click', function() {
-                    closeSidebar();
-                });
-            }
-            
-            function openSidebar() {
-                if (window.innerWidth <= 992) {
-                    sidebar.classList.add('show');
-                    if (sidebarOverlay) {
-                        sidebarOverlay.classList.add('show');
-                    }
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    sidebar.classList.remove('collapsed');
-                    localStorage.setItem('sidebar-collapsed', 'false');
-                }
-            }
-            
-            function closeSidebar() {
-                if (window.innerWidth <= 992) {
-                    sidebar.classList.remove('show');
-                    if (sidebarOverlay) {
-                        sidebarOverlay.classList.remove('show');
-                    }
-                    document.body.style.overflow = '';
-                } else {
-                    sidebar.classList.add('collapsed');
-                    localStorage.setItem('sidebar-collapsed', 'true');
-                }
-            }
-            
-            function toggleSidebar() {
-                if (window.innerWidth <= 992) {
-                    if (sidebar.classList.contains('show')) {
-                        closeSidebar();
-                    } else {
-                        openSidebar();
-                    }
-                } else {
-                    sidebar.classList.toggle('collapsed');
-                    localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
-                }
-            }
-            
-            if (sidebarToggle && sidebar) {
-                sidebarToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleSidebar();
-                });
-                
-                // Restore sidebar state on desktop
-                if (window.innerWidth > 992) {
-                    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-                        sidebar.classList.add('collapsed');
-                    } else {
-                        sidebar.classList.remove('collapsed');
-                    }
-                }
-            }
-            
-            // Handle window resize
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    if (window.innerWidth > 992) {
-                        // Desktop view
-                        if (sidebarOverlay) {
-                            sidebarOverlay.classList.remove('show');
-                        }
-                        sidebar.classList.remove('show');
-                        document.body.style.overflow = '';
-                        
-                        // Restore collapsed state
-                        if (localStorage.getItem('sidebar-collapsed') === 'true') {
-                            sidebar.classList.add('collapsed');
-                        } else {
-                            sidebar.classList.remove('collapsed');
-                        }
-                    } else {
-                        // Mobile view
-                        sidebar.classList.remove('collapsed');
-                        if (!sidebar.classList.contains('show')) {
-                            if (sidebarOverlay) {
-                                sidebarOverlay.classList.remove('show');
-                            }
-                        }
-                    }
-                }, 250);
-            });
-            
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992 && sidebar.classList.contains('show')) {
-                    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-                        closeSidebar();
-                    }
-                }
-            });
-            
-            // Time Filter Buttons
+        // Executive Dashboard Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize time filter buttons
             const timeFilterButtons = document.querySelectorAll('[data-period]');
             timeFilterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     timeFilterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
-                    
-                    // Update data based on period (in production, this would fetch new data)
                     updateDashboardData(this.dataset.period);
                 });
             });
             
-            // Programs Performance Chart
+            // Initialize Programs Performance Chart
             const ctx = document.getElementById('programsChart');
             if (ctx) {
                 const programsChart = new Chart(ctx.getContext('2d'), {
@@ -1015,7 +910,8 @@
                                 labels: {
                                     padding: 15,
                                     font: {
-                                        size: 12
+                                        size: 12,
+                                        family: 'Segoe UI'
                                     }
                                 }
                             },
@@ -1036,87 +932,34 @@
                                         return value + '%';
                                     }
                                 }
-                            },
-                            x: {
-                                ticks: {
-                                    maxRotation: 45,
-                                    minRotation: 0
-                                }
                             }
                         }
                     }
                 });
-                
-                // Make chart responsive
-                window.addEventListener('resize', function() {
-                    programsChart.resize();
+            }
+            
+            // Function to update dashboard data
+            function updateDashboardData(period) {
+                console.log('Updating data for period:', period);
+                // Simulate data refresh
+                const cards = document.querySelectorAll('.card-body');
+                cards.forEach(card => {
+                    card.style.opacity = '0.6';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                    }, 300);
                 });
             }
-
-            // Initialize tooltips
+            
+            // Initialize tooltips if any
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
-            
-            // Smooth scroll for alerts container
-            const alertsContainer = document.querySelector('.alerts-container');
-            if (alertsContainer) {
-                alertsContainer.style.scrollBehavior = 'smooth';
-            }
-            
-            // Add animation to KPI cards
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-            
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-        });
-        
-        // Function to update dashboard data based on time period
-        function updateDashboardData(period) {
-            console.log('Updating data for period:', period);
-            // In production, this would make an API call to fetch new data
-            // For now, we'll just log the action
-            
-            // Show loading state
-            const cards = document.querySelectorAll('.card-body');
-            cards.forEach(card => {
-                card.style.opacity = '0.6';
-            });
-            
-            // Simulate data loading
-            setTimeout(() => {
-                cards.forEach(card => {
-                    card.style.opacity = '1';
-                });
-            }, 500);
-        }
-
-        // Auto-refresh every 60 seconds for real-time updates
-        let refreshInterval = setInterval(function() {
-            // In production, this would fetch new data from the server
-            console.log('Refreshing dashboard data...');
-            const activeButton = document.querySelector('[data-period].active');
-            if (activeButton) {
-                updateDashboardData(activeButton.dataset.period);
-            }
-        }, 60000);
-        
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', function() {
-            clearInterval(refreshInterval);
         });
     </script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,94 @@
+/* Performance Initiatives - Page Specific Styles */
+
+/* Disabled menu items for under-development features */
+.page__nav__submenu__item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    position: relative;
+}
+.page__nav__submenu__item.disabled::after {
+    content: " 🚧";
+    font-size: 0.8em;
+}
+
+/* Initiative action buttons wrapper */
+.initiative-actions-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 320px;
+}
+
+.initiative-actions-wrapper .btn i {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* Actions column sizing */
+table thead th:last-child {
+    min-width: 350px;
+    background-color: #f8f9fa;
+}
+
+table tbody td:last-child {
+    min-width: 350px;
+    padding: 12px;
+}
+
+/* Milestone summary cards */
+.milestone-summary-cards {
+    margin-bottom: 20px;
+}
+
+.milestone-summary-cards h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.milestone-filters {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.view-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.milestone-progress {
+    width: 100px;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.milestone-progress-bar {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .initiative-actions-wrapper {
+        flex-direction: column;
+        min-width: 100%;
+    }
+    
+    .initiative-actions-wrapper .btn {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: right;
+    }
+}
+
+@media print {
+    .initiative-actions-wrapper {
+        display: none;
+    }
+}
+

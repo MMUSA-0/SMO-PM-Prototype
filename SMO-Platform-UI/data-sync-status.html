@@ -26,6 +26,21 @@
         <script src="js/respond.min.js"></script>
     <![endif]-->
     <link href="assets/css/dev-indicators.css" rel="stylesheet">
+
+    <style>
+        /* Disabled menu items for under-development features */
+        .page__nav__submenu__item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none;
+            position: relative;
+        }
+        .page__nav__submenu__item.disabled::after {
+            content: " 🚧";
+            font-size: 0.8em;
+        }
+    </style>
+
 </head>
 
 <body class="overflow-hidden" data-dev-status="partial" data-dev-progress="50">
@@ -617,5 +632,8 @@
         });
     </script>
     <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

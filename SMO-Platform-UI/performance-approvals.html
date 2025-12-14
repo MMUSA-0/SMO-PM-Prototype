@@ -107,6 +107,91 @@
             border-bottom: 2px solid #dee2e6;
         }
     </style>
+
+    <style>
+        /* Government-style development indicators */
+        .dev-indicator {
+            display: inline-block;
+            background-color: #FFA500;
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+            position: relative;
+            top: -1px;
+        }
+        
+        .dev-indicator.sprint-2 {
+            background-color: #FF6B6B;
+        }
+        
+        .dev-indicator.sprint-3 {
+            background-color: #4ECDC4;
+        }
+        
+        .page__nav__link.dev-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            position: relative;
+        }
+        
+        .page__nav__link.dev-disabled:hover {
+            background-color: transparent !important;
+        }
+        
+        .page__nav__link.dev-disabled::after {
+            content: "تحت التطوير";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #FFA500;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .page__nav__submenu__item.dev-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            position: relative;
+        }
+        
+        .page__nav__submenu__item.dev-disabled::after {
+            content: "قريباً";
+            position: absolute;
+            left: 10px;
+            background-color: #FFA500;
+            color: white;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+
+    <style>
+        /* Disabled menu items for under-development features */
+        .page__nav__submenu__item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+            pointer-events: none;
+            position: relative;
+        }
+        .page__nav__submenu__item.disabled::after {
+            content: " 🚧";
+            font-size: 0.8em;
+        }
+    </style>
+
 </head>
 
 <body class="overflow-hidden">
@@ -232,93 +317,106 @@
             <!-- Sidebar -->
             <aside class="page-sidebar">
             <nav class="page__nav">
-                <ul class="page__nav__list">
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="performance-dashboard.html" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
-                            <span>لوحة القيادة المتقدمة</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="vision.html" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
-                            <span>مركز معلومات رؤية 2030</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
-                            <span>مركز معلومات الاستراتيجيات الوطنية</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item submenu-shown">
-                        <a class="page__nav__link active" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
-                            <span>إدارة الأداء</span>
-                        </a>
-                        <div class="page__nav__submenu-container">
-                            <div class="page__nav__submenu">
-                                <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
-                                <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
-                                <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
-                                <a class="page__nav__submenu__item active" href="performance-approvals.html">موافقاتي</a>
-                                <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
-                                <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
-                                <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
-                                <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                    
+                    <ul class="page__nav__list">
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
+                                <span>لوحة القيادة المتقدمة</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
+                                <span>مركز معلومات رؤية 2030</span>
+                            </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item" href="indicators.html">المؤشرات</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
-                            <span>إدارة المهام</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
-                            <span>طلبات التغيير</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
-                            <span>إدارة المخاطر</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
-                            <span>إدارة محتوى الوثائق</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
-                            <span>إدارة التحديات</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
-                            <span>التصويت والاستطلاعات</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
-                            <span>المستندات</span>
-                        </a>
-                    </li>
-                    <li class="page__nav__list__item">
-                        <a class="page__nav__link" href="" role="button">
-                            <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
-                            <span>الإدارة</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/target.svg" alt="">
+                                <span>مركز معلومات الاستراتيجيات الوطنية</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/down-chart.svg" alt="">
+                                <span>إدارة الأداء</span>
+                            </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
+                                    <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
+                                    <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
+                                    <a class="page__nav__submenu__item" href="performance-initiatives.html">مستوى المبادرات</a>
+                                    <a class="page__nav__submenu__item active" href="performance-approvals.html">موافقاتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-requests.html">طلباتي</a>
+                                    <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
+                                    <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
+                                    <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item" href="executive-performance-dashboard.html">لوحة الأداء التنفيذي</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
+                                <span>إدارة المهام</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
+                                <span>طلبات التغيير</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
+                                <span>إدارة المخاطر</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
+                                <span>إدارة محتوى الوثائق</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
+                                <span>إدارة التحديات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
+                                <span>التصويت والاستطلاعات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
+                                <span>المستندات</span>
+                            </a>
+                        </li>
+                        <li class="page__nav__list__item">
+                            <a class="page__nav__link" href="#" role="button">
+                                <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
+                                <span>الإدارة</span>
+                            </a>
+                        </li>
+                    </ul>
+                
+                </nav>
         </aside>
 
         <!-- Main Area -->
@@ -1016,5 +1114,8 @@
             }
         }
     </script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

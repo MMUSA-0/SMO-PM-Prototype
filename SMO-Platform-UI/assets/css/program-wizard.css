@@ -1,0 +1,256 @@
+/**
+ * Program Wizard CSS Module
+ * Styles for BRD-Compliant Performance Management Interface
+ */
+
+/* Initiative Action Buttons - Direct 1-Click Design */
+.initiative-actions-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 320px;
+}
+
+.initiative-actions-wrapper .btn i {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* Make first column wider for buttons */
+table thead th:first-child {
+    min-width: 350px;
+    background-color: #f8f9fa;
+}
+
+table tbody td:first-child {
+    min-width: 350px;
+    padding: 12px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 992px) {
+    .initiative-actions-wrapper {
+        flex-direction: column;
+        min-width: 100%;
+    }
+    
+    .initiative-actions-wrapper .btn {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: right;
+    }
+}
+
+/* Print friendly */
+@media print {
+    .initiative-actions-wrapper {
+        display: none;
+    }
+}
+
+/* KPI Section Styles */
+.kpi-statistics-card {
+    border-left: 4px solid;
+    transition: transform 0.2s;
+}
+
+.kpi-statistics-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.kpi-statistics-card.achieved {
+    border-left-color: #28a745;
+}
+
+.kpi-statistics-card.near {
+    border-left-color: #ffc107;
+}
+
+.kpi-statistics-card.behind {
+    border-left-color: #dc3545;
+}
+
+.kpi-statistics-card.average {
+    border-left-color: #17a2b8;
+}
+
+/* Achievements Section Styles */
+.achievement-card {
+    transition: all 0.3s;
+    position: relative;
+}
+
+.achievement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.achievement-top5 {
+    border-width: 3px !important;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+}
+
+.achievement-top5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffc107, #ff9800, #ffc107);
+}
+
+.achievement-impact-high {
+    border-left: 5px solid #28a745;
+}
+
+.achievement-impact-medium {
+    border-left: 5px solid #ffc107;
+}
+
+.achievement-impact-low {
+    border-left: 5px solid #17a2b8;
+}
+
+/* Performance Factors Styles */
+.performance-factor-item {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.performance-driver {
+    border-left: 3px solid #28a745;
+}
+
+.performance-obstacle {
+    border-left: 3px solid #dc3545;
+}
+
+.factor-number {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.driver-number {
+    background: #28a745;
+}
+
+.obstacle-number {
+    background: #dc3545;
+}
+
+/* Statistics Cards Styles */
+.stat-card {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.stat-card h4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.stat-card small {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Risks Section Styles */
+.risk-card {
+    transition: all 0.3s;
+    position: relative;
+}
+
+.risk-top5 {
+    border-width: 3px !important;
+    background: linear-gradient(135deg, #ffebee 0%, #ffffff 100%);
+}
+
+.risk-top5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #dc3545, #ff6b6b, #dc3545);
+}
+
+.risk-matrix-mini {
+    border: 1px solid #dee2e6;
+}
+
+.risk-matrix-mini:hover {
+    background: #f0f0f0 !important;
+}
+
+/* Toggle Switches for Top 5 */
+.top5-toggle:checked,
+.risk-top5-toggle:checked {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.top5-toggle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Top 5 Badge Styles */
+.achievement-top5 .badge,
+.risk-top5 .badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Utility Classes */
+.border-3 {
+    border-width: 3px !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .achievement-card .row > div {
+        margin-bottom: 15px;
+    }
+    
+    .stat-card h4 {
+        font-size: 1.8rem;
+    }
+}

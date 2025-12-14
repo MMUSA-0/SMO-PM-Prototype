@@ -3,6 +3,11 @@ using Framework.Core.Data;
 using Framework.Core.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 using SMO.Domain.Interfaces;
+using SMO.Domain.Entities.Core;
+using SMO.Domain.Entities.Performance;
+using SMO.Domain.Entities.Risk;
+using SMO.Domain.Entities.Shared;
+using SMO.Domain.Entities.EmployeePerformance;
 
 namespace SMO.Infrastructure.Data;
 
@@ -99,6 +104,13 @@ public class AppDbContext : BaseDbContext<AppDbContext>, IAppDbContext
     /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        #region Apply Configurations from Configuration Files
+        
+        // Apply all configurations from the Configurations folder
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        #endregion
+        
         #region Auto-Discover EntityTypeConfiguration Classes
 
         // Find all EntityTypeConfiguration<TEntity> derived classes in this assembly
@@ -199,13 +211,45 @@ public class AppDbContext : BaseDbContext<AppDbContext>, IAppDbContext
         }
     }
 
-    // NOTE: DbSet properties will be added in future stories as domain entities are created
-    // Example:
-    // public DbSet<Pillar> Pillars { get; set; }
-    // public DbSet<Theme> Themes { get; set; }
-    // public DbSet<StrategicObjective> StrategicObjectives { get; set; }
-    // public DbSet<VisionProgram> VisionPrograms { get; set; }
-    // public DbSet<Initiative> Initiatives { get; set; }
-    // public DbSet<KPI> KPIs { get; set; }
-    // And many more...
+    // =============================================
+    // Vision 2030 Module DbSets
+    // =============================================
+    public DbSet<VisionProgram> VisionPrograms { get; set; }
+    public DbSet<Initiative> Initiatives { get; set; }
+    public DbSet<KPI> KPIs { get; set; }
+    public DbSet<KPIValue> KPIValues { get; set; }
+    public DbSet<KPITarget> KPITargets { get; set; }
+    public DbSet<InitiativeMilestone> InitiativeMilestones { get; set; }
+    
+    // =============================================
+    // Performance Management Module DbSets
+    // =============================================
+    public DbSet<Employee> Employees { get; set; }
+    public DbSet<PerformanceGoal> PerformanceGoals { get; set; }
+    public DbSet<PerformanceReview> PerformanceReviews { get; set; }
+    public DbSet<PerformanceRating> PerformanceRatings { get; set; }
+    
+    // =============================================
+    // Risk & Program Performance DbSets
+    // =============================================
+    public DbSet<ProgramRisk> ProgramRisks { get; set; }
+    public DbSet<InitiativeRisk> InitiativeRisks { get; set; }
+    public DbSet<ProgramAchievement> ProgramAchievements { get; set; }
+    public DbSet<ProgramBudget> ProgramBudgets { get; set; }
+    public DbSet<ProgramPerformance> ProgramPerformances { get; set; }
+    
+    // =============================================
+    // Shared Resource DbSets
+    // =============================================
+    public DbSet<Risk> Risks { get; set; }
+    public DbSet<Milestone> Milestones { get; set; }
+    public DbSet<PerformanceRisk> PerformanceRisks { get; set; }
+    public DbSet<PerformanceGoalMilestone> PerformanceGoalMilestones { get; set; }
+    
+    // NOTE: These shared entities still need to be created in Domain layer
+    // public DbSet<ChangeRequest> ChangeRequests { get; set; }
+    // public DbSet<SupportRequest> SupportRequests { get; set; }
+    // public DbSet<Document> Documents { get; set; }
+    // public DbSet<Notification> Notifications { get; set; }
+    // public DbSet<AuditLog> AuditLogs { get; set; }
 }

@@ -20,6 +20,9 @@ class SidebarManager {
             // Load sidebar HTML
             await this.loadSidebar();
             
+            // Inject cross-module styles
+            this.injectCrossModuleStyles();
+            
             // Set active states
             this.setActiveStates();
             
@@ -32,10 +35,158 @@ class SidebarManager {
             // Initialize submenu states
             this.initSubmenus();
             
+            // Setup cross-module navigation
+            this.setupCrossModuleNavigation();
+            
             console.log('Sidebar Manager initialized successfully');
         } catch (error) {
             console.error('Error initializing sidebar:', error);
         }
+    }
+    
+    /**
+     * Inject styles for cross-module linking
+     */
+    injectCrossModuleStyles() {
+        if (!document.getElementById('cross-module-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'cross-module-styles';
+            styles.textContent = `
+                /* Cross-module linking styles */
+                .page__nav__submenu__item.linked-active {
+                    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+                    border-right: 3px solid #667eea;
+                    position: relative;
+                }
+                
+                .page__nav__submenu__item.linked-active::after {
+                    content: '🔗';
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 12px;
+                    opacity: 0.7;
+                }
+                
+                .page__nav__submenu__item[data-linked] {
+                    position: relative;
+                }
+                
+                .page__nav__submenu__item[data-linked="vision"]::before {
+                    content: '👁️';
+                    margin-left: 5px;
+                    font-size: 14px;
+                    opacity: 0.6;
+                }
+                
+                .page__nav__submenu__item[data-linked="performance"]::before {
+                    content: '📊';
+                    margin-left: 5px;
+                    font-size: 14px;
+                    opacity: 0.6;
+                }
+                
+                /* Quick navigation badges */
+                .quick-nav-badge {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    font-size: 10px;
+                    padding: 2px 6px;
+                    border-radius: 10px;
+                    margin-right: 5px;
+                }
+                
+                /* Hover effect for linked items */
+                .page__nav__submenu__item[data-linked]:hover {
+                    background: linear-gradient(90deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+                    transform: translateX(-2px);
+                    transition: all 0.3s ease;
+                }
+                
+                /* Animation for newly highlighted linked items */
+                @keyframes linkHighlight {
+                    0% { background-color: rgba(102, 126, 234, 0.3); }
+                    100% { background-color: transparent; }
+                }
+                
+                .page__nav__submenu__item.highlight-animation {
+                    animation: linkHighlight 1s ease;
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+    }
+    
+    /**
+     * Setup cross-module navigation features
+     */
+    setupCrossModuleNavigation() {
+        // Add tooltips to linked items
+        const linkedItems = document.querySelectorAll('[data-linked]');
+        linkedItems.forEach(item => {
+            const linkedType = item.getAttribute('data-linked');
+            const tooltipText = linkedType === 'vision' 
+                ? 'مرتبط برؤية 2030' 
+                : 'مرتبط بوحدة الأداء';
+            
+            item.setAttribute('title', tooltipText);
+            
+            // Add click handler for smooth navigation
+            item.addEventListener('click', (e) => {
+                // Store navigation source
+                sessionStorage.setItem('navigationSource', linkedType);
+                
+                // Add visual feedback
+                item.classList.add('highlight-animation');
+            });
+        });
+        
+        // Check if coming from linked module
+        const navigationSource = sessionStorage.getItem('navigationSource');
+        if (navigationSource) {
+            this.showNavigationFeedback(navigationSource);
+            sessionStorage.removeItem('navigationSource');
+        }
+    }
+    
+    /**
+     * Show navigation feedback when coming from linked module
+     */
+    showNavigationFeedback(source) {
+        const message = source === 'vision' 
+            ? 'تم الانتقال من رؤية 2030' 
+            : 'تم الانتقال من وحدة الأداء';
+        
+        // Create feedback toast
+        const toast = document.createElement('div');
+        toast.className = 'navigation-feedback-toast';
+        toast.innerHTML = `
+            <div style="
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 14px;
+                z-index: 9999;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: slideDown 0.5s ease;
+            ">
+                ${message} 🔗
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
     }
 
     /**
@@ -87,7 +238,7 @@ class SidebarManager {
     setActiveStates() {
         // Remove all active states
         const allLinks = document.querySelectorAll('.page__nav__link, .page__nav__submenu__item');
-        allLinks.forEach(link => link.classList.remove('active'));
+        allLinks.forEach(link => link.classList.remove('active', 'linked-active'));
         
         // Find and activate current page link
         const currentPageLinks = document.querySelectorAll(`[data-page="${this.currentPage}"]`);
@@ -103,7 +254,26 @@ class SidebarManager {
                     parentItem.classList.add('submenu-shown');
                 }
             }
+            
+            // Highlight linked items in other modules
+            this.highlightLinkedItems(link);
         });
+    }
+    
+    /**
+     * Highlight linked items across modules
+     */
+    highlightLinkedItems(activeLink) {
+        const linkedType = activeLink.getAttribute('data-linked');
+        if (linkedType) {
+            // Find all items with matching linked type
+            const linkedItems = document.querySelectorAll(`[data-linked="${linkedType}"]`);
+            linkedItems.forEach(item => {
+                if (item !== activeLink) {
+                    item.classList.add('linked-active');
+                }
+            });
+        }
     }
 
     /**
@@ -226,6 +396,32 @@ class SidebarManager {
                 <input type="search" class="sidebar-search__input form-control" placeholder="البحث في القائمة..." />
                 <i class="bi bi-search sidebar-search__icon"></i>
             </div>
+            <div class="quick-nav-container" style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <div class="quick-nav-title" style="font-size: 12px; color: #888; margin-bottom: 8px;">الوصول السريع</div>
+                <button class="quick-nav-btn" data-quick-nav="vision" style="
+                    margin-right: 5px;
+                    padding: 5px 10px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 15px;
+                    font-size: 12px;
+                    cursor: pointer;
+                ">
+                    👁️ رؤية 2030
+                </button>
+                <button class="quick-nav-btn" data-quick-nav="performance" style="
+                    padding: 5px 10px;
+                    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 15px;
+                    font-size: 12px;
+                    cursor: pointer;
+                ">
+                    📊 الأداء
+                </button>
+            </div>
         `;
         
         const sidebar = document.querySelector('.page__nav');
@@ -234,6 +430,64 @@ class SidebarManager {
             
             const searchInput = searchContainer.querySelector('.sidebar-search__input');
             searchInput.addEventListener('input', (e) => this.filterMenuItems(e.target.value));
+            
+            // Add quick navigation handlers
+            const quickNavBtns = searchContainer.querySelectorAll('.quick-nav-btn');
+            quickNavBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const navType = btn.getAttribute('data-quick-nav');
+                    this.quickNavigate(navType);
+                });
+            });
+        }
+    }
+    
+    /**
+     * Quick navigation to specific module
+     */
+    quickNavigate(moduleType) {
+        if (moduleType === 'vision') {
+            // Expand Vision 2030 submenu
+            const visionSubmenu = document.getElementById('visionSubmenu');
+            const visionLink = document.querySelector('[data-bs-target="#visionSubmenu"]');
+            if (visionSubmenu && !visionSubmenu.classList.contains('show')) {
+                visionSubmenu.classList.add('show');
+                const parentItem = visionSubmenu.closest('.page__nav__list__item');
+                if (parentItem) {
+                    parentItem.classList.add('submenu-shown');
+                }
+            }
+            // Highlight all vision-related items
+            const visionItems = document.querySelectorAll('[data-linked="vision"], #visionSubmenu .page__nav__submenu__item');
+            visionItems.forEach(item => {
+                item.classList.add('highlight-animation');
+                setTimeout(() => item.classList.remove('highlight-animation'), 1000);
+            });
+            // Scroll to vision section
+            if (visionLink) {
+                visionLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        } else if (moduleType === 'performance') {
+            // Expand Performance Management submenu
+            const perfSubmenu = document.getElementById('perfMgmtSubmenu');
+            const perfLink = document.querySelector('[data-bs-target="#perfMgmtSubmenu"]');
+            if (perfSubmenu && !perfSubmenu.classList.contains('show')) {
+                perfSubmenu.classList.add('show');
+                const parentItem = perfSubmenu.closest('.page__nav__list__item');
+                if (parentItem) {
+                    parentItem.classList.add('submenu-shown');
+                }
+            }
+            // Highlight all performance-related items
+            const perfItems = document.querySelectorAll('[data-linked="performance"], #perfMgmtSubmenu .page__nav__submenu__item');
+            perfItems.forEach(item => {
+                item.classList.add('highlight-animation');
+                setTimeout(() => item.classList.remove('highlight-animation'), 1000);
+            });
+            // Scroll to performance section
+            if (perfLink) {
+                perfLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     }
 

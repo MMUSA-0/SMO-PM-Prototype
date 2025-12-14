@@ -19,9 +19,124 @@
     <link rel="stylesheet" href="css/fancybox.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/statistic-cards.css">
+    <link rel="stylesheet" href="assets/css/dev-indicators.css">
     
     <title>الإنجازات - نظام إدارة الأداء</title>
-    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+    
+    <style>
+        /* Achievements Page Specific Styles */
+        .table th {
+            font-weight: 600;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        
+        .table td {
+            vertical-align: middle;
+        }
+        
+        .table-responsive {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .table-bordered {
+            border: 1px solid #dee2e6;
+        }
+        
+        .table-bordered thead th {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .table-success {
+            background-color: #d1e7dd;
+        }
+        
+        .btn-group-sm .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        }
+        
+        .list-group-item {
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .list-group-item:hover {
+            border-left-color: #0d6efd;
+            background-color: #f8f9fa;
+        }
+        
+        .list-group-item-action {
+            cursor: pointer;
+        }
+        
+        .progress {
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            border-radius: 6px;
+        }
+        
+        @media (max-width: 768px) {
+            .table-responsive {
+                font-size: 0.875rem;
+            }
+            
+            .table th,
+            .table td {
+                padding: 0.5rem;
+            }
+            
+            .btn-group-sm {
+                flex-direction: column;
+            }
+            
+            .btn-group-sm .btn {
+                margin-bottom: 0.25rem;
+            }
+        }
+        
+        .nav-tabs {
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #6c757d;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-bottom-color: #0d6efd;
+            color: #0d6efd;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #0d6efd;
+            border-bottom-color: #0d6efd;
+            background-color: transparent;
+        }
+    </style>
 </head>
 
 <body data-dev-status="partial" data-dev-progress="70">
@@ -219,11 +334,14 @@
                             </div>
 
                             <!-- Filters -->
-                            <div class="card mb-3">
+                            <div class="card mb-3 shadow-sm">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0"><i class="bi bi-funnel me-2"></i>فلترة الإنجازات</h6>
+                                </div>
                                 <div class="card-body">
                                     <div class="row g-3">
-                                        <div class="col-md-3">
-                                            <label class="form-label">البرنامج</label>
+                                        <div class="col-md-6 col-lg-3">
+                                            <label class="form-label fw-semibold">البرنامج</label>
                                             <select class="form-select" id="filterProgram">
                                                 <option value="">جميع البرامج</option>
                                                 <option value="FSDP">برنامج تطوير القطاع المالي</option>
@@ -231,8 +349,8 @@
                                                 <option value="HP">برنامج الإسكان</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">التصنيف</label>
+                                        <div class="col-md-6 col-lg-3">
+                                            <label class="form-label fw-semibold">التصنيف</label>
                                             <select class="form-select" id="filterCategory">
                                                 <option value="">جميع التصنيفات</option>
                                                 <option value="strategic">استراتيجي</option>
@@ -241,18 +359,17 @@
                                                 <option value="customer">خدمة العملاء</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">السنة</label>
+                                        <div class="col-md-6 col-lg-3">
+                                            <label class="form-label fw-semibold">السنة</label>
                                             <select class="form-select" id="filterYear">
                                                 <option value="">جميع السنوات</option>
                                                 <option value="2024">2024</option>
                                                 <option value="2023">2023</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label">&nbsp;</label>
-                                            <button class="btn btn-primary d-block w-100">
-                                                <i class="bi bi-funnel"></i> تطبيق الفلاتر
+                                        <div class="col-md-6 col-lg-3 d-flex align-items-end">
+                                            <button class="btn btn-primary w-100">
+                                                <i class="bi bi-funnel me-2"></i> تطبيق الفلاتر
                                             </button>
                                         </div>
                                     </div>
@@ -261,26 +378,26 @@
 
                             <!-- KPI Achievements Table -->
                             <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead class="table-light">
                                         <tr>
                                             <!-- UC-10 Fields -->
-                                            <th>اسم البرنامج</th>
-                                            <th>التصنيف</th>
-                                            <th>العنوان</th>
+                                            <th class="text-nowrap">اسم البرنامج</th>
+                                            <th class="text-nowrap">التصنيف</th>
+                                            <th class="text-nowrap">العنوان</th>
                                             <th>الوصف</th>
-                                            <th>السنة</th>
-                                            <th>الربع</th>
-                                            <th>اسم المؤشر</th>
-                                            <th>الهدف</th>
-                                            <th>الوحدة</th>
-                                            <th>القيمة المحققة</th>
+                                            <th class="text-nowrap">السنة</th>
+                                            <th class="text-nowrap">الربع</th>
+                                            <th class="text-nowrap">اسم المؤشر</th>
+                                            <th class="text-nowrap">الهدف</th>
+                                            <th class="text-nowrap">الوحدة</th>
+                                            <th class="text-nowrap">القيمة المحققة</th>
                                             <th>المبادرة المرتبطة</th>
                                             <th>الهدف الاستراتيجي</th>
                                             <th>الجهات الحكومية</th>
                                             <th>الشريحة المستهدفة</th>
                                             <th>الأثر</th>
-                                            <th>الإجراءات</th>
+                                            <th class="text-nowrap">الإجراءات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -301,15 +418,17 @@
                                             <td>المواطنون</td>
                                             <td>إيجابي عالي</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info me-1" onclick="viewAchievement('ACH-001')">
-                                                    <i class="bi bi-eye"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-warning me-1" onclick="editAchievement('ACH-001')">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-success" onclick="shareAchievement('ACH-001')">
-                                                    <i class="bi bi-share"></i>
-                                                </button>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-info" onclick="viewAchievement('ACH-001')" title="عرض">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-warning" onclick="editAchievement('ACH-001')" title="تعديل">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-success" onclick="shareAchievement('ACH-001')" title="مشاركة">
+                                                        <i class="bi bi-share"></i>
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -329,15 +448,17 @@
                                             <td>القطاع الحكومي</td>
                                             <td>توفير 24%</td>
                                             <td>
-                                                <button class="btn btn-sm btn-info me-1" onclick="viewAchievement('ACH-002')">
-                                                    <i class="bi bi-eye"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-warning me-1" onclick="editAchievement('ACH-002')">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-secondary" onclick="documentAchievement('ACH-002')">
-                                                    <i class="bi bi-file-earmark"></i>
-                                                </button>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-info" onclick="viewAchievement('ACH-002')" title="عرض">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-warning" onclick="editAchievement('ACH-002')" title="تعديل">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-secondary" onclick="documentAchievement('ACH-002')" title="توثيق">
+                                                        <i class="bi bi-file-earmark"></i>
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -357,43 +478,49 @@
 
                             <!-- Initiative Achievements Cards -->
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="card border-success">
-                                        <div class="card-header bg-success text-white">
-                                            <i class="bi bi-trophy-fill"></i> إنجاز مميز
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-success h-100 shadow-sm">
+                                        <div class="card-header bg-success text-white d-flex align-items-center gap-2">
+                                            <i class="bi bi-trophy-fill"></i> 
+                                            <span>إنجاز مميز</span>
                                         </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">إطلاق المنصة الرقمية الموحدة</h5>
-                                            <p class="card-text">
-                                                <strong>المبادرة:</strong> مبادرة التحول الرقمي<br>
-                                                <strong>البرنامج:</strong> برنامج تطوير القطاع المالي<br>
-                                                <strong>التاريخ:</strong> ديسمبر 2024<br>
-                                                <strong>الإنجاز:</strong> إطلاق المنصة قبل الموعد المحدد بأسبوعين
-                                            </p>
-                                            <div class="progress mb-2" style="height: 20px;">
-                                                <div class="progress-bar bg-success" style="width: 100%">100% مكتمل</div>
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title mb-3">إطلاق المنصة الرقمية الموحدة</h5>
+                                            <div class="card-text mb-3 flex-grow-1">
+                                                <div class="mb-2"><strong>المبادرة:</strong> مبادرة التحول الرقمي</div>
+                                                <div class="mb-2"><strong>البرنامج:</strong> برنامج تطوير القطاع المالي</div>
+                                                <div class="mb-2"><strong>التاريخ:</strong> ديسمبر 2024</div>
+                                                <div class="mb-2"><strong>الإنجاز:</strong> إطلاق المنصة قبل الموعد المحدد بأسبوعين</div>
                                             </div>
-                                            <small class="text-muted">أثر الإنجاز: خدمة 50,000 مستفيد في الشهر الأول</small>
+                                            <div class="progress mb-2" style="height: 24px;">
+                                                <div class="progress-bar bg-success d-flex align-items-center justify-content-center" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="fw-bold">100% مكتمل</span>
+                                                </div>
+                                            </div>
+                                            <small class="text-muted"><i class="bi bi-info-circle me-1"></i>أثر الإنجاز: خدمة 50,000 مستفيد في الشهر الأول</small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="card border-info">
-                                        <div class="card-header bg-info text-white">
-                                            <i class="bi bi-graph-up"></i> إنجاز كمي
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-info h-100 shadow-sm">
+                                        <div class="card-header bg-info text-white d-flex align-items-center gap-2">
+                                            <i class="bi bi-graph-up"></i> 
+                                            <span>إنجاز كمي</span>
                                         </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">تدريب 1000 موظف</h5>
-                                            <p class="card-text">
-                                                <strong>المبادرة:</strong> مبادرة تطوير الكوادر<br>
-                                                <strong>البرنامج:</strong> برنامج التحول الوطني<br>
-                                                <strong>التاريخ:</strong> Q4 2024<br>
-                                                <strong>الإنجاز:</strong> تجاوز هدف التدريب بنسبة 25%
-                                            </p>
-                                            <div class="progress mb-2" style="height: 20px;">
-                                                <div class="progress-bar bg-info" style="width: 125%">125% من الهدف</div>
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title mb-3">تدريب 1000 موظف</h5>
+                                            <div class="card-text mb-3 flex-grow-1">
+                                                <div class="mb-2"><strong>المبادرة:</strong> مبادرة تطوير الكوادر</div>
+                                                <div class="mb-2"><strong>البرنامج:</strong> برنامج التحول الوطني</div>
+                                                <div class="mb-2"><strong>التاريخ:</strong> Q4 2024</div>
+                                                <div class="mb-2"><strong>الإنجاز:</strong> تجاوز هدف التدريب بنسبة 25%</div>
                                             </div>
-                                            <small class="text-muted">أثر الإنجاز: رفع كفاءة الأداء بنسبة 35%</small>
+                                            <div class="progress mb-2 position-relative" style="height: 24px;">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="125" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="position-absolute w-100 text-center text-dark fw-bold">125% من الهدف</span>
+                                                </div>
+                                            </div>
+                                            <small class="text-muted"><i class="bi bi-info-circle me-1"></i>أثر الإنجاز: رفع كفاءة الأداء بنسبة 35%</small>
                                         </div>
                                     </div>
                                 </div>
@@ -402,64 +529,84 @@
 
                         <!-- Top 5 Achievements Tab -->
                         <div class="tab-pane fade" id="topAchievementsTab">
-                            <h3 class="h5 mb-4">أبرز 5 إنجازات</h3>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="h5 mb-0">أبرز 5 إنجازات</h3>
+                                <button class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-download me-1"></i> تصدير التقرير
+                                </button>
+                            </div>
                             
                             <!-- Top Achievements List -->
-                            <div class="list-group">
-                                <div class="list-group-item">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">
-                                            <span class="badge bg-warning text-dark me-2">#1</span>
-                                            إطلاق المنصة الرقمية الموحدة
-                                        </h5>
-                                        <small class="text-muted">ديسمبر 2024</small>
+                            <div class="list-group shadow-sm">
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-warning text-dark fs-6">#1</span>
+                                            <h5 class="mb-0">إطلاق المنصة الرقمية الموحدة</h5>
+                                        </div>
+                                        <small class="text-muted text-nowrap">ديسمبر 2024</small>
                                     </div>
-                                    <p class="mb-1">تم إطلاق المنصة قبل الموعد المحدد وخدمة 50,000 مستفيد في الشهر الأول</p>
-                                    <small>البرنامج: تطوير القطاع المالي | الأثر: عالي جداً</small>
+                                    <p class="mb-2">تم إطلاق المنصة قبل الموعد المحدد وخدمة 50,000 مستفيد في الشهر الأول</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <small class="text-muted"><i class="bi bi-diagram-3 me-1"></i>البرنامج: تطوير القطاع المالي</small>
+                                        <small class="text-muted"><i class="bi bi-star-fill me-1 text-warning"></i>الأثر: عالي جداً</small>
+                                    </div>
                                 </div>
-                                <div class="list-group-item">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">
-                                            <span class="badge bg-warning text-dark me-2">#2</span>
-                                            تحقيق أعلى معدل رضا
-                                        </h5>
-                                        <small class="text-muted">Q4 2024</small>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-warning text-dark fs-6">#2</span>
+                                            <h5 class="mb-0">تحقيق أعلى معدل رضا</h5>
+                                        </div>
+                                        <small class="text-muted text-nowrap">Q4 2024</small>
                                     </div>
-                                    <p class="mb-1">وصول معدل رضا المستفيدين إلى 92% متجاوزاً الهدف بـ 12%</p>
-                                    <small>البرنامج: تطوير القطاع المالي | الأثر: عالي</small>
+                                    <p class="mb-2">وصول معدل رضا المستفيدين إلى 92% متجاوزاً الهدف بـ 12%</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <small class="text-muted"><i class="bi bi-diagram-3 me-1"></i>البرنامج: تطوير القطاع المالي</small>
+                                        <small class="text-muted"><i class="bi bi-star-fill me-1 text-warning"></i>الأثر: عالي</small>
+                                    </div>
                                 </div>
-                                <div class="list-group-item">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">
-                                            <span class="badge bg-warning text-dark me-2">#3</span>
-                                            توفير 12 مليون ريال
-                                        </h5>
-                                        <small class="text-muted">Q3 2024</small>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-warning text-dark fs-6">#3</span>
+                                            <h5 class="mb-0">توفير 12 مليون ريال</h5>
+                                        </div>
+                                        <small class="text-muted text-nowrap">Q3 2024</small>
                                     </div>
-                                    <p class="mb-1">تحقيق وفورات في الميزانية التشغيلية بنسبة 24%</p>
-                                    <small>البرنامج: التحول الوطني | الأثر: مالي كبير</small>
+                                    <p class="mb-2">تحقيق وفورات في الميزانية التشغيلية بنسبة 24%</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <small class="text-muted"><i class="bi bi-diagram-3 me-1"></i>البرنامج: التحول الوطني</small>
+                                        <small class="text-muted"><i class="bi bi-star-fill me-1 text-warning"></i>الأثر: مالي كبير</small>
+                                    </div>
                                 </div>
-                                <div class="list-group-item">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">
-                                            <span class="badge bg-warning text-dark me-2">#4</span>
-                                            تدريب 1250 موظف
-                                        </h5>
-                                        <small class="text-muted">Q4 2024</small>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-warning text-dark fs-6">#4</span>
+                                            <h5 class="mb-0">تدريب 1250 موظف</h5>
+                                        </div>
+                                        <small class="text-muted text-nowrap">Q4 2024</small>
                                     </div>
-                                    <p class="mb-1">تجاوز هدف التدريب السنوي بنسبة 25% مع رفع الكفاءة</p>
-                                    <small>البرنامج: التحول الوطني | الأثر: تطوير قدرات</small>
+                                    <p class="mb-2">تجاوز هدف التدريب السنوي بنسبة 25% مع رفع الكفاءة</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <small class="text-muted"><i class="bi bi-diagram-3 me-1"></i>البرنامج: التحول الوطني</small>
+                                        <small class="text-muted"><i class="bi bi-star-fill me-1 text-warning"></i>الأثر: تطوير قدرات</small>
+                                    </div>
                                 </div>
-                                <div class="list-group-item">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">
-                                            <span class="badge bg-warning text-dark me-2">#5</span>
-                                            إكمال مشروع البنية التحتية
-                                        </h5>
-                                        <small class="text-muted">نوفمبر 2024</small>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-warning text-dark fs-6">#5</span>
+                                            <h5 class="mb-0">إكمال مشروع البنية التحتية</h5>
+                                        </div>
+                                        <small class="text-muted text-nowrap">نوفمبر 2024</small>
                                     </div>
-                                    <p class="mb-1">إنجاز مشروع البنية التحتية الرقمية في الوقت المحدد</p>
-                                    <small>البرنامج: الإسكان | الأثر: تمكين رقمي</small>
+                                    <p class="mb-2">إنجاز مشروع البنية التحتية الرقمية في الوقت المحدد</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <small class="text-muted"><i class="bi bi-diagram-3 me-1"></i>البرنامج: الإسكان</small>
+                                        <small class="text-muted"><i class="bi bi-star-fill me-1 text-warning"></i>الأثر: تمكين رقمي</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -707,5 +854,8 @@
         });
     </script>
     <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

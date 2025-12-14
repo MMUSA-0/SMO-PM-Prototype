@@ -193,7 +193,8 @@ ol li::marker {
 }
 
 main {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: auto;
   padding-block: 1.25rem 0;
 }
 @media (min-width: 768px) {
@@ -2689,4 +2690,9 @@ main .page-container {
     color: var(--clr-text);
     text-decoration-line: none;
   }
+}
+
+/* Hide latest achievements module across all pages */
+.latest-achievements {
+  display: none !important;
 }

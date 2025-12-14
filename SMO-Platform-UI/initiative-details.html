@@ -21,7 +21,306 @@
     <link rel="stylesheet" href="css/styles.min.css">
     
     <title>تفاصيل المبادرة - نظام إدارة الأداء</title>
+    
+    <!-- Custom CSS files -->
     <link href="assets/css/dev-indicators.css" rel="stylesheet">
+    <link href="assets/css/performance-enhancements.css" rel="stylesheet">
+    
+    <style>
+        /* Container and Layout Fixes - Vision.html Style */
+        .page-container {
+            width: 100%;
+            max-width: 1680px;
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .page-wrapper {
+            width: 100% !important;
+            overflow-x: hidden !important;
+        }
+        
+        .page-inner {
+            padding: 20px 0 !important;
+        }
+        
+        @media (min-width: 768px) {
+            .page-container {
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+            }
+        }
+        
+        /* Statistic Card Styles */
+        .statistic-card {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            padding: 1.5rem !important;
+            background: #fff !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            transition: all 0.3s ease !important;
+            height: 100% !important;
+            min-height: 120px !important;
+            color: inherit !important;
+            background-image: none !important;
+        }
+        
+        .statistic-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+            background-color: #fff !important;
+        }
+        
+        .statistic-card__icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 64px !important;
+            height: 64px !important;
+            border-radius: 12px !important;
+            margin-left: 1.25rem !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .statistic-card__icon i {
+            font-size: 2rem !important;
+            color: #fff !important;
+        }
+        
+        .statistic-card__content {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+        }
+        
+        .statistic-card__title {
+            font-size: 0.9rem !important;
+            color: #6c757d !important;
+            margin-bottom: 0 !important;
+            font-weight: 500 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .statistic-card__count {
+            display: flex !important;
+            align-items: baseline !important;
+            gap: 0.25rem !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .statistic-card__count__number {
+            font-size: 2.25rem !important;
+            font-weight: 700 !important;
+            color: #212529 !important;
+            line-height: 1 !important;
+        }
+        
+        .statistic-card__count__unit {
+            font-size: 1.1rem !important;
+            color: #6c757d !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Icon Background Colors */
+        .statistic-card__icon.bg-primary {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+        }
+        
+        .statistic-card__icon.bg-success {
+            background: linear-gradient(135deg, #198754 0%, #146c43 100%) !important;
+        }
+        
+        .statistic-card__icon.bg-warning {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+        }
+        
+        .statistic-card__icon.bg-info {
+            background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%) !important;
+        }
+        
+        .statistic-card__icon.bg-danger {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+        }
+        
+        .statistic-card__icon.bg-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #545b62 100%) !important;
+        }
+        
+        /* Tab Styles - Vision.html Style */
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .nav-tabs .nav-item {
+            margin-bottom: 0 !important;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #495057 !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            border-radius: 0 !important;
+            padding: 1rem 1.5rem !important;
+            margin-bottom: -1px !important;
+            background: transparent !important;
+            transition: all 0.2s !important;
+            font-weight: 500 !important;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: #227758 !important;
+            border-bottom-color: rgba(34, 119, 88, 0.2) !important;
+            background-color: transparent !important;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #227758 !important;
+            background: transparent !important;
+            border-color: transparent transparent #227758 !important;
+            border-bottom-width: 3px !important;
+            font-weight: 600 !important;
+        }
+        
+        .nav-tabs .nav-link i {
+            display: none !important;
+        }
+        
+        /* Content Container Styles */
+        .content-container {
+            background-color: #fff !important;
+            border: 1px solid #dee2e6 !important;
+            border-top: none !important;
+            padding: 2rem !important;
+            min-height: 500px !important;
+        }
+        
+        .tab-content {
+            padding: 0 !important;
+        }
+        
+        .tab-pane {
+            padding: 0 !important;
+        }
+        
+        /* Remove default card styling in tab content */
+        .content-container .card {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .content-container .card-body {
+            padding: 0 !important;
+            background: transparent !important;
+        }
+        
+        .content-container .card-header {
+            background-color: #f8f9fa !important;
+            border-bottom: 2px solid #dee2e6 !important;
+            padding: 1rem 1.5rem !important;
+        }
+        
+        /* Form and Label Styles */
+        .form-label {
+            font-size: 0.875rem !important;
+            color: #6c757d !important;
+            margin-bottom: 0.25rem !important;
+        }
+        
+        .form-label.fw-bold {
+            color: #495057 !important;
+        }
+        
+        /* Clean spacing for details */
+        .row.g-3 p {
+            margin-bottom: 0 !important;
+            font-size: 1rem !important;
+            color: #212529 !important;
+        }
+        
+        /* Ensure proper spacing in tab panes */
+        .tab-pane {
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Margin for sections within tabs */
+        .tab-pane > h3:first-child {
+            margin-top: 0 !important;
+        }
+        
+        /* Card Improvements */
+        .card {
+            border: none !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08) !important;
+            border-radius: 12px !important;
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .card-body {
+            padding: 2rem !important;
+        }
+        
+        /* Table Styles */
+        .table {
+            margin-bottom: 0 !important;
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid #dee2e6 !important;
+            font-weight: 600 !important;
+            color: #495057 !important;
+            background-color: #f8f9fa !important;
+            padding: 1rem !important;
+        }
+        
+        .table tbody td {
+            padding: 0.75rem 1rem !important;
+            vertical-align: middle !important;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 0 15px !important;
+            }
+            
+            .statistic-card {
+                padding: 1rem !important;
+                min-height: 100px !important;
+            }
+            
+            .statistic-card__icon {
+                width: 48px !important;
+                height: 48px !important;
+                margin-left: 1rem !important;
+            }
+            
+            .statistic-card__icon i {
+                font-size: 1.5rem !important;
+            }
+            
+            .statistic-card__count__number {
+                font-size: 1.75rem !important;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 0.5rem 0.75rem !important;
+                font-size: 0.875rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body data-dev-status="partial" data-dev-progress="70">
@@ -210,158 +509,141 @@
                     </div>
                 </div>
 
-                <!-- Tabs Navigation -->
+                <!-- Tabs and Content Section - Vision.html Style -->
                 <div class="page-container">
-                    <ul class="nav nav-tabs mb-4" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#detailsTab">
-                                <i class="bi bi-info-circle me-2"></i>
-                                تفاصيل المبادرة (UC-14)
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#kpisTab">
-                                <i class="bi bi-speedometer2 me-2"></i>
-                                مؤشرات المبادرة (UC-15)
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#budgetTab">
-                                <i class="bi bi-currency-dollar me-2"></i>
-                                ميزانية المبادرة (UC-16)
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#milestonesTab">
-                                <i class="bi bi-flag me-2"></i>
-                                معالم المبادرات (UC-17)
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#risksTab">
-                                <i class="bi bi-shield-exclamation me-2"></i>
-                                مخاطر المبادرة
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#documentsTab">
-                                <i class="bi bi-folder me-2"></i>
-                                وثائق المبادرة
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Tab Content -->
-                    <div class="tab-content">
-                        <!-- Details Tab (UC-14) -->
-                        <div class="tab-pane fade show active" id="detailsTab">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="h5 mb-4">معلومات المبادرة الأساسية</h3>
-                                    <div class="row g-3">
-                                        <!-- All 15 UC-14 Fields -->
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">كود المبادرة:</label>
-                                            <p>INIT-2024-001</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">اسم المبادرة (عربي):</label>
-                                            <p>مبادرة التحول الرقمي</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">اسم المبادرة (إنجليزي):</label>
-                                            <p>Digital Transformation Initiative</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">وصف المبادرة (عربي):</label>
-                                            <p>تحويل الخدمات الحكومية إلى خدمات رقمية متكاملة</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">وصف المبادرة (إنجليزي):</label>
-                                            <p>Transform government services into integrated digital services</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">الهدف المرحلي (عربي):</label>
-                                            <p>رقمنة 80% من الخدمات بنهاية 2024</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">الهدف المرحلي (إنجليزي):</label>
-                                            <p>Digitize 80% of services by end of 2024</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label fw-bold">تاريخ البداية:</label>
-                                            <p>2024-01-01</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label fw-bold">تاريخ النهاية:</label>
-                                            <p>2024-12-31</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label fw-bold">التقدم المخطط (%):</label>
-                                            <p>68%</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="form-label fw-bold">التقدم الفعلي (%):</label>
-                                            <p class="text-success fw-bold">72%</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">الميزانية المعتمدة:</label>
-                                            <p>15,000,000 ريال سعودي</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">المصروف الفعلي:</label>
-                                            <p>10,200,000 ريال سعودي</p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">حالة المبادرة:</label>
-                                            <p><span class="badge bg-success">قيد التنفيذ</span></p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label fw-bold">الجهة المسؤولة:</label>
-                                            <p>وزارة الاتصالات وتقنية المعلومات</p>
-                                        </div>
-                                    </div>
-
-                                    <hr class="my-4">
-
-                                    <h3 class="h5 mb-3">تحديث حالة المبادرة</h3>
-                                    <form id="updateInitiativeForm">
-                                        <div class="row g-3">
-                                            <div class="col-md-4">
-                                                <label class="form-label">التقدم الفعلي (%)</label>
-                                                <input type="number" class="form-control" value="72" min="0" max="100">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-label">المصروف الفعلي</label>
-                                                <input type="number" class="form-control" value="10200000">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-label">حالة المبادرة</label>
-                                                <select class="form-select">
-                                                    <option value="ongoing" selected>قيد التنفيذ</option>
-                                                    <option value="completed">مكتملة</option>
-                                                    <option value="delayed">متأخرة</option>
-                                                    <option value="suspended">معلقة</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-12">
-                                                <label class="form-label">ملاحظات التحديث</label>
-                                                <textarea class="form-control" rows="2"></textarea>
-                                            </div>
-                                            <div class="col-12">
-                                                <button type="button" class="btn btn-primary" onclick="updateInitiative()">
-                                                    <i class="bi bi-save"></i> حفظ التحديث
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="tab" data-bs-target="#detailsTab">تفاصيل المبادرة (UC-14)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#kpisTab">مؤشرات المبادرة (UC-15)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#budgetTab">ميزانية المبادرة (UC-16)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#milestonesTab">معالم المبادرات (UC-17)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#risksTab">مخاطر المبادرة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#documentsTab">وثائق المبادرة</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content-container">
+                                <div class="tab-content">
+                                    <!-- Details Tab (UC-14) -->
+                                    <div class="tab-pane fade show active" id="detailsTab" role="tabpanel">
+                                        <h3 class="h5 mb-4">معلومات المبادرة الأساسية</h3>
+                            <div class="row g-3">
+                                <!-- All 15 UC-14 Fields -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">كود المبادرة:</label>
+                                    <p>INIT-2024-001</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">اسم المبادرة (عربي):</label>
+                                    <p>مبادرة التحول الرقمي</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">اسم المبادرة (إنجليزي):</label>
+                                    <p>Digital Transformation Initiative</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">وصف المبادرة (عربي):</label>
+                                    <p>تحويل الخدمات الحكومية إلى خدمات رقمية متكاملة</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">وصف المبادرة (إنجليزي):</label>
+                                    <p>Transform government services into integrated digital services</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">الهدف المرحلي (عربي):</label>
+                                    <p>رقمنة 80% من الخدمات بنهاية 2024</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">الهدف المرحلي (إنجليزي):</label>
+                                    <p>Digitize 80% of services by end of 2024</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">تاريخ البداية:</label>
+                                    <p>2024-01-01</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">تاريخ النهاية:</label>
+                                    <p>2024-12-31</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">التقدم المخطط (%):</label>
+                                    <p>68%</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-bold">التقدم الفعلي (%):</label>
+                                    <p class="text-success fw-bold">72%</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">الميزانية المعتمدة:</label>
+                                    <p>15,000,000 ريال سعودي</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">المصروف الفعلي:</label>
+                                    <p>10,200,000 ريال سعودي</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">حالة المبادرة:</label>
+                                    <p><span class="badge bg-success">قيد التنفيذ</span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">الجهة المسؤولة:</label>
+                                    <p>وزارة الاتصالات وتقنية المعلومات</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- KPIs Tab (UC-15) -->
-                        <div class="tab-pane fade" id="kpisTab">
-                            <div class="table-responsive">
+                            <hr class="my-4">
+
+                            <h3 class="h5 mb-3">تحديث حالة المبادرة</h3>
+                            <form id="updateInitiativeForm">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">التقدم الفعلي (%)</label>
+                                        <input type="number" class="form-control" value="72" min="0" max="100">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">المصروف الفعلي</label>
+                                        <input type="number" class="form-control" value="10200000">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">حالة المبادرة</label>
+                                        <select class="form-select">
+                                            <option value="ongoing" selected>قيد التنفيذ</option>
+                                            <option value="completed">مكتملة</option>
+                                            <option value="delayed">متأخرة</option>
+                                            <option value="suspended">معلقة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">ملاحظات التحديث</label>
+                                        <textarea class="form-control" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="button" class="btn btn-primary" onclick="updateInitiative()">
+                                            <i class="bi bi-save"></i> حفظ التحديث
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                                    </div>
+
+                                    <!-- KPIs Tab (UC-15) -->
+                                    <div class="tab-pane fade" id="kpisTab" role="tabpanel">
+                                        <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -408,16 +690,16 @@
                                 </table>
                             </div>
 
-                            <div class="mt-3">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addKPIModal">
-                                    <i class="bi bi-plus-circle"></i> إضافة مؤشر أداء
-                                </button>
-                            </div>
-                        </div>
+                                        <div class="mt-3">
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addKPIModal">
+                                                <i class="bi bi-plus-circle"></i> إضافة مؤشر أداء
+                                            </button>
+                                        </div>
+                                    </div>
 
-                        <!-- Budget Tab (UC-16) -->
-                        <div class="tab-pane fade" id="budgetTab">
-                            <div class="row g-3">
+                                    <!-- Budget Tab (UC-16) -->
+                                    <div class="tab-pane fade" id="budgetTab" role="tabpanel">
+                                        <div class="row g-3">
                                 <div class="col-md-8">
                                     <div class="card">
                                         <div class="card-header">
@@ -469,10 +751,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Milestones Tab (UC-17) -->
-                        <div class="tab-pane fade" id="milestonesTab">
-                            <div class="table-responsive">
+                                    <!-- Milestones Tab (UC-17) -->
+                                    <div class="tab-pane fade" id="milestonesTab" role="tabpanel">
+                                        <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -508,12 +791,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
+                                        </div>
+                                    </div>
 
-                        <!-- Risks Tab -->
-                        <div class="tab-pane fade" id="risksTab">
-                            <div class="table-responsive">
+                                    <!-- Risks Tab -->
+                                    <div class="tab-pane fade" id="risksTab" role="tabpanel">
+                                        <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -536,12 +819,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </div>
+                                        </div>
+                                    </div>
 
-                        <!-- Documents Tab -->
-                        <div class="tab-pane fade" id="documentsTab">
-                            <div class="table-responsive">
+                                    <!-- Documents Tab -->
+                                    <div class="tab-pane fade" id="documentsTab" role="tabpanel">
+                                        <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -580,11 +863,14 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="mt-3">
-                                <button class="btn btn-primary">
-                                    <i class="bi bi-upload"></i> رفع وثيقة جديدة
-                                </button>
+                                        </div>
+                                        <div class="mt-3">
+                                            <button class="btn btn-primary">
+                                                <i class="bi bi-upload"></i> رفع وثيقة جديدة
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -644,5 +930,8 @@
         });
     </script>
     <script src="assets/js/dev-indicators.js"></script>
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 </html>

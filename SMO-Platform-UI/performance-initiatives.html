@@ -20,15 +20,18 @@
     <link rel="stylesheet" href="css/fancybox.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/performance-enhancements.css">
+    <link rel="stylesheet" href="assets/css/performance-initiatives.css">
+    
     <title>مستوى المبادرات - إدارة الأداء | مكتب الإدارة الاستراتيجية</title>
     <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link href="assets/css/dev-indicators.css" rel="stylesheet">
+
 </head>
 
-<body class="overflow-hidden" data-dev-status="partial" data-dev-progress="75">
+<body class="overflow-hidden">
     <header class="page-header">
         <div class="page-container">
             <div class="row">
@@ -126,16 +129,25 @@
                 <nav class="page__nav">
                     <ul class="page__nav__list">
                         <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="performance-dashboard.html" role="button">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/dashboard.svg" alt="">
                                 <span>لوحة القيادة المتقدمة</span>
                             </a>
                         </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="vision.html" role="button">
+                        <li class="page__nav__list__item submenu-shown">
+                            <a class="page__nav__link" href="#" role="button">
                                 <img class="page__nav__link__icon" src="images/nav-icons/list.svg" alt="">
                                 <span>مركز معلومات رؤية 2030</span>
                             </a>
+                            <div class="page__nav__submenu-container">
+                                <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="vision.html">معلومات الرؤية</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">الأهداف الإستراتيجية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">برامج الرؤية (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item disabled" href="#" title="قيد التطوير">المبادرات (قيد التطوير)</a>
+                                    <a class="page__nav__submenu__item" href="indicators.html">المؤشرات</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="page__nav__list__item">
                             <a class="page__nav__link" href="" role="button">
@@ -150,6 +162,7 @@
                             </a>
                             <div class="page__nav__submenu-container">
                                 <div class="page__nav__submenu">
+                                    <a class="page__nav__submenu__item" href="performance-dashboard.html">لوحة القيادة المتقدمة</a>
                                     <a class="page__nav__submenu__item" href="performance-vision.html">مستوى الرؤية</a>
                                     <a class="page__nav__submenu__item" href="performance-programs.html">مستوى البرنامج</a>
                                     <a class="page__nav__submenu__item active" href="performance-initiatives.html">مستوى المبادرات</a>
@@ -158,56 +171,9 @@
                                     <a class="page__nav__submenu__item" href="performance-thresholds.html">حالات قياس المؤشرات</a>
                                     <a class="page__nav__submenu__item" href="report-generation.html">التقارير</a>
                                     <a class="page__nav__submenu__item" href="data-sync-status.html">حالة البيانات</a>
+                                    <a class="page__nav__submenu__item" href="executive-performance-dashboard.html">لوحة الأداء التنفيذي</a>
                                 </div>
                             </div>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/check-list.svg" alt="">
-                                <span>إدارة المهام</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/edit-request.svg" alt="">
-                                <span>طلبات التغيير</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/security-shield.svg" alt="">
-                                <span>إدارة المخاطر</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/document-check.svg" alt="">
-                                <span>إدارة محتوى الوثائق</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/arrow-target.svg" alt="">
-                                <span>إدارة التحديات</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/check.svg" alt="">
-                                <span>التصويت والاستطلاعات</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/document.svg" alt="">
-                                <span>المستندات</span>
-                            </a>
-                        </li>
-                        <li class="page__nav__list__item">
-                            <a class="page__nav__link" href="" role="button">
-                                <img class="page__nav__link__icon" src="images/nav-icons/group.svg" alt="">
-                                <span>الإدارة</span>
-                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -215,17 +181,7 @@
             <section class="page-content">
                 <div class="row">
                     <div class="col-12 mb-2">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h1 class="page-title">مستوى المبادرات</h1>
-                            <div class="d-flex gap-2">
-                                <button type="button" class="btn btn-outline-primary" onclick="exportInitiatives()">
-                                    <i class="bi bi-download"></i> تصدير البيانات
-                                </button>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInitiativeModal">
-                                    <i class="bi bi-plus-circle"></i> إضافة مبادرة
-                                </button>
-                            </div>
-                        </div>
+                        <h1 class="page-title">مستوى المبادرات</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -233,176 +189,93 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#">
+                                    <a href="index.html">
                                         <img src="images/home-icon.svg" alt="">
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">إدارة الأداء</a></li>
+                                <li class="breadcrumb-item">
+                                    <a href="performance-dashboard.html">إدارة الأداء</a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">مستوى المبادرات</li>
                             </ol>
                         </nav>
                     </div>
                 </div>
-
-                <!-- Initiative Statistics -->
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="accordion" id="accordionStatistics">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStatistics" aria-expanded="true" aria-controls="collapseStatistics">
-                                        إحصائيات المبادرات - Q4 2024
-                                    </button>
-                                </h2>
-                                <div id="collapseStatistics" class="accordion-collapse collapse show" data-bs-parent="#accordionStatistics">
-                                    <div class="accordion-body">
-                                        <div class="row g-4">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
-                                                <div class="statistic-card">
-                                                    <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">524</span>
-                                                        <span class="statistic-card__label">إجمالي المبادرات</span>
-                                                    </div>
-                                                    <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">423 قيد التنفيذ</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
-                                                <div class="statistic-card">
-                                                    <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">87<span class="statistic-card__count__percent">%</span></span>
-                                                        <span class="statistic-card__label">متوسط الإنجاز</span>
-                                                    </div>
-                                                    <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief text-success">
-                                                            <i class="bi bi-arrow-up"></i> +5% عن الربع السابق
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
-                                                <div class="statistic-card">
-                                                    <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">45</span>
-                                                        <span class="statistic-card__label">مبادرات محورية</span>
-                                                    </div>
-                                                    <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief">عالية الأولوية</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-6 col-xxl-3">
-                                                <div class="statistic-card">
-                                                    <div class="statistic-card__header">
-                                                        <span class="statistic-card__count">28</span>
-                                                        <span class="statistic-card__label">مبادرات متأخرة</span>
-                                                    </div>
-                                                    <div class="statistic-card__body">
-                                                        <span class="statistic-card__brief text-danger">تحتاج تدخل</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <!-- Initiative Summary Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="statistic-card">
+                            <div class="statistic-card__header">
+                                <span class="statistic-card__count">1,522</span>
+                                <span class="statistic-card__label">إجمالي المبادرات</span>
+                            </div>
+                            <div class="statistic-card__body">
+                                <span class="statistic-card__brief">نشط: 873 | مكتمل: 456</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="statistic-card">
+                            <div class="statistic-card__header">
+                                <span class="statistic-card__count">82.4<span class="statistic-card__count__percent">%</span></span>
+                                <span class="statistic-card__label">متوسط التقدم</span>
+                            </div>
+                            <div class="statistic-card__body">
+                                <span class="statistic-card__brief">المستهدف: 85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="statistic-card">
+                            <div class="statistic-card__header">
+                                <span class="statistic-card__count">125</span>
+                                <span class="statistic-card__label">مبادرات محورية</span>
+                            </div>
+                            <div class="statistic-card__body">
+                                <span class="statistic-card__brief">ذات أولوية عالية</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                        <div class="statistic-card">
+                            <div class="statistic-card__header">
+                                <span class="statistic-card__count">45</span>
+                                <span class="statistic-card__label">متأخرة</span>
+                            </div>
+                            <div class="statistic-card__body">
+                                <span class="statistic-card__brief">تحتاج متابعة عاجلة</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Filters -->
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row g-3 align-items-end">
-                                    <div class="col-md-3">
-                                        <label class="form-label">البحث</label>
-                                        <input type="search" class="form-control" placeholder="البحث بالكود أو الاسم..." id="searchInitiatives">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="form-label">البرنامج</label>
-                                        <select class="form-select" id="filterProgram">
-                                            <option value="">جميع البرامج</option>
-                                            <option>برنامج تطوير القطاع المالي</option>
-                                            <option>برنامج الإسكان</option>
-                                            <option>برنامج جودة الحياة</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="form-label">الحالة</label>
-                                        <select class="form-select" id="filterStatus">
-                                            <option value="">جميع الحالات</option>
-                                            <option>لم تبدأ</option>
-                                            <option>قيد التنفيذ</option>
-                                            <option>مكتملة</option>
-                                            <option>متأخرة</option>
-                                            <option>ملغاة</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="form-label">النوع</label>
-                                        <select class="form-select" id="filterType">
-                                            <option value="">جميع الأنواع</option>
-                                            <option>مبادرة محورية</option>
-                                            <option>مبادرة عادية</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="button" class="btn btn-primary" onclick="filterInitiatives()">
-                                            <i class="bi bi-funnel"></i> تطبيق
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary" onclick="clearFilters()">
-                                            إعادة تعيين
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Initiatives Table with ALL Fields -->
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                                    <li class="nav-item">
-                                        <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-content" type="button">
-                                            تفاصيل مستوى المبادرة
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="nav-link" id="kpis-tab" data-bs-toggle="tab" data-bs-target="#kpis-content" type="button">
-                                            مؤشرات مستوى المبادرة
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="nav-link" id="budget-tab" data-bs-toggle="tab" data-bs-target="#budget-content" type="button">
-                                            ميزانية مستوى المبادرة
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="nav-link" id="milestones-tab" data-bs-toggle="tab" data-bs-target="#milestones-content" type="button">
-                                            معالم المبادرات
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="nav-link" id="risks-tab" data-bs-toggle="tab" data-bs-target="#risks-content" type="button">
-                                            مخاطر المبادرة
-                                        </button>
-                                    </li>
-                                    <li class="nav-item">
-                                        <button class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs-content" type="button">
-                                            وثائق المبادرة
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-body">
-                                <div class="tab-content">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="tab" data-bs-target="#details-content">تفاصيل المبادرة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#kpis-content">مؤشرات مستوى المبادرة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#budget-content">ميزانية مستوى المبادرة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#milestones-content">معالم المبادرات</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#risks-content">مخاطر المبادرة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#docs-content">وثائق المبادرة</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-container">
+                            <div class="tab-content">
                                     <!-- Initiative Details Tab - ALL FIELDS -->
                                     <div class="tab-pane fade show active" id="details-content" role="tabpanel">
                                         <div class="table-responsive">
@@ -742,42 +615,19 @@
     <script src="js/aos.js"></script>
     <script src="js/scripts.js"></script>
     
-    <script>
-        // Initiative Management Functions
-        function filterInitiatives() {
-            console.log('Filtering initiatives...');
-        }
-        
-        function clearFilters() {
-            document.getElementById('searchInitiatives').value = '';
-            document.getElementById('filterProgram').value = '';
-            document.getElementById('filterStatus').value = '';
-            document.getElementById('filterType').value = '';
-        }
-        
-        function editInitiative(id) {
-            // Load initiative data and show modal
-            $('#addInitiativeModal').modal('show');
-        }
-        
-        function saveInitiative() {
-            alert('تم حفظ بيانات المبادرة بنجاح');
-            $('#addInitiativeModal').modal('hide');
-        }
-        
-        function viewRisks(id) {
-            window.location.href = `risk-escalation.html?initiative=${id}`;
-        }
-        
-        function generateReport(id) {
-            window.location.href = `report-generation.html?type=initiative&id=${id}`;
-        }
-        
-        function exportInitiatives() {
-            alert('جاري تصدير بيانات المبادرات...');
-        }
-    </script>
-    <script src="assets/js/dev-indicators.js"></script>
+    <!-- DataTables JS for Milestones -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    
+    <!-- Page Specific Scripts -->
+    <script src="assets/js/shared-utilities.js"></script>
+    <script src="assets/js/performance-initiatives.js"></script>
+    
+    <!-- Role Manager Integration -->
+    <script src="assets/js/apply-role-manager.js"></script>
+
 </body>
 
 </html>

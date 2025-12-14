@@ -10,21 +10,35 @@ const API_CONFIG = {
         ? 'https://localhost:7001/api' // Development API URL
         : '/api', // Production API URL (relative path)
     
-    // API endpoints
+    // API endpoints - UPDATED to match actual backend controllers
     ENDPOINTS: {
         // Authentication
         LOGIN: '/auth/login',
         LOGOUT: '/auth/logout',
         REFRESH_TOKEN: '/auth/refresh',
         
+        // Core Entities - Using EXISTING controllers
+        VISION: '/vision',                    // VisionController - but using VisionProgram entity
+        PROGRAMS: '/program',                  // ProgramController - VisionProgram entity
+        PROGRAM_DETAIL: '/program/{id}',
+        PROGRAM_INITIATIVES: '/program/{id}/initiatives',
+        PROGRAM_KPIS: '/program/{id}/kpis',
+        
+        INITIATIVES: '/initiative',            // InitiativeController (to be created)
+        INITIATIVE_DETAIL: '/initiative/{id}',
+        INITIATIVE_MILESTONES: '/initiative/{id}/milestones',
+        INITIATIVE_KPIS: '/initiative/{id}/kpis',
+        
+        KPIS: '/kpi',                         // KPIController (to be created)
+        KPI_DETAIL: '/kpi/{id}',
+        KPI_VALUES: '/kpi/{id}/values',
+        KPI_TARGETS: '/kpi/{id}/targets',
+        
         // Performance Management
-        PERFORMANCE_DASHBOARD: '/performance/dashboard',
-        PROGRAMS: '/performance/programperformance',
-        INITIATIVES: '/performance/initiatives',
-        VISION: '/performance/vision',
-        APPROVALS: '/performance/approvals',
-        REQUESTS: '/performance/requests',
-        THRESHOLDS: '/performance/thresholds',
+        PERFORMANCE_DASHBOARD: '/dashboard',   // To be created
+        APPROVALS: '/workflow/approvals',      // WorkflowController
+        REQUESTS: '/workflow/requests',
+        THRESHOLDS: '/threshold',
         
         // Reports
         REPORTS: '/reports/generate',

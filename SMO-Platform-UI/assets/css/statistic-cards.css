@@ -1,0 +1,129 @@
+/* Statistic Card Styles for Icon/Content Structure */
+/* Used in initiative-details.html, performance-thresholds.html, etc. */
+
+.statistic-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 1.5rem !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease !important;
+    height: 100% !important;
+    min-height: 120px !important;
+    color: inherit !important;
+    background-image: none !important;
+}
+
+.statistic-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+    background-color: #fff !important;
+}
+
+.statistic-card__icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 12px !important;
+    margin-left: 1.25rem !important;
+    flex-shrink: 0 !important;
+}
+
+.statistic-card__icon i {
+    font-size: 2rem !important;
+    color: #fff !important;
+}
+
+.statistic-card__content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+}
+
+.statistic-card__title {
+    font-size: 0.9rem !important;
+    color: #6c757d !important;
+    margin-bottom: 0 !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+}
+
+.statistic-card__count {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 0.25rem !important;
+    flex-wrap: wrap !important;
+}
+
+.statistic-card__count__number {
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    color: #212529 !important;
+    line-height: 1 !important;
+    font-family: 'SF Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.statistic-card__count__unit {
+    font-size: 1.1rem !important;
+    color: #6c757d !important;
+    font-weight: 500 !important;
+}
+
+/* Background color classes for icons */
+.statistic-card__icon.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+}
+
+.statistic-card__icon.bg-success {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%) !important;
+}
+
+.statistic-card__icon.bg-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%) !important;
+}
+
+.statistic-card__icon.bg-info {
+    background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%) !important;
+}
+
+.statistic-card__icon.bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+}
+
+.statistic-card__icon.bg-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #545b62 100%) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .statistic-card {
+        padding: 1rem !important;
+        min-height: 100px !important;
+    }
+    
+    .statistic-card__icon {
+        width: 48px !important;
+        height: 48px !important;
+        margin-left: 1rem !important;
+    }
+    
+    .statistic-card__icon i {
+        font-size: 1.5rem !important;
+    }
+    
+    .statistic-card__count__number {
+        font-size: 1.75rem !important;
+    }
+    
+    .statistic-card__title {
+        font-size: 0.85rem !important;
+    }
+}
+
+
+
