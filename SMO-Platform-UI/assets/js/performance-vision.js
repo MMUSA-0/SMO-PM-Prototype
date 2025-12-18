@@ -1080,6 +1080,80 @@ function checkQuarterlyExplanations() {
 
 // ============= Utility Functions =============
 
+/**
+ * Fix and initialize table action dropdowns to prevent stuck states
+ */
+function initializeTableDropdowns() {
+    // Get all dropdown toggles in tables
+    const dropdownToggles = document.querySelectorAll('.table .dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        // Remove any existing event listeners to prevent duplicates
+        const newToggle = toggle.cloneNode(true);
+        toggle.parentNode.replaceChild(newToggle, toggle);
+        
+        // Add proper Bootstrap dropdown initialization
+        newToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const dropdownMenu = this.nextElementSibling;
+            if (!dropdownMenu || !dropdownMenu.classList.contains('dropdown-menu')) {
+                return;
+            }
+            
+            // Close other open dropdowns
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                if (menu !== dropdownMenu) {
+                    menu.classList.remove('show');
+                    // Clean up inline styles
+                    if (menu.hasAttribute('style')) {
+                        const style = menu.getAttribute('style');
+                        const cleanStyle = style.split(';')
+                            .filter(s => s.includes('max-height') || s.includes('overflow'))
+                            .join(';');
+                        if (cleanStyle) {
+                            menu.setAttribute('style', cleanStyle);
+                        } else {
+                            menu.removeAttribute('style');
+                        }
+                    }
+                    menu.removeAttribute('data-popper-placement');
+                }
+            });
+            
+            // Toggle current dropdown
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+                this.setAttribute('aria-expanded', 'false');
+                // Clean up inline styles
+                if (dropdownMenu.hasAttribute('style')) {
+                    const style = dropdownMenu.getAttribute('style');
+                    const cleanStyle = style.split(';')
+                        .filter(s => s.includes('max-height') || s.includes('overflow'))
+                        .join(';');
+                    if (cleanStyle) {
+                        dropdownMenu.setAttribute('style', cleanStyle);
+                    } else {
+                        dropdownMenu.removeAttribute('style');
+                    }
+                }
+                dropdownMenu.removeAttribute('data-popper-placement');
+            } else {
+                // Use Bootstrap's dropdown if available
+                if (typeof bootstrap !== 'undefined' && bootstrap.Dropdown) {
+                    const bsDropdown = new bootstrap.Dropdown(this);
+                    bsDropdown.show();
+                } else {
+                    // Fallback to simple show
+                    dropdownMenu.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            }
+        });
+    });
+}
+
 function viewMEI(meiCode) {
     editMEI(meiCode); // Reuse edit modal for view
 }
@@ -1262,6 +1336,35 @@ function viewTrends(code) {
 }
 
 /**
+ * View sub-indicators for a strategic objective
+ */
+function viewSubIndicators(code) {
+    console.log(`📊 Viewing sub-indicators for ${code}`);
+    showInfoToast(`عرض المؤشرات الفرعية للهدف ${code}`);
+    // In a real implementation, this would navigate to a sub-indicators page or open a modal
+}
+
+/**
+ * Compare program performance
+ */
+function compareProgramPerformance(code) {
+    console.log(`📈 Comparing program performance for ${code}`);
+    showInfoToast(`مقارنة أداء البرامج للهدف ${code}`);
+    // In a real implementation, this would show a comparison chart or table
+}
+
+/**
+ * View parent objective (for L2 objectives)
+ */
+function viewParentObjective(code) {
+    console.log(`👆 Viewing parent objective for ${code}`);
+    // Extract parent code (e.g., SO2.001 -> SO1.001)
+    const parentCode = code.replace('SO2.', 'SO1.');
+    showInfoToast(`عرض الهدف الرئيسي ${parentCode}`);
+    // In a real implementation, this would navigate to the parent objective or highlight it
+}
+
+/**
  * Compare with benchmark
  */
 function compareBenchmark(code) {
@@ -1394,6 +1497,66 @@ function showInfoToast(message) {
     }, 3000);
 }
 
+// ============= Dropdown Management =============
+/**
+ * Initialize and clean up dropdowns to prevent stuck states
+ */
+function initializeDropdowns() {
+    // Clean up any stuck dropdown states from previous sessions
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+    dropdownMenus.forEach(menu => {
+        // Remove 'show' class that shouldn't be in static HTML
+        menu.classList.remove('show');
+        
+        // Remove any inline positioning styles added by Popper.js
+        if (menu.hasAttribute('style')) {
+            const style = menu.getAttribute('style');
+            // Keep only max-height and overflow styles, remove positioning
+            const cleanStyle = style.split(';')
+                .filter(s => s.includes('max-height') || s.includes('overflow'))
+                .join(';');
+            
+            if (cleanStyle) {
+                menu.setAttribute('style', cleanStyle);
+            } else {
+                menu.removeAttribute('style');
+            }
+        }
+        
+        // Remove Popper.js data attributes
+        menu.removeAttribute('data-popper-placement');
+    });
+    
+    // Ensure dropdowns close when clicking outside
+    document.addEventListener('click', function(event) {
+        const isDropdownButton = event.target.matches('[data-bs-toggle="dropdown"]') || 
+                               event.target.closest('[data-bs-toggle="dropdown"]');
+        const isDropdownMenu = event.target.closest('.dropdown-menu');
+        
+        if (!isDropdownButton && !isDropdownMenu) {
+            // Close all open dropdowns
+            const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+            openDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show');
+                const dropdownButton = dropdown.previousElementSibling;
+                if (dropdownButton && dropdownButton.hasAttribute('aria-expanded')) {
+                    dropdownButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    });
+    
+    // Prevent dropdown from staying open on page navigation
+    window.addEventListener('beforeunload', function() {
+        const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+        openDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    });
+    
+    console.log('✅ Dropdowns initialized and cleaned');
+}
+
 // ============= Initialize on Page Load =============
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1405,6 +1568,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     } else {
         console.log('✅ Bootstrap loaded');
+    }
+    
+    // Initialize and clean up dropdowns
+    try {
+        initializeDropdowns();
+        initializeTableDropdowns();
+    } catch (e) {
+        console.error('❌ Dropdown initialization error:', e);
     }
     
     // Initialize tooltips
@@ -1568,4 +1739,644 @@ function wireUpEditButtons() {
     
     console.log('✅ Edit buttons wired up successfully');
 }
+
+// ============= Tab Loading Functions =============
+
+/**
+ * Load Actual vs Target tab content directly
+ * Called when tab is clicked
+ */
+function loadActualTargetDirect() {
+    console.log('📊 Loading Actual vs Target tab...');
+    try {
+        // Load quarterly actual target data
+        loadQuarterlyActualTarget();
+        // Re-initialize dropdowns for dynamically loaded content
+        setTimeout(() => {
+            initializeDropdowns();
+            initializeTableDropdowns();
+        }, 100);
+    } catch (error) {
+        console.error('❌ Error loading Actual vs Target:', error);
+        showErrorToast('حدث خطأ في تحميل بيانات الفعلي مقابل المستهدف');
+    }
+}
+
+/**
+ * Load Performance Drivers tab content directly
+ * Called when tab is clicked
+ */
+function loadDriversDirect() {
+    console.log('⬆️ Loading Performance Drivers tab...');
+    try {
+        const indicatorSelect = document.getElementById('driversIndicatorSelect');
+        if (indicatorSelect && indicatorSelect.value) {
+            // If an indicator is already selected, load its drivers
+            loadDriversForIndicator(indicatorSelect.value);
+        } else {
+            // Show empty state (already in HTML)
+            console.log('No indicator selected, showing empty state');
+        }
+    } catch (error) {
+        console.error('❌ Error loading Performance Drivers:', error);
+        showErrorToast('حدث خطأ في تحميل دوافع الأداء');
+    }
+}
+
+/**
+ * Load Performance Obstacles tab content directly
+ * Called when tab is clicked
+ */
+function loadObstaclesDirect() {
+    console.log('⚠️ Loading Performance Obstacles tab...');
+    try {
+        const indicatorSelect = document.getElementById('obstaclesIndicatorSelect');
+        if (indicatorSelect && indicatorSelect.value) {
+            // If an indicator is already selected, load its obstacles
+            loadObstaclesForIndicator(indicatorSelect.value);
+        } else {
+            // Show empty state (already in HTML)
+            console.log('No indicator selected, showing empty state');
+        }
+    } catch (error) {
+        console.error('❌ Error loading Performance Obstacles:', error);
+        showErrorToast('حدث خطأ في تحميل معوقات الأداء');
+    }
+}
+
+/**
+ * Load Brief Explanations tab content directly
+ * Called when tab is clicked
+ */
+function loadExplanationsDirect() {
+    console.log('💬 Loading Brief Explanations tab...');
+    try {
+        const indicatorSelect = document.getElementById('explanationsIndicatorSelect');
+        if (indicatorSelect && indicatorSelect.value) {
+            // If an indicator is already selected, load its explanations
+            loadExplanationsForIndicator(indicatorSelect.value);
+        } else {
+            // Show empty state (already in HTML)
+            console.log('No indicator selected, showing empty state');
+        }
+    } catch (error) {
+        console.error('❌ Error loading Brief Explanations:', error);
+        showErrorToast('حدث خطأ في تحميل الشروحات الموجزة');
+    }
+}
+
+/**
+ * Load quarterly actual target data
+ * Implements the quarterly dashboard functionality
+ */
+function loadQuarterlyActualTarget() {
+    console.log('📅 Loading quarterly actual target data...');
+    try {
+        const year = document.getElementById('actualTargetYear')?.value || '2024';
+        const quarter = document.getElementById('actualTargetQuarter')?.value || 'Q4';
+        
+        // Load data for SO1 (Level 1) and SO2 (Level 2)
+        loadActualTargetSO1(year, quarter);
+        loadActualTargetSO2(year, quarter);
+        
+        // Update summary counts
+        updateQuarterlySummary();
+    } catch (error) {
+        console.error('❌ Error loading quarterly data:', error);
+    }
+}
+
+/**
+ * Load actual target data for Strategic Objectives Level 1
+ */
+function loadActualTargetSO1(year, quarter) {
+    const tbody = document.getElementById('atSo1TableBody');
+    if (!tbody) return;
+    
+    // Mock data - replace with API call
+    const mockData = [
+        { code: 'SO1.001', name: 'اقتصاد مزدهر', target: 7.0, actual: 5.4, achievement: 77.1, status: 'warning' },
+        { code: 'SO1.002', name: 'مجتمع حيوي', target: 190, actual: 165, achievement: 86.8, status: 'warning' }
+    ];
+    
+    tbody.innerHTML = '';
+    mockData.forEach(item => {
+        const row = document.createElement('tr');
+        const statusBadge = item.status === 'success' ? 'bg-success' : item.status === 'warning' ? 'bg-warning' : 'bg-danger';
+        const statusText = item.status === 'success' ? 'على المسار' : item.status === 'warning' ? 'يحتاج متابعة' : 'متأخر';
+        
+        row.innerHTML = `
+            <td>
+                <div class="fw-semibold">${item.name}</div>
+                <small class="text-muted">${item.code}</small>
+            </td>
+            <td class="fw-semibold">${item.target}</td>
+            <td>
+                <input type="number" class="form-control form-control-sm" value="${item.actual}" step="0.01">
+            </td>
+            <td>
+                <div class="progress" style="height: 25px;">
+                    <div class="progress-bar ${statusBadge}" role="progressbar" style="width: ${item.achievement}%">
+                        ${item.achievement}%
+                    </div>
+                </div>
+            </td>
+            <td><span class="badge ${statusBadge}">${statusText}</span></td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="saveQuarterlyRow('${item.code}', 'SO1')">
+                    <i class="bi bi-save"></i> حفظ
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+/**
+ * Load actual target data for Strategic Objectives Level 2
+ */
+function loadActualTargetSO2(year, quarter) {
+    const tbody = document.getElementById('atSo2TableBody');
+    if (!tbody) return;
+    
+    // Mock data - replace with API call
+    const mockData = [
+        { code: 'SO2.001', name: 'تنويع الاقتصاد', target: 75, actual: 58.2, achievement: 77.6, status: 'warning' },
+        { code: 'SO2.002', name: 'تنمية القطاع الخاص', target: 65, actual: 62.8, achievement: 96.6, status: 'success' },
+        { code: 'SO2.003', name: 'تطوير الخدمات الصحية', target: 80, actual: 77.6, achievement: 97.0, status: 'success' },
+        { code: 'SO2.004', name: 'تحسين التعليم', target: 85, actual: 78.5, achievement: 92.4, status: 'success' },
+        { code: 'SO2.005', name: 'تعزيز البنية التحتية', target: 90, actual: 82.3, achievement: 91.4, status: 'success' }
+    ];
+    
+    tbody.innerHTML = '';
+    mockData.forEach(item => {
+        const row = document.createElement('tr');
+        const statusBadge = item.status === 'success' ? 'bg-success' : item.status === 'warning' ? 'bg-warning' : 'bg-danger';
+        const statusText = item.status === 'success' ? 'على المسار' : item.status === 'warning' ? 'يحتاج متابعة' : 'متأخر';
+        
+        row.innerHTML = `
+            <td>
+                <div class="fw-semibold">${item.name}</div>
+                <small class="text-muted">${item.code}</small>
+            </td>
+            <td class="fw-semibold">${item.target}</td>
+            <td>
+                <input type="number" class="form-control form-control-sm" value="${item.actual}" step="0.01">
+            </td>
+            <td>
+                <div class="progress" style="height: 25px;">
+                    <div class="progress-bar ${statusBadge}" role="progressbar" style="width: ${item.achievement}%">
+                        ${item.achievement}%
+                    </div>
+                </div>
+            </td>
+            <td><span class="badge ${statusBadge}">${statusText}</span></td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="saveQuarterlyRow('${item.code}', 'SO2')">
+                    <i class="bi bi-save"></i> حفظ
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+/**
+ * Update quarterly summary counts
+ */
+function updateQuarterlySummary() {
+    try {
+        const updatedCount = document.getElementById('updatedCount');
+        const totalCount = document.getElementById('totalCount');
+        const lastUpdateDate = document.getElementById('lastUpdateDate');
+        
+        if (updatedCount) updatedCount.textContent = '10';
+        if (totalCount) totalCount.textContent = '14';
+        if (lastUpdateDate) {
+            const now = new Date();
+            lastUpdateDate.textContent = now.toISOString().split('T')[0];
+        }
+    } catch (error) {
+        console.error('Error updating summary:', error);
+    }
+}
+
+/**
+ * Save quarterly row data
+ */
+async function saveQuarterlyRow(code, level) {
+    console.log(`💾 Saving quarterly data for ${code} (${level})`);
+    try {
+        showLoadingState();
+        
+        // Get the row data
+        const row = event.currentTarget.closest('tr');
+        const actualInput = row.querySelector('input[type="number"]');
+        const actualValue = actualInput.value;
+        
+        // Validate
+        if (!actualValue || parseFloat(actualValue) < 0) {
+            showErrorToast('يرجى إدخال قيمة فعلية صحيحة');
+            hideLoadingState();
+            return;
+        }
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        hideLoadingState();
+        showSuccessToast(`تم حفظ بيانات ${code} بنجاح`);
+        
+        // Update button state
+        const btn = event.currentTarget;
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-success');
+        btn.innerHTML = '<i class="bi bi-check"></i> محفوظ';
+        
+        setTimeout(() => {
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-primary');
+            btn.innerHTML = '<i class="bi bi-save"></i> حفظ';
+        }, 2000);
+        
+    } catch (error) {
+        hideLoadingState();
+        showErrorToast('فشل الحفظ، يرجى المحاولة مرة أخرى');
+        console.error('Save error:', error);
+    }
+}
+
+/**
+ * Save all quarterly actual target data
+ */
+async function saveQuarterlyActualTarget() {
+    console.log('💾 Saving all quarterly actual target data...');
+    try {
+        showLoadingState();
+        
+        // Collect all data from both tables
+        const so1Rows = document.querySelectorAll('#atSo1TableBody tr');
+        const so2Rows = document.querySelectorAll('#atSo2TableBody tr');
+        
+        const data = [];
+        
+        so1Rows.forEach(row => {
+            const code = row.querySelector('small.text-muted')?.textContent.trim();
+            const actual = row.querySelector('input[type="number"]')?.value;
+            if (code && actual) {
+                data.push({ code, level: 'SO1', actual: parseFloat(actual) });
+            }
+        });
+        
+        so2Rows.forEach(row => {
+            const code = row.querySelector('small.text-muted')?.textContent.trim();
+            const actual = row.querySelector('input[type="number"]')?.value;
+            if (code && actual) {
+                data.push({ code, level: 'SO2', actual: parseFloat(actual) });
+            }
+        });
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        hideLoadingState();
+        showSuccessToast(`تم حفظ ${data.length} مؤشر بنجاح`);
+        
+        // Update summary
+        updateQuarterlySummary();
+        
+    } catch (error) {
+        hideLoadingState();
+        showErrorToast('فشل الحفظ، يرجى المحاولة مرة أخرى');
+        console.error('Save error:', error);
+    }
+}
+
+/**
+ * Export quarterly report
+ */
+function exportQuarterlyReport() {
+    console.log('📄 Exporting quarterly report...');
+    showInfoToast('جاري تصدير تقرير الربع...');
+    // Implementation would call API to generate and download report
+}
+
+/**
+ * Load drivers for a specific indicator
+ */
+function loadDriversForIndicator(indicatorCode) {
+    console.log(`⬆️ Loading drivers for ${indicatorCode}`);
+    const content = document.getElementById('driversContent');
+    if (!content) return;
+    
+    // Mock data - replace with API call
+    const mockDrivers = [
+        'زيادة الاستثمارات في القطاعات الواعدة',
+        'تحسين بيئة الأعمال والتنظيم',
+        'دعم المشاريع الصغيرة والمتوسطة'
+    ];
+    
+    let html = `
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white">
+                <h6 class="mb-0"><i class="bi bi-arrow-up-circle me-2"></i>دوافع الأداء - ${indicatorCode}</h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group" id="driversList">
+    `;
+    
+    mockDrivers.forEach(driver => {
+        html += `
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span>${driver}</span>
+                <div>
+                    <button class="btn btn-sm btn-outline-secondary me-1" onclick="editDriver(this)">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteDriver(this)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+                </div>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = html;
+}
+
+/**
+ * Load obstacles for a specific indicator
+ */
+function loadObstaclesForIndicator(indicatorCode) {
+    console.log(`⚠️ Loading obstacles for ${indicatorCode}`);
+    const content = document.getElementById('obstaclesContent');
+    if (!content) return;
+    
+    // Mock data - replace with API call
+    const mockObstacles = [
+        { text: 'تأخر في تنفيذ بعض المشاريع', severity: 'medium' },
+        { text: 'تحديات في التمويل', severity: 'high' }
+    ];
+    
+    let html = `
+        <div class="card mb-3">
+            <div class="card-header bg-warning">
+                <h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>معوقات الأداء - ${indicatorCode}</h6>
+            </div>
+            <div class="card-body">
+                <div class="list-group" id="obstaclesList">
+    `;
+    
+    mockObstacles.forEach(obstacle => {
+        const severityBadge = obstacle.severity === 'high' ? 'bg-danger' : obstacle.severity === 'medium' ? 'bg-warning' : 'bg-info';
+        const severityText = obstacle.severity === 'high' ? 'عالي' : obstacle.severity === 'medium' ? 'متوسط' : 'منخفض';
+        
+        html += `
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <span>${obstacle.text}</span>
+                    <span class="badge ${severityBadge} ms-2">${severityText}</span>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-outline-secondary me-1" onclick="editObstacle(this)">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteObstacle(this)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+                </div>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = html;
+}
+
+/**
+ * Load explanations for a specific indicator
+ */
+function loadExplanationsForIndicator(indicatorCode) {
+    console.log(`💬 Loading explanations for ${indicatorCode}`);
+    const content = document.getElementById('explanationsContent');
+    if (!content) return;
+    
+    // Mock data - replace with API call
+    const mockExplanations = [
+        { year: '2024', quarter: 'Q4', text: 'تحسن الأداء بشكل ملحوظ خلال الربع الرابع بسبب زيادة الاستثمارات' },
+        { year: '2024', quarter: 'Q3', text: 'استقرار الأداء مع بعض التحديات في التمويل' }
+    ];
+    
+    let html = `
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white">
+                <h6 class="mb-0"><i class="bi bi-chat-text me-2"></i>الشروحات الموجزة - ${indicatorCode}</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>السنة</th>
+                                <th>الربع</th>
+                                <th>الشرح</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="explanationsTable">
+    `;
+    
+    mockExplanations.forEach(explanation => {
+        html += `
+            <tr>
+                <td>${explanation.year}</td>
+                <td>${explanation.quarter}</td>
+                <td>${explanation.text}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-secondary me-1" onclick="editExplanation(this)">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteExplanation(this)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = html;
+}
+
+/**
+ * Add new driver
+ */
+function addNewDriver() {
+    const indicatorSelect = document.getElementById('driversIndicatorSelect');
+    if (!indicatorSelect || !indicatorSelect.value) {
+        showWarningToast('يرجى اختيار مؤشر أولاً');
+        return;
+    }
+    
+    // Show modal for adding new driver
+    const modal = document.getElementById('addItemModal');
+    if (modal) {
+        document.getElementById('addItemModalLabel').textContent = 'إضافة دافع أداء جديد';
+        document.getElementById('itemType').value = 'driver';
+        document.getElementById('itemIndicator').value = indicatorSelect.value;
+        document.getElementById('itemTextLabel').textContent = 'نص الدافع';
+        document.getElementById('quarterField').classList.add('d-none');
+        document.getElementById('severityField').classList.add('d-none');
+        
+        const bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+    }
+}
+
+/**
+ * Add new obstacle
+ */
+function addNewObstacle() {
+    const indicatorSelect = document.getElementById('obstaclesIndicatorSelect');
+    if (!indicatorSelect || !indicatorSelect.value) {
+        showWarningToast('يرجى اختيار مؤشر أولاً');
+        return;
+    }
+    
+    // Show modal for adding new obstacle
+    const modal = document.getElementById('addItemModal');
+    if (modal) {
+        document.getElementById('addItemModalLabel').textContent = 'إضافة معوق أداء جديد';
+        document.getElementById('itemType').value = 'obstacle';
+        document.getElementById('itemIndicator').value = indicatorSelect.value;
+        document.getElementById('itemTextLabel').textContent = 'نص المعوق';
+        document.getElementById('quarterField').classList.add('d-none');
+        document.getElementById('severityField').classList.remove('d-none');
+        
+        const bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+    }
+}
+
+/**
+ * Add new explanation
+ */
+function addNewExplanation() {
+    const indicatorSelect = document.getElementById('explanationsIndicatorSelect');
+    if (!indicatorSelect || !indicatorSelect.value) {
+        showWarningToast('يرجى اختيار مؤشر أولاً');
+        return;
+    }
+    
+    // Show modal for adding new explanation
+    const modal = document.getElementById('addItemModal');
+    if (modal) {
+        document.getElementById('addItemModalLabel').textContent = 'إضافة شرح موجز جديد';
+        document.getElementById('itemType').value = 'explanation';
+        document.getElementById('itemIndicator').value = indicatorSelect.value;
+        document.getElementById('itemTextLabel').textContent = 'الشرح الموجز';
+        document.getElementById('quarterField').classList.remove('d-none');
+        document.getElementById('severityField').classList.add('d-none');
+        
+        const bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+    }
+}
+
+/**
+ * Save new item (driver, obstacle, or explanation)
+ */
+function saveNewItem() {
+    const itemType = document.getElementById('itemType').value;
+    const itemIndicator = document.getElementById('itemIndicator').value;
+    const itemText = document.getElementById('itemText').value.trim();
+    
+    if (!itemText) {
+        showErrorToast('يرجى إدخال النص');
+        return;
+    }
+    
+    if (itemText.length > 500) {
+        showErrorToast('الحد الأقصى 500 حرف');
+        return;
+    }
+    
+    // Handle based on item type
+    if (itemType === 'driver') {
+        // Add to drivers list
+        showSuccessToast('تم إضافة الدافع بنجاح');
+    } else if (itemType === 'obstacle') {
+        const severity = document.getElementById('itemSeverity').value;
+        // Add to obstacles list
+        showSuccessToast('تم إضافة المعوق بنجاح');
+    } else if (itemType === 'explanation') {
+        const quarter = document.getElementById('itemQuarter').value;
+        // Add to explanations table
+        showSuccessToast('تم إضافة الشرح بنجاح');
+    }
+    
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addItemModal'));
+    if (modal) modal.hide();
+    
+    // Clear form
+    document.getElementById('itemText').value = '';
+    document.getElementById('charCount').textContent = '0';
+    
+    // Reload the appropriate tab content
+    if (itemType === 'driver') {
+        loadDriversForIndicator(itemIndicator);
+    } else if (itemType === 'obstacle') {
+        loadObstaclesForIndicator(itemIndicator);
+    } else if (itemType === 'explanation') {
+        loadExplanationsForIndicator(itemIndicator);
+    }
+}
+
+// Setup character counter for add item modal
+document.addEventListener('DOMContentLoaded', function() {
+    const itemText = document.getElementById('itemText');
+    const charCount = document.getElementById('charCount');
+    
+    if (itemText && charCount) {
+        itemText.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+    }
+});
+
+// Make functions globally available
+window.loadActualTargetDirect = loadActualTargetDirect;
+window.loadDriversDirect = loadDriversDirect;
+window.loadObstaclesDirect = loadObstaclesDirect;
+window.loadExplanationsDirect = loadExplanationsDirect;
+window.loadQuarterlyActualTarget = loadQuarterlyActualTarget;
+window.saveQuarterlyActualTarget = saveQuarterlyActualTarget;
+window.saveQuarterlyRow = saveQuarterlyRow;
+window.exportQuarterlyReport = exportQuarterlyReport;
+window.addNewDriver = addNewDriver;
+window.addNewObstacle = addNewObstacle;
+window.addNewExplanation = addNewExplanation;
+window.saveNewItem = saveNewItem;
+window.viewSubIndicators = viewSubIndicators;
+window.compareProgramPerformance = compareProgramPerformance;
+window.viewParentObjective = viewParentObjective;
 
