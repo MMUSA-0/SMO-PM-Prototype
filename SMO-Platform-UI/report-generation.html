@@ -387,12 +387,115 @@
                                 </div>
                             </div>
                         </li>
-                                <li><strong>BR-RPT-009:</strong> جميع الشرائح يجب أن تكون باللغة العربية مع دعم RTL</li>
-                                <li><strong>BR-RPT-014:</strong> رابط التحميل يظل صالحًا لمدة 30 يومًا</li>
-                                <li><strong>BR-RPT-015:</strong> لا يمكن توليد أكثر من تقرير واحد لنفس البرنامج والفترة في وقت واحد</li>
-                            </ul>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <!-- Main Content Area -->
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h1 class="h3 mb-3">التقارير</h1>
+                            <p class="text-muted">إدارة وتوليد تقارير الأداء</p>
                         </div>
-                        
+                    </div>
+                    
+                    <!-- Report Templates Section -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-4">
+                            <div class="card template-card h-100" onclick="openQuarterlyReportModal()">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-calendar-quarter display-4 text-primary mb-3"></i>
+                                    <h5 class="card-title">تقرير ربع سنوي</h5>
+                                    <p class="card-text text-muted">توليد تقرير أداء ربع سنوي شامل</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card template-card h-100" onclick="viewReportTemplates()">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-file-earmark-slides display-4 text-success mb-3"></i>
+                                    <h5 class="card-title">قوالب التقارير</h5>
+                                    <p class="card-text text-muted">استعراض وإدارة قوالب التقارير</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card template-card h-100" onclick="viewScheduledReports()">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-clock-history display-4 text-warning mb-3"></i>
+                                    <h5 class="card-title">التقارير المجدولة</h5>
+                                    <p class="card-text text-muted">إدارة التقارير المجدولة تلقائياً</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Reports Section -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">التقارير الأخيرة</h5>
+                                    <button class="btn btn-sm btn-primary" onclick="openQuarterlyReportModal()">
+                                        <i class="bi bi-plus-circle"></i> تقرير جديد
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>اسم التقرير</th>
+                                                    <th>البرنامج</th>
+                                                    <th>الفترة</th>
+                                                    <th>الصيغة</th>
+                                                    <th>تاريخ الإنشاء</th>
+                                                    <th>الإجراءات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>تقرير الربع الرابع 2024</td>
+                                                    <td>برنامج تطوير القطاع المالي</td>
+                                                    <td>Q4 2024</td>
+                                                    <td><span class="badge bg-warning">PPTX</span></td>
+                                                    <td>2024-12-15</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="downloadQuarterlyReport(1)">
+                                                            <i class="bi bi-download"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-secondary" onclick="regenerateReport(1)">
+                                                            <i class="bi bi-arrow-clockwise"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteReport(1)">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- UC-04 Quarterly Report Modal -->
+    <div class="modal fade" id="quarterlyReportModal" tabindex="-1" aria-labelledby="quarterlyReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quarterlyReportModalLabel">توليد تقرير ربع سنوي</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quarterlyReportForm">
                         <div class="row g-3">
                             <!-- اختيار البرنامج - Mandatory Dropdown -->
                             <div class="col-md-6">
@@ -1348,8 +1451,10 @@
             previewModal.show();
             
             // Update preview fields
-            document.getElementById('previewProgramName').value = document.getElementById('programSelect').options[document.getElementById('programSelect').selectedIndex].text;
-            document.getElementById('previewPeriod').value = `الربع ${quarter} - السنة ${year}`;
+            const programSelect = document.getElementById('programSelect');
+            const quarterNames = { 'Q1': 'الأول', 'Q2': 'الثاني', 'Q3': 'الثالث', 'Q4': 'الرابع' };
+            document.getElementById('previewProgramName').value = programSelect.options[programSelect.selectedIndex].text;
+            document.getElementById('previewPeriod').value = `الربع ${quarterNames[quarter] || quarter} - السنة ${year}`;
         }
         
         function generateQuarterlyReport() {

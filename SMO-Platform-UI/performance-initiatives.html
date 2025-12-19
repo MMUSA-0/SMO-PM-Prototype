@@ -206,29 +206,29 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="statistic-card">
                             <div class="statistic-card__header">
-                                <span class="statistic-card__count">1,522</span>
+                                <span class="statistic-card__count" id="totalInitiatives">1,522</span>
                                 <span class="statistic-card__label">إجمالي المبادرات</span>
                             </div>
                             <div class="statistic-card__body">
-                                <span class="statistic-card__brief">نشط: 873 | مكتمل: 456</span>
+                                <span class="statistic-card__brief">نشط: <span id="activeCount">873</span> | مكتمل: <span id="completedCount">456</span></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="statistic-card">
                             <div class="statistic-card__header">
-                                <span class="statistic-card__count">82.4<span class="statistic-card__count__percent">%</span></span>
+                                <span class="statistic-card__count"><span id="avgProgress">82.4</span><span class="statistic-card__count__percent">%</span></span>
                                 <span class="statistic-card__label">متوسط التقدم</span>
                             </div>
                             <div class="statistic-card__body">
-                                <span class="statistic-card__brief">المستهدف: 85%</span>
+                                <span class="statistic-card__brief">المستهدف: <span id="targetProgress">85</span>%</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="statistic-card">
                             <div class="statistic-card__header">
-                                <span class="statistic-card__count">125</span>
+                                <span class="statistic-card__count" id="pivotalCount">125</span>
                                 <span class="statistic-card__label">مبادرات محورية</span>
                             </div>
                             <div class="statistic-card__body">
@@ -239,7 +239,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                         <div class="statistic-card">
                             <div class="statistic-card__header">
-                                <span class="statistic-card__count">45</span>
+                                <span class="statistic-card__count" id="delayedCount">45</span>
                                 <span class="statistic-card__label">متأخرة</span>
                             </div>
                             <div class="statistic-card__body">
@@ -248,26 +248,53 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Initiative Selector (required for tab navigation) -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <label class="form-label fw-bold">اختر المبادرة للعرض التفصيلي:</label>
+                                        <select class="form-select form-select-lg" id="initiativeSelector" onchange="onInitiativeSelected()">
+                                            <option value="">-- اختر المبادرة --</option>
+                                            <option value="1-18-139-1377" selected>1-18-139-1377 - تطوير منصة رقمية للخدمات المالية</option>
+                                            <option value="1-18-140-1378">1-18-140-1378 - برنامج التوعية المالية للشباب</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 d-none" id="selectedInitiativeInfo">
+                                        <div class="alert alert-info mb-0">
+                                            <strong>البرنامج:</strong> <span id="selectedProgram"></span><br>
+                                            <strong>الحالة:</strong> <span id="selectedStatus"></span><br>
+                                            <strong>التقدم:</strong> <span id="selectedProgress"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12">
-                        <ul class="nav nav-tabs">
+                        <ul class="nav nav-tabs" id="initiativeTabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="tab" data-bs-target="#details-content">تفاصيل المبادرة</a>
+                                <a class="nav-link active" id="detailsTab" aria-current="page" href="#" data-bs-toggle="tab" data-bs-target="#details-content" role="tab">تفاصيل المبادرة</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#kpis-content">مؤشرات مستوى المبادرة</a>
+                                <a class="nav-link" id="kpisTab" href="#" data-bs-toggle="tab" data-bs-target="#kpis-content" role="tab">مؤشرات مستوى المبادرة</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#budget-content">ميزانية مستوى المبادرة</a>
+                                <a class="nav-link" id="budgetTab" href="#" data-bs-toggle="tab" data-bs-target="#budget-content" role="tab">ميزانية مستوى المبادرة</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#milestones-content">معالم المبادرات</a>
+                                <a class="nav-link" id="milestonesTab" href="#" data-bs-toggle="tab" data-bs-target="#milestones-content" role="tab">مراحل إنجاز مستوى المبادرة</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#risks-content">مخاطر المبادرة</a>
+                                <a class="nav-link" id="risksTab" href="#" data-bs-toggle="tab" data-bs-target="#risks-content" role="tab">مخاطر المبادرة</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#docs-content">وثائق المبادرة</a>
+                                <a class="nav-link" id="docsTab" href="#" data-bs-toggle="tab" data-bs-target="#docs-content" role="tab">وثائق المبادرة</a>
                             </li>
                         </ul>
                     </div>

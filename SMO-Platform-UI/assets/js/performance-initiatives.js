@@ -6,26 +6,85 @@
 // ============= Initiative Management =============
 let selectedInitiative = null;
 
+// Complete initiative data structure as per BRD (UC-14 to UC-18)
 const initiativesData = {
     '1-18-139-1377': {
+        // Basic Information (UC-14)
         id: '1-18-139-1377',
         name: 'تطوير منصة رقمية للخدمات المالية',
         nameEn: 'Digital Financial Services Platform',
         program: 'برنامج تطوير القطاع المالي',
+        responsibleEntity: 'البنك المركزي السعودي',
         status: 'قيد التنفيذ',
-        progress: 82,
+        isPivotal: true,  // مبادرة محورية
+        
+        // Dates and Timeline
+        startDate: '2024-01-01',
+        endDate: '2025-12-31',
+        
+        // Progress Metrics
+        plannedProgress: 85,
+        actualProgress: 82,
+        progress: 82, // Keep for backward compatibility
+        scheduleDeviation: -3, // انحراف الجدول الزمني (أيام)
+        costDeviation: -2.5,  // انحراف التكلفة (مليون ريال)
+        
+        // Budget Information (UC-16)
+        totalBudget: 1250,  // إجمالي الميزانية (مليون ريال)
+        allocatedToDate: 850, // الميزانية المصروفة حتى تاريخه
+        spentToDate: 782,  // المنصرف الفعلي
+        allocatedQuarterly: 200,  // الميزانية المصروفة ربع سنوياً
+        spentQuarterly: 180,  // المنفقة ربع سنوياً
+        
+        // Description and Performance Notes
+        description: 'تطوير منصة رقمية متكاملة لتقديم الخدمات المالية الرقمية للعملاء', // الوصف
+        notes: 'تم صرف كامل الميزانية المعتمدة على المبادرة لعام 2024',
+        performanceOverview: 'المبادرة تسير وفق الخطة المعتمدة مع تحقيق معظم المعالم الرئيسية',
+        
+        // Counts for quick reference
         kpiCount: 5,
-        milestoneCount: 8
+        milestoneCount: 8,
+        riskCount: 2,
+        documentCount: 12
     },
     '1-18-140-1378': {
+        // Basic Information
         id: '1-18-140-1378',
         name: 'برنامج التوعية المالية للشباب',
         nameEn: 'Youth Financial Literacy Program',
         program: 'برنامج تطوير القطاع المالي',
+        responsibleEntity: 'وزارة التعليم',
         status: 'متأخرة',
-        progress: 45,
+        isPivotal: false,
+        
+        // Dates and Timeline
+        startDate: '2024-03-01',
+        endDate: '2026-02-28',
+        
+        // Progress Metrics
+        plannedProgress: 60,
+        actualProgress: 45,
+        progress: 45, // Keep for backward compatibility
+        scheduleDeviation: -15,  // متأخر 15 يوم
+        costDeviation: 5.2,  // تجاوز 5.2 مليون
+        
+        // Budget Information
+        totalBudget: 450,
+        allocatedToDate: 280,
+        spentToDate: 285.2,  // تجاوز
+        allocatedQuarterly: 50,
+        spentQuarterly: 55,
+        
+        // Description and Performance Notes
+        description: 'برنامج شامل لتعزيز الوعي المالي لدى الشباب وتمكينهم من اتخاذ قرارات مالية مدروسة', // الوصف
+        notes: 'تحديات في التنسيق مع المدارس والجامعات',
+        performanceOverview: 'المبادرة تواجه تحديات في الوصول للفئة المستهدفة',
+        
+        // Counts
         kpiCount: 3,
-        milestoneCount: 6
+        milestoneCount: 6,
+        riskCount: 4,
+        documentCount: 8
     }
 };
 
@@ -51,17 +110,39 @@ function onInitiativeSelected() {
     
     if (!id) {
         selectedInitiative = null;
-        document.getElementById('selectedInitiativeInfo').classList.add('d-none');
+        document.getElementById('selectedInitiativeInfo')?.classList.add('d-none');
         return;
     }
     
     selectedInitiative = initiativesData[id];
     
-    document.getElementById('selectedProgram').textContent = selectedInitiative.program;
-    document.getElementById('selectedStatus').innerHTML = `<span class="badge bg-${selectedInitiative.status === 'قيد التنفيذ' ? 'success' : 'warning'}">${selectedInitiative.status}</span>`;
-    document.getElementById('selectedProgress').textContent = selectedInitiative.progress + '%';
-    document.getElementById('selectedInitiativeInfo').classList.remove('d-none');
+    if (!selectedInitiative) {
+        console.warn('Initiative not found:', id);
+        return;
+    }
     
+    // Update selected initiative info panel
+    const programEl = document.getElementById('selectedProgram');
+    const statusEl = document.getElementById('selectedStatus');
+    const progressEl = document.getElementById('selectedProgress');
+    const infoPanel = document.getElementById('selectedInitiativeInfo');
+    
+    if (programEl) programEl.textContent = selectedInitiative.program;
+    if (statusEl) {
+        const statusColors = {
+            'قيد التنفيذ': 'success',
+            'مكتملة': 'info',
+            'متأخرة': 'warning',
+            'لم تبدأ': 'secondary',
+            'ملغاة': 'danger'
+        };
+        const statusColor = statusColors[selectedInitiative.status] || 'secondary';
+        statusEl.innerHTML = `<span class="badge bg-${statusColor}">${selectedInitiative.status}</span>`;
+    }
+    if (progressEl) progressEl.textContent = (selectedInitiative.actualProgress || selectedInitiative.progress || 0) + '%';
+    if (infoPanel) infoPanel.classList.remove('d-none');
+    
+    // Navigate to details tab and load content
     navigateToTab('details');
 }
 
@@ -72,38 +153,86 @@ function selectAndNavigate(id, tab) {
 }
 
 function navigateToTab(tabName) {
-    const tabMap = { 'details': 'detailsTab', 'kpis': 'kpisTab', 'budget': 'budgetTab', 'milestones': 'milestonesTab', 'risks': 'risksTab' };
+    const tabMap = { 
+        'details': { id: 'detailsTab', loader: loadInitiativeDetails },
+        'kpis': { id: 'kpisTab', loader: loadInitiativeKPIs },
+        'budget': { id: 'budgetTab', loader: loadInitiativeBudget },
+        'milestones': { id: 'milestonesTab', loader: loadInitiativeMilestones },
+        'risks': { id: 'risksTab', loader: loadInitiativeRisks },
+        'docs': { id: 'docsTab', loader: loadInitiativeDocuments }
+    };
     
-    const tabId = tabMap[tabName];
-    if (tabId) {
-        const tabEl = document.getElementById(tabId);
+    const tabInfo = tabMap[tabName];
+    if (tabInfo) {
+        const tabEl = document.getElementById(tabInfo.id);
         if (tabEl && !tabEl.classList.contains('disabled')) {
+            // Use Bootstrap Tab API to show the tab (this will trigger 'shown.bs.tab' event)
             const tab = new bootstrap.Tab(tabEl);
             tab.show();
+            
+            // Also ensure content loads immediately if initiative is selected
+            // The event listener will also fire, but this ensures it works
+            if (selectedInitiative && tabInfo.loader) {
+                setTimeout(() => {
+                    tabInfo.loader();
+                }, 50);
+            }
         }
     }
 }
 
 // ============= Tab Content Loaders =============
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('detailsTab')?.addEventListener('shown.bs.tab', () => { if (selectedInitiative) loadInitiativeDetails(); });
-    document.getElementById('kpisTab')?.addEventListener('shown.bs.tab', () => { if (selectedInitiative) loadInitiativeKPIs(); });
-    document.getElementById('budgetTab')?.addEventListener('shown.bs.tab', () => { if (selectedInitiative) loadInitiativeBudget(); });
-    document.getElementById('milestonesTab')?.addEventListener('shown.bs.tab', () => { if (selectedInitiative) loadInitiativeMilestones(); });
-    document.getElementById('risksTab')?.addEventListener('shown.bs.tab', () => { if (selectedInitiative) loadInitiativeRisks(); });
+    // Set up tab event listeners for all tabs
+    const tabLoaders = {
+        'detailsTab': () => { if (selectedInitiative) loadInitiativeDetails(); },
+        'kpisTab': () => { if (selectedInitiative) loadInitiativeKPIs(); },
+        'budgetTab': () => { if (selectedInitiative) loadInitiativeBudget(); },
+        'milestonesTab': () => { if (selectedInitiative) loadInitiativeMilestones(); },
+        'risksTab': () => { if (selectedInitiative) loadInitiativeRisks(); },
+        'docsTab': () => { if (selectedInitiative) loadInitiativeDocuments(); }
+    };
+    
+    // Attach event listeners to all tabs
+    Object.keys(tabLoaders).forEach(tabId => {
+        const tabElement = document.getElementById(tabId);
+        if (tabElement) {
+            tabElement.addEventListener('shown.bs.tab', tabLoaders[tabId]);
+        }
+    });
+    
+    // Auto-select default initiative and load content
+    setTimeout(() => {
+        const selector = document.getElementById('initiativeSelector');
+        if (selector) {
+            if (selector.value) {
+                // If there's a selected value (from the selected attribute), trigger the selection
+                onInitiativeSelected();
+            } else {
+                // If no value is selected, select the first available option
+                const firstOption = selector.querySelector('option[value]:not([value=""])');
+                if (firstOption) {
+                    selector.value = firstOption.value;
+                    onInitiativeSelected();
+                }
+            }
+        }
+    }, 100);
 });
 
 // ============= Initiative Details Tab (UC-14) =============
+// As per BRD screen 40: تفاصيل المبادرة - التبويب 1
 function loadInitiativeDetails() {
     const init = selectedInitiative;
     document.getElementById('details-content').innerHTML = `
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>تفاصيل المبادرة</h5>
+                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>تفاصيل مستوى المبادرة</h5>
             </div>
             <div class="card-body">
                 <form id="detailsForm_${init.id}">
                     <div class="row g-4">
+                        <!-- Read-only fields as per BR-158 -->
                         <div class="col-md-4">
                             <label class="form-label text-muted fw-bold">المبادرة (كود)</label>
                             <input type="text" class="form-control-plaintext fw-bold fs-5 text-primary" value="${init.id}" readonly>
@@ -116,20 +245,70 @@ function loadInitiativeDetails() {
                             <label class="form-label text-muted fw-bold">اسم المبادرة (إنجليزي)</label>
                             <input type="text" class="form-control-plaintext" value="${init.nameEn}" readonly>
                         </div>
+                        
+                        <!-- Additional read-only information -->
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-bold">البرنامج</label>
+                            <input type="text" class="form-control-plaintext" value="${init.program}" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-bold">الجهة المسؤولة</label>
+                            <input type="text" class="form-control-plaintext" value="${init.responsibleEntity || 'غير محدد'}" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-bold">الحالة</label>
+                            <div class="form-control-plaintext">
+                                <span class="badge bg-${getStatusColor(init.status)}">${init.status}</span>
+                                ${init.isPivotal ? '<span class="badge bg-warning ms-2"><i class="bi bi-star-fill"></i> محورية</span>' : ''}
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Information -->
+                        <div class="col-md-3">
+                            <label class="form-label text-muted fw-bold">تاريخ البداية</label>
+                            <input type="text" class="form-control-plaintext" value="${init.startDate || 'غير محدد'}" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted fw-bold">تاريخ النهاية</label>
+                            <input type="text" class="form-control-plaintext" value="${init.endDate || 'غير محدد'}" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted fw-bold">التقدم المخطط</label>
+                            <div class="progress" style="height: 25px; margin-top: 8px;">
+                                <div class="progress-bar bg-info" style="width: ${init.plannedProgress || 0}%">${init.plannedProgress || 0}%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted fw-bold">التقدم الفعلي</label>
+                            <div class="progress" style="height: 25px; margin-top: 8px;">
+                                <div class="progress-bar bg-${init.actualProgress >= init.plannedProgress ? 'success' : 'warning'}" style="width: ${init.actualProgress || init.progress || 0}%">${init.actualProgress || init.progress || 0}%</div>
+                            </div>
+                        </div>
+                        
                         <div class="col-12"><hr></div>
+                        
+                        <!-- Editable fields as per BR-159, BR-160, BR-161 -->
                         <div class="col-12">
                             <label class="form-label fw-bold">ملاحظات حول المبادرة</label>
-                            <textarea class="form-control" id="notes_${init.id}" rows="4" placeholder="أدخل ملاحظات حول المبادرة..."></textarea>
-                            <small class="text-muted">اختياري - لا يوجد حد أقصى للأحرف</small>
+                            <textarea class="form-control" id="notes_${init.id}" rows="4" placeholder="أدخل ملاحظات حول المبادرة...">${init.notes || ''}</textarea>
+                            <small class="text-muted">اختياري - لا يوجد حد أقصى للأحرف (BR-160)</small>
                         </div>
                         <div class="col-12">
                             <label class="form-label fw-bold">لمحة عامة حول أداء المبادرات <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="overview_${init.id}" rows="6" placeholder="أدخل لمحة عامة شاملة عن أداء المبادرة..." required></textarea>
-                            <small class="text-muted">إلزامي لإصدار التقارير - لا يوجد حد أقصى للأحرف</small>
+                            <textarea class="form-control" id="overview_${init.id}" rows="6" placeholder="أدخل لمحة عامة شاملة عن أداء المبادرة..." required>${init.performanceOverview || ''}</textarea>
+                            <small class="text-muted">إلزامي لإصدار التقارير (BR-159) - لا يوجد حد أقصى للأحرف</small>
                         </div>
+                        
+                        <!-- Navigation buttons as per UC-14 -->
                         <div class="col-12 border-top pt-3">
                             <button type="button" class="btn btn-primary btn-lg" onclick="saveInitiativeDetails('${init.id}')">
-                                <i class="bi bi-save me-2"></i>حفظ التفاصيل
+                                <i class="bi bi-save me-2"></i>حفظ
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-lg ms-2" onclick="navigateToTab('kpis')">
+                                التالي <i class="bi bi-arrow-left ms-2"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-lg ms-2" onclick="backToInitiativesList()">
+                                <i class="bi bi-arrow-right me-2"></i>رجوع
                             </button>
                         </div>
                     </div>
@@ -137,6 +316,26 @@ function loadInitiativeDetails() {
             </div>
         </div>
     `;
+}
+
+// Helper function for status colors
+function getStatusColor(status) {
+    const statusColors = {
+        'قيد التنفيذ': 'success',
+        'مكتملة': 'info',
+        'متأخرة': 'warning',
+        'لم تبدأ': 'secondary',
+        'ملغاة': 'danger'
+    };
+    return statusColors[status] || 'secondary';
+}
+
+// Navigate back to initiatives list
+function backToInitiativesList() {
+    selectedInitiative = null;
+    document.getElementById('initiativeSelector').value = '';
+    document.getElementById('selectedInitiativeInfo').classList.add('d-none');
+    navigateToTab('details');
 }
 
 function saveInitiativeDetails(id) {
@@ -150,19 +349,206 @@ function saveInitiativeDetails(id) {
 }
 
 // ============= KPI Management (UC-15) =============
+// As per BRD UC-15: إدارة مؤشرات المبادرة (التبويب 2)
 function loadInitiativeKPIs() {
-    if (!selectedInitiative) return;
-    document.getElementById('kpi-placeholder').style.display = 'none';
-    document.getElementById('kpi-main-content').style.display = 'block';
-    document.getElementById('kpi-initiative-name').textContent = selectedInitiative.name;
+    if (!selectedInitiative) {
+        document.getElementById('kpis-content').innerHTML = `
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> اختر مبادرة من التبويب الأول لعرض مؤشراتها
+            </div>
+        `;
+        return;
+    }
     
-    const kpis = kpiMockData[selectedInitiative.id] || [];
-    updateKPIStatistics(kpis);
-    populateKPITable(kpis);
-    if (kpis.length > 0) loadPerformanceFactors(kpis[0]);
+    const init = selectedInitiative;
+    const kpis = kpiMockData[init.id] || [];
+    
+    // Build complete KPIs tab content
+    let kpisHTML = `
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>مؤشرات مستوى المبادرة - ${init.name}</h5>
+                <div>
+                    <button class="btn btn-light btn-sm me-2" onclick="addNewKPI()">
+                        <i class="bi bi-plus-circle me-1"></i>إضافة مؤشر
+                    </button>
+                    <button class="btn btn-light btn-sm" onclick="exportKPIs()">
+                        <i class="bi bi-download me-1"></i>تصدير
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- KPI Statistics Cards -->
+                <div class="row g-3 mb-4" id="kpi-statistics">
+                    <div class="col-md-3">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h3 class="text-success mb-0" id="kpi-achieved-count">0</h3>
+                                <small class="text-muted">محقق (≥90%)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-warning h-100">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning mb-0" id="kpi-near-count">0</h3>
+                                <small class="text-muted">قريب (70-89%)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-danger h-100">
+                            <div class="card-body text-center">
+                                <h3 class="text-danger mb-0" id="kpi-behind-count">0</h3>
+                                <small class="text-muted">متأخر (&lt;70%)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-info h-100">
+                            <div class="card-body text-center">
+                                <h3 class="text-info mb-0" id="kpi-avg-performance">0%</h3>
+                                <small class="text-muted">متوسط الأداء</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Search and Filters -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" id="kpi-search" placeholder="ابحث عن مؤشر...">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-secondary" onclick="toggleKPIFilters()">
+                            <i class="bi bi-funnel" id="kpi-filter-toggle-icon"></i> فلاتر متقدمة
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Advanced Filters (Collapsible) -->
+                <div class="card mb-3 d-none" id="kpi-filters-section">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">حالة المؤشر</label>
+                                <select class="form-select" id="kpi-status-filter">
+                                    <option value="">الكل</option>
+                                    <option value="achieved">محقق</option>
+                                    <option value="near">قريب</option>
+                                    <option value="behind">متأخر</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">التواتر</label>
+                                <select class="form-select" id="kpi-frequency-filter">
+                                    <option value="">الكل</option>
+                                    <option value="monthly">شهري</option>
+                                    <option value="quarterly">ربع سنوي</option>
+                                    <option value="yearly">سنوي</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">الحد الأدنى للمستهدف</label>
+                                <input type="number" class="form-control" id="kpi-target-min" placeholder="0">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">الحد الأقصى للمستهدف</label>
+                                <input type="number" class="form-control" id="kpi-target-max" placeholder="999999">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn btn-primary btn-sm" onclick="applyKPIFilters()">تطبيق الفلاتر</button>
+                            <button class="btn btn-outline-secondary btn-sm ms-2" onclick="document.getElementById('kpi-filters-section').classList.add('d-none')">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- KPIs Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th width="3%"><input type="checkbox" class="form-check-input" id="selectAllKPIs"></th>
+                                <th width="10%">كود المؤشر</th>
+                                <th width="25%">اسم المؤشر</th>
+                                <th width="8%">الوحدة</th>
+                                <th width="10%">خط الأساس</th>
+                                <th width="10%">المستهدف</th>
+                                <th width="12%">القيمة الفعلية</th>
+                                <th width="8%">الانحراف</th>
+                                <th width="8%">الحالة</th>
+                                <th width="6%">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kpis-table-body">
+                            ${kpis.length === 0 ? '<tr><td colspan="10" class="text-center text-muted py-4">لا توجد مؤشرات متاحة</td></tr>' : ''}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Performance Factors Section -->
+        ${kpis.length > 0 ? `
+        <div class="card">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="bi bi-bar-chart me-2"></i>دوافع ومعوقات الأداء</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-success mb-3"><i class="bi bi-check-circle me-2"></i>دوافع الأداء</h6>
+                        <ul class="list-group" id="performance-drivers-list"></ul>
+                        <button class="btn btn-success btn-sm mt-2" onclick="addPerformanceDriver()">
+                            <i class="bi bi-plus-circle me-1"></i>إضافة دافع
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-danger mb-3"><i class="bi bi-x-circle me-2"></i>معوقات الأداء</h6>
+                        <ul class="list-group" id="performance-obstacles-list"></ul>
+                        <button class="btn btn-danger btn-sm mt-2" onclick="addPerformanceObstacle()">
+                            <i class="bi bi-plus-circle me-1"></i>إضافة معوق
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="mt-3">
+                    <label class="form-label fw-bold">ملاحظات ربع سنوية</label>
+                    <textarea class="form-control" id="kpi-quarterly-notes" rows="3" placeholder="أدخل ملاحظات حول أداء المؤشرات..."></textarea>
+                    <small class="text-muted">آخر تحديث: <span id="kpi-notes-timestamp">-</span></small>
+                </div>
+            </div>
+        </div>
+        ` : ''}
+    `;
+    
+    document.getElementById('kpis-content').innerHTML = kpisHTML;
+    
+    // Update statistics and populate table
+    if (kpis.length > 0) {
+        updateKPIStatistics(kpis);
+        populateKPITable(kpis);
+        loadPerformanceFactors(kpis[0]);
+    }
 }
 
 function updateKPIStatistics(kpis) {
+    if (!kpis || kpis.length === 0) {
+        const achievedEl = document.getElementById('kpi-achieved-count');
+        const nearEl = document.getElementById('kpi-near-count');
+        const behindEl = document.getElementById('kpi-behind-count');
+        const avgEl = document.getElementById('kpi-avg-performance');
+        if (achievedEl) achievedEl.textContent = '0';
+        if (nearEl) nearEl.textContent = '0';
+        if (behindEl) behindEl.textContent = '0';
+        if (avgEl) avgEl.textContent = '0%';
+        return;
+    }
+    
     let achieved = 0, near = 0, behind = 0, totalPerformance = 0;
     kpis.forEach(kpi => {
         const performance = calculateKPIPerformance(kpi);
@@ -171,10 +557,16 @@ function updateKPIStatistics(kpis) {
         else if (performance >= 70) near++;
         else behind++;
     });
-    document.getElementById('kpi-achieved-count').textContent = achieved;
-    document.getElementById('kpi-near-count').textContent = near;
-    document.getElementById('kpi-behind-count').textContent = behind;
-    document.getElementById('kpi-avg-performance').textContent = kpis.length > 0 ? Math.round(totalPerformance / kpis.length) + '%' : '0%';
+    
+    const achievedEl = document.getElementById('kpi-achieved-count');
+    const nearEl = document.getElementById('kpi-near-count');
+    const behindEl = document.getElementById('kpi-behind-count');
+    const avgEl = document.getElementById('kpi-avg-performance');
+    
+    if (achievedEl) achievedEl.textContent = achieved;
+    if (nearEl) nearEl.textContent = near;
+    if (behindEl) behindEl.textContent = behind;
+    if (avgEl) avgEl.textContent = kpis.length > 0 ? Math.round(totalPerformance / kpis.length) + '%' : '0%';
 }
 
 function calculateKPIPerformance(kpi) {
@@ -190,7 +582,15 @@ function calculateDeviation(kpi) {
 
 function populateKPITable(kpis) {
     const tbody = document.getElementById('kpis-table-body');
+    if (!tbody) return;
+    
     tbody.innerHTML = '';
+    
+    if (!kpis || kpis.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" class="text-center text-muted py-4">لا توجد مؤشرات متاحة</td></tr>';
+        return;
+    }
+    
     kpis.forEach(kpi => {
         const performance = calculateKPIPerformance(kpi);
         const deviation = calculateDeviation(kpi);
@@ -199,11 +599,11 @@ function populateKPITable(kpis) {
             <tr>
                 <td><input type="checkbox" class="form-check-input kpi-checkbox" value="${kpi.code}"></td>
                 <td class="fw-bold">${kpi.code}</td>
-                <td><div>${kpi.name}</div><small class="text-muted">${kpi.nameEn}</small></td>
-                <td>${kpi.unit}</td>
-                <td>${kpi.baseline.toLocaleString('ar-SA')}</td>
-                <td class="fw-semibold text-primary">${kpi.target.toLocaleString('ar-SA')}</td>
-                <td><span class="fw-bold">${kpi.actual.toLocaleString('ar-SA')}</span><br><small class="text-muted">آخر تحديث: ${kpi.lastUpdate}</small></td>
+                <td><div>${kpi.name}</div><small class="text-muted">${kpi.nameEn || ''}</small></td>
+                <td>${kpi.unit || '-'}</td>
+                <td>${(kpi.baseline || 0).toLocaleString('ar-SA')}</td>
+                <td class="fw-semibold text-primary">${(kpi.target || 0).toLocaleString('ar-SA')}</td>
+                <td><span class="fw-bold">${(kpi.actual || 0).toLocaleString('ar-SA')}</span><br><small class="text-muted">آخر تحديث: ${kpi.lastUpdate || '-'}</small></td>
                 <td><span class="badge ${deviation >= 0 ? 'bg-success' : 'bg-danger'}">${deviation > 0 ? '+' : ''}${deviation}%</span></td>
                 <td>${statusBadge}</td>
                 <td>
@@ -227,33 +627,53 @@ function getKPIStatusBadge(performance) {
 }
 
 function loadPerformanceFactors(kpi) {
+    if (!kpi) return;
+    
     const driversList = document.getElementById('performance-drivers-list');
-    driversList.innerHTML = '';
-    kpi.drivers.forEach(driver => {
-        driversList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span><i class="bi bi-check-circle text-success me-2"></i>${driver}</span><button class="btn btn-sm btn-outline-danger" onclick="removeDriver(this)"><i class="bi bi-trash"></i></button></li>`;
-    });
+    if (driversList) {
+        driversList.innerHTML = '';
+        if (kpi.drivers && kpi.drivers.length > 0) {
+            kpi.drivers.forEach(driver => {
+                driversList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span><i class="bi bi-check-circle text-success me-2"></i>${driver}</span><button class="btn btn-sm btn-outline-danger" onclick="removeDriver(this)"><i class="bi bi-trash"></i></button></li>`;
+            });
+        } else {
+            driversList.innerHTML = '<li class="list-group-item text-muted">لا توجد دوافع أداء</li>';
+        }
+    }
     
     const obstaclesList = document.getElementById('performance-obstacles-list');
-    obstaclesList.innerHTML = '';
-    kpi.obstacles.forEach(obstacle => {
-        obstaclesList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span><i class="bi bi-x-circle text-danger me-2"></i>${obstacle}</span><button class="btn btn-sm btn-outline-danger" onclick="removeObstacle(this)"><i class="bi bi-trash"></i></button></li>`;
-    });
+    if (obstaclesList) {
+        obstaclesList.innerHTML = '';
+        if (kpi.obstacles && kpi.obstacles.length > 0) {
+            kpi.obstacles.forEach(obstacle => {
+                obstaclesList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span><i class="bi bi-x-circle text-danger me-2"></i>${obstacle}</span><button class="btn btn-sm btn-outline-danger" onclick="removeObstacle(this)"><i class="bi bi-trash"></i></button></li>`;
+            });
+        } else {
+            obstaclesList.innerHTML = '<li class="list-group-item text-muted">لا توجد معوقات أداء</li>';
+        }
+    }
     
-    if (kpi.notes) {
-        document.getElementById('kpi-quarterly-notes').value = kpi.notes;
-        document.getElementById('kpi-notes-timestamp').textContent = kpi.lastUpdate;
+    const notesField = document.getElementById('kpi-quarterly-notes');
+    const timestampField = document.getElementById('kpi-notes-timestamp');
+    if (notesField && kpi.notes) {
+        notesField.value = kpi.notes;
+    }
+    if (timestampField && kpi.lastUpdate) {
+        timestampField.textContent = kpi.lastUpdate;
     }
 }
 
 function toggleKPIFilters() {
     const filtersSection = document.getElementById('kpi-filters-section');
     const icon = document.getElementById('kpi-filter-toggle-icon');
-    if (filtersSection.style.display === 'none') {
-        filtersSection.style.display = 'block';
+    if (!filtersSection || !icon) return;
+    
+    if (filtersSection.classList.contains('d-none')) {
+        filtersSection.classList.remove('d-none');
         icon.className = 'bi bi-chevron-up';
     } else {
-        filtersSection.style.display = 'none';
-        icon.className = 'bi bi-chevron-down';
+        filtersSection.classList.add('d-none');
+        icon.className = 'bi bi-funnel';
     }
 }
 
@@ -658,6 +1078,53 @@ function viewRisk(riskId, initiativeId) { alert(`عرض تفاصيل المخا�
 function editRisk(riskId, initiativeId) { alert(`تعديل المخاطرة: ${riskId}`); }
 function closeRisk(riskId, initiativeId) { if (confirm('هل أنت متأكد من إغلاق هذه المخاطرة؟')) alert(`تم إغلاق المخاطرة: ${riskId}`); }
 function addInitiativeRisk(initiativeId) { alert(`إضافة مخاطرة جديدة للمبادرة: ${initiativeId}`); }
+
+// ============= Initiative Documents Tab =============
+function loadInitiativeDocuments() {
+    if (!selectedInitiative) return;
+    const init = selectedInitiative;
+    document.getElementById('docs-content').innerHTML = `
+        <div class="card">
+            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>وثائق المبادرة</h5>
+                <button class="btn btn-primary btn-sm" onclick="uploadInitiativeDocument('${init.id}')">
+                    <i class="bi bi-upload me-1"></i>رفع وثيقة
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle me-2"></i> قسم الوثائق قيد التطوير
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>اسم الوثيقة</th>
+                                <th>النوع</th>
+                                <th>الحجم</th>
+                                <th>تاريخ الرفع</th>
+                                <th>الرفع بواسطة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                                    لا توجد وثائق مرفوعة حالياً
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function uploadInitiativeDocument(initiativeId) {
+    alert(`رفع وثيقة جديدة للمبادرة: ${initiativeId}`);
+}
 
 // ============= Other Actions =============
 function editInitiative(id) { $('#addInitiativeModal').modal('show'); }
